@@ -38,19 +38,19 @@
 class ViewSettings : public _ViewSettings {
 
 public:
-	/*! \brief Default constructor */
-	ViewSettings( wxWindow* parent,IDbAdapter* pDbAdapter);
-	/*! \brief Default desctructor */
-	virtual ~ViewSettings();
-	/*! \brief Load view into dialog */
-	void SetView(View* pView, wxSFDiagramManager* pManager);
+    /*! \brief Default constructor */
+    ViewSettings( wxWindow* parent,IDbAdapter* pDbAdapter);
+    /*! \brief Default desctructor */
+    virtual ~ViewSettings();
+    /*! \brief Load view into dialog */
+    void SetView(View* pView, wxSFDiagramManager* pManager);
 
-	virtual void OnOKClick(wxCommandEvent& event);
-	
+    virtual void OnOKClick(wxCommandEvent& event);
+
 protected:
-	IDbAdapter* m_pDbAdapter;
-	View* m_pView;
-	wxSFDiagramManager* m_pDiagramManager;
+    IDbAdapter* m_pDbAdapter;
+    View* m_pView;
+    wxSFDiagramManager* m_pDiagramManager;
 };
 
 #endif // VIEWSETTINGS_H

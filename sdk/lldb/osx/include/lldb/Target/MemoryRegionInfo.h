@@ -103,7 +103,7 @@ protected:
   OptionalBool m_flash;
   lldb::offset_t m_blocksize;
 };
-  
+
 inline bool operator<(const MemoryRegionInfo &lhs,
                       const MemoryRegionInfo &rhs) {
   return lhs.GetRange() < rhs.GetRange();

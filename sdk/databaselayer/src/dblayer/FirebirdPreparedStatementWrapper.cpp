@@ -16,13 +16,13 @@ FirebirdPreparedStatementWrapper::FirebirdPreparedStatementWrapper(FirebirdInter
   m_pParameterCollection = NULL;
   m_bManageStatement = true;
   m_bManageTransaction = false;
- 
+
   Prepare();
 
   if (GetErrorCode() != DATABASE_LAYER_OK)
   {
     ThrowDatabaseException();
-  } 
+  }
 
 }
 
@@ -153,14 +153,14 @@ int FirebirdPreparedStatementWrapper::GetParameterCount()
   else
     return m_pParameters->sqld;
 }
-  
+
 int FirebirdPreparedStatementWrapper::RunQuery()
 {
   ResetErrorCodes();
 
   // Blob ID values are invalidated between execute calls, so re-create any BLOB parameters now
   m_pParameterCollection->ResetBlobParameters();
-  
+
   int nReturn = m_pInterface->GetIscDsqlExecute()(m_Status, &m_pTransaction, &m_pStatement, SQL_DIALECT_CURRENT, m_pParameters);
   if (nReturn != 0)
   {
@@ -186,8 +186,8 @@ int FirebirdPreparedStatementWrapper::RunQuery()
       long infoData = m_pInterface->GetIscVaxInteger()(pBufferPosition, nLength);
       pBufferPosition += nLength;
 
-      if( infoType == isc_info_req_insert_count || 
-        infoType == isc_info_req_update_count || 
+      if( infoType == isc_info_req_insert_count ||
+        infoType == isc_info_req_update_count ||
         infoType == isc_info_req_delete_count )
       {
         nRows += infoData;
@@ -248,7 +248,7 @@ DatabaseResultSet* FirebirdPreparedStatementWrapper::RunQueryWithResults()
   {
     SetErrorCode(pResultSet->GetErrorCode());
     SetErrorMessage(pResultSet->GetErrorMessage());
-    
+
     // Wrap the result set deletion in try/catch block if using exceptions.
     // We want to make sure the original error gets to the user
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
@@ -262,14 +262,14 @@ DatabaseResultSet* FirebirdPreparedStatementWrapper::RunQueryWithResults()
     {
     }
 #endif
-    
+
 
     ThrowDatabaseException();
   }
-  
+
   // Blob ID values are invalidated between execute calls, so re-create any BLOB parameters now
   m_pParameterCollection->ResetBlobParameters();
-  
+
   // Now execute the SQL
   //nReturn = isc_dsql_execute2(m_Status, &m_pTransaction, &m_pStatement, 1, m_pParameters, pOutputSqlda);
   nReturn = m_pInterface->GetIscDsqlExecute()(m_Status, &m_pTransaction, &m_pStatement, SQL_DIALECT_CURRENT, m_pParameters);
@@ -290,7 +290,7 @@ DatabaseResultSet* FirebirdPreparedStatementWrapper::RunQueryWithResults()
     {
     }
 #endif
-    
+
     ThrowDatabaseException();
     return NULL;
   }

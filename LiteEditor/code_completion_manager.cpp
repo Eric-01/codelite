@@ -419,9 +419,9 @@ void CodeCompletionManager::OnWorkspaceConfig(wxCommandEvent& event)
     if(clCxxWorkspaceST::Get()->IsOpen()) { clCxxWorkspaceST::Get()->ClearBacktickCache(); }
     RefreshPreProcessorColouring();
     // Update the compile_flags.txt file
-    if(m_compileCommandsGenerator) { 
+    if(m_compileCommandsGenerator) {
         clDEBUG() << "Workspace configuration changed. Re-Generating compile_flags.txt file";
-        m_compileCommandsGenerator->GenerateCompileCommands(); 
+        m_compileCommandsGenerator->GenerateCompileCommands();
     }
 }
 

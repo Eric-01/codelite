@@ -676,7 +676,7 @@ void PHPWorkspace::SyncWithFileSystemAsync(wxEvtHandler* owner)
         clCommandEvent event(wxEVT_PHP_WORKSPACE_FILES_SYNC_START);
         owner->AddPendingEvent(event);
     }
-    
+
     if(!m_projects.empty()) {
         PHPProject::Map_t::const_iterator iter = m_projects.begin();
         for(; iter != m_projects.end(); ++iter) {

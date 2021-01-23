@@ -30,21 +30,21 @@
 class FileHistory : public wxFileHistory
 {
 public:
-	FileHistory();
-	virtual ~FileHistory();
-	
-	/**
-	 * \brief 
-	 * \param files
-	 */
-	void GetFiles(wxArrayString &files);
+    FileHistory();
+    virtual ~FileHistory();
+    
+    /**
+     * \brief 
+     * \param files
+     */
+    void GetFiles(wxArrayString &files);
 
-	/**
-	 * \brief add files to the designated menu, first removing any extension
-	 */
-	void AddFilesToMenuWithoutExt();
+    /**
+     * \brief add files to the designated menu, first removing any extension
+     */
+    void AddFilesToMenuWithoutExt();
 
 protected:
-	void AddFilesToMenuWithoutExt(wxMenu* menu);
+    void AddFilesToMenuWithoutExt(wxMenu* menu);
 };
 #endif //FILE_HISTORY_H

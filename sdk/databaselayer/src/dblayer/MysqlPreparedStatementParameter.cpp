@@ -67,15 +67,15 @@ MysqlPreparedStatementParameter::MysqlPreparedStatementParameter(MYSQL_BIND* pBi
   if (nType == MYSQL_TYPE_STRING || nType == MYSQL_TYPE_VAR_STRING || nType == MYSQL_TYPE_BLOB
     || nType == MYSQL_TYPE_TINY_BLOB || nType == MYSQL_TYPE_MEDIUM_BLOB || nType == MYSQL_TYPE_LONG_BLOB)
   {
-	  pBuffer = m_Data.bufferValue.GetWriteBuf(1024);
-	  m_pBind->buffer_length = 1024 + 1;
-    
+      pBuffer = m_Data.bufferValue.GetWriteBuf(1024);
+      m_pBind->buffer_length = 1024 + 1;
+
   }
-  else 
+  else
   {
-	pBuffer = m_Data.bufferValue.GetWriteBuf(m_pBind->buffer_length);  
+    pBuffer = m_Data.bufferValue.GetWriteBuf(m_pBind->buffer_length);
   }
-  
+
     if (pBuffer == 0)
     {
       SetErrorCode(MysqlDatabaseLayer::TranslateErrorCode(0));
@@ -90,7 +90,7 @@ MysqlPreparedStatementParameter::MysqlPreparedStatementParameter(MYSQL_BIND* pBi
   //  pCurrentBinding->buffer = malloc(1);
   //  }
 
-  if (nType == MYSQL_TYPE_BLOB || nType == MYSQL_TYPE_TINY_BLOB || nType == MYSQL_TYPE_MEDIUM_BLOB 
+  if (nType == MYSQL_TYPE_BLOB || nType == MYSQL_TYPE_TINY_BLOB || nType == MYSQL_TYPE_MEDIUM_BLOB
     || nType == MYSQL_TYPE_LONG_BLOB)
     m_pBind->length = &m_Data.nBufferLength;
 }
@@ -157,7 +157,7 @@ void MysqlPreparedStatementParameter::SetDate(const wxDateTime& dateValue)
   m_Data.dateValue.hour = dateValue.GetHour();
   m_Data.dateValue.minute = dateValue.GetMinute();
   m_Data.dateValue.second = dateValue.GetSecond();
-    
+
   m_pBind->buffer_type = MYSQL_TYPE_DATETIME;
   m_pBind->buffer = (void*)&m_Data.dateValue;
 }

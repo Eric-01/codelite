@@ -120,7 +120,7 @@ public:
      * Called by the endpoint as a connection is being established to provide
      * the uri being connected to to the transport layer.
      *
-     * This transport policy doesn't use the uri except to forward it to the 
+     * This transport policy doesn't use the uri except to forward it to the
      * socket layer.
      *
      * @since 0.6.0
@@ -375,14 +375,14 @@ public:
      * Primarily used if you are using mismatched asio / system_error
      * implementations such as `boost::asio` with `std::system_error`. In these
      * cases the transport error type is different than the library error type
-     * and some WebSocket++ functions that return transport errors via the 
+     * and some WebSocket++ functions that return transport errors via the
      * library error code type will be coerced into a catch all `pass_through`
-     * or `tls_error` error. This method will return the original machine 
+     * or `tls_error` error. This method will return the original machine
      * readable transport error in the native type.
      *
      * @since 0.7.0
      *
-     * @return Error code indicating the reason the connection was closed or 
+     * @return Error code indicating the reason the connection was closed or
      * failed
      */
     lib::asio::error_code get_transport_ec() const {
@@ -499,7 +499,7 @@ protected:
         }
 
         timer_ptr post_timer;
-        
+
         if (config::timeout_socket_post_init > 0) {
             post_timer = set_timer(
                 config::timeout_socket_post_init,
@@ -863,9 +863,9 @@ protected:
                         lib::placeholders::_1, lib::placeholders::_2
                     )
                 )
-            );    
+            );
         }
-        
+
     }
 
     void handle_async_read(read_handler handler, lib::asio::error_code const & ec,
@@ -1067,7 +1067,7 @@ protected:
      * @param callback The function to call back
      * @param ec The status code
      */
-    void handle_async_shutdown_timeout(timer_ptr, init_handler callback, 
+    void handle_async_shutdown_timeout(timer_ptr, init_handler callback,
         lib::error_code const & ec)
     {
         lib::error_code ret_ec;
@@ -1117,9 +1117,9 @@ protected:
                 m_tec = ec;
 
                 // all other errors are effectively pass through errors of
-				// some sort so print some detail on the info channel for
-				// library users to look up if needed.
-				log_err(log::elevel::info,"asio async_shutdown",ec);
+                // some sort so print some detail on the info channel for
+                // library users to look up if needed.
+                log_err(log::elevel::info,"asio async_shutdown",ec);
             }
         } else {
             if (m_alog->static_test(log::alevel::devel)) {

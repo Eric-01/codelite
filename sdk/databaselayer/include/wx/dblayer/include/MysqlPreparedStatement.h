@@ -24,7 +24,7 @@
 class DatabaseResultSet;
 
 WX_DEFINE_ARRAY_PTR(MysqlPreparedStatementWrapper*, MysqlStatementWrapperArray);
-    
+
 class MysqlPreparedStatement : public PreparedStatement
 {
 public:
@@ -36,9 +36,9 @@ public:
   virtual ~MysqlPreparedStatement();
 
   virtual void Close();
-  
+
   void AddPreparedStatement(MYSQL_STMT* pStatement);
-  
+
   // get field
   virtual void SetParamInt(int nPosition, int nValue);
   virtual void SetParamDouble(int nPosition, double dblValue);
@@ -48,7 +48,7 @@ public:
   virtual void SetParamDate(int nPosition, const wxDateTime& dateValue);
   virtual void SetParamBool(int nPosition, bool bValue);
   virtual int GetParameterCount();
-  
+
   virtual int RunQuery();
   virtual DatabaseResultSet* RunQueryWithResults();
 

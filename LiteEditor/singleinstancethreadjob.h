@@ -40,7 +40,7 @@ wxDECLARE_EVENT(wxEVT_CMD_SINGLE_INSTANCE_THREAD_RAISE_APP, clCommandEvent);
 #else
 #define SINGLE_INSTANCE_PORT 16617
 #endif
-#else 
+#else
 #include <unistd.h>
 #ifdef NDEBUG
 #define SINGLE_INSTANCE_PORT ((getuid() % 57) + 13617)
@@ -58,7 +58,7 @@ public:
      * @brief the thread main loop
      */
     virtual void* Entry();
-    
+
     /**
      * @brief start the single instance thread
      */

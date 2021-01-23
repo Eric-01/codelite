@@ -3,7 +3,7 @@
 #include <wx/base64.h>
 
 ///-----------------------------------------------------
-/// XVariable 
+/// XVariable
 ///-----------------------------------------------------
 
 XVariable::XVariable(wxXmlNode* xmlProp, bool useDoubleQoutesOnStrings)
@@ -19,10 +19,10 @@ void XVariable::FromXML(wxXmlNode* xmlProp, bool useDoubleQoutesOnStrings)
     this->classname   = XmlUtils::ReadString(xmlProp, "classname");
     this->type        = XmlUtils::ReadString(xmlProp, "type");
     this->numchildren = XmlUtils::ReadLong(xmlProp, "numchildren", 0);
-    
+
     wxString encoding = XmlUtils::ReadString(xmlProp, "encoding");
     this->value = xmlProp->GetNodeContent();
-    
+
     // Check if decode is needed
     if ( encoding.IsEmpty() == false ) {
         wxMemoryBuffer memBuf = ::wxBase64Decode(this->value);
@@ -35,12 +35,12 @@ void XVariable::FromXML(wxXmlNode* xmlProp, bool useDoubleQoutesOnStrings)
     this->value.Replace("\t", "\\t");
     this->value.Replace("\v", "\\v");
     this->value.Replace("\b", "\\b");
-    
+
     if ( this->type == "string" && useDoubleQoutesOnStrings ) {
         // wrap the value in ""
         this->value.Prepend("\"").Append("\"");
     }
-    
+
     wxXmlNode* child = xmlProp->GetChildren();
     while ( child ) {
         if ( child->GetName() == "property" ) {

@@ -37,7 +37,7 @@ int main()
     free(buf);
 }
 
-void testPureLexer( const char* buf ) 
+void testPureLexer( const char* buf )
 {
     CppLexer lexer( buf );
     while ( lexer.lex() != 0 ) {
@@ -54,12 +54,12 @@ void testIsPrimitive(char *buf)
 void testFuncParser(char *buf)
 {
     printf("===== Testing function parser ======\n");
-//	time_t start = GetTickCount();
+//  time_t start = GetTickCount();
     FunctionList li;
     //fflush(stdout);
     std::map<std::string, std::string> ignoreTokens;
     get_functions(buf, li, ignoreTokens);
-//	time_t end = GetTickCount();
+//  time_t end = GetTickCount();
     for (FunctionList::iterator iter = li.begin(); iter != li.end(); iter++) {
         //test the var parser on the function argument list:
         clFunction f = (*iter);
@@ -68,7 +68,7 @@ void testFuncParser(char *buf)
         printf("%s\n", f.m_name.c_str());
     }
 
-//	printf("total time: %d\n", end-start);
+//  printf("total time: %d\n", end-start);
     printf("matches found: %d\n", li.size());
 }
 
@@ -86,14 +86,14 @@ void doo(int ii, int value, int stat)
 void testScopeParser(char *buf)
 {
     printf("===== Testing Scope parser ======\n");
-//	time_t start = GetTickCount();
+//  time_t start = GetTickCount();
     std::vector<std::string> additionNS;
     std::map<std::string, std::string> ignoreTokens;
 
     ignoreTokens["wxT"] = true;
     std::string scope = get_scope_name(buf, additionNS, ignoreTokens);
-//	time_t end = GetTickCount();
-//	printf("total time: %d\n", end-start);
+//  time_t end = GetTickCount();
+//  printf("total time: %d\n", end-start);
     printf("scope name=%s\n", scope.c_str());
     for (size_t i=0; i<additionNS.size(); i++) {
         printf("NS: %s\n", additionNS.at(i).c_str());
@@ -104,19 +104,19 @@ void testScopeParser(char *buf)
 void testVarParser(char *buf)
 {
     printf("===== Testing Variable parser ======\n");
-//	time_t start = GetTickCount();
+//  time_t start = GetTickCount();
     VariableList li;
-//	fflush(stdout);
+//  fflush(stdout);
 
     std::map<std::string, std::string> ignoreTokens;
     get_variables(buf, li, ignoreTokens, true);
-//	time_t end = GetTickCount();
+//  time_t end = GetTickCount();
     for (VariableList::iterator iter = li.begin(); iter != li.end(); iter++) {
         Variable var = *iter;
         var.Print();
     }
 
-//	printf("total time: %d\n", end-start);
+//  printf("total time: %d\n", end-start);
     printf("matches found: %d\n", li.size());
 }
 
@@ -151,10 +151,10 @@ char *loadFile(const char *fileName)
     }
 
     //read the whole file
-    fseek(fp, 0, SEEK_END); 		//go to end
-    len = ftell(fp); 					//get position at end (length)
-    fseek(fp, 0, SEEK_SET); 		//go to begining
-    buf = (char *)malloc(len+1); 	//malloc buffer
+    fseek(fp, 0, SEEK_END); //go to end
+    len = ftell(fp); //get position at end (length)
+    fseek(fp, 0, SEEK_SET); //go to begining
+    buf = (char *)malloc(len+1); //malloc buffer
 
     //read into buffer
     long bytes = fread(buf, sizeof(char), len, fp);
@@ -165,7 +165,7 @@ char *loadFile(const char *fileName)
         return NULL;
     }
 
-    buf[len] = 0;	// make it null terminated string
+    buf[len] = 0; // make it null terminated string
     fclose(fp);
     return buf;
 }

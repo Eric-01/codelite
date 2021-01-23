@@ -28,16 +28,16 @@
 #include "manager.h"
 
 SavePerspectiveDlg::SavePerspectiveDlg( wxWindow* parent)
-	: SavePerspectiveDlgBase( parent )
+    : SavePerspectiveDlgBase( parent )
 {
-	m_comboBox->SetFocus();
-	
-	m_comboBox->Append(ManagerST::Get()->GetPerspectiveManager().GetAllPerspectives());
-	m_comboBox->SetValue(ManagerST::Get()->GetPerspectiveManager().GetActive());
+    m_comboBox->SetFocus();
+    
+    m_comboBox->Append(ManagerST::Get()->GetPerspectiveManager().GetAllPerspectives());
+    m_comboBox->SetValue(ManagerST::Get()->GetPerspectiveManager().GetActive());
 }
 
 wxString SavePerspectiveDlg::GetPerspectiveName() const
 {
-	return m_comboBox->GetValue();
+    return m_comboBox->GetValue();
 }
 

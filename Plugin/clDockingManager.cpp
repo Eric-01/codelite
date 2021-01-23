@@ -38,7 +38,7 @@ void clDockingManager::OnButtonClicked(wxAuiManagerEvent& event)
     // }
     // event.Veto();
     // event.Skip(false);
-    // 
+    //
     // if(event.GetPane()->name == OUTPUT_VIEW) {
     //     CallAfter(&clDockingManager::ShowOutputViewOpenTabMenu);
     // } else {

@@ -49,7 +49,7 @@ void SvnDefaultCommandHandler::Process(const wxString &output)
 
     // Refresh the SVN output page
     GetPlugin()->GetSvnView()->BuildTree();
-    
+
     // Delete the commit message file
     wxFileName tmpFile(clStandardPaths::Get().GetTempDir(), ".svn-commit");
     clDEBUG() << "Svn commit handler: deleting commit file" << tmpFile << clEndl;

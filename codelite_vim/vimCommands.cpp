@@ -34,7 +34,7 @@ VimCommand::VimCommand(IManager* m_mgr)
     , m_visualBlockEndLine(0)
     , m_visualBlockBeginCol(0)
     , m_visualBlockEndCol(0)
-    
+
 {
     m_ctrl = NULL; /*FIXME: check it*/
     this->m_mgr = m_mgr;
@@ -102,24 +102,24 @@ bool VimCommand::OnEscapeDown()
             int end_line = m_visualBlockEndLine;
             int begin_col = m_visualBlockBeginCol;
             int end_col = m_visualBlockEndCol;
-            
+
             if (end_line < begin_line) {std::swap(end_line, begin_line);}
             if (begin_col > end_col) {std::swap(begin_col, end_col);}
-            
-            
+
+
             int col = begin_col;
             if (m_commandID == COMMANDVI::block_A) {col = end_col + 1;}
             int start_pos = m_ctrl->FindColumn(begin_line, col);
             if (m_ctrl->GetCurrentLine() == begin_line &&
                 m_ctrl->GetColumn(m_ctrl->GetCurrentPos()) > col) {
-                    
+
                 int pos = m_ctrl->GetCurrentPos();
                 wxString text = m_ctrl->GetTextRange(start_pos, pos);
                 m_ctrl->DeleteRange(start_pos, pos - start_pos);
-                
+
                 m_ctrl->BeginUndoAction();
                 m_ctrl->GotoPos(start_pos);
-                
+
                 for (int line = begin_line; line <= end_line && !text.empty(); ) {
                     pos = m_ctrl->GetCurrentPos();
                     m_ctrl->InsertText(pos, text);
@@ -381,7 +381,7 @@ bool VimCommand::Command_call()
     if(m_currentModus == VIM_MODI::VISUAL_MODUS) { return Command_call_visual_mode(); }
     if(m_currentModus == VIM_MODI::VISUAL_LINE_MODUS) { return command_call_visual_line_mode(); }
     if(m_currentModus == VIM_MODI::VISUAL_BLOCK_MODUS) { return command_call_visual_block_mode(); }
-    
+
     bool repeat_command = true;
     this->m_saveCommand = true;
     switch(m_commandID) {
@@ -656,12 +656,12 @@ bool VimCommand::Command_call()
         m_visualBlockEndLine = m_ctrl->LineFromPosition(m_ctrl->GetCurrentPos());
         m_visualBlockBeginCol = m_ctrl->GetColumn(m_initialVisualPos);
         m_visualBlockEndCol = m_ctrl->GetColumn(m_ctrl->GetCurrentPos());
-        
+
         int begin_line = m_visualBlockBeginLine;
         int end_line = m_visualBlockEndLine;
         int begin_col = m_visualBlockBeginCol;
         int end_col = m_visualBlockEndCol;
-        
+
         if (end_line < begin_line) {std::swap(end_line, begin_line);}
         if (begin_col > end_col) {std::swap(begin_col, end_col);}
         m_ctrl->GotoPos(m_ctrl->FindColumn(begin_line, begin_col));
@@ -671,12 +671,12 @@ bool VimCommand::Command_call()
         m_visualBlockEndLine = m_ctrl->LineFromPosition(m_ctrl->GetCurrentPos());
         m_visualBlockBeginCol = m_ctrl->GetColumn(m_initialVisualPos);
         m_visualBlockEndCol = m_ctrl->GetColumn(m_ctrl->GetCurrentPos());
-        
+
         int begin_line = m_visualBlockBeginLine;
         int end_line = m_visualBlockEndLine;
         int begin_col = m_visualBlockBeginCol;
         int end_col = m_visualBlockEndCol;
-        
+
         if (end_line < begin_line) {std::swap(end_line, begin_line);}
         if (begin_col > end_col) {std::swap(begin_col, end_col);}
         m_ctrl->GotoPos(m_ctrl->FindColumn(begin_line, end_col + 1));
@@ -704,13 +704,13 @@ bool VimCommand::Command_call()
         );
 
     } break;
-    
+
     case COMMANDVI::ctrl_V: {
         m_currentModus = VIM_MODI::VISUAL_BLOCK_MODUS;
         this->m_tmpbuf.Clear();
         this->m_initialVisualPos = this->m_ctrl->GetCurrentPos();
     } break;
-    
+
     case COMMANDVI::perc: {
         long pos_matching = goToMatchingParentesis(m_ctrl->GetCurrentPos());
         if(pos_matching != -1)
@@ -998,15 +998,15 @@ bool VimCommand::Command_call()
             end_line = std::min(m_actions - 1, m_ctrl->GetLineCount() - 1);
         }
         if (begin_line > end_line) {std::swap(begin_line, end_line);}
-        
+
         m_ctrl->GotoLine(begin_line);
         for(int i = begin_line; i <= end_line; ++i) {
             this->m_listCopiedStr.push_back(m_ctrl->GetCurLine());
             m_ctrl->LineDelete();
         }
     } break;
-    
-    
+
+
     case COMMANDVI::daw:
         m_ctrl->CharRight();
         m_ctrl->WordLeft();
@@ -1201,7 +1201,7 @@ bool VimCommand::Command_call()
             end_line = std::min(m_actions - 1, m_ctrl->GetLineCount() - 1);
         }
         if (begin_line > end_line) {std::swap(begin_line, end_line);}
-        
+
         m_ctrl->GotoLine(begin_line);
         for(int i = begin_line; i <= end_line; ++i) {
             this->m_listCopiedStr.push_back(m_ctrl->GetCurLine());
@@ -1422,7 +1422,7 @@ bool VimCommand::Command_call()
                 }
             }
         }
-        
+
         int currentLine = this->m_ctrl->GetCurrentLine();
         if (m_visualBlockCopy) {
             int col = m_ctrl->GetColumn(m_ctrl->GetCurrentPos());
@@ -2110,14 +2110,14 @@ bool VimCommand::command_call_visual_block_mode()
         repeat_command = false;
         break;
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
-    
+
     case COMMANDVI::r: {
         int begin_line = m_ctrl->LineFromPosition(m_initialVisualPos);
         int end_line = m_ctrl->GetCurrentLine();
         int begin_col = m_ctrl->GetColumn(m_initialVisualPos);
         int end_col = m_ctrl->GetColumn(m_ctrl->GetCurrentPos());
         if (end_line < begin_line) {std::swap(end_line, begin_line);}
-        
+
         for (int line = begin_line; line <= end_line; ++line) {
             int start = m_ctrl->FindColumn(line, begin_col);
             int end = m_ctrl->FindColumn(line, end_col);
@@ -2129,29 +2129,29 @@ bool VimCommand::command_call_visual_block_mode()
             }
         }
         m_ctrl->GotoPos(m_ctrl->FindColumn(begin_line, begin_col));
-        
+
         this->m_saveCommand = false; /*FIXME: check what is vim-behaviour*/
         m_currentModus = VIM_MODI::NORMAL_MODUS;
     } break;
-    
+
     /*========== DELETE AND COPY =======================*/
     case COMMANDVI::block_c:
     case COMMANDVI::d:
     case COMMANDVI::x:
     case COMMANDVI::y: {
-        
+
         m_visualBlockBeginLine = m_ctrl->LineFromPosition(m_initialVisualPos);
         m_visualBlockEndLine = m_ctrl->LineFromPosition(m_ctrl->GetCurrentPos());
         m_visualBlockBeginCol = m_ctrl->GetColumn(m_initialVisualPos);
         m_visualBlockEndCol = m_ctrl->GetColumn(m_ctrl->GetCurrentPos());
-            
+
         int begin_line = m_visualBlockBeginLine;
         int end_line = m_visualBlockEndLine;
         int begin_col = m_visualBlockBeginCol;
         int end_col = m_visualBlockEndCol;
         if (end_line < begin_line) {std::swap(end_line, begin_line);}
         if (begin_col > end_col) {std::swap(begin_col, end_col);}
-        
+
         for (int line = begin_line; line <= end_line; ++line) {
             int start = m_ctrl->FindColumn(line, begin_col);
             int end = m_ctrl->FindColumn(line, end_col);
@@ -2166,7 +2166,7 @@ bool VimCommand::command_call_visual_block_mode()
             }
             m_listCopiedStr.push_back(str);
         }
-        
+
         if(this->m_commandID != COMMANDVI::y) {
             for (int line = end_line; line >= begin_line; --line) {
                 int start = m_ctrl->FindColumn(line, begin_col);
@@ -2184,8 +2184,8 @@ bool VimCommand::command_call_visual_block_mode()
         } else {
             m_currentModus = VIM_MODI::NORMAL_MODUS;
         }
-        
-        
+
+
         this->m_saveCommand = false; /*FIXME: check what is vim-behaviour*/
         this->m_newLineCopy = false;
         m_visualBlockCopy = true;
@@ -2194,14 +2194,14 @@ bool VimCommand::command_call_visual_block_mode()
     default:
         break;
     }
-    
+
     m_ctrl->SetIndicatorCurrent(VISUAL_BLOCK_INDICATOR);
     m_ctrl->IndicatorClearRange(0, m_ctrl->GetLength());
-    
+
     if (m_currentModus != VIM_MODI::VISUAL_BLOCK_MODUS) {
         return repeat_command;
     }
-    
+
     int begin_line = m_ctrl->LineFromPosition(m_initialVisualPos);
     int end_line = m_ctrl->GetCurrentLine();
     int begin_col = m_ctrl->GetColumn(m_initialVisualPos);
@@ -2209,14 +2209,14 @@ bool VimCommand::command_call_visual_block_mode()
     if (end_line < begin_line) {std::swap(end_line, begin_line);}
     begin_line = std::max(begin_line, m_ctrl->GetFirstVisibleLine());
     end_line = std::min(end_line, m_ctrl->GetFirstVisibleLine() + m_ctrl->LinesOnScreen());
-        
+
     for (int line = begin_line; line <= end_line; ++line) {
         int start = m_ctrl->FindColumn(line, begin_col);
         int end = m_ctrl->FindColumn(line, end_col);
         if (start > end) {std::swap(start, end);}
         m_ctrl->IndicatorFillRange(start, end - start + 1);
     }
-    
+
     return repeat_command;
 }
 
@@ -2602,7 +2602,7 @@ bool VimCommand::is_cmd_complete()
         } else {
             this->m_commandID = COMMANDVI::V;
         }
-        
+
         command_complete = true;
         this->m_repeat = 1;
         break;

@@ -493,7 +493,7 @@ public:
      * @brief return list of tags for a given partial name
      */
     virtual void GetTagsByPartName(const wxString& partname, std::vector<TagEntryPtr>& tags) = 0;
-    
+
     /**
      * @brief same as above, but allow multiple name parts
      */

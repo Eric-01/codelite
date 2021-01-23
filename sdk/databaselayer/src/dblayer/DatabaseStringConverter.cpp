@@ -53,11 +53,11 @@ size_t DatabaseStringConverter::GetEncodedStreamLength(const wxString& inputStri
 wxString DatabaseStringConverter::ConvertFromUnicodeStream(const char* inputBuffer)
 {
   wxString strReturn(wxConvUTF8.cMB2WC(inputBuffer), *wxConvCurrent);
-  
+
   // If the UTF-8 conversion didn't return anything, then try the default unicode conversion
   if (strReturn == wxEmptyString)
     strReturn << wxString(inputBuffer, *wxConvCurrent);
-  
+
   return strReturn;
 }
 
@@ -93,11 +93,11 @@ size_t DatabaseStringConverter::GetEncodedStreamLength(const wxString& inputStri
 wxString DatabaseStringConverter::ConvertFromUnicodeStream(const char* inputBuffer, const char* encoding)
 {
   wxString strReturn(wxConvUTF8.cMB2WC(inputBuffer), *wxConvCurrent);
-  
+
   // If the UTF-8 conversion didn't return anything, then try the default unicode conversion
   if (strReturn == wxEmptyString)
     strReturn << wxString(inputBuffer, *wxConvCurrent);
-  
+
   return strReturn;
-}  
+}
 

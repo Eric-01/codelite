@@ -14,7 +14,7 @@ usage()
     cat <<EOF
 Usage:
     `basename $0` [options]
-    
+
 Options:
     -h | --help         show this help screen
     -d | --debug        build codelite.app bundle in debug mode (the default is to build in release mode)

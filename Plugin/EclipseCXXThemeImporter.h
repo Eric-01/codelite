@@ -37,16 +37,16 @@ private:
      * @brief convert a lexer object into eclipse XML format
      */
     static wxFileName ToEclipseXML(LexerConf::Ptr_t cxxLexer, size_t id);
-    
+
 public:
     EclipseCXXThemeImporter();
     virtual ~EclipseCXXThemeImporter();
-    
+
     /**
      * @brief convert _all_ C++ xml files into eclipse format
      */
     static std::vector<wxFileName> ToEclipseXMLs();
-    
+
     /**
      * @brief import an eclipse XML colour theme
      * @param eclipseXmlFile

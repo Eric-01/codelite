@@ -89,7 +89,7 @@ void clPrintout::GetPageInfo(int* minPage, int* maxPage, int* selPageFrom, int* 
         m_pageEnds.Add(printed);
         *maxPage += 1;
     }
-    
+
     if(*maxPage > 0) *minPage = 1;
     *selPageFrom = *minPage;
     *selPageTo = *maxPage;

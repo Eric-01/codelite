@@ -44,7 +44,7 @@ ProjectCustomBuildTragetDlg::ProjectCustomBuildTragetDlg(wxWindow* parent, const
 
 ProjectCustomBuildTragetDlg::~ProjectCustomBuildTragetDlg()
 {
-    
+
 }
 void ProjectCustomBuildTragetDlg::OnEditTargetNameUI(wxUpdateUIEvent& event)
 {
@@ -53,9 +53,9 @@ void ProjectCustomBuildTragetDlg::OnEditTargetNameUI(wxUpdateUIEvent& event)
 
 bool ProjectCustomBuildTragetDlg::IsPredefinedTarget(const wxString& name)
 {
-    return name == CUSTOM_TARGET_BUILD || 
-           name == CUSTOM_TARGET_CLEAN || 
-           name == CUSTOM_TARGET_REBUILD || 
+    return name == CUSTOM_TARGET_BUILD ||
+           name == CUSTOM_TARGET_CLEAN ||
+           name == CUSTOM_TARGET_REBUILD ||
            name == CUSTOM_TARGET_COMPILE_SINGLE_FILE ||
            name == CUSTOM_TARGET_PREPROCESS_FILE;
 }

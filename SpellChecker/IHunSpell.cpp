@@ -553,7 +553,7 @@ int IHunSpell::CheckCppType(IEditor* pEditor)
                 if(line.Find(s_include) != wxNOT_FOUND) continue;
             }
 
-			// Note checking tags database only in continuous mode.
+            // Note checking tags database only in continuous mode.
             if(!CheckWord(token)) {
                 pEditor->SetUserIndicator(pos, token.Len());
                 pEditor->SetCaretAt(pos);

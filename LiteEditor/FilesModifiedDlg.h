@@ -35,11 +35,11 @@ public:
         kID_BUTTON_LOAD   = ID_BUTTON_LOAD,
         kID_BUTTON_IGNORE = ID_BUTTON_IGNORE,
     };
-    
+
 public:
     FilesModifiedDlg(wxWindow* parent);
     virtual ~FilesModifiedDlg();
-    
+
     bool GetRememberMyAnswer() const {
         return m_checkBoxRemember->IsChecked();
     }

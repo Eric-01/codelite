@@ -5,47 +5,47 @@
 /**
  * Deprecated: Encrypts/decrypts data in ECB mode
  * @link http://www.php.net/manual/en/function.mcrypt-ecb.php
- * @param cipher int 
- * @param key string 
- * @param data string 
- * @param mode int 
- * @return string 
+ * @param cipher int
+ * @param key string
+ * @param data string
+ * @param mode int
+ * @return string
  */
 function mcrypt_ecb ($cipher, $key, $data, $mode) {}
 
 /**
  * Encrypts/decrypts data in CBC mode
  * @link http://www.php.net/manual/en/function.mcrypt-cbc.php
- * @param cipher int 
- * @param key string 
- * @param data string 
- * @param mode int 
- * @param iv string[optional] 
- * @return string 
+ * @param cipher int
+ * @param key string
+ * @param data string
+ * @param mode int
+ * @param iv string[optional]
+ * @return string
  */
 function mcrypt_cbc ($cipher, $key, $data, $mode, $iv = null) {}
 
 /**
  * Encrypts/decrypts data in CFB mode
  * @link http://www.php.net/manual/en/function.mcrypt-cfb.php
- * @param cipher int 
- * @param key string 
- * @param data string 
- * @param mode int 
- * @param iv string 
- * @return string 
+ * @param cipher int
+ * @param key string
+ * @param data string
+ * @param mode int
+ * @param iv string
+ * @return string
  */
 function mcrypt_cfb ($cipher, $key, $data, $mode, $iv) {}
 
 /**
  * Encrypts/decrypts data in OFB mode
  * @link http://www.php.net/manual/en/function.mcrypt-ofb.php
- * @param cipher int 
- * @param key string 
- * @param data string 
- * @param mode int 
- * @param iv string 
- * @return string 
+ * @param cipher int
+ * @param key string
+ * @param data string
+ * @param mode int
+ * @param iv string
+ * @return string
  */
 function mcrypt_ofb ($cipher, $key, $data, $mode, $iv) {}
 
@@ -269,15 +269,15 @@ function mcrypt_generic ($td, $data) {}
  * @param data string <p>
  *       Encrypted data.
  *      </p>
- * @return string 
+ * @return string
  */
 function mdecrypt_generic ($td, $data) {}
 
 /**
  * This function terminates encryption
  * @link http://www.php.net/manual/en/function.mcrypt-generic-end.php
- * @param td resource 
- * @return bool 
+ * @param td resource
+ * @return bool
  */
 function mcrypt_generic_end ($td) {}
 

@@ -90,14 +90,14 @@ function apc_delete ($key) {}
  *       If cache_type is "user",
  *       information about the user cache will be returned.
  *      </p>
- *      <p> 
+ *      <p>
  *       If cache_type is "filehits",
- *       information about which files have been served from the bytecode cache 
+ *       information about which files have been served from the bytecode cache
  *       for the current request will be returned. This feature must be enabled at
  *       compile time using --enable-filehits.
  *      </p>
  *      <p>
- *       If an invalid or no cache_type is specified, information about 
+ *       If an invalid or no cache_type is specified, information about
  *       the system cache (cached files) will be returned.
  *      </p>
  * @param limited bool[optional] <p>
@@ -180,7 +180,7 @@ function apc_sma_info ($limited = null) {}
  *       Full or relative path to a PHP file that will be compiled and stored in
  *       the bytecode cache.
  *      </p>
- * @param atomic bool[optional] 
+ * @param atomic bool[optional]
  * @return mixed Returns true on success, false on failure.
  */
 function apc_compile_file ($filename, $atomic = null) {}

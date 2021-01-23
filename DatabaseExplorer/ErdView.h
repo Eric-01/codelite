@@ -37,28 +37,28 @@
 class ErdView : public wxSFRoundRectShape {
 
 public:
-	XS_DECLARE_CLONABLE_CLASS(ErdView);	
-	ErdView();
-	ErdView(const ErdView& obj);
-	ErdView(View* pView);
-	virtual ~ErdView();
-	
-	View* GetView() { return (View*) this->GetUserData(); }
-	
-	void UpdateView();
-	
+    XS_DECLARE_CLONABLE_CLASS(ErdView);
+    ErdView();
+    ErdView(const ErdView& obj);
+    ErdView(View* pView);
+    virtual ~ErdView();
+
+    View* GetView() { return (View*) this->GetUserData(); }
+
+    void UpdateView();
+
 protected:
-	void Initialize();
-	
-	virtual void DrawHighlighted(wxDC& dc);
-	virtual void DrawHover(wxDC& dc);
-	virtual void DrawNormal(wxDC& dc);
-	
-	void DrawDetails(wxDC& dc);
-	
-	wxSFTextShape *m_pLabel;
-	wxSFTextShape *m_pSelect;
-	wxSFFlexGridShape* m_pGrid;
+    void Initialize();
+
+    virtual void DrawHighlighted(wxDC& dc);
+    virtual void DrawHover(wxDC& dc);
+    virtual void DrawNormal(wxDC& dc);
+
+    void DrawDetails(wxDC& dc);
+
+    wxSFTextShape *m_pLabel;
+    wxSFTextShape *m_pSelect;
+    wxSFFlexGridShape* m_pGrid;
 };
 
 #endif // ERDVIEW_H

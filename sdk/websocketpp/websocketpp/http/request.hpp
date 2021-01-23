@@ -85,7 +85,7 @@ public:
 
     /// Returns the full raw request (including the body)
     std::string raw() const;
-    
+
     /// Returns the raw request headers only (similar to an HTTP HEAD request)
     std::string raw_head() const;
 

@@ -41,11 +41,11 @@ OdbcParameter::OdbcParameter(bool bValue)
 OdbcParameter::OdbcParameter(const wxDateTime& dateValue)
 {
   m_nParameterType = OdbcParameter::PARAM_DATETIME;
-    	      
+
   m_DateValue.year = dateValue.GetYear();
   m_DateValue.month = dateValue.GetMonth()+1;
-	m_DateValue.day = dateValue.GetDay();
-    	    
+    m_DateValue.day = dateValue.GetDay();
+
   m_DateValue.hour = dateValue.GetHour();
   m_DateValue.minute = dateValue.GetMinute();
   m_DateValue.second = dateValue.GetSecond();
@@ -90,7 +90,7 @@ long* OdbcParameter::GetDataLengthPointer()
 void* OdbcParameter::GetDataPtr()
 {
   const void *pReturn = NULL;
-  
+
   switch (m_nParameterType)
   {
     case OdbcParameter::PARAM_STRING:
@@ -127,7 +127,7 @@ void* OdbcParameter::GetDataPtr()
 SQLSMALLINT OdbcParameter::GetValueType()
 {
   SQLSMALLINT nReturn = SQL_C_LONG;
-  
+
   switch (m_nParameterType)
   {
     case OdbcParameter::PARAM_STRING:
@@ -161,7 +161,7 @@ SQLSMALLINT OdbcParameter::GetValueType()
 SQLSMALLINT OdbcParameter::GetParameterType()
 {
   SQLSMALLINT nReturn = SQL_INTEGER;
-  
+
   switch (m_nParameterType)
   {
     case OdbcParameter::PARAM_STRING:
@@ -204,7 +204,7 @@ SQLSMALLINT OdbcParameter::GetDecimalDigits()
 {
   // either decimal_digits or 0 (date, bool, int)
   SQLSMALLINT nReturn = 0;
-  
+
   switch (m_nParameterType)
   {
     case OdbcParameter::PARAM_STRING:

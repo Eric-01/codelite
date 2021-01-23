@@ -49,7 +49,7 @@ bool ConfigTool::Load(const wxString &basename, const wxString &version)
     if ( loaded ) {
         xmlVersion = m_doc.GetRoot()->GetPropVal(wxT("Version"), wxEmptyString);
     }
-    
+
     if ( xmlVersion != version ) {
         loaded = m_doc.Load(ConfFileLocator::Instance()->GetDefaultCopy(basename));
     }

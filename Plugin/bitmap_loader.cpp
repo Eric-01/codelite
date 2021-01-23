@@ -118,7 +118,7 @@ void BitmapLoader::initialize()
                 m_toolbarsBitmaps.erase(name);
                 m_toolbarsBitmaps.insert({name, bmp});
             }
-            
+
         }
         tmpdir.Rmdir(wxPATH_RMDIR_FULL);
     }

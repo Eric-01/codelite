@@ -36,7 +36,7 @@ public:
                             const wxString& initialValue,
                             int charsToSelect = wxNOT_FOUND);
     virtual ~clGetTextFromUserDialog();
-    
+
     wxString GetValue() const {
         return m_textCtrl->GetValue();
     }

@@ -54,26 +54,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 class CopyrightsProjectSelBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText3;
-		wxCheckListBox* m_checkListProjects;
-		wxButton* m_buttonCheckAll;
-		wxButton* m_buttonUnCheckAll;
-		wxButton* m_buttonInsert;
-		wxButton* m_button5;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnCheckAll( wxCommandEvent& event ){ event.Skip(); }
-		virtual void OnUnCheckAll( wxCommandEvent& event ){ event.Skip(); }
-		
-	
-	public:
-		
-		CopyrightsProjectSelBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Batch Insert Of Copyrights"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 704,418 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~CopyrightsProjectSelBaseDlg();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText3;
+        wxCheckListBox* m_checkListProjects;
+        wxButton* m_buttonCheckAll;
+        wxButton* m_buttonUnCheckAll;
+        wxButton* m_buttonInsert;
+        wxButton* m_button5;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnCheckAll( wxCommandEvent& event ){ event.Skip(); }
+        virtual void OnUnCheckAll( wxCommandEvent& event ){ event.Skip(); }
+        
+    
+    public:
+        
+        CopyrightsProjectSelBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Batch Insert Of Copyrights"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 704,418 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+        ~CopyrightsProjectSelBaseDlg();
+    
 };
 
 #endif //__copyrights_proj_sel_base_dlg__

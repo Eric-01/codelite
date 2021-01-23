@@ -32,7 +32,7 @@ class WXDLLIMPEXP_SDK clImageViewer : public clImageViewerBase
 {
     wxFileName m_filename;
     wxBitmap m_bitmap;
-    
+
 public:
     clImageViewer(wxWindow* parent, const wxFileName& filename);
     virtual ~clImageViewer();

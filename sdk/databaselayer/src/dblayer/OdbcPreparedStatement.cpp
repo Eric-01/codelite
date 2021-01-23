@@ -197,7 +197,7 @@ int OdbcPreparedStatement::RunQuery()
             return DATABASE_LAYER_QUERY_RESULT_ERROR;
         }
 
-		    if ( nRet == SQL_NEED_DATA)
+            if ( nRet == SQL_NEED_DATA)
         {
             PTR pParmID;
             nRet = m_pInterface->GetSQLParamData()((SQLHSTMT)(*start), &pParmID);
@@ -310,7 +310,7 @@ void OdbcPreparedStatement::BindParameters()
       SQLULEN dataSize;
       SQLSMALLINT dataDigits;
       SQLSMALLINT isNullable;
-      SQLRETURN ret = m_pInterface->GetSQLDescribeParam()(m_Statements[nIndex], nPosition, &dataType, &dataSize, 
+      SQLRETURN ret = m_pInterface->GetSQLDescribeParam()(m_Statements[nIndex], nPosition, &dataType, &dataSize,
         &dataDigits, &isNullable);
       if ( ret != SQL_SUCCESS )
       {
@@ -338,7 +338,7 @@ int OdbcPreparedStatement::FindStatementAndAdjustPositionIndex(int* pPosition)
     // Don't mess around if there's just one entry in the vector
     if (m_Statements.size() == 0)
         return 0;
-        
+
     // Go through all the elements in the vector
     // Get the number of parameters in each statement
     // Adjust the nPosition for the the broken up statements
@@ -398,12 +398,12 @@ void OdbcPreparedStatement::InterpretErrorCodes( long nCode, SQLHSTMT stmth_ptr 
     memset(strBuffer, 0, ERR_BUFFER_LEN*sizeof(SQLTCHAR));
 
     if (stmth_ptr)
-      m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, stmth_ptr, 1, strState, &iNativeCode, 
-        strBuffer, ERR_BUFFER_LEN, &iMsgLen);  
+      m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, stmth_ptr, 1, strState, &iNativeCode,
+        strBuffer, ERR_BUFFER_LEN, &iMsgLen);
     else
       m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_DBC, m_sqlHDBC, 1, strState, &iNativeCode,
-        strBuffer, ERR_BUFFER_LEN, &iMsgLen);  
-    
+        strBuffer, ERR_BUFFER_LEN, &iMsgLen);
+
     SetErrorCode((int)iNativeCode);
     //SetErrorMessage(ConvertFromUnicodeStream((char*)strBuffer));
     SetErrorMessage(wxString((wxChar*)strBuffer));

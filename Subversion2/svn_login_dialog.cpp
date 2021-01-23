@@ -29,5 +29,5 @@ SvnLoginDialog::SvnLoginDialog( wxWindow* parent )
 :
 SvnLoginDialogBase( parent )
 {
-	m_textCtrlUsername->SetFocus();
+    m_textCtrlUsername->SetFocus();
 }

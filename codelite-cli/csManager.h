@@ -32,10 +32,10 @@ public:
     const csConfig& GetConfig() const { return m_config; }
     void LoadCommandFromINI();
     void SetExitNow(bool b) { m_exitNow = b; }
-    
+
 protected:
     void OnExit();
-    
+
     // The handler completed
     void OnCommandProcessedCompleted(clCommandEvent& event);
 

@@ -61,7 +61,7 @@ public:
     // Operations
     //---------------------------------------
     virtual void ApplySettings();
-    
+
     void ProcessIdleActions();
 };
 #endif // CONTEXT_GENERIC_H

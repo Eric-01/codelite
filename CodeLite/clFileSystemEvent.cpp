@@ -18,7 +18,7 @@ clFileSystemEvent::clFileSystemEvent(const clFileSystemEvent& event)
 clFileSystemEvent& clFileSystemEvent::operator=(const clFileSystemEvent& src)
 {
     clCommandEvent::operator=(src);
-    
+
     // clFileSystemEvent specifics
     m_path = src.m_path;
     m_newpath = src.m_newpath;

@@ -155,10 +155,10 @@ wxString PHPProjectSettingsData::GetMappdPath(const wxString& sourcePath,
     }
 
     if(useUrlScheme) {
-        
+
         wxString asUrlScheme = sourcePath;
         asUrlScheme.Replace("\\", "/");
-        
+
         while(asUrlScheme.Replace("//", "/"))
             ;
 

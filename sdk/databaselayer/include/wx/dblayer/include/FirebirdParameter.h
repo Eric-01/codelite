@@ -43,10 +43,10 @@ public:
     PARAM_BLOB,
     PARAM_NULL
   };
-   
+
   long unsigned int GetDataLength();
   long unsigned int* GetDataLengthPtr();
-  
+
   const void* GetDataPtr();
   int GetParameterType();
 
@@ -57,7 +57,7 @@ public:
 
 private:
   int m_nParameterType;
-  
+
   // A union would probably be better here
   wxString m_strValue;
   int m_nValue;
@@ -72,7 +72,7 @@ private:
   isc_blob_handle m_pBlob;
   isc_db_handle m_pDatabase;
   isc_tr_handle m_pTransaction;
-  
+
   XSQLVAR* m_pParameter;
   FirebirdInterface* m_pInterface;
 };

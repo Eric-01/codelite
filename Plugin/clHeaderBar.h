@@ -23,11 +23,11 @@ protected:
     void OnPaint(wxPaintEvent& event);
     void OnSize(wxSizeEvent& event);
     void DoCancelDrag();
-    
+
 public:
     clHeaderBar(clControlWithItems* parent, const clColours& colours);
     virtual ~clHeaderBar();
-    
+
     bool Show(bool show = true);
     /**
      * @brief set drawing native header

@@ -103,15 +103,15 @@ void TableSettings::OnRemoveColumnClick(wxCommandEvent& event)
 {
     Column *col = GetColumn( GetSelectedColumnName() );
     if( col ) {
-		// delete associated keys
-		SerializableList keys;
-		GetConstraints( keys, col->GetName() );
-		for(SerializableList::iterator it = keys.begin(); it != keys.end(); ++it ) {
-			Constraint *key = (Constraint*) *it;
-			m_lstKeys.DeleteObject( key );
-			delete key;
-		}
-		// delete the column
+        // delete associated keys
+        SerializableList keys;
+        GetConstraints( keys, col->GetName() );
+        for(SerializableList::iterator it = keys.begin(); it != keys.end(); ++it ) {
+            Constraint *key = (Constraint*) *it;
+            m_lstKeys.DeleteObject( key );
+            delete key;
+        }
+        // delete the column
         m_lstColumns.DeleteObject( col );
         delete col;
         UpdateView();
@@ -182,7 +182,7 @@ void TableSettings::OnColumnChanged(wxDataViewEvent& event)
                     Refresh();
                 }
                 if( type->HaveSize2() ) type->SetSize2( s1 );
-                else { 
+                else {
                     m_infobar->ShowMessage( wxT("This data type doesn't support size definition."), wxICON_WARNING );
                     Refresh();
                 }
@@ -200,7 +200,7 @@ void TableSettings::OnColumnChanged(wxDataViewEvent& event)
             case 4: {
                 IDbType *type = col->GetType();
                 if( type->HaveAutoIncrement() ) type->SetAutoIncrement( val.GetBool() );
-                else { 
+                else {
                     m_infobar->ShowMessage( wxT("This data type doesn't support AUTOINCREMENT feature."), wxICON_WARNING );
                     Refresh();
                 }

@@ -38,7 +38,7 @@ namespace experimental {
 class detached_t
 {
 public:
-  /// Constructor. 
+  /// Constructor.
   ASIO_CONSTEXPR detached_t()
   {
   }

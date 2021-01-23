@@ -67,7 +67,7 @@ CompilerPtr CompilerLocatorEosCDT::CreateCompiler(const wxString& path) const
     compiler->SetName("eosio");
     compiler->SetGenerateDependeciesFile(true);
     compiler->SetInstallationPath(path);
-    
+
     // Add the tools
     wxFileName eosio_tool(path, "eosio-cc");
 #ifdef __WXMSW__

@@ -13,6 +13,6 @@ class test_php7_function_arg_hinting_type2 {
     public $member2 = "";
 }
 
-function test_php7_function_arg_hinting_foo(test_php7_function_arg_hinting_type1 $one, 
+function test_php7_function_arg_hinting_foo(test_php7_function_arg_hinting_type1 $one,
                                             test_php7_function_arg_hinting_type2 $two) {
     $two-> // resolved type is test_php7_function_arg_hinting_type2, suugest 2 members

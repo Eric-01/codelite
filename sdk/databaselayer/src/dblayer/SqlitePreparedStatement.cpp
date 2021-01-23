@@ -230,7 +230,7 @@ int SqlitePreparedStatement::RunQuery()
   while (start != stop)
   {
     int nReturn = sqlite3_step((sqlite3_stmt*)(*start));
- 
+
     if (nReturn != SQLITE_ROW)
       sqlite3_reset((sqlite3_stmt*)(*start));
 
@@ -256,7 +256,7 @@ DatabaseResultSet* SqlitePreparedStatement::RunQueryWithResults()
     for (unsigned int i=0; i<m_Statements.size()-1; i++)
     {
       int nReturn = sqlite3_step(m_Statements[i]);
- 
+
       if (nReturn != SQLITE_ROW)
         sqlite3_reset(m_Statements[i]);
 
@@ -271,7 +271,7 @@ DatabaseResultSet* SqlitePreparedStatement::RunQueryWithResults()
     }
   }
   // Work off the assumption that only the last statement will return result
-  
+
   SqliteResultSet* pResultSet = new SqliteResultSet(this);
   if (pResultSet)
     pResultSet->SetEncoding(GetEncoding());
@@ -285,7 +285,7 @@ int SqlitePreparedStatement::FindStatementAndAdjustPositionIndex(int* pPosition)
   // Don't mess around if there's just one entry in the vector
   if (m_Statements.size() == 0)
     return 0;
-    
+
   // Go through all the elements in the vector
   // Get the number of parameters in each statement
   // Adjust the nPosition for the the broken up statements

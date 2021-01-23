@@ -46,13 +46,13 @@ public:
      * @brief remove the temp directory and its content
      */
     void RemoveTempDir();
-    
+
     /**
      * @brief set an alternative data dir
      * The default data dir is set to the installation path on Windows or /usr/share/codelite on Linux systems
      */
     void SetDataDir(const wxString& dataDir) { this->m_dataDir = dataDir; }
-    
+
     /**
      * @brief return the user local data folder. Usually this is ~/.codelite or %APPDATA%\CodeLite
      * However, under Linux, this function will return ~/.codelite-dbg to avoid clobbering the release config

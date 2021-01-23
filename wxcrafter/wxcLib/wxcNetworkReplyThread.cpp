@@ -24,7 +24,7 @@ void* wxcNetworkReplyThread::Entry()
                 switch ( reply.GetReplyType() ) {
                 case wxCrafter::kReplyTypeFilesGenerated: {
                     if ( m_parent ) {
-                        
+
                         // File generation completed
                         wxcReplyEventData *data = new wxcReplyEventData;
                         data->SetFiles( reply.GetFiles() );
@@ -32,7 +32,7 @@ void* wxcNetworkReplyThread::Entry()
                         wxCommandEvent event(wxcEVT_NET_REPLY_FILES_GENERATED);
                         event.SetClientObject( data );
                         m_parent->AddPendingEvent( event );
-                        
+
                     }
                 }
                 break;

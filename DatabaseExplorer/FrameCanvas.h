@@ -47,35 +47,35 @@ class ErdPanel;
 /*! \brief Frame canvas. */
 class FrameCanvas : public wxSFShapeCanvas {
 
-	public:
-		FrameCanvas() {
-			;
-		}
-		FrameCanvas(wxSFDiagramManager* manager,IDbAdapter* dbAdapter, wxPanel* parentPanel, wxWindowID id);
-		virtual ~FrameCanvas();
-		virtual void OnConnectionFinished(wxSFLineShape* connection);
-		virtual void OnKeyDown(wxKeyEvent& event);
-		virtual void OnRightDown(wxMouseEvent& event);
-		virtual void OnLeftDown(wxMouseEvent& event);
-		virtual void OnLeftDoubleClick(wxMouseEvent& event);
-		virtual PRECONNECTIONFINISHEDSTATE OnPreConnectionFinished(wxSFLineShape* connection);
-		virtual void OnDrop(wxCoord x, wxCoord y, wxDragResult def, const ShapeList& dropped);
+    public:
+        FrameCanvas() {
+            ;
+        }
+        FrameCanvas(wxSFDiagramManager* manager,IDbAdapter* dbAdapter, wxPanel* parentPanel, wxWindowID id);
+        virtual ~FrameCanvas();
+        virtual void OnConnectionFinished(wxSFLineShape* connection);
+        virtual void OnKeyDown(wxKeyEvent& event);
+        virtual void OnRightDown(wxMouseEvent& event);
+        virtual void OnLeftDown(wxMouseEvent& event);
+        virtual void OnLeftDoubleClick(wxMouseEvent& event);
+        virtual PRECONNECTIONFINISHEDSTATE OnPreConnectionFinished(wxSFLineShape* connection);
+        virtual void OnDrop(wxCoord x, wxCoord y, wxDragResult def, const ShapeList& dropped);
 
-		virtual void OnPaste(const ShapeList& pasted);
+        virtual void OnPaste(const ShapeList& pasted);
 
-		void OnPopupClick(wxCommandEvent &evt);
+        void OnPopupClick(wxCommandEvent &evt);
 
-		wxString GetSqlScript();
-		void UpdateERD();
+        wxString GetSqlScript();
+        void UpdateERD();
 
-	protected:
-		ErdPanel* m_pParentPanel;
-		IDbAdapter* m_pDbAdapter;
-		wxSFShapeBase *m_pSelectedShape;
+    protected:
+        ErdPanel* m_pParentPanel;
+        IDbAdapter* m_pDbAdapter;
+        wxSFShapeBase *m_pSelectedShape;
 
-		wxString m_srcCol;
-		wxString m_dstCol;
-		wxPoint m_mousePos;
+        wxString m_srcCol;
+        wxString m_dstCol;
+        wxPoint m_mousePos;
 
 };
 

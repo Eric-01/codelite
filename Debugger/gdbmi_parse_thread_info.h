@@ -39,7 +39,7 @@ public:
     wxString file;
     wxString line;
     wxString active;
-    
+
 public:
     GdbMIThreadInfo() {}
     virtual ~GdbMIThreadInfo() {}
@@ -73,7 +73,7 @@ public:
     virtual ~GdbMIThreadInfoParser();
 
     void Parse(const wxString &info);
-    
+
     const GdbMIThreadInfoVec_t& GetThreads() const {
         return m_threads;
     }

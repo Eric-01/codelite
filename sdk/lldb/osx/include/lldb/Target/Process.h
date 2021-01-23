@@ -2739,7 +2739,7 @@ protected:
   StructuredDataPluginMap m_structured_data_plugin_map;
 
   enum { eCanJITDontKnow = 0, eCanJITYes, eCanJITNo } m_can_jit;
-  
+
   std::unique_ptr<UtilityFunction> m_dlopen_utility_func_up;
   std::once_flag m_dlopen_utility_func_flag_once;
 

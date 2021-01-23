@@ -26,25 +26,25 @@
 class WXDLLIMPEXP_SF wxSFPolygonShape : public wxSFRectShape
 {
 public:
-	XS_DECLARE_CLONABLE_CLASS(wxSFPolygonShape);
+    XS_DECLARE_CLONABLE_CLASS(wxSFPolygonShape);
 
     /*! \brief Default constructor. */
-	wxSFPolygonShape(void);
-	/*!
+    wxSFPolygonShape(void);
+    /*!
      * \brief User constructor.
-	 * \param n Number of the polygon vertices
-	 * \param pts Array of the polygon vertices
-	 * \param pos Relative position of the polygon shape
-	 * \param manager Pointer of parent diagram manager
-	 */
-	wxSFPolygonShape(int n, const wxRealPoint pts[], const wxRealPoint& pos, wxSFDiagramManager* manager);
-	/*!
+     * \param n Number of the polygon vertices
+     * \param pts Array of the polygon vertices
+     * \param pos Relative position of the polygon shape
+     * \param manager Pointer of parent diagram manager
+     */
+    wxSFPolygonShape(int n, const wxRealPoint pts[], const wxRealPoint& pos, wxSFDiagramManager* manager);
+    /*!
      * \brief Copy constructor.
-	 * \param obj Reference to a source object
-	 */
-	wxSFPolygonShape(const wxSFPolygonShape& obj);
-	/*! \brief Destructor. */
-	virtual ~wxSFPolygonShape(void);
+     * \param obj Reference to a source object
+     */
+    wxSFPolygonShape(const wxSFPolygonShape& obj);
+    /*! \brief Destructor. */
+    virtual ~wxSFPolygonShape(void);
 
     // public data accessors
     /*!
@@ -60,107 +60,107 @@ public:
      */
     bool IsConnectedToVertex(){return m_fConnectToVertex;}
 
-	// public functions
-	/*!
+    // public functions
+    /*!
      * \brief Set the poly vertices which define its form.
-	 * \param n Number of the vertices
-	 * \param pts Array of the vertices
-	 */
-	void SetVertices(size_t n, const wxRealPoint pts[]);
+     * \param n Number of the vertices
+     * \param pts Array of the vertices
+     */
+    void SetVertices(size_t n, const wxRealPoint pts[]);
 
-	// public virtual functions
+    // public virtual functions
     /*!
      * \brief Resize the rectangle to bound all child shapes. The function can be overrided if neccessary. */
-	virtual void FitToChildren();
-	/*!
-	 * \brief Get intersection point of the shape border and a line leading from
-	 * 'start' point to 'end' point. The function can be overrided if neccessary.
-	 * \param start Starting point of the virtual intersection line
-     * \param end Ending point of the virtual intersection line
-	 * \return Intersection point
-	 */
-	virtual wxRealPoint GetBorderPoint(const wxRealPoint& start, const wxRealPoint& end);
+    virtual void FitToChildren();
     /*!
-	 * \brief Scale the shape size by in both directions. The function can be overrided if necessary
+     * \brief Get intersection point of the shape border and a line leading from
+     * 'start' point to 'end' point. The function can be overrided if neccessary.
+     * \param start Starting point of the virtual intersection line
+     * \param end Ending point of the virtual intersection line
+     * \return Intersection point
+     */
+    virtual wxRealPoint GetBorderPoint(const wxRealPoint& start, const wxRealPoint& end);
+    /*!
+     * \brief Scale the shape size by in both directions. The function can be overrided if necessary
      * (new implementation should call default one ore scale shape's children manualy if neccesary).
      * \param x Horizontal scale factor
      * \param y Vertical scale factor
      * \param children TRUE if the shape's children shoould be scaled as well, otherwise the shape will be updated after scaling via Update() function.
      */
-	virtual void Scale(double x, double y, bool children = sfWITHCHILDREN);
-	/*!
-	 * \brief Event handler called during dragging of the shape handle.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * \param handle Reference to dragged handle
-	 */
-	virtual void OnHandle(wxSFShapeHandle &handle);
+    virtual void Scale(double x, double y, bool children = sfWITHCHILDREN);
+    /*!
+     * \brief Event handler called during dragging of the shape handle.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * \param handle Reference to dragged handle
+     */
+    virtual void OnHandle(wxSFShapeHandle &handle);
 
 protected:
-	// protected data members
-	bool m_fConnectToVertex;
-	wxXS::RealPointArray m_arrVertices;
+    // protected data members
+    bool m_fConnectToVertex;
+    wxXS::RealPointArray m_arrVertices;
 
-	// protected functions
-	/*!
-	 * \brief Move all vertices so the polygon's relative bounding box position
-	 * will be located in the origin.
-	 */
-	void NormalizeVertices();
-	/*! \brief Scale polygon's vertices to fit into the rectangle bounding the polygon. */
-	void FitVerticesToBoundingBox();
-	/*! \brief Scale the bounding rectangle to fit all polygons vertices. */
-	void FitBoundingBoxToVertices();
-	/*!
-	 * \brief Get polygon extents.
-	 * \param minx Position of the left side of polygon's bounding box
-	 * \param miny Position of the top side of polygon's bounding box
-	 * \param maxx Position of the right side of polygon's bounding box
-	 * \param maxy Position of the bottom side of polygon's bounding box
-	 */
-	void GetExtents(double *minx, double *miny, double *maxx, double *maxy);
-	/*!
-	 * \brief Get absolute positions of the polygon's vertices.
-	 * \param pts Array of translated polygon's verices
-	 */
-	void GetTranslatedVerices(wxRealPoint pts[]);
-	/*!
-	 * \brief Get absolute positions of the polygon's vertices.
-	 * \param pts Array of translated polygon's verices
-	 */
-	void GetTranslatedVerices(wxPoint pts[]);
+    // protected functions
+    /*!
+     * \brief Move all vertices so the polygon's relative bounding box position
+     * will be located in the origin.
+     */
+    void NormalizeVertices();
+    /*! \brief Scale polygon's vertices to fit into the rectangle bounding the polygon. */
+    void FitVerticesToBoundingBox();
+    /*! \brief Scale the bounding rectangle to fit all polygons vertices. */
+    void FitBoundingBoxToVertices();
+    /*!
+     * \brief Get polygon extents.
+     * \param minx Position of the left side of polygon's bounding box
+     * \param miny Position of the top side of polygon's bounding box
+     * \param maxx Position of the right side of polygon's bounding box
+     * \param maxy Position of the bottom side of polygon's bounding box
+     */
+    void GetExtents(double *minx, double *miny, double *maxx, double *maxy);
+    /*!
+     * \brief Get absolute positions of the polygon's vertices.
+     * \param pts Array of translated polygon's verices
+     */
+    void GetTranslatedVerices(wxRealPoint pts[]);
+    /*!
+     * \brief Get absolute positions of the polygon's vertices.
+     * \param pts Array of translated polygon's verices
+     */
+    void GetTranslatedVerices(wxPoint pts[]);
 
     /*!
-	 * \brief Draw the polygon shape.
+     * \brief Draw the polygon shape.
      * \param dc Refernece to the device context where the shape will be drawn to
      */
-	void DrawPolygonShape(wxDC& dc);
+    void DrawPolygonShape(wxDC& dc);
 
-	// protected virtual functions
-	/*!
-	 * \brief Draw the shape in the normal way. The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawNormal(wxDC& dc);
-	/*!
-	 * \brief Draw the shape in the hower mode (the mouse cursor is above the shape).
-	 * The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawHover(wxDC& dc);
-	/*!
-	 * \brief Draw the shape in the highlighted mode (another shape is dragged over this
-	 * shape and this shape will accept the dragged one if it will be dropped on it).
-	 * The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawHighlighted(wxDC& dc);
-	/*!
-	 * \brief Draw shadow under the shape. The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shadow will be drawn to
-	 */
-	virtual void DrawShadow(wxDC& dc);
+    // protected virtual functions
+    /*!
+     * \brief Draw the shape in the normal way. The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawNormal(wxDC& dc);
+    /*!
+     * \brief Draw the shape in the hower mode (the mouse cursor is above the shape).
+     * The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawHover(wxDC& dc);
+    /*!
+     * \brief Draw the shape in the highlighted mode (another shape is dragged over this
+     * shape and this shape will accept the dragged one if it will be dropped on it).
+     * The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawHighlighted(wxDC& dc);
+    /*!
+     * \brief Draw shadow under the shape. The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shadow will be drawn to
+     */
+    virtual void DrawShadow(wxDC& dc);
 
     /*!
      * \brief Serialize shape's properties to the given XML node. The serialization
@@ -169,7 +169,7 @@ protected:
      * \param node Pointer to XML node where the shape's property nodes will be appended to
      * \sa xsSerializable::Serialize
      */
-	virtual wxXmlNode* Serialize(wxXmlNode* node);
+    virtual wxXmlNode* Serialize(wxXmlNode* node);
     /*!
      * \brief Deserialize shape's properties from the given XML node. The
      * routine is automatically called by the framework and should take care about deserialization
@@ -177,14 +177,14 @@ protected:
      * \param node Pointer to a source XML node containig the shape's property nodes
      * \sa xsSerializable::Deserialize
      */
-	virtual void Deserialize(wxXmlNode* node);
+    virtual void Deserialize(wxXmlNode* node);
 
 private:
 
-	// private functions
+    // private functions
 
-	 /*! \brief Initialize serializable properties. */
-	void MarkSerializableDataMembers();
+     /*! \brief Initialize serializable properties. */
+    void MarkSerializableDataMembers();
 };
 
 #endif //_WXSFPOLYGONSHAPE_H

@@ -522,7 +522,7 @@ private: // The target needs to manage adding & removing names.  It will do the
     if (name_to_remove)
       m_name_list.erase(name_to_remove);
   }
-  
+
 public:
   bool MatchesName(const char *name) {
     return m_name_list.find(name) != m_name_list.end();
@@ -554,14 +554,14 @@ public:
   lldb::BreakpointPreconditionSP GetPrecondition() { return m_precondition_sp; }
 
   // Produces the OR'ed values for all the names assigned to this breakpoint.
-  const BreakpointName::Permissions &GetPermissions() const { 
-      return m_permissions; 
+  const BreakpointName::Permissions &GetPermissions() const {
+      return m_permissions;
   }
 
-  BreakpointName::Permissions &GetPermissions() { 
-      return m_permissions; 
+  BreakpointName::Permissions &GetPermissions() {
+      return m_permissions;
   }
-  
+
   bool AllowList() const {
     return GetPermissions().GetAllowList();
   }

@@ -67,10 +67,10 @@ public:
   std::string GetAsString(llvm::StringRef separator = "-") const;
 
   size_t SetFromStringRef(llvm::StringRef str, uint32_t num_uuid_bytes = 16);
-  
-  // Same as SetFromStringRef, but if the resultant UUID is all 0 bytes, set the 
+
+  // Same as SetFromStringRef, but if the resultant UUID is all 0 bytes, set the
   // UUID to invalid.
-  size_t SetFromOptionalStringRef(llvm::StringRef str, 
+  size_t SetFromOptionalStringRef(llvm::StringRef str,
                                   uint32_t num_uuid_bytes = 16);
 
   // Decode as many UUID bytes (up to 16) as possible from the C string "cstr"

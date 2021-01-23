@@ -56,7 +56,7 @@ public:
     bool m_isPureVirtual;
     bool m_isConst;
     std::string m_throws;
-    
+
 public:
     clFunction();
     virtual ~clFunction();

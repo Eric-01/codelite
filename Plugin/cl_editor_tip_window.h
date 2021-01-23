@@ -54,7 +54,7 @@ protected:
     wxArrayString m_args;
     wxString m_footer; // the line that says  "1 of 2"
     wxString m_header; // The return value line
-    
+
 protected:
     wxSize DoGetTipSize();
     int DoGetTextLen(wxDC& dc, const wxString& txt);

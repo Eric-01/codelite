@@ -11,8 +11,8 @@
 
 namespace std
 {
-    template <> 
-    struct hash<wxString> 
+    template <>
+    struct hash<wxString>
     {
         std::size_t operator()(const wxString& s) const { return hash<std::wstring>{}(s.ToStdWstring()); }
     };

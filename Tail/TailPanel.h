@@ -54,7 +54,7 @@ public:
 
     void SetFrame(TailFrame* frame) { this->m_frame = frame; }
     TailFrame* GetFrame() { return m_frame; }
-    
+
     /**
      * @brief duplicate the settings from src into this tail panel
      */

@@ -241,11 +241,11 @@ void SvnConsole::OnCharAdded(wxStyledTextEvent& event)
 void SvnConsole::OnUpdateUI(wxStyledTextEvent& event)
 {
     // if(m_sci->GetCurrentPos() < m_inferiorEnd) {
-    //	m_sci->SetCurrentPos(m_inferiorEnd);
-    //	m_sci->SetSelectionStart(m_inferiorEnd);
-    //	m_sci->SetSelectionEnd(m_inferiorEnd);
-    //	m_sci->EnsureCaretVisible();
-    //}
+    // m_sci->SetCurrentPos(m_inferiorEnd);
+    // m_sci->SetSelectionStart(m_inferiorEnd);
+    // m_sci->SetSelectionEnd(m_inferiorEnd);
+    // m_sci->EnsureCaretVisible();
+    // }
     event.Skip();
 }
 

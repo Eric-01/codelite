@@ -8,15 +8,15 @@ extern "C" {
 #include <sys/types.h>
 
 typedef struct list_node {
-	struct list_node *next;
-	struct list_node *prev;
-	void *data;
+    struct list_node *next;
+    struct list_node *prev;
+    void *data;
 } list_node_t;
 
 typedef struct tag_list {
-	list_node_t *head;
-	list_node_t *last;
-	size_t size;
+    list_node_t *head;
+    list_node_t *last;
+    size_t size;
 } list_t;
 
 /**

@@ -167,27 +167,27 @@ function posix_getsid ($pid) {}
  * @link http://www.php.net/manual/en/function.posix-uname.php
  * @return array a hash of strings with information about the
  *   system. The indices of the hash are
- *   
- *    
+ *
+ *
  *      sysname - operating system name (e.g. Linux)
- *     
- *    
+ *
+ *
  *      nodename - system name (e.g. valiant)
- *     
- *    
+ *
+ *
  *      release - operating system release (e.g. 2.2.10)
- *     
- *    
+ *
+ *
  *      version - operating system version (e.g. #4 Tue Jul 20
  *      17:01:36 MEST 1999)
- *     
- *    
+ *
+ *
  *      machine - system architecture (e.g. i586)
- *     
- *    
+ *
+ *
  *      domainname - DNS domainname (e.g. example.com)
- *     
- *   
+ *
+ *
  *  </p>
  *  <p>
  *   domainname is a GNU extension and not part of POSIX.1, so this
@@ -201,30 +201,30 @@ function posix_uname () {}
  * @link http://www.php.net/manual/en/function.posix-times.php
  * @return array a hash of strings with information about the current
  *   process CPU usage. The indices of the hash are:
- *   
- *    
- *     
+ *
+ *
+ *
  *      ticks - the number of clock ticks that have elapsed since
  *      reboot.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      utime - user time used by the current process.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      stime - system time used by the current process.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      cutime - user time used by current process and children.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      cstime - system time used by current process and children.
  */
 function posix_times () {}
@@ -232,7 +232,7 @@ function posix_times () {}
 /**
  * Get path name of controlling terminal
  * @link http://www.php.net/manual/en/function.posix-ctermid.php
- * @return string Upon successful completion, returns string of the pathname to 
+ * @return string Upon successful completion, returns string of the pathname to
  *   the current controlling terminal.  Otherwise false is returned and errno
  *   is set, which can be checked with posix_get_last_error.
  */
@@ -241,7 +241,7 @@ function posix_ctermid () {}
 /**
  * Determine terminal device name
  * @link http://www.php.net/manual/en/function.posix-ttyname.php
- * @param fd mixed 
+ * @param fd mixed
  * @return string On success, returns a string of the absolute path of the
  *   fd. On failure, returns false
  */
@@ -250,7 +250,7 @@ function posix_ttyname ($fd) {}
 /**
  * Determine if a file descriptor is an interactive terminal
  * @link http://www.php.net/manual/en/function.posix-isatty.php
- * @param fd mixed 
+ * @param fd mixed
  * @return bool true if fd is an open descriptor connected
  *   to a terminal and false otherwise.
  */
@@ -259,7 +259,7 @@ function posix_isatty ($fd) {}
 /**
  * Pathname of current directory
  * @link http://www.php.net/manual/en/function.posix-getcwd.php
- * @return string a string of the absolute pathname on success.  
+ * @return string a string of the absolute pathname on success.
  *   On error, returns false and sets errno which can be checked with
  *   posix_get_last_error.
  */
@@ -335,14 +335,14 @@ function posix_access ($file, $mode = null) {}
  * @return array The array elements returned are:
  *   <table>
  *    The group information array
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Element</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>name</td>
  *       <td>
@@ -374,8 +374,8 @@ function posix_access ($file, $mode = null) {}
  *        string's for all the members in the group.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function posix_getgrnam ($name) {}
@@ -389,14 +389,14 @@ function posix_getgrnam ($name) {}
  * @return array The array elements returned are:
  *   <table>
  *    The group information array
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Element</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>name</td>
  *       <td>
@@ -428,8 +428,8 @@ function posix_getgrnam ($name) {}
  *        string's for all the members in the group.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function posix_getgrgid ($gid) {}
@@ -440,18 +440,18 @@ function posix_getgrgid ($gid) {}
  * @param username string <p>
  *       An alphanumeric username.
  *      </p>
- * @return array On success an array with the following elements is returned, else 
+ * @return array On success an array with the following elements is returned, else
  *   false is returned:
  *   <table>
  *    The user information array
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Element</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>name</td>
  *       <td>
@@ -510,8 +510,8 @@ function posix_getgrgid ($gid) {}
  *        executable of the user's default shell.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function posix_getpwnam ($username) {}
@@ -525,14 +525,14 @@ function posix_getpwnam ($username) {}
  * @return array an associative array with the following elements:
  *   <table>
  *    The user information array
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Element</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>name</td>
  *       <td>
@@ -591,8 +591,8 @@ function posix_getpwnam ($username) {}
  *        executable of the user's default shell.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function posix_getpwuid ($uid) {}
@@ -604,14 +604,14 @@ function posix_getpwuid ($uid) {}
  *   limit that is defined. Each limit has a soft and a hard limit.
  *   <table>
  *    List of possible limits returned
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Limit name</td>
  *       <td>Limit description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>core</td>
  *       <td>
@@ -631,7 +631,7 @@ function posix_getpwuid ($uid) {}
  *       <td>
  *        The maximum size of the virtual memory for the process, in bytes.
  *       </td>
- *      </tr> 
+ *      </tr>
  *      <tr valign="top">
  *       <td>data</td>
  *       <td>
@@ -681,8 +681,8 @@ function posix_getpwuid ($uid) {}
  *        One more than the maximum number of open file descriptors.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function posix_getrlimit () {}
@@ -705,7 +705,7 @@ function posix_errno () {}
  * Retrieve the system error message associated with the given errno
  * @link http://www.php.net/manual/en/function.posix-strerror.php
  * @param errno int <p>
- *       A POSIX error number, returned by 
+ *       A POSIX error number, returned by
  *       posix_get_last_error. If set to 0, then the
  *       string "Success" is returned.
  *      </p>

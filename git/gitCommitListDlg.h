@@ -63,7 +63,7 @@ protected:
     virtual void OnPreviousUI(wxUpdateUIEvent& event);
     virtual void OnSearchCommitList(wxCommandEvent& event);
     void DoLoadCommits(const wxString& filter);
-	void ClearAll(bool includingCommitlist = true);
+    void ClearAll(bool includingCommitlist = true);
     wxString GetFilterString() const;
 
 public:

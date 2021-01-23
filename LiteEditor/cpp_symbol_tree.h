@@ -44,7 +44,7 @@ public:
 
     /// destructor
     virtual ~CppSymbolTree(){};
-    
+
     /**
      * @brief emulate user activated the selected item
      */

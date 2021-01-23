@@ -67,32 +67,32 @@ function xml_set_object ($parser, &$object) {}
  * @param start_element_handler callable <p>
  *       The function named by start_element_handler
  *       must accept three parameters:
- *       
+ *
  *        start_element_handler
  *        resourceparser
  *        stringname
  *        arrayattribs
- *       
- *       
- *        
- *         parser 
- *         
- *          
+ *
+ *
+ *
+ *         parser
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @param end_element_handler callable <p>
  *       The function named by end_element_handler
  *       must accept two parameters:
- *       
+ *
  *        end_element_handler
  *        resourceparser
  *        stringname
- *       
- *       
- *        
- *         parser 
- *         
- *          
+ *
+ *
+ *
+ *         parser
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -113,16 +113,16 @@ function xml_set_element_handler ($parser, $start_element_handler, $end_element_
  *      <p>
  *       The function named by handler must accept
  *       two parameters:
- *       
+ *
  *        handler
  *        resourceparser
  *        stringdata
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -143,17 +143,17 @@ function xml_set_character_data_handler ($parser, $handler) {}
  *      <p>
  *       The function named by handler must accept
  *       three parameters:
- *       
+ *
  *        handler
  *        resourceparser
  *        stringtarget
  *        stringdata
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -174,18 +174,18 @@ function xml_set_processing_instruction_handler ($parser, $handler) {}
  *      <p>
  *       The function named by handler must accept
  *       two parameters:
- *       
+ *
  *        handler
  *        resourceparser
  *        stringdata
- *       
- *       
- *        
- *         
+ *
+ *
+ *
+ *
  *          parser
- *          
- *         
- *          
+ *
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -206,7 +206,7 @@ function xml_set_default_handler ($parser, $handler) {}
  *      <p>
  *       The function named by handler must accept six
  *       parameters:
- *       
+ *
  *        handler
  *        resourceparser
  *        stringentity_name
@@ -214,12 +214,12 @@ function xml_set_default_handler ($parser, $handler) {}
  *        stringsystem_id
  *        stringpublic_id
  *        stringnotation_name
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the
  *           handler.
@@ -241,21 +241,21 @@ function xml_set_unparsed_entity_decl_handler ($parser, $handler) {}
  *      <p>
  *       The function named by handler must accept
  *       five parameters:
- *       
+ *
  *        handler
  *        resourceparser
  *        stringnotation_name
  *        stringbase
  *        stringsystem_id
  *        stringpublic_id
- *       
- *       
- *        
- *         
+ *
+ *
+ *
+ *
  *          parser
- *          
- *         
- *          
+ *
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -280,19 +280,19 @@ function xml_set_notation_decl_handler ($parser, $handler) {}
  *       value is returned), the XML parser will stop parsing and
  *       xml_get_error_code will return
  *       XML_ERROR_EXTERNAL_ENTITY_HANDLING.
- *       
+ *
  *        handler
  *        resourceparser
  *        stringopen_entity_names
  *        stringbase
  *        stringsystem_id
  *        stringpublic_id
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -317,17 +317,17 @@ function xml_set_external_entity_ref_handler ($parser, $handler) {}
  *       value is returned), the XML parser will stop parsing and
  *       xml_get_error_code will return
  *       XML_ERROR_EXTERNAL_ENTITY_HANDLING.
- *       
+ *
  *        handler
  *        resourceparser
  *        stringprefix
  *        stringuri
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -352,16 +352,16 @@ function xml_set_start_namespace_decl_handler ($parser, $handler) {}
  *       value is returned), the XML parser will stop parsing and
  *       xml_get_error_code will return
  *       XML_ERROR_EXTERNAL_ENTITY_HANDLING.
- *       
+ *
  *        handler
  *        resourceparser
  *        stringprefix
- *       
- *       
- *        
+ *
+ *
+ *
  *         parser
- *         
- *          
+ *
+ *
  *           The first parameter, parser, is a
  *           reference to the XML parser calling the handler.
  * @return bool Returns true on success, false on failure.
@@ -394,7 +394,7 @@ function xml_set_end_namespace_decl_handler ($parser, $handler) {}
  *   xml_get_current_column_number and
  *   xml_get_current_byte_index.
  *  </p>
- *  
+ *
  *   <p>
  *    Entity errors are reported at the end of the data thus only if
  *    is_final is set and true.
@@ -506,15 +506,15 @@ function xml_parser_free ($parser) {}
  *       The following options are available:
  *       <table>
  *        XML parser options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Option constant</td>
  *           <td>Data type</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>XML_OPTION_CASE_FOLDING</td>
  *           <td>integer</td>
@@ -525,7 +525,7 @@ function xml_parser_free ($parser) {}
  *          </tr>
  *          <tr valign="top">
  *           <td>XML_OPTION_SKIP_TAGSTART</td>
- *           <td>integer</td> 
+ *           <td>integer</td>
  *           <td>
  *            Specify how many characters should be skipped in the beginning of a
  *            tag name.
@@ -533,14 +533,14 @@ function xml_parser_free ($parser) {}
  *          </tr>
  *          <tr valign="top">
  *           <td>XML_OPTION_SKIP_WHITE</td>
- *           <td>integer</td> 
+ *           <td>integer</td>
  *           <td>
  *            Whether to skip values consisting of whitespace characters.
  *           </td>
  *          </tr>
  *          <tr valign="top">
  *           <td>XML_OPTION_TARGET_ENCODING</td>
- *           <td>string</td> 
+ *           <td>string</td>
  *           <td>
  *            Sets which target encoding to
  *            use in this XML parser.By default, it is set to the same as the
@@ -549,8 +549,8 @@ function xml_parser_free ($parser) {}
  *            US-ASCII and UTF-8.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param value mixed <p>

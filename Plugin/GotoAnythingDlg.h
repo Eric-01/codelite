@@ -24,7 +24,7 @@ class WXDLLIMPEXP_SDK GotoAnythingDlg : public GotoAnythingBaseDlg
     const std::vector<clGotoEntry>& m_allEntries;
     wxString m_currentFilter;
     clThemedListCtrl::BitmapVec_t m_bitmaps;
-    
+
 protected:
     virtual void OnItemActivated(wxDataViewEvent& event);
     // GotoAnythingItemData* GetSelectedItemData();

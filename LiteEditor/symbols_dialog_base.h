@@ -54,26 +54,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 class SymbolsDialogBase : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxListCtrl* m_results;
-		wxStaticLine* statLine;
-		wxButton* m_okButton;
-		wxButton* m_cancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnItemActivated( wxListEvent& event ){ event.Skip(); }
-		virtual void OnItemSelected( wxListEvent& event ){ event.Skip(); }
-		virtual void OnButtonOK( wxCommandEvent& event ){ event.Skip(); }
-		virtual void OnButtonCancel( wxCommandEvent& event ){ event.Skip(); }
-		
-	
-	public:
-		
-		SymbolsDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Resolve Ambiguity"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 851,428 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
-		~SymbolsDialogBase();
-	
+    private:
+    
+    protected:
+        wxListCtrl* m_results;
+        wxStaticLine* statLine;
+        wxButton* m_okButton;
+        wxButton* m_cancel;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnItemActivated( wxListEvent& event ){ event.Skip(); }
+        virtual void OnItemSelected( wxListEvent& event ){ event.Skip(); }
+        virtual void OnButtonOK( wxCommandEvent& event ){ event.Skip(); }
+        virtual void OnButtonCancel( wxCommandEvent& event ){ event.Skip(); }
+        
+    
+    public:
+        
+        SymbolsDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Resolve Ambiguity"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 851,428 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+        ~SymbolsDialogBase();
+    
 };
 
 #endif //__symbols_dialog_base__

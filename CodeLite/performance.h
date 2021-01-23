@@ -75,8 +75,8 @@
 
     extern WXDLLIMPEXP_CL void PERF_START(const char* func_name);
     extern WXDLLIMPEXP_CL void PERF_END();
-	extern WXDLLIMPEXP_CL void PERF_OUTPUT(const char* path);
-	
+    extern WXDLLIMPEXP_CL void PERF_OUTPUT(const char* path);
+    
     struct WXDLLIMPEXP_CL PERF_CLASS {
         PERF_CLASS(const char *name) : count(0) { PERF_START(name); }
         ~PERF_CLASS()                           { PERF_END();       }
@@ -90,10 +90,10 @@
 
 #else 
 
-	#define PERF_START(func_name)
-	#define PERF_END()
-	#define PERF_OUTPUT(path)
-	#define PERF_FUNCTION()
+    #define PERF_START(func_name)
+    #define PERF_END()
+    #define PERF_OUTPUT(path)
+    #define PERF_FUNCTION()
     #define PERF_REPEAT(nm,n)
     #define PERF_BLOCK(nm)
     

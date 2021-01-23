@@ -27,25 +27,25 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFOpenArrow, wxSFArrowBase);
 wxSFOpenArrow::wxSFOpenArrow(void)
 : wxSFArrowBase()
 {
-	m_Pen = sfdvARROW_BORDER;
-	
-	XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
+    m_Pen = sfdvARROW_BORDER;
+
+    XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
 }
 
 wxSFOpenArrow::wxSFOpenArrow(wxSFShapeBase* parent)
 : wxSFArrowBase(parent)
 {
-	m_Pen = sfdvARROW_BORDER;
-	
-	XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
+    m_Pen = sfdvARROW_BORDER;
+
+    XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
 }
 
 wxSFOpenArrow::wxSFOpenArrow(const wxSFOpenArrow& obj)
 : wxSFArrowBase(obj)
 {
-	m_Pen = obj.m_Pen;
-	
-	XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
+    m_Pen = obj.m_Pen;
+
+    XS_SERIALIZE_EX(m_Pen, wxT("arrow_style"), sfdvARROW_BORDER);
 }
 
 wxSFOpenArrow::~wxSFOpenArrow(void)
@@ -58,12 +58,12 @@ wxSFOpenArrow::~wxSFOpenArrow(void)
 
 void wxSFOpenArrow::Draw(const wxRealPoint &from, const wxRealPoint &to, wxDC& dc)
 {
-	wxPoint rarrow[3];
-	
-	TranslateArrow( rarrow, openArrow, 3, from, to );
+    wxPoint rarrow[3];
 
-	dc.SetPen( m_Pen );
-	dc.DrawLine(rarrow[0], rarrow[1]);
+    TranslateArrow( rarrow, openArrow, 3, from, to );
+
+    dc.SetPen( m_Pen );
+    dc.DrawLine(rarrow[0], rarrow[1]);
     dc.DrawLine(rarrow[0], rarrow[2]);
-	dc.SetPen( wxNullPen );
+    dc.SetPen( wxNullPen );
 }

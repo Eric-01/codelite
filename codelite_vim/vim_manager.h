@@ -52,7 +52,7 @@ protected:
     void updateCarret();
     void updateMessageModus();
     void updateVimMessage();
-    
+
 private:
     wxStatusBar* status_vim;
     VimSettings& m_settings;
@@ -65,7 +65,7 @@ private:
     int m_caretInsertStyle;
     int m_caretBlockStyle;
     std::vector<VimBaseCommand*> m_editorStates;
-	
+
     void IssueCommand();
     void updateView();
     void RepeatCommand();

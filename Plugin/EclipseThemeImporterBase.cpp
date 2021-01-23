@@ -69,7 +69,7 @@ EclipseThemeImporterBase::InitializeImport(const wxFileName& eclipseXml, const w
     if(!GetProperty("javadocKeyword", m_javadocKeyword)) {
         m_javadocKeyword = m_multiLineComment;
     }
-    
+
     m_oper = m_foreground;
     return lexer;
 }
@@ -194,6 +194,6 @@ void EclipseThemeImporterBase::DoSetKeywords(wxString& wordset, const wxString& 
     wordset.clear();
     wxArrayString arr = ::wxStringTokenize(words, " \t\n", wxTOKEN_STRTOK);
     arr.Sort();
-    
+
     wordset = ::wxJoin(arr, ' ');
 }

@@ -61,7 +61,7 @@ protected:
     void DoUpdateView();
     void DoFieldClicked(int fieldIndex);
     int GetTextWidth(const wxString& text) const;
-    
+
 public:
     clStatusBar(wxWindow* parent, IManager* mgr);
     virtual ~clStatusBar();

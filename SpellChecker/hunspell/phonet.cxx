@@ -4,12 +4,12 @@
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
     License version 2.1 as published by the Free Software Foundation;
- 
+
     This library is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
- 
+
     You should have received a copy of the GNU Lesser General Public
     License along with this library; If not, see
     <http://www.gnu.org/licenses/>.
@@ -21,21 +21,21 @@
                 transformations out of c't 25/1999
 
     2007-07-26  Bjoern Jacke <bjoern at j3e.de>
-		Released under MPL/GPL/LGPL tri-license for Hunspell
-		
+        Released under MPL/GPL/LGPL tri-license for Hunspell
+
     2007-08-23  Laszlo Nemeth <nemeth at OOo>
                 Porting from Aspell to Hunspell using C-like structs
 */
 
-#include <stdlib.h> 
+#include <stdlib.h>
 #include <string.h>
-#include <stdio.h> 
+#include <stdio.h>
 #include <ctype.h>
 
 #include "csutil.hxx"
 #include "phonet.hxx"
 
-void init_phonet_hash(phonetable & parms) 
+void init_phonet_hash(phonetable & parms)
   {
     int i, k;
 
@@ -48,7 +48,7 @@ void init_phonet_hash(phonetable & parms)
       k = (unsigned char) parms.rules[i][0];
 
       if (parms.hash[k] < 0) {
-	parms.hash[k] = i;
+    parms.hash[k] = i;
       }
     }
   }
@@ -56,7 +56,7 @@ void init_phonet_hash(phonetable & parms)
 // like strcpy but safe if the strings overlap
 //   but only if dest < src
 static inline void strmove(char * dest, char * src) {
-  while (*src) 
+  while (*src)
     *dest++ = *src++;
   *dest = '\0';
 }
@@ -71,7 +71,7 @@ static int myisalpha(char ch) {
 /*  convert string to uppercase before this call       */
 int phonet (const char * inword, char * target,
               int len,
-	      phonetable & parms)
+          phonetable & parms)
   {
     /**       Do phonetic transformation.       **/
     /**  "len" = length of "inword" incl. '\0'. **/
@@ -83,12 +83,12 @@ int phonet (const char * inword, char * target,
     int  k0,n0,p0=-333,z0;
     char c, c0;
     const char * s;
-    typedef unsigned char uchar;    
+    typedef unsigned char uchar;
     char word[MAXPHONETUTF8LEN + 1];
     if (len == -1) len = strlen(inword);
     if (len > MAXPHONETUTF8LEN) return 0;
     strcpy(word, inword);
-  
+
     /**  check word  **/
     i = j = z = 0;
     while ((c = word[i]) != '\0') {
@@ -104,7 +104,7 @@ int phonet (const char * inword, char * target,
           p = 5;   /** default priority  **/
           s = parms.rules[n];
           s++;     /**  important for (see below)  "*(s-1)"  **/
-          
+
           while (*s != '\0'  &&  word[i+k] == *s
                  &&  !isdigit ((unsigned char) *s)  &&  strchr ("(-<^$", *s) == NULL) {
             k++;
@@ -137,13 +137,13 @@ int phonet (const char * inword, char * target,
             s++;
 
           if (*s == '\0'
-              || (*s == '^'  
+              || (*s == '^'
                   && (i == 0  ||  ! myisalpha(word[i-1]))
                   && (*(s+1) != '$'
                       || (! myisalpha(word[i+k0]) )))
-              || (*s == '$'  &&  i > 0  
+              || (*s == '$'  &&  i > 0
                   &&  myisalpha(word[i-1])
-                  && (! myisalpha(word[i+k0]) ))) 
+                  && (! myisalpha(word[i+k0]) )))
           {
             /**  search for followup rules, if:     **/
             /**  parms.followup and k > 1  and  NO '-' in searchstring **/
@@ -191,7 +191,7 @@ int phonet (const char * inword, char * target,
 
                 if (*s == '\0'
                     /**  *s == '^' cuts  **/
-                    || (*s == '$'  &&  ! myisalpha(word[i+k0]))) 
+                    || (*s == '$'  &&  ! myisalpha(word[i+k0])))
                 {
                   if (k0 == k) {
                     /**  this is just a piece of the string  **/
@@ -276,13 +276,13 @@ int phonet (const char * inword, char * target,
            && (1 || j == 0  ||  target[j-1] != c)){
            /**  condense only double letters  **/
           target[j] = c;
-	  ///printf("\n setting \n");
+      ///printf("\n setting \n");
           j++;
         }
 
         i++;
         z = 0;
-	k=0;
+    k=0;
       }
     }  /**  end of   while ((c = word[i]) != '\0')  **/
 

@@ -34,7 +34,7 @@ public:
     LLDBSettingDialog(wxWindow* parent);
     virtual ~LLDBSettingDialog();
     void Save();
-    
+
 protected:
     virtual void OnApply(wxCommandEvent& event);
     virtual void OnAdvancedValueChanged(wxPropertyGridEvent& event);

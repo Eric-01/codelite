@@ -64,7 +64,7 @@ protected:
     bool m_xmlCcEnabled;
     bool m_htmlCcEnabeld;
     WebTools* m_plugin = nullptr;
-    
+
 protected:
     void PrepareHtmlCompletions();
     wxString GetCompletePattern(const wxString& tag) const;

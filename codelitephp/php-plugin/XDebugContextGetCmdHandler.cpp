@@ -26,7 +26,7 @@ void XDebugContextGetCmdHandler::Process(const wxXmlNode* response)
         }
         child = child->GetNext();
     }
-    
+
     XDebugEvent event(wxEVT_XDEBUG_LOCALS_UPDATED);
     event.SetVariables( variables );
     EventNotifier::Get()->AddPendingEvent( event );

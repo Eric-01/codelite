@@ -16,7 +16,7 @@ class clDockerImage : public wxClientData
 public:
     clDockerImage();
     virtual ~clDockerImage();
-    
+
     void SetCreated(const wxString& created) { this->m_created = created; }
     void SetId(const wxString& id) { this->m_id = id; }
     void SetRepository(const wxString& repository) { this->m_repository = repository; }

@@ -117,7 +117,7 @@ void CompileCommandsGenerator::GenerateCompileCommands()
     // Kill any previous process running
     if(m_process) { m_process->Detach(); }
     wxDELETE(m_process);
-    
+
     if(!clCxxWorkspaceST::Get()->IsOpen()) { return; }
     if(!clCxxWorkspaceST::Get()->GetActiveProject()) { return; }
 

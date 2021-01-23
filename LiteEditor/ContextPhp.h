@@ -34,7 +34,7 @@ public:
     ContextPhp();
     ContextPhp(clEditor *Editor);
     virtual ~ContextPhp();
-    
+
 public:
     bool IsStringTriggerCodeComplete(const wxString& str) const;
     virtual int GetActiveKeywordSet() const;
@@ -68,7 +68,7 @@ public:
     virtual bool IsAtBlockComment() const;
     virtual bool IsAtLineComment() const;
     void ProcessIdleActions();
-    
+
 };
 
 #endif // CONTEXTPHP_H

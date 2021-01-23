@@ -93,15 +93,15 @@ int parseFile(const std::string& filename, const std::string &modifiedBuffer, CX
     }
 
     // Report diagnostics to the log file
-//	const unsigned diagCount = clang_getNumDiagnostics(*unit);
-//	for(unsigned i=0; i<diagCount; i++) {
-//		CXDiagnostic diag = clang_getDiagnostic(*unit, i);
-//		CXDiagnosticSeverity severity = clang_getDiagnosticSeverity(diag);
-//		CXString diagStr  = clang_formatDiagnostic(diag, clang_defaultDiagnosticDisplayOptions());
-//		printf("%s\n", clang_getCString(diagStr));
-//		clang_disposeString(diagStr);
-//		clang_disposeDiagnostic(diag);
-//	}
+//  const unsigned diagCount = clang_getNumDiagnostics(*unit);
+//  for(unsigned i=0; i<diagCount; i++) {
+//      CXDiagnostic diag = clang_getDiagnostic(*unit, i);
+//      CXDiagnosticSeverity severity = clang_getDiagnosticSeverity(diag);
+//      CXString diagStr  = clang_formatDiagnostic(diag, clang_defaultDiagnosticDisplayOptions());
+//      printf("%s\n", clang_getCString(diagStr));
+//      clang_disposeString(diagStr);
+//      clang_disposeDiagnostic(diag);
+//  }
 
     int status = clang_reparseTranslationUnit(*unit, 0, NULL, clang_defaultReparseOptions(*unit));
     if(status != 0) {
@@ -169,50 +169,50 @@ enum CXChildVisitResult VisitorCallback(CXCursor Cursor,
         return CXChildVisit_Break;
     }
 
-//	displayCursorInfo(Parent);
-//	if(Cursor.kind == CXCursor_MacroDefinition ) {
-//		CXTranslationUnit TU = (CXTranslationUnit)ClientData;
-//		CXSourceRange range = clang_getCursorExtent(Cursor);
+//  displayCursorInfo(Parent);
+//  if(Cursor.kind == CXCursor_MacroDefinition ) {
+//      CXTranslationUnit TU = (CXTranslationUnit)ClientData;
+//      CXSourceRange range = clang_getCursorExtent(Cursor);
 //
-//		unsigned  num_tokens;
-//		CXToken*  tokens;
-//		CXCursor* cursors = 0;
-//		clang_tokenize(TU, range, &tokens, &num_tokens);
+//      unsigned  num_tokens;
+//      CXToken*  tokens;
+//      CXCursor* cursors = 0;
+//      clang_tokenize(TU, range, &tokens, &num_tokens);
 //
-//		cursors = (CXCursor *)malloc(num_tokens * sizeof(CXCursor));
-//		clang_annotateTokens(TU, tokens, num_tokens, cursors);
+//      cursors = (CXCursor *)malloc(num_tokens * sizeof(CXCursor));
+//      clang_annotateTokens(TU, tokens, num_tokens, cursors);
 //
-//		for (unsigned i = 0; i != num_tokens; ++i) {
-//			CXString str = clang_getTokenSpelling(TU, tokens[i]);
-//			printf("%s\n", clang_getCString(str));
-//			clang_disposeString(str);
-//		}
+//      for (unsigned i = 0; i != num_tokens; ++i) {
+//          CXString str = clang_getTokenSpelling(TU, tokens[i]);
+//          printf("%s\n", clang_getCString(str));
+//          clang_disposeString(str);
+//      }
 //
-//		free(cursors);
-//		clang_disposeTokens(TU, tokens, num_tokens);
-//	} else if(Cursor.kind == CXCursor_FunctionDecl) {
-//		CXTranslationUnit TU = (CXTranslationUnit)ClientData;
-//		CXSourceRange range = clang_getCursorExtent(Cursor);
+//      free(cursors);
+//      clang_disposeTokens(TU, tokens, num_tokens);
+//  } else if(Cursor.kind == CXCursor_FunctionDecl) {
+//      CXTranslationUnit TU = (CXTranslationUnit)ClientData;
+//      CXSourceRange range = clang_getCursorExtent(Cursor);
 //
-//		unsigned  num_tokens;
-//		CXToken*  tokens;
-//		CXCursor* cursors = 0;
-//		clang_tokenize(TU, range, &tokens, &num_tokens);
+//      unsigned  num_tokens;
+//      CXToken*  tokens;
+//      CXCursor* cursors = 0;
+//      clang_tokenize(TU, range, &tokens, &num_tokens);
 //
-//		cursors = (CXCursor *)malloc(num_tokens * sizeof(CXCursor));
-//		clang_annotateTokens(TU, tokens, num_tokens, cursors);
+//      cursors = (CXCursor *)malloc(num_tokens * sizeof(CXCursor));
+//      clang_annotateTokens(TU, tokens, num_tokens, cursors);
 //
-//		for (unsigned i = 0; i != num_tokens; ++i) {
-//			CXString str = clang_getTokenSpelling(TU, tokens[i]);
-//			printf("%s\n", clang_getCString(str));
-//			clang_disposeString(str);
-//		}
+//      for (unsigned i = 0; i != num_tokens; ++i) {
+//          CXString str = clang_getTokenSpelling(TU, tokens[i]);
+//          printf("%s\n", clang_getCString(str));
+//          clang_disposeString(str);
+//      }
 //
-//		printf("===================\n");
+//      printf("===================\n");
 //
-//		free(cursors);
-//		clang_disposeTokens(TU, tokens, num_tokens);
-//	}
+//      free(cursors);
+//      clang_disposeTokens(TU, tokens, num_tokens);
+//  }
     return CXChildVisit_Recurse;
 }
 
@@ -287,7 +287,7 @@ int main(int argc, char **argv)
         parseFile(filename, partBuffer, index, &unit);
         free(partBuffer);
     }
-    
+
     //for(size_t i=0; i<10; i++) {
     if( true ) {
 
@@ -309,48 +309,48 @@ int main(int argc, char **argv)
         clang_disposeIndex(index);
 
         /*
-        		CXCodeCompleteResults* results;
-        		// Note that column can not be <= 0
-        		clang_reparseTranslationUnit(unit, 0, NULL, clang_defaultReparseOptions(unit));
-        		results= clang_codeCompleteAt(unit, filename.c_str(), 5, 7, &file, 1 , clang_defaultCodeCompleteOptions());
-        		if(!results) {
-        			return -1;
-        		}
+                CXCodeCompleteResults* results;
+                // Note that column can not be <= 0
+                clang_reparseTranslationUnit(unit, 0, NULL, clang_defaultReparseOptions(unit));
+                results= clang_codeCompleteAt(unit, filename.c_str(), 5, 7, &file, 1 , clang_defaultCodeCompleteOptions());
+                if(!results) {
+                    return -1;
+                }
 
-        		int numResults = results->NumResults;
-        		clang_sortCodeCompletionResults(results->Results, results->NumResults);
-        		printf("Found %u matches\n", numResults);
+                int numResults = results->NumResults;
+                clang_sortCodeCompletionResults(results->Results, results->NumResults);
+                printf("Found %u matches\n", numResults);
 
-        		for (int i = 0; i < numResults; i++) {
-        			CXCompletionResult result = results->Results[i];
-        			CXCompletionString str    = result.CompletionString;
-        			CXCursorKind       kind   = result.CursorKind;
-        			int numOfChunks = clang_getNumCompletionChunks(str);
+                for (int i = 0; i < numResults; i++) {
+                    CXCompletionResult result = results->Results[i];
+                    CXCompletionString str    = result.CompletionString;
+                    CXCursorKind       kind   = result.CursorKind;
+                    int numOfChunks = clang_getNumCompletionChunks(str);
 
-        			std::string fullSignature;
+                    std::string fullSignature;
 
-        			if(kind == CXCursor_Constructor) {
-        				fullSignature += "[ constructor ] ";
+                    if(kind == CXCursor_Constructor) {
+                        fullSignature += "[ constructor ] ";
 
-        			} else if(kind == CXCursor_Destructor) {
-        				fullSignature += "[ destructor ] ";
-        			}
+                    } else if(kind == CXCursor_Destructor) {
+                        fullSignature += "[ destructor ] ";
+                    }
 
-        			std::string returnValue;
-        			for (int i =0 ; i< numOfChunks; i++) {
+                    std::string returnValue;
+                    for (int i =0 ; i< numOfChunks; i++) {
 
-        				if(clang_getCompletionChunkKind(str, i) == CXCompletionChunk_ResultType) {
-        					returnValue   = clang_getCString(clang_getCompletionChunkText(str,i));
-        				} else {
-        					fullSignature += clang_getCString(clang_getCompletionChunkText(str,i));
-        				}
-        			}
-        			printf("%s: %s\n", returnValue.c_str(), fullSignature.c_str());
-        		}
+                        if(clang_getCompletionChunkKind(str, i) == CXCompletionChunk_ResultType) {
+                            returnValue   = clang_getCString(clang_getCompletionChunkText(str,i));
+                        } else {
+                            fullSignature += clang_getCString(clang_getCompletionChunkText(str,i));
+                        }
+                    }
+                    printf("%s: %s\n", returnValue.c_str(), fullSignature.c_str());
+                }
 
-        		clang_disposeCodeCompleteResults(results);
+                clang_disposeCodeCompleteResults(results);
 
-        	}
+            }
         */
     }
 

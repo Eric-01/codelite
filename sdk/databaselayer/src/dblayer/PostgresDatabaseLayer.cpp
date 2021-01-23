@@ -156,13 +156,13 @@ bool PostgresDatabaseLayer::Open()
   const char* pOptions = NULL;
   wxCharBuffer portCharBuffer;
   const char* pPort = NULL;
-  
+
   if (m_strServer != _("localhost") && m_strServer != wxT(""))
   {
     serverCharBuffer = ConvertToUnicodeStream(m_strServer);
     pHost = serverCharBuffer;
   }
-  
+
   if (m_strUser != wxT(""))
   {
     userCharBuffer = ConvertToUnicodeStream(m_strUser);
@@ -193,7 +193,7 @@ bool PostgresDatabaseLayer::Open()
   m_pInterface->GetPQsetClientEncoding()((PGconn*)m_pDatabase, "UTF-8");
   wxCSConv conv((const wxChar*)(m_pInterface->GetPQencodingToChar()(m_pInterface->GetPQclientEncoding()((PGconn*)m_pDatabase))));
   SetEncoding(&conv);
-  
+
   return true;
 }
 
@@ -248,7 +248,7 @@ bool PostgresDatabaseLayer::Close()
 {
   CloseResultSets();
   CloseStatements();
-  
+
   if (m_pDatabase)
   {
     m_pInterface->GetPQfinish()((PGconn*)m_pDatabase);
@@ -270,7 +270,7 @@ bool PostgresDatabaseLayer::IsOpen()
   else
     return false;
 }
-  
+
 // transaction support
 void PostgresDatabaseLayer::BeginTransaction()
 {
@@ -287,7 +287,7 @@ void PostgresDatabaseLayer::RollBack()
   RunQuery(_("ROLLBACK"), false);
 }
 
-  
+
 // query database
 int PostgresDatabaseLayer::RunQuery(const wxString& strQuery, bool WXUNUSED(bParseQuery))
 {

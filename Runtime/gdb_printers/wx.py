@@ -31,7 +31,7 @@ class wxStringPrinter:
 
     def display_hint (self):
         return 'wxString'
-        
+
 class wxArrayString:
     class _iterator:
         def __init__ (self, items, item_count):
@@ -84,7 +84,7 @@ class wxFileNamePrinter:
         # debugging using only a core file. If this ever becomes a serious
         # problem, this should be rewritten to use m_dirs and m_name and m_ext.
         return gdb.parse_and_eval('((wxFileName*)%s)->GetFullPath(0)' %
-                                  self.val.address)     
+                                  self.val.address)
 
 
 class wxXYPrinterBase:

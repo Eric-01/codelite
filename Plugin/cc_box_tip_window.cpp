@@ -199,7 +199,7 @@ void CCBoxTipWindow::PositionRelativeTo(wxWindow* win, wxPoint caretPos, IEditor
     }
 
     if(stc) { lineHeight = stc->TextHeight(stc->GetCurrentLine()); }
-    
+
     bool ccBoxIsAboveCaretLine = (windowPos.y < caretPos.y);
     // Check for overflow
     bool vPositioned = false;

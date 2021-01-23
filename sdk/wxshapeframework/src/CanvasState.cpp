@@ -25,30 +25,30 @@ WX_DEFINE_LIST(StateList);
 
 wxSFCanvasState::wxSFCanvasState(wxStreamBuffer *data)
 {
-	// copy content of stream buffer to local memory buffer
-	if(data)
-	{
-		data->ResetBuffer();
-		m_dataBuffer.AppendData(data->GetBufferStart(), data->GetDataLeft());
-		m_dataBuffer.AppendByte(0);
-	}
+    // copy content of stream buffer to local memory buffer
+    if(data)
+    {
+        data->ResetBuffer();
+        m_dataBuffer.AppendData(data->GetBufferStart(), data->GetDataLeft());
+        m_dataBuffer.AppendByte(0);
+    }
 
-	m_pDataManager = NULL;
+    m_pDataManager = NULL;
 }
 
 wxSFCanvasState::wxSFCanvasState(wxSFDiagramManager *data)
 {
-	wxASSERT(data);
+    wxASSERT(data);
 
-	m_pDataManager = data;
+    m_pDataManager = data;
 }
 
 wxSFCanvasState::~wxSFCanvasState(void)
 {
-	if( m_pDataManager)
-	{
-		delete m_pDataManager;
-	}
+    if( m_pDataManager)
+    {
+        delete m_pDataManager;
+    }
 }
 
 //----------------------------------------------------------------------------------//
@@ -60,24 +60,24 @@ void wxSFCanvasState::Restore(wxSFShapeCanvas* canvas)
     wxASSERT(canvas);
     wxASSERT(canvas->GetDiagramManager());
 
-	if( m_pDataManager )
-	{
-		// copy content of stored temporal data manager into the currently used one
-		canvas->GetDiagramManager()->CopyItems(*m_pDataManager);
-		canvas->Refresh(false);
-	}
-	else
-	{
-		// create input stream from local memory buffer
-		wxMemoryInputStream instream(m_dataBuffer.GetData(), m_dataBuffer.GetDataLen()-1);
+    if( m_pDataManager )
+    {
+        // copy content of stored temporal data manager into the currently used one
+        canvas->GetDiagramManager()->CopyItems(*m_pDataManager);
+        canvas->Refresh(false);
+    }
+    else
+    {
+        // create input stream from local memory buffer
+        wxMemoryInputStream instream(m_dataBuffer.GetData(), m_dataBuffer.GetDataLen()-1);
 
-		// deserialize canvas content
-		if(instream.IsOk() && canvas && canvas->GetDiagramManager())
-		{
-			// clear all previous canvas content
-			canvas->GetDiagramManager()->Clear();
-			canvas->GetDiagramManager()->DeserializeFromXml(instream);
-			canvas->Refresh(false);
-		}
-	}
+        // deserialize canvas content
+        if(instream.IsOk() && canvas && canvas->GetDiagramManager())
+        {
+            // clear all previous canvas content
+            canvas->GetDiagramManager()->Clear();
+            canvas->GetDiagramManager()->DeserializeFromXml(instream);
+            canvas->Refresh(false);
+        }
+    }
 }

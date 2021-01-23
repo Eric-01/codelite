@@ -189,11 +189,11 @@ bool CxxVariableScanner::ReadName(wxString& varname, wxString& pointerOrRef, wxS
             return true;
         } else if(token.GetType() == T_IDENTIFIER) {
             varname = token.GetWXString();
-            
-            // When parsing function signature, we don't have multiple arguments 
+
+            // When parsing function signature, we don't have multiple arguments
             // tied to the same TYPE
             if(m_isFuncSignature) { return false; }
-            
+
             // Peek at the next token
             // We can expect "=", "," "(", ";" or ")"
             // Examples:

@@ -35,11 +35,11 @@
 class dndTableShape : public wxSFShapeBase {
 
 public:
-	XS_DECLARE_CLONABLE_CLASS(dndTableShape);
-	dndTableShape();
-	dndTableShape(xsSerializable* pData);
-	dndTableShape(Table* tab);
-	virtual ~dndTableShape();
+    XS_DECLARE_CLONABLE_CLASS(dndTableShape);
+    dndTableShape();
+    dndTableShape(xsSerializable* pData);
+    dndTableShape(Table* tab);
+    virtual ~dndTableShape();
 };
 
 #endif // DNDTABLESHAPE_H

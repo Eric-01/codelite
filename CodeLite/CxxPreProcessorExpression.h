@@ -54,12 +54,12 @@ private:
      * @brief return the value as 'bool'
      */
     bool DoIsTrue();
-    
+
     /**
      * @brief return the value as 'long'
      */
     double DoGetLong();
-    
+
 public:
     CxxPreProcessorExpression(bool value);
     virtual ~CxxPreProcessorExpression();

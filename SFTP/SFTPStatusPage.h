@@ -52,7 +52,7 @@ public:
     void ShowSearchTab();
     void ShowLogTab();
     void AddSearchText(const wxString& text);
-    
+
 protected:
     virtual void OnContentMenu(wxContextMenuEvent& event);
     virtual void OnClearLog(wxCommandEvent& event);

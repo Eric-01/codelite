@@ -35,17 +35,17 @@ protected:
 
 public:
     static ServiceProviderManager& Get();
-    
+
     /**
      * @brief remove all providers
      */
     void UnregisterAll();
-    
+
     /**
      * @brief process service event
      */
     virtual bool ProcessEvent(wxEvent& event);
-    
+
     /**
      * @brief sort the service providers for a given type
      */

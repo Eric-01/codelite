@@ -25,7 +25,7 @@ LintOptions::LintOptions()
         if(FileUtils::ReadBufferFromFile(newConfigFile, buf, 1) && (buf == "[")) {
             FileUtils::WriteFileContent(newConfigFile, "{}");
         }
-        
+
         if(!newConfigFile.FileExists()) { FileUtils::WriteFileContent(newConfigFile, "{}"); }
 
         // Save it

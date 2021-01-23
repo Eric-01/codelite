@@ -10,179 +10,179 @@ interface Traversable  {
 
 interface IteratorAggregate extends Traversable {
 
-	abstract public function getIterator () ;
+    abstract public function getIterator () ;
 
 }
 
 interface Iterator extends Traversable {
 
-	abstract public function current () ;
+    abstract public function current () ;
 
-	abstract public function next () ;
+    abstract public function next () ;
 
-	abstract public function key () ;
+    abstract public function key () ;
 
-	abstract public function valid () ;
+    abstract public function valid () ;
 
-	abstract public function rewind () ;
+    abstract public function rewind () ;
 
 }
 
 interface ArrayAccess  {
 
-	/**
-	 * @param offset
-	 */
-	abstract public function offsetExists ($offset) ;
+    /**
+     * @param offset
+     */
+    abstract public function offsetExists ($offset) ;
 
-	/**
-	 * @param offset
-	 */
-	abstract public function offsetGet ($offset) ;
+    /**
+     * @param offset
+     */
+    abstract public function offsetGet ($offset) ;
 
-	/**
-	 * @param offset
-	 * @param value
-	 */
-	abstract public function offsetSet ($offset, $value) ;
+    /**
+     * @param offset
+     * @param value
+     */
+    abstract public function offsetSet ($offset, $value) ;
 
-	/**
-	 * @param offset
-	 */
-	abstract public function offsetUnset ($offset) ;
+    /**
+     * @param offset
+     */
+    abstract public function offsetUnset ($offset) ;
 
 }
 
 interface Serializable  {
 
-	abstract public function serialize () ;
+    abstract public function serialize () ;
 
-	/**
-	 * @param serialized
-	 */
-	abstract public function unserialize ($serialized) ;
+    /**
+     * @param serialized
+     */
+    abstract public function unserialize ($serialized) ;
 
 }
 
 class Exception  {
-	protected $message;
-	private $string;
-	protected $code;
-	protected $file;
-	protected $line;
-	private $trace;
-	private $previous;
+    protected $message;
+    private $string;
+    protected $code;
+    protected $file;
+    protected $line;
+    private $trace;
+    private $previous;
 
 
-	final private function __clone () {}
+    final private function __clone () {}
 
-	/**
-	 * @param message[optional]
-	 * @param code[optional]
-	 * @param previous[optional]
-	 */
-	public function __construct ($message, $code, $previous) {}
+    /**
+     * @param message[optional]
+     * @param code[optional]
+     * @param previous[optional]
+     */
+    public function __construct ($message, $code, $previous) {}
 
-	final public function getMessage () {}
+    final public function getMessage () {}
 
-	final public function getCode () {}
+    final public function getCode () {}
 
-	final public function getFile () {}
+    final public function getFile () {}
 
-	final public function getLine () {}
+    final public function getLine () {}
 
-	final public function getTrace () {}
+    final public function getTrace () {}
 
-	final public function getPrevious () {}
+    final public function getPrevious () {}
 
-	final public function getTraceAsString () {}
+    final public function getTraceAsString () {}
 
-	public function __toString () {}
+    public function __toString () {}
 
 }
 
 class ErrorException extends Exception  {
-	protected $message;
-	protected $code;
-	protected $file;
-	protected $line;
-	protected $severity;
+    protected $message;
+    protected $code;
+    protected $file;
+    protected $line;
+    protected $severity;
 
 
-	/**
-	 * @param message[optional]
-	 * @param code[optional]
-	 * @param severity[optional]
-	 * @param filename[optional]
-	 * @param lineno[optional]
-	 * @param previous[optional]
-	 */
-	public function __construct ($message, $code, $severity, $filename, $lineno, $previous) {}
+    /**
+     * @param message[optional]
+     * @param code[optional]
+     * @param severity[optional]
+     * @param filename[optional]
+     * @param lineno[optional]
+     * @param previous[optional]
+     */
+    public function __construct ($message, $code, $severity, $filename, $lineno, $previous) {}
 
-	final public function getSeverity () {}
+    final public function getSeverity () {}
 
-	final private function __clone () {}
+    final private function __clone () {}
 
-	final public function getMessage () {}
+    final public function getMessage () {}
 
-	final public function getCode () {}
+    final public function getCode () {}
 
-	final public function getFile () {}
+    final public function getFile () {}
 
-	final public function getLine () {}
+    final public function getLine () {}
 
-	final public function getTrace () {}
+    final public function getTrace () {}
 
-	final public function getPrevious () {}
+    final public function getPrevious () {}
 
-	final public function getTraceAsString () {}
+    final public function getTraceAsString () {}
 
-	public function __toString () {}
+    public function __toString () {}
 
 }
 
 final class Closure  {
 
-	private function __construct () {}
+    private function __construct () {}
 
-	/**
-	 * @param closure
-	 * @param newthis
-	 * @param newscope[optional]
-	 */
-	public static function bind ($closure, $newthis, $newscope) {}
+    /**
+     * @param closure
+     * @param newthis
+     * @param newscope[optional]
+     */
+    public static function bind ($closure, $newthis, $newscope) {}
 
-	/**
-	 * @param newthis
-	 * @param newscope[optional]
-	 */
-	public function bindTo ($newthis, $newscope) {}
+    /**
+     * @param newthis
+     * @param newscope[optional]
+     */
+    public function bindTo ($newthis, $newscope) {}
 
 }
 
 final class Generator implements Iterator, Traversable {
 
-	public function rewind () {}
+    public function rewind () {}
 
-	public function valid () {}
+    public function valid () {}
 
-	public function current () {}
+    public function current () {}
 
-	public function key () {}
+    public function key () {}
 
-	public function next () {}
+    public function next () {}
 
-	/**
-	 * @param value
-	 */
-	public function send ($value) {}
+    /**
+     * @param value
+     */
+    public function send ($value) {}
 
-	/**
-	 * @param exception
-	 */
-	public function throw ($exception) {}
+    /**
+     * @param exception
+     */
+    public function throw ($exception) {}
 
-	public function __wakeup () {}
+    public function __wakeup () {}
 
 }
 
@@ -226,7 +226,7 @@ function func_get_args () {}
  * @param string string <p>
  *       The string being measured for length.
  *      </p>
- * @return int The length of the string on success, 
+ * @return int The length of the string on success,
  *   and 0 if the string is empty.
  */
 function strlen ($string) {}
@@ -326,9 +326,9 @@ function each (array &$array) {}
  * @link http://www.php.net/manual/en/function.error-reporting.php
  * @param level int[optional] <p>
  *       The new error_reporting
- *       level. It takes on either a bitmask, or named constants. Using named 
- *       constants is strongly encouraged to ensure compatibility for future 
- *       versions. As error levels are added, the range of integers increases, 
+ *       level. It takes on either a bitmask, or named constants. Using named
+ *       constants is strongly encouraged to ensure compatibility for future
+ *       versions. As error levels are added, the range of integers increases,
  *       so older integer-based error levels will not always behave as expected.
  *      </p>
  *      <p>
@@ -349,19 +349,19 @@ function error_reporting ($level = null) {}
  *       The name of the constant.
  *      </p>
  * @param value mixed <p>
- *       The value of the constant; only scalar and null values are allowed. 
- *       Scalar values are integer, 
- *       float, string or boolean values. It is 
- *       possible to define resource constants, however it is not recommended 
+ *       The value of the constant; only scalar and null values are allowed.
+ *       Scalar values are integer,
+ *       float, string or boolean values. It is
+ *       possible to define resource constants, however it is not recommended
  *       and may cause unpredictable behavior.
  *      </p>
  * @param case_insensitive bool[optional] <p>
- *       If set to true, the constant will be defined case-insensitive. 
- *       The default behavior is case-sensitive; i.e. 
+ *       If set to true, the constant will be defined case-insensitive.
+ *       The default behavior is case-sensitive; i.e.
  *       CONSTANT and Constant represent
  *       different values.
  *      </p>
- *      
+ *
  *       <p>
  *        Case-insensitive constants are stored as lower-case.
  *       </p>
@@ -387,7 +387,7 @@ function defined ($name) {}
  *       The tested object. This parameter may be omitted when inside a class.
  *      </p>
  * @return string the name of the class of which object is an
- *   instance. Returns false if object is not an 
+ *   instance. Returns false if object is not an
  *   object.
  *  </p>
  *  <p>
@@ -413,11 +413,11 @@ function get_called_class () {}
  * @return string the name of the parent class of the class of which
  *   object is an instance or the name.
  *  </p>
- *  
+ *
  *   <p>
  *    If the object does not have a parent or the class given does not exist false will be returned.
  *   </p>
- *  
+ *
  *  <p>
  *   If called without parameter outside object, this function returns false.
  */
@@ -433,7 +433,7 @@ function get_parent_class ($object = null) {}
  *       The method name
  *      </p>
  * @return bool true if the method given by method_name
- *   has been defined for the given object, false 
+ *   has been defined for the given object, false
  *   otherwise.
  */
 function method_exists ($object, $method_name) {}
@@ -475,7 +475,7 @@ function class_exists ($class_name, $autoload = null) {}
  * @param autoload bool[optional] <p>
  *       Whether to call &link.autoload; or not by default.
  *      </p>
- * @return bool true if the interface given by 
+ * @return bool true if the interface given by
  *   interface_name has been defined, false otherwise.
  */
 function interface_exists ($interface_name, $autoload = null) {}
@@ -502,9 +502,9 @@ function trait_exists ($traitname, $autoload = null) {}
  * @return bool true if function_name exists and is a
  *   function, false otherwise.
  *  </p>
- *  
+ *
  *   <p>
- *    This function will return false for constructs, such as 
+ *    This function will return false for constructs, such as
  *    include_once and echo.
  */
 function function_exists ($function_name) {}
@@ -532,7 +532,7 @@ function class_alias ($original, $alias, $autoload = null) {}
  *  </p>
  *  <p>
  *   The script originally called is considered an "included file," so it will
- *   be listed together with the files referenced by 
+ *   be listed together with the files referenced by
  *   include and family.
  *  </p>
  *  <p>
@@ -592,7 +592,7 @@ function is_a ($object, $class_name, $allow_string = null) {}
  *      </p>
  * @return array an associative array of declared properties visible from the
  *   current scope, with their default value.
- *   The resulting array elements are in the form of 
+ *   The resulting array elements are in the form of
  *   varname => value.
  *   In case of an error, it returns false.
  */
@@ -604,7 +604,7 @@ function get_class_vars ($class_name) {}
  * @param object object <p>
  *       An object instance.
  *      </p>
- * @return array an associative array of defined object accessible non-static properties 
+ * @return array an associative array of defined object accessible non-static properties
  *   for the specified object in scope. If a property has
  *   not been assigned a value, it will be returned with a &null; value.
  */
@@ -625,8 +625,8 @@ function get_class_methods ($class_name) {}
  * Generates a user-level error/warning/notice message
  * @link http://www.php.net/manual/en/function.trigger-error.php
  * @param error_msg string <p>
- *       The designated error message for this error. It's limited to 1024 
- *       bytes in length. Any additional characters beyond 1024 bytes will be 
+ *       The designated error message for this error. It's limited to 1024
+ *       bytes in length. Any additional characters beyond 1024 bytes will be
  *       truncated.
  *      </p>
  * @param error_type int[optional] <p>
@@ -652,28 +652,28 @@ function user_error ($message, $error_type) {}
  * @param error_handler callable <p>
  *       A callback with the following signature.
  *       &null; may be passed instead, to reset this handler to its default state.
- *       Instead of a function name, an array containing an object reference 
+ *       Instead of a function name, an array containing an object reference
  *       and a method name can also be supplied.
  *      </p>
  *      <p>
- *       
+ *
  *        boolhandler
  *        interrno
  *        stringerrstr
  *        stringerrfile
  *        interrline
  *        arrayerrcontext
- *       
- *       
- *        
+ *
+ *
+ *
  *         errno
- *         
- *          
+ *
+ *
  *           The first parameter, errno, contains the
  *           level of the error raised, as an integer.
  * @param error_types int[optional] <p>
  *       Can be used to mask the triggering of the
- *       error_handler function just like the error_reporting ini setting 
+ *       error_handler function just like the error_reporting ini setting
  *       controls which errors are shown. Without this mask set the
  *       error_handler will be called for every error
  *       regardless to the setting of the error_reporting setting.
@@ -703,10 +703,10 @@ function restore_error_handler () {}
  *       was thrown. This is the handler signature:
  *      </p>
  *      <p>
- *       
+ *
  *        voidhandler
  *        Exceptionex
- *       
+ *
  *      </p>
  *      <p>
  *       &null; may be passed instead, to reset this handler to its default state.
@@ -729,7 +729,7 @@ function restore_exception_handler () {}
  * @return array an array of the names of the declared classes in the current
  *   script.
  *  </p>
- *  
+ *
  *   <p>
  *    Note that depending on what extensions you have compiled or
  *    loaded into PHP, additional classes could be present. This means that
@@ -794,11 +794,11 @@ function create_function ($args, $code) {}
  *      </p>
  * @return string If the given handle is a resource, this function
  *   will return a string representing its type. If the type is not identified
- *   by this function, the return value will be the string 
+ *   by this function, the return value will be the string
  *   Unknown.
  *  </p>
  *  <p>
- *   This function will return false and generate an error if 
+ *   This function will return false and generate an error if
  *   handle is not a resource.
  */
 function get_resource_type ($handle) {}
@@ -807,7 +807,7 @@ function get_resource_type ($handle) {}
  * Returns an array with the names of all modules compiled and loaded
  * @link http://www.php.net/manual/en/function.get-loaded-extensions.php
  * @param zend_extensions bool[optional] <p>
- *       Only return Zend extensions, if not then regular extensions, like 
+ *       Only return Zend extensions, if not then regular extensions, like
  *       mysqli are listed. Defaults to false (return regular extensions).
  *      </p>
  * @return array an indexed array of all the modules names.
@@ -826,8 +826,8 @@ function get_loaded_extensions ($zend_extensions = null) {}
  *       CGI or CLI version of
  *       PHP you can use the -m switch to
  *       list all available extensions:
- *       
- *       
+ *
+ *
  *      </p>
  * @return bool true if the extension identified by name
  *   is loaded, false otherwise.
@@ -840,11 +840,11 @@ function extension_loaded ($name) {}
  * @param module_name string <p>
  *       The module name.
  *      </p>
- *      
+ *
  *       <p>
  *        This parameter must be in lowercase.
  *       </p>
- * @return array an array with all the functions, or false if 
+ * @return array an array with all the functions, or false if
  *   module_name is not a valid extension.
  */
 function get_extension_funcs ($module_name) {}
@@ -856,12 +856,12 @@ function get_extension_funcs ($module_name) {}
  *       Causing this function to return a multi-dimensional
  *       array with categories in the keys of the first dimension and constants
  *       and their values in the second dimension.
- *       
- *        
+ *
+ *
  * ]]>
- *        
+ *
  *        &example.outputs.similar;
- *        
+ *
  * Array
  *        (
  *            [E_ERROR] => 1
@@ -894,8 +894,8 @@ function get_extension_funcs ($module_name) {}
  *        )
  * )
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @return array an array of constant name => constant value array, optionally
  *   groupped by extension name registering the constant.
@@ -909,8 +909,8 @@ function get_defined_constants ($categorize = null) {}
  *       As of 5.3.6, this parameter is a bitmask for the following options:
  *       <table>
  *        debug_backtrace options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>DEBUG_BACKTRACE_PROVIDE_OBJECT</td>
  *           <td>
@@ -924,10 +924,10 @@ function get_defined_constants ($categorize = null) {}
  *            to save memory.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
- *       Before 5.3.6, the only values recognized are true or false, which are the same as 
+ *       Before 5.3.6, the only values recognized are true or false, which are the same as
  *       setting or not setting the DEBUG_BACKTRACE_PROVIDE_OBJECT option respectively.
  *      </p>
  * @param limit int[optional] <p>
@@ -940,15 +940,15 @@ function get_defined_constants ($categorize = null) {}
  *  <p>
  *   <table>
  *    Possible returned elements from debug_backtrace
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>&Name;</td>
  *       <td>&Type;</td>
  *       <td>&Description;</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>function</td>
  *       <td>string</td>
@@ -1004,8 +1004,8 @@ function get_defined_constants ($categorize = null) {}
  *        inside an included file, this lists the included file name(s).
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function debug_backtrace ($options = null, $limit = null) {}
@@ -1017,8 +1017,8 @@ function debug_backtrace ($options = null, $limit = null) {}
  *       As of 5.3.6, this parameter is a bitmask for the following options:
  *       <table>
  *        debug_print_backtrace options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>DEBUG_BACKTRACE_IGNORE_ARGS</td>
  *           <td>
@@ -1026,15 +1026,15 @@ function debug_backtrace ($options = null, $limit = null) {}
  *            to save memory.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param limit int[optional] <p>
  *       As of 5.4.0, this parameter can be used to limit the number of stack frames printed.
  *       By default (limit=0) it prints all stack frames.
  *      </p>
- * @return void 
+ * @return void
  */
 function debug_print_backtrace ($options = null, $limit = null) {}
 
@@ -1055,14 +1055,14 @@ function gc_enabled () {}
 /**
  * Activates the circular reference collector
  * @link http://www.php.net/manual/en/function.gc-enable.php
- * @return void 
+ * @return void
  */
 function gc_enable () {}
 
 /**
  * Deactivates the circular reference collector
  * @link http://www.php.net/manual/en/function.gc-disable.php
- * @return void 
+ * @return void
  */
 function gc_disable () {}
 

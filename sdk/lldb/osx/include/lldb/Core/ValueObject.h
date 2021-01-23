@@ -1013,20 +1013,20 @@ class ValueObjectManager {
 
 public:
   ValueObjectManager() {}
-  
+
   ValueObjectManager(lldb::ValueObjectSP in_valobj_sp,
                      lldb::DynamicValueType use_dynamic, bool use_synthetic);
-  
+
   bool IsValid() const;
-  
+
   lldb::ValueObjectSP GetRootSP() const { return m_root_valobj_sp; }
-  
+
   // Gets the correct value object from the root object for a given process
   // stop ID. If dynamic values are enabled, or if synthetic children are
   // enabled, the value object that the user wants to see might change while
   // debugging.
   lldb::ValueObjectSP GetSP();
-  
+
   void SetUseDynamic(lldb::DynamicValueType use_dynamic);
   void SetUseSynthetic(bool use_synthetic);
   lldb::DynamicValueType GetUseDynamic() const { return m_use_dynamic; }

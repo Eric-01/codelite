@@ -141,16 +141,16 @@ typedef int socket_t;
 
 /* the offsets of methods */
 enum ssh_kex_types_e {
-	SSH_KEX=0,
-	SSH_HOSTKEYS,
-	SSH_CRYPT_C_S,
-	SSH_CRYPT_S_C,
-	SSH_MAC_C_S,
-	SSH_MAC_S_C,
-	SSH_COMP_C_S,
-	SSH_COMP_S_C,
-	SSH_LANG_C_S,
-	SSH_LANG_S_C
+    SSH_KEX=0,
+    SSH_HOSTKEYS,
+    SSH_CRYPT_C_S,
+    SSH_CRYPT_S_C,
+    SSH_MAC_C_S,
+    SSH_MAC_S_C,
+    SSH_COMP_C_S,
+    SSH_COMP_S_C,
+    SSH_LANG_C_S,
+    SSH_LANG_S_C
 };
 
 #define SSH_CRYPT 2
@@ -159,12 +159,12 @@ enum ssh_kex_types_e {
 #define SSH_LANG 5
 
 enum ssh_auth_e {
-	SSH_AUTH_SUCCESS=0,
-	SSH_AUTH_DENIED,
-	SSH_AUTH_PARTIAL,
-	SSH_AUTH_INFO,
-	SSH_AUTH_AGAIN,
-	SSH_AUTH_ERROR=-1
+    SSH_AUTH_SUCCESS=0,
+    SSH_AUTH_DENIED,
+    SSH_AUTH_PARTIAL,
+    SSH_AUTH_INFO,
+    SSH_AUTH_AGAIN,
+    SSH_AUTH_ERROR=-1
 };
 
 /* auth flags */
@@ -178,45 +178,45 @@ enum ssh_auth_e {
 
 /* messages */
 enum ssh_requests_e {
-	SSH_REQUEST_AUTH=1,
-	SSH_REQUEST_CHANNEL_OPEN,
-	SSH_REQUEST_CHANNEL,
-	SSH_REQUEST_SERVICE,
-	SSH_REQUEST_GLOBAL
+    SSH_REQUEST_AUTH=1,
+    SSH_REQUEST_CHANNEL_OPEN,
+    SSH_REQUEST_CHANNEL,
+    SSH_REQUEST_SERVICE,
+    SSH_REQUEST_GLOBAL
 };
 
 enum ssh_channel_type_e {
-	SSH_CHANNEL_UNKNOWN=0,
-	SSH_CHANNEL_SESSION,
-	SSH_CHANNEL_DIRECT_TCPIP,
-	SSH_CHANNEL_FORWARDED_TCPIP,
-	SSH_CHANNEL_X11,
-	SSH_CHANNEL_AUTH_AGENT
+    SSH_CHANNEL_UNKNOWN=0,
+    SSH_CHANNEL_SESSION,
+    SSH_CHANNEL_DIRECT_TCPIP,
+    SSH_CHANNEL_FORWARDED_TCPIP,
+    SSH_CHANNEL_X11,
+    SSH_CHANNEL_AUTH_AGENT
 };
 
 enum ssh_channel_requests_e {
-	SSH_CHANNEL_REQUEST_UNKNOWN=0,
-	SSH_CHANNEL_REQUEST_PTY,
-	SSH_CHANNEL_REQUEST_EXEC,
-	SSH_CHANNEL_REQUEST_SHELL,
-	SSH_CHANNEL_REQUEST_ENV,
-	SSH_CHANNEL_REQUEST_SUBSYSTEM,
-	SSH_CHANNEL_REQUEST_WINDOW_CHANGE,
-	SSH_CHANNEL_REQUEST_X11
+    SSH_CHANNEL_REQUEST_UNKNOWN=0,
+    SSH_CHANNEL_REQUEST_PTY,
+    SSH_CHANNEL_REQUEST_EXEC,
+    SSH_CHANNEL_REQUEST_SHELL,
+    SSH_CHANNEL_REQUEST_ENV,
+    SSH_CHANNEL_REQUEST_SUBSYSTEM,
+    SSH_CHANNEL_REQUEST_WINDOW_CHANGE,
+    SSH_CHANNEL_REQUEST_X11
 };
 
 enum ssh_global_requests_e {
-	SSH_GLOBAL_REQUEST_UNKNOWN=0,
-	SSH_GLOBAL_REQUEST_TCPIP_FORWARD,
-	SSH_GLOBAL_REQUEST_CANCEL_TCPIP_FORWARD,
-	SSH_GLOBAL_REQUEST_KEEPALIVE
+    SSH_GLOBAL_REQUEST_UNKNOWN=0,
+    SSH_GLOBAL_REQUEST_TCPIP_FORWARD,
+    SSH_GLOBAL_REQUEST_CANCEL_TCPIP_FORWARD,
+    SSH_GLOBAL_REQUEST_KEEPALIVE
 };
 
 enum ssh_publickey_state_e {
-	SSH_PUBLICKEY_STATE_ERROR=-1,
-	SSH_PUBLICKEY_STATE_NONE=0,
-	SSH_PUBLICKEY_STATE_VALID=1,
-	SSH_PUBLICKEY_STATE_WRONG=2
+    SSH_PUBLICKEY_STATE_ERROR=-1,
+    SSH_PUBLICKEY_STATE_NONE=0,
+    SSH_PUBLICKEY_STATE_VALID=1,
+    SSH_PUBLICKEY_STATE_WRONG=2
 };
 
 /* Status flags */
@@ -230,12 +230,12 @@ enum ssh_publickey_state_e {
 #define SSH_WRITE_PENDING 0x08
 
 enum ssh_server_known_e {
-	SSH_SERVER_ERROR=-1,
-	SSH_SERVER_NOT_KNOWN=0,
-	SSH_SERVER_KNOWN_OK,
-	SSH_SERVER_KNOWN_CHANGED,
-	SSH_SERVER_FOUND_OTHER,
-	SSH_SERVER_FILE_NOT_FOUND
+    SSH_SERVER_ERROR=-1,
+    SSH_SERVER_NOT_KNOWN=0,
+    SSH_SERVER_KNOWN_OK,
+    SSH_SERVER_KNOWN_CHANGED,
+    SSH_SERVER_FOUND_OTHER,
+    SSH_SERVER_FILE_NOT_FOUND
 };
 
 enum ssh_known_hosts_e {
@@ -281,10 +281,10 @@ enum ssh_known_hosts_e {
 /* errors */
 
 enum ssh_error_types_e {
-	SSH_NO_ERROR=0,
-	SSH_REQUEST_DENIED,
-	SSH_FATAL,
-	SSH_EINTR
+    SSH_NO_ERROR=0,
+    SSH_REQUEST_DENIED,
+    SSH_FATAL,
+    SSH_EINTR
 };
 
 /* some types for keys */
@@ -334,21 +334,21 @@ struct ssh_knownhosts_entry {
  */
 
 enum {
-	/** No logging at all
-	 */
-	SSH_LOG_NOLOG=0,
-	/** Only warnings
-	 */
-	SSH_LOG_WARNING,
-	/** High level protocol information
-	 */
-	SSH_LOG_PROTOCOL,
-	/** Lower level protocol infomations, packet level
-	 */
-	SSH_LOG_PACKET,
-	/** Every function path
-	 */
-	SSH_LOG_FUNCTIONS
+    /** No logging at all
+     */
+    SSH_LOG_NOLOG=0,
+    /** Only warnings
+     */
+    SSH_LOG_WARNING,
+    /** High level protocol information
+     */
+    SSH_LOG_PROTOCOL,
+    /** Lower level protocol infomations, packet level
+     */
+    SSH_LOG_PACKET,
+    /** Every function path
+     */
+    SSH_LOG_FUNCTIONS
 };
 /** @} */
 #define SSH_LOG_RARE SSH_LOG_WARNING

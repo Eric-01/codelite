@@ -1,3 +1,2 @@
 void foo(){
-	std::map<ClassWithMembers, int> mm;
-	
+    std::map<ClassWithMembers, int> mm;

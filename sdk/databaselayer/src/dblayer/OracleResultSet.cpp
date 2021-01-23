@@ -80,7 +80,7 @@ void OracleResultSet::Close()
     ThrowDatabaseException();
   }
 }
-  
+
 // get field
 int OracleResultSet::GetResultInt(int nField)
 {

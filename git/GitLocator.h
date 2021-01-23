@@ -34,7 +34,7 @@ class GitLocator
 public:
     GitLocator();
     virtual ~GitLocator();
-    
+
     bool GetExecutable(wxFileName& gitpath) const;
     /**
      * @brief return the command required to open a git shell

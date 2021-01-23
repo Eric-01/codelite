@@ -30,56 +30,56 @@
 
 class Comment
 {
-	wxString m_comment;
-	wxString m_file;
-	int      m_line;
+    wxString m_comment;
+    wxString m_file;
+    int      m_line;
 
 public:
-	/**
-	 * construct a Comment object
-	 * \param comment comment string
-	 * \param file comment file name
-	 * \param line comment line number
-	 */
-	Comment(const wxString &comment, const wxString & file, const int line);
+    /**
+     * construct a Comment object
+     * \param comment comment string
+     * \param file comment file name
+     * \param line comment line number
+     */
+    Comment(const wxString &comment, const wxString & file, const int line);
 
-	/**
-	 * Copy constructor
-	 */
-	Comment(const Comment& rhs);
+    /**
+     * Copy constructor
+     */
+    Comment(const Comment& rhs);
 
-	/**
-	 * Destructor
-	 */
-	virtual ~Comment() {};
+    /**
+     * Destructor
+     */
+    virtual ~Comment() {};
 
-	/// asgginment operator
-	Comment& operator=(const Comment& rhs);
+    /// asgginment operator
+    Comment& operator=(const Comment& rhs);
 
-	/// accessors
-	/**
-	 * Get the file name
-	 * \return file name
-	 */
-	const wxString & GetFile() const {
-		return m_file;
-	}
+    /// accessors
+    /**
+     * Get the file name
+     * \return file name
+     */
+    const wxString & GetFile() const {
+        return m_file;
+    }
 
-	/**
-	 * Get string comment
-	 * \return comment
-	 */
-	const wxString & GetComment() const {
-		return m_comment;
-	}
+    /**
+     * Get string comment
+     * \return comment
+     */
+    const wxString & GetComment() const {
+        return m_comment;
+    }
 
-	/**
-	 * Get the line number
-	 * \return line number
-	 */
-	const int & GetLine() const {
-		return m_line;
-	}
+    /**
+     * Get the line number
+     * \return line number
+     */
+    const int & GetLine() const {
+        return m_line;
+    }
 };
 
 typedef SmartPtr<Comment> CommentPtr;

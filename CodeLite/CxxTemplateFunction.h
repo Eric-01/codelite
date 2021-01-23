@@ -46,9 +46,9 @@ public:
      */
     virtual void ParseDefinitionList();
     const wxArrayString& GetList() const { return m_list; }
-    
+
     /**
-     * @brief can the template arguments be deduced from the function 
+     * @brief can the template arguments be deduced from the function
      * signature?
      */
     bool CanTemplateArgsDeduced();

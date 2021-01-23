@@ -170,7 +170,7 @@ public:
         m_timer_handler = handler;
         return timer_ptr();
     }
-    
+
     /// Manual input supply (read all)
     /**
      * Similar to read_some, but continues to read until all bytes in the
@@ -187,7 +187,7 @@ public:
      * @param len Length of buf
      * @return The number of characters from buf actually read.
      */
-    size_t read_all(char const * buf, size_t len) {        
+    size_t read_all(char const * buf, size_t len) {
         size_t total_read = 0;
         size_t temp_read = 0;
 
@@ -198,12 +198,12 @@ public:
 
         return total_read;
     }
-    
+
     // debug stuff to invoke the async handlers
     void expire_timer(lib::error_code const & ec) {
         m_timer_handler(ec);
     }
-    
+
     void fullfil_write() {
         m_write_handler(lib::error_code());
     }
@@ -335,7 +335,7 @@ protected:
     void async_shutdown(shutdown_handler handler) {
         handler(lib::error_code());
     }
-    
+
     size_t read_some_impl(char const * buf, size_t len) {
         m_alog->write(log::alevel::devel,"debug_con read_some");
 
@@ -383,7 +383,7 @@ protected:
     }
 private:
     timer_handler m_timer_handler;
-    
+
     // Read space (Protected by m_read_mutex)
     char *          m_buf;
     size_t          m_len;

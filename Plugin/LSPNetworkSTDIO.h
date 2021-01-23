@@ -21,7 +21,7 @@ protected:
     void OnProcessTerminated(clProcessEvent& event);
     void OnProcessOutput(clProcessEvent& event);
     void OnProcessStderr(clProcessEvent& event);
-    
+
 public:
     virtual void Close();
     /**

@@ -32,7 +32,7 @@ class NewThemeDialog : public NewThemeDialogBase
 {
 private:
     void DoInitialize(LexerConf::Ptr_t lexer);
-    
+
 public:
     NewThemeDialog(wxWindow* parent, LexerConf::Ptr_t lexer);
     virtual ~NewThemeDialog();
@@ -48,7 +48,7 @@ public:
     wxString GetBaseTheme() const {
         return m_choiceBaseTheme->GetStringSelection();
     }
-    
+
 protected:
     virtual void OnLexerSelected(wxCommandEvent& event);
     virtual void OnOkUI(wxUpdateUIEvent& event);

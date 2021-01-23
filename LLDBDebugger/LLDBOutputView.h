@@ -37,14 +37,14 @@ class LLDBOutputView : public LLDBOutputViewBase
 {
     LLDBPlugin *m_plugin;
     LLDBConnector* m_connector;
-    
+
 public:
     LLDBOutputView(wxWindow* parent, LLDBPlugin *plugin);
     virtual ~LLDBOutputView();
-    
+
     void Initialize();
     void Clear();
-    
+
     // Event handlers
     void OnBreakpointsUpdated(LLDBEvent &event);
     void OnConsoleOutput(LLDBEvent &event);
@@ -54,7 +54,7 @@ protected:
     virtual void OnBpActivated(wxTreeEvent& event);
     virtual void OnSendCommandToLLDB(wxCommandEvent& event);
     void GotoBreakpoint(LLDBBreakpoint::Ptr_t bp);
-    
+
 protected:
     virtual void OnDeleteAll(wxCommandEvent& event);
     virtual void OnDeleteAllUI(wxUpdateUIEvent& event);
@@ -62,7 +62,7 @@ protected:
     virtual void OnDeleteBreakpointUI(wxUpdateUIEvent& event);
     virtual void OnNewBreakpoint(wxCommandEvent& event);
     virtual void OnNewBreakpointUI(wxUpdateUIEvent& event);
-    
+
     void OnSelectAll(wxCommandEvent &event);
     void OnCopy(wxCommandEvent &event);
 };

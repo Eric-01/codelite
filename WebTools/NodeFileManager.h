@@ -28,7 +28,7 @@ public:
      * @brief cache remote copy on the file system
      */
     void CacheRemoteCopy(const wxString& id, const wxString& fileContent);
-    
+
     static wxString URIToFileName(const wxString& uri);
     static wxString FileNameToURI(const wxString& uri);
 };

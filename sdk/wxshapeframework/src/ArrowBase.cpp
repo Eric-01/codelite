@@ -23,18 +23,18 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFArrowBase, xsSerializable);
 
 wxSFArrowBase::wxSFArrowBase(void)
 {
-	m_pParentShape = NULL;
+    m_pParentShape = NULL;
 }
 
 wxSFArrowBase::wxSFArrowBase(wxSFShapeBase* parent)
 {
-	m_pParentShape = parent;
+    m_pParentShape = parent;
 }
 
 wxSFArrowBase::wxSFArrowBase(const wxSFArrowBase& obj)
 : xsSerializable(obj)
 {
-	m_pParentShape = obj.m_pParentShape;
+    m_pParentShape = obj.m_pParentShape;
 }
 
 wxSFArrowBase::~wxSFArrowBase(void)
@@ -47,11 +47,11 @@ wxSFArrowBase::~wxSFArrowBase(void)
 
 void wxSFArrowBase::Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc)
 {
-	// HINT: override it for custom drawing...
-	
-	wxUnusedVar( from );
-	wxUnusedVar( to );
-	wxUnusedVar( dc );
+    // HINT: override it for custom drawing...
+
+    wxUnusedVar( from );
+    wxUnusedVar( to );
+    wxUnusedVar( dc );
 }
 
 //----------------------------------------------------------------------------------//
@@ -60,21 +60,21 @@ void wxSFArrowBase::Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& d
 
 void wxSFArrowBase::TranslateArrow(wxPoint *trg, const wxRealPoint *src, int n, const wxRealPoint &from, const wxRealPoint& to)
 {
-	double cosa, sina, dist;
+    double cosa, sina, dist;
 
-	// calculate distance between line points
-	dist = Distance(from, to);
+    // calculate distance between line points
+    dist = Distance(from, to);
 
-	// calculate sin and cos of given line segment
-	sina = (from.y - to.y)/dist;
-	cosa = (from.x - to.x)/dist;
+    // calculate sin and cos of given line segment
+    sina = (from.y - to.y)/dist;
+    cosa = (from.x - to.x)/dist;
 
     // rotate arrow
-	for(int i = 0; i<n; i++)
-	{
-		trg->x = (int)((src->x*cosa-src->y*sina)+to.x);
-		trg->y = (int)((src->x*sina+src->y*cosa)+to.y);
-		trg++;
-		src++;
-	}
+    for(int i = 0; i<n; i++)
+    {
+        trg->x = (int)((src->x*cosa-src->y*sina)+to.x);
+        trg->y = (int)((src->x*sina+src->y*cosa)+to.y);
+        trg++;
+        src++;
+    }
 }

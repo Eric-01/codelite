@@ -35,7 +35,7 @@ NArrow::NArrow(void):wxSFSolidArrow()
 {
 }
 
-NArrow::NArrow(const NArrow& obj): wxSFSolidArrow(obj) 
+NArrow::NArrow(const NArrow& obj): wxSFSolidArrow(obj)
 {
 }
 
@@ -49,13 +49,13 @@ NArrow::~NArrow()
 
 void NArrow::Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc)
 {
-	wxPoint rarrow[6];
-	
-	TranslateArrow( rarrow, arrow, 6, from, to );
+    wxPoint rarrow[6];
 
-	dc.SetPen(m_Pen);
+    TranslateArrow( rarrow, arrow, 6, from, to );
+
+    dc.SetPen(m_Pen);
     dc.SetBrush(wxNullBrush);
     dc.DrawLines(6, rarrow);
     dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxNullPen);
 }

@@ -126,13 +126,13 @@ void wxSFControlShape::SetControl(wxWindow *ctrl, bool fit)
 //----------------------------------------------------------------------------------//
 
 void wxSFControlShape::FitToChildren()
-{	
+{
     wxRect ctrlRct;
     wxRect bbRct = GetBoundingBox();
-	
-	if( m_pControl ) ctrlRct = wxRect(m_pControl->GetPosition(), m_pControl->GetSize());
-	else
-		ctrlRct = bbRct;
+
+    if( m_pControl ) ctrlRct = wxRect(m_pControl->GetPosition(), m_pControl->GetSize());
+    else
+        ctrlRct = bbRct;
 
     wxSFRectShape::FitToChildren();
 
@@ -159,8 +159,8 @@ void wxSFControlShape::MoveBy(double x, double y)
 
 void wxSFControlShape::OnBeginDrag(const wxPoint& pos)
 {
-	wxUnusedVar( pos );
-	
+    wxUnusedVar( pos );
+
     m_PrevFill = m_Fill;
     m_Fill = m_ModFill;
 
@@ -180,8 +180,8 @@ void wxSFControlShape::OnBeginDrag(const wxPoint& pos)
         m_pControl->Hide();
         m_pControl->Disconnect(wxEVT_SIZE, wxSizeEventHandler(EventSink::_OnSize), NULL, m_pEventSink);
     }
-	
-	wxSFShapeBase::OnBeginDrag(pos);
+
+    wxSFShapeBase::OnBeginDrag(pos);
 }
 
 void wxSFControlShape::OnEndDrag(const wxPoint& pos)
@@ -204,8 +204,8 @@ void wxSFControlShape::OnEndDrag(const wxPoint& pos)
         m_pControl->Show();
         m_pControl->SetFocus();
     }
-	
-	wxSFShapeBase::OnEndDrag(pos);
+
+    wxSFShapeBase::OnEndDrag(pos);
 }
 
 void wxSFControlShape::OnBeginHandle(wxSFShapeHandle& handle)
@@ -221,17 +221,17 @@ void wxSFControlShape::OnBeginHandle(wxSFShapeHandle& handle)
         m_pControl->Hide();
         m_pControl->Disconnect(wxEVT_SIZE, wxSizeEventHandler(EventSink::_OnSize), NULL, m_pEventSink);
     }
-	
-	// call default handler
+
+    // call default handler
     wxSFRectShape::OnBeginHandle(handle);
 }
 
 void wxSFControlShape::OnHandle(wxSFShapeHandle& handle)
 {
-	// call default handler
+    // call default handler
     wxSFRectShape::OnHandle(handle);
-	
-	UpdateControl();
+
+    UpdateControl();
 }
 
 void wxSFControlShape::OnEndHandle(wxSFShapeHandle& handle)
@@ -246,15 +246,15 @@ void wxSFControlShape::OnEndHandle(wxSFShapeHandle& handle)
 
         m_pControl->Connect(wxEVT_SIZE, wxSizeEventHandler(EventSink::_OnSize), NULL, m_pEventSink);
     }
-	
-	// call default handler
+
+    // call default handler
     wxSFRectShape::OnEndHandle(handle);
 }
 
 void wxSFControlShape::Update()
 {
-	wxSFShapeBase::Update();
-	UpdateControl();
+    wxSFShapeBase::Update();
+    UpdateControl();
 }
 
 
@@ -267,7 +267,7 @@ void wxSFControlShape::UpdateControl()
     if( m_pControl )
     {
         int x = 0, y = 0;
-		
+
         wxRect minBB = m_pControl->GetMinSize();
         wxRect rctBB = GetBoundingBox().Deflate(m_nControlOffset, m_nControlOffset);
 
@@ -293,15 +293,15 @@ void wxSFControlShape::UpdateControl()
 
 void wxSFControlShape::UpdateShape()
 {
-	if( m_pControl )
-	{
-		wxSize nCtrlSize = m_pControl->GetSize();
+    if( m_pControl )
+    {
+        wxSize nCtrlSize = m_pControl->GetSize();
 
-		m_nRectSize.x = nCtrlSize.x + 2*m_nControlOffset;
-		m_nRectSize.y = nCtrlSize.y + 2*m_nControlOffset;
+        m_nRectSize.x = nCtrlSize.x + 2*m_nControlOffset;
+        m_nRectSize.y = nCtrlSize.y + 2*m_nControlOffset;
 
-		GetShapeManager()->GetShapeCanvas()->Refresh(false);
-	}
+        GetShapeManager()->GetShapeCanvas()->Refresh(false);
+    }
 }
 
 //----------------------------------------------------------------------------------//

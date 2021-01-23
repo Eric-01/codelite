@@ -14,11 +14,11 @@ public:
 
   const wxString& GetErrorMessage() const { return m_strErrorMessage; }
   const int GetErrorCode() const { return m_nErrorCode; }
-  
+
   // Add functions for stack traces ??
 private:
   wxString m_strErrorMessage;
-  int m_nErrorCode;  
+  int m_nErrorCode;
 };
 
 #endif // DONT_USE_DATABASE_LAYER_EXCEPTIONS

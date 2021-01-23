@@ -40,7 +40,7 @@ TEST (ListAdderAddsTestToList)
 {
     TestList list;
 
-    Test test("");    
+    Test test("");
     ListAdder adder(list, &test);
 
     CHECK (list.GetHead() == &test);

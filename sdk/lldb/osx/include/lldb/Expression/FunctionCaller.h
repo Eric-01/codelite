@@ -59,7 +59,7 @@ public:
   static bool classof(const Expression *E) {
     return E->getKind() == eKindFunctionCaller;
   }
-  
+
   /// Constructor
   ///
   /// \param[in] exe_scope

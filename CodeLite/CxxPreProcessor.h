@@ -94,19 +94,19 @@ public:
      * @return
      */
     wxArrayString GetDefinitions() const;
-    
+
     /**
-     * @brief return true if we can open another include file or not (depends on the max depts set 
+     * @brief return true if we can open another include file or not (depends on the max depts set
      * and the current depth)
-     * @return 
+     * @return
      */
     bool CanGoDeeper() const;
-    
+
     /**
      * @brief increase the current include depth
      */
     void IncDepth();
-    
+
     /**
      * @brief decrease the current include depth
      */

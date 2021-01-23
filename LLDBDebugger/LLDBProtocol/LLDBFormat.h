@@ -18,9 +18,9 @@ class LLDBFormat
 public:
     LLDBFormat();
     virtual ~LLDBFormat();
-    
+
     static void Initialise();
-    
+
     static wxString GetName(eLLDBFormat foramt);
     static size_t GetCount() { return m_formats.size(); }
     /**
@@ -31,7 +31,7 @@ public:
      * @brief return the format ID from the menu ID
      */
     static eLLDBFormat GetFormatID(int menuID);
-    
+
     /**
      * @brief Create a menu for the various formats
      */

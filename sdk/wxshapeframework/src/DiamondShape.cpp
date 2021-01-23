@@ -25,15 +25,15 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFDiamondShape, wxSFPolygonShape);
 wxSFDiamondShape::wxSFDiamondShape()
 : wxSFPolygonShape()
 {
-	EnablePropertySerialization(wxT("vertices"), false);
+    EnablePropertySerialization(wxT("vertices"), false);
 
-	SetVertices(4, diamond);
+    SetVertices(4, diamond);
 }
 
 wxSFDiamondShape::wxSFDiamondShape(const wxRealPoint& pos, wxSFDiagramManager* manager)
 : wxSFPolygonShape(4, diamond, pos, manager)
 {
-	EnablePropertySerialization(wxT("vertices"), false);
+    EnablePropertySerialization(wxT("vertices"), false);
 }
 
 wxSFDiamondShape::wxSFDiamondShape(const wxSFDiamondShape& obj)

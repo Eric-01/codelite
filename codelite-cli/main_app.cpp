@@ -60,17 +60,17 @@ bool MainApp::DoParseCommandLine(wxCmdLineParser& parser)
     if(parser.Parse(false) != 0) {
         return false;
     }
-    
+
     m_manager->GetCommand() = parser.GetParam(0);
     m_manager->GetOptions() = parser.GetParam(1);
-    
+
     if(parser.Found("v")) {
         // Print version and exit
         std::cout << "codelite-cli v1.0" << std::endl;
         m_manager->SetExitNow(true);
         return true;
     }
-    
+
     if(parser.Found("h")) {
         m_manager->SetExitNow(true);
         PrintUsage(parser);

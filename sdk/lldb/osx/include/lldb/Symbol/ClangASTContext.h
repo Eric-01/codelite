@@ -281,7 +281,7 @@ public:
 
     llvm::SmallVector<const char *, 2> names;
     llvm::SmallVector<clang::TemplateArgument, 2> args;
-    
+
     const char * pack_name = nullptr;
     std::unique_ptr<TemplateParameterInfos> packed_args;
   };
@@ -966,7 +966,7 @@ public:
 
   clang::DeclarationName
   GetDeclarationName(const char *name, const CompilerType &function_clang_type);
-  
+
   virtual const clang::ExternalASTMerger::OriginMap &GetOriginMap() {
     return m_origins;
   }
@@ -1031,9 +1031,9 @@ public:
                                       const char *name) override;
 
   PersistentExpressionState *GetPersistentExpressionState() override;
-  
+
   clang::ExternalASTMerger &GetMergerUnchecked();
-  
+
   const clang::ExternalASTMerger::OriginMap &GetOriginMap() override {
     return GetMergerUnchecked().GetOrigins();
   }

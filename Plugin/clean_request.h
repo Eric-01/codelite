@@ -35,21 +35,21 @@
  */
 class WXDLLIMPEXP_SDK CleanRequest : public ShellCommand {
 public:
-	/**
-	 * Construct a compilation clean request. The compiler thread will clean the selected project and all
-	 * its dependencies as appeard in the build order dialog
-	 * \param projectName the selected project to build
-	 */
-	CleanRequest(const QueueCommand &info);
+    /**
+     * Construct a compilation clean request. The compiler thread will clean the selected project and all
+     * its dependencies as appeard in the build order dialog
+     * \param projectName the selected project to build
+     */
+    CleanRequest(const QueueCommand &info);
 
-	///dtor
-	virtual ~CleanRequest();
+    ///dtor
+    virtual ~CleanRequest();
 
-	//process the request
-	virtual void Process(IManager *manager = NULL);
+    //process the request
+    virtual void Process(IManager *manager = NULL);
 
-	//setters/getters
-	const wxString &GetProjectName() const { return m_info.GetProject(); }
+    //setters/getters
+    const wxString &GetProjectName() const { return m_info.GetProject(); }
 };
 
 #endif // CLEAN_REQUEST_H

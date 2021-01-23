@@ -46,7 +46,7 @@ TweaksSettingsDlg::TweaksSettingsDlg(wxWindow* parent)
 
 TweaksSettingsDlg::~TweaksSettingsDlg()
 {
-    
+
     m_colourProperties.clear();
 }
 
@@ -90,7 +90,7 @@ void TweaksSettingsDlg::DoPopulateList()
         if ( pt.IsOk() ) {
             m_colourProperties.push_back( m_pgMgrTabColours->AppendIn(parentProject, new wxSystemColourProperty(labelBG, wxPG_LABEL, pt.GetTabBgColour() )) );
             m_colourProperties.push_back( m_pgMgrTabColours->AppendIn(parentProject, new wxSystemColourProperty(labelFG, wxPG_LABEL, pt.GetTabFgColour() )) );
-            
+
         } else {
             wxPGProperty* prop(NULL);
 

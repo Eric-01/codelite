@@ -61,7 +61,7 @@ protected:
 private:
   void CreateImplementationIfNeeded();
   ScriptInterpreter *GetScriptInterpreter();
-  
+
   std::string m_class_name;
   lldb::SearchDepth m_depth;
   StructuredDataImpl *m_args_ptr; // We own this, but the implementation

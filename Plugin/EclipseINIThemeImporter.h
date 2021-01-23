@@ -33,7 +33,7 @@ class WXDLLIMPEXP_SDK EclipseINIThemeImporter : public EclipseThemeImporterBase
 {
 public:
     virtual LexerConf::Ptr_t Import(const wxFileName& eclipseXmlFile);
-    
+
     EclipseINIThemeImporter();
     ~EclipseINIThemeImporter();
 };

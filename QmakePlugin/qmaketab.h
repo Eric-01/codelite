@@ -38,14 +38,14 @@ class IManager;
 /** Implementing QMakeTabBase */
 class QMakeTab : public QMakeTabBase
 {
-	QmakeConf *m_conf;
+    QmakeConf *m_conf;
 
-	void OnUseQmake(wxUpdateUIEvent &e);
+    void OnUseQmake(wxUpdateUIEvent &e);
 public:
-	/** Constructor */
-	QMakeTab( wxWindow* parent, QmakeConf *conf );
-	void Load(IManager* manager, const wxString &projectName, const wxString &confgName);
-	void Save(IManager *manager, const wxString& projectName, const wxString& confgName);
+    /** Constructor */
+    QMakeTab( wxWindow* parent, QmakeConf *conf );
+    void Load(IManager* manager, const wxString &projectName, const wxString &confgName);
+    void Save(IManager *manager, const wxString& projectName, const wxString& confgName);
 };
 
 #endif // __qmaketab__

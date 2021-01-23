@@ -38,7 +38,7 @@ Docker::Docker(IManager* manager)
     m_longName = _("Docker for CodeLite");
     m_shortName = wxT("Docker");
     m_driver.reset(new clDockerDriver(this));
-    
+
     clWorkspaceManager::Get().RegisterWorkspace(new clDockerWorkspace(false, nullptr, m_driver));
     clDockerWorkspace::Initialise(this);
     clDockerWorkspace::Get(); // Make sure that the workspace instance is up and all events are hooked

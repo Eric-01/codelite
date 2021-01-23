@@ -21,31 +21,31 @@
 class WXDLLIMPEXP_SF wxSFDiamondArrow : public wxSFSolidArrow
 {
 public:
-	XS_DECLARE_CLONABLE_CLASS(wxSFDiamondArrow);
+    XS_DECLARE_CLONABLE_CLASS(wxSFDiamondArrow);
 
     /*! \brief Default constructor. */
-	wxSFDiamondArrow(void);
-	/*!
+    wxSFDiamondArrow(void);
+    /*!
      * \brief User constructor.
-	 * \param parent"> Pointer to the parent shape
-	 */
-	wxSFDiamondArrow(wxSFShapeBase* parent);
-	/*!
+     * \param parent"> Pointer to the parent shape
+     */
+    wxSFDiamondArrow(wxSFShapeBase* parent);
+    /*!
      * \brief Copy constructor.
-	 * \param obj Reference to the source object
-	 */
-	wxSFDiamondArrow(const wxSFDiamondArrow& obj);
-	/*! \brief Destructor. */
-	virtual ~wxSFDiamondArrow(void);
+     * \param obj Reference to the source object
+     */
+    wxSFDiamondArrow(const wxSFDiamondArrow& obj);
+    /*! \brief Destructor. */
+    virtual ~wxSFDiamondArrow(void);
 
-	// public virtual functions
-	/*!
+    // public virtual functions
+    /*!
      * \brief Draw arrow shape at the end of a virtual line.
-	 * \param from Start of the virtual line
-	 * \param to End of the virtual line
-	 * \param dc Device context for drawing
-	 */
-	virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
+     * \param from Start of the virtual line
+     * \param to End of the virtual line
+     * \param dc Device context for drawing
+     */
+    virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
 };
 
 #endif //_WXSFDIAMONDARROW_H

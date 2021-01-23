@@ -49,13 +49,13 @@ private:
 public:
     WordCompletionDictionary();
     virtual ~WordCompletionDictionary();
-    
+
     /**
      * @brief this function is called by the word completion thread when parsing phase is done
      * @param reply
      */
     void OnSuggestThread(const WordCompletionThreadReply& reply);
-    
+
     /**
      * @brief return a set of words from the current editors
      */

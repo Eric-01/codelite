@@ -175,7 +175,7 @@ void SizerFlagsListView::DoUpdateUI(wxPropertyGrid* pg, wxUpdateUIEvent& event)
                         || (event.GetId() == ID_TOOL_ALIGN_HCENTER) && hasEXPAND
                       )
                     );
-        
+
     } else {
         pg->EnableProperty("Flags.wxALIGN_RIGHT", false); // Can't have wxALIGN_RIGHT in a horizontal boxsizer
         pg->EnableProperty("Flags.wxALIGN_CENTER_HORIZONTAL", false); // Can't have wxALIGN_CENTER_HORIZONTAL in a

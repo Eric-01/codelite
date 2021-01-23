@@ -47,23 +47,23 @@ wxSFSquareShape::~wxSFSquareShape()
 
 void wxSFSquareShape::Scale(double x, double y, bool children)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	if((x > 0) && (y > 0))
-	{
-	    double s = 1;
+    if((x > 0) && (y > 0))
+    {
+        double s = 1;
 
         if(x == 1) s = y;
         else if (y == 1) s = x;
-	    else if(x >= y) s = x;
-	    else
+        else if(x >= y) s = x;
+        else
             s = y;
 
-		SetRectSize(m_nRectSize.x * s, m_nRectSize.y * s);
+        SetRectSize(m_nRectSize.x * s, m_nRectSize.y * s);
 
         // call default function implementation (needed for scaling of shape's children)
-		wxSFShapeBase::Scale(x, y, children);
-	}
+        wxSFShapeBase::Scale(x, y, children);
+    }
 }
 
 void wxSFSquareShape::OnHandle(wxSFShapeHandle& handle)
@@ -75,31 +75,31 @@ void wxSFSquareShape::OnHandle(wxSFShapeHandle& handle)
     wxRealPoint prevSize = m_nRectSize;
 
     // perform standard operations
-	switch(handle.GetType())
-	{
+    switch(handle.GetType())
+    {
     case wxSFShapeHandle::hndLEFTTOP:
-	case wxSFShapeHandle::hndLEFT:
-	case wxSFShapeHandle::hndLEFTBOTTOM:
-		OnLeftHandle(handle);
-		break;
+    case wxSFShapeHandle::hndLEFT:
+    case wxSFShapeHandle::hndLEFTBOTTOM:
+        OnLeftHandle(handle);
+        break;
 
     case wxSFShapeHandle::hndRIGHTTOP:
-	case wxSFShapeHandle::hndRIGHT:
-	case wxSFShapeHandle::hndRIGHTBOTTOM:
-		OnRightHandle(handle);
-		break;
+    case wxSFShapeHandle::hndRIGHT:
+    case wxSFShapeHandle::hndRIGHTBOTTOM:
+        OnRightHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndTOP:
-		OnTopHandle(handle);
-		break;
+    case wxSFShapeHandle::hndTOP:
+        OnTopHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndBOTTOM:
-		OnBottomHandle(handle);
-		break;
+    case wxSFShapeHandle::hndBOTTOM:
+        OnBottomHandle(handle);
+        break;
 
     default:
         break;
-	}
+    }
 
     // calculate common size and some auxilary values
     if((prevSize.x < m_nRectSize.x) || (prevSize.y < m_nRectSize.y))
@@ -123,38 +123,38 @@ void wxSFSquareShape::OnHandle(wxSFShapeHandle& handle)
 
     // move rect if neccessary
     switch(handle.GetType())
-	{
-	case wxSFShapeHandle::hndLEFT:
+    {
+    case wxSFShapeHandle::hndLEFT:
         MoveBy(-dx, -dy/2);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndLEFTTOP:
+    case wxSFShapeHandle::hndLEFTTOP:
         MoveBy(-dx, -dy);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndLEFTBOTTOM:
+    case wxSFShapeHandle::hndLEFTBOTTOM:
         MoveBy(-dx, 0);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndRIGHT:
+    case wxSFShapeHandle::hndRIGHT:
         MoveBy(0, -dy/2);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndRIGHTTOP:
+    case wxSFShapeHandle::hndRIGHTTOP:
         MoveBy(0, -dy);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndTOP:
+    case wxSFShapeHandle::hndTOP:
         MoveBy(-dx/2, -dy);
-		break;
+        break;
 
-	case wxSFShapeHandle::hndBOTTOM:
+    case wxSFShapeHandle::hndBOTTOM:
         MoveBy(-dx/2, 0);
-		break;
+        break;
 
     default:
         break;
-	}
-	
-	wxSFShapeBase::OnHandle( handle );
+    }
+
+    wxSFShapeBase::OnHandle( handle );
 }

@@ -14,7 +14,7 @@
  *       Name of a variable to get.
  *      </p>
  * @param filter int[optional] <p>
- *       The ID of the filter to apply. The 
+ *       The ID of the filter to apply. The
  *       manual page lists the available filters.
  *      </p>
  * @param options mixed[optional] <p>
@@ -35,7 +35,7 @@ function filter_input ($type, $variable_name, $filter = null, $options = null) {
  *       Value to filter.
  *      </p>
  * @param filter int[optional] <p>
- *       The ID of the filter to apply. The 
+ *       The ID of the filter to apply. The
  *       manual page lists the available filters.
  *      </p>
  * @param options mixed[optional] <p>
@@ -46,7 +46,7 @@ function filter_input ($type, $variable_name, $filter = null, $options = null) {
  *       the value after filtering/sanitizing it.
  *      </p>
  *      <p>
- *       
+ *
  *         array(
  *        'default' => 3, // value to return if the filter fails
  *        // other options here
@@ -77,7 +77,7 @@ function filter_input ($type, $variable_name, $filter = null, $options = null) {
  * $var = filter_var('Doe, Jane Sue', FILTER_CALLBACK, array('options' => 'foo'));
  * ?>
  *        ]]>
- *       
+ *
  *      </p>
  * @return mixed the filtered data, or false if the filter fails.
  */
@@ -108,10 +108,10 @@ function filter_var ($variable, $filter = null, $options = null) {}
  * @param add_empty bool[optional] <p>
  *       Add missing keys as &null; to the return value.
  *      </p>
- * @return mixed An array containing the values of the requested variables on success, or false 
- *   on failure. An array value will be false if the filter fails, or &null; if 
+ * @return mixed An array containing the values of the requested variables on success, or false
+ *   on failure. An array value will be false if the filter fails, or &null; if
  *   the variable is not set. Or if the flag FILTER_NULL_ON_FAILURE
- *   is used, it returns false if the variable is not set and &null; if the filter 
+ *   is used, it returns false if the variable is not set and &null; if the filter
  *   fails.
  */
 function filter_input_array ($type, $definition = null, $add_empty = null) {}
@@ -140,8 +140,8 @@ function filter_input_array ($type, $definition = null, $add_empty = null) {}
  * @param add_empty bool[optional] <p>
  *       Add missing keys as &null; to the return value.
  *      </p>
- * @return mixed An array containing the values of the requested variables on success, or false 
- *   on failure. An array value will be false if the filter fails, or &null; if 
+ * @return mixed An array containing the values of the requested variables on success, or false
+ *   on failure. An array value will be false if the filter fails, or &null; if
  *   the variable is not set.
  */
 function filter_var_array (array $data, $definition = null, $add_empty = null) {}

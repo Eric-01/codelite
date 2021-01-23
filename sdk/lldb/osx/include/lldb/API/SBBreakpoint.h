@@ -135,7 +135,7 @@ public:
   // Can only be called from a ScriptedBreakpointResolver...
   SBError
   AddLocation(SBAddress &address);
-  
+
 private:
   friend class SBBreakpointList;
   friend class SBBreakpointLocation;

@@ -84,7 +84,7 @@ class basic_waitable_timer;
  * timer.wait();
  * @endcode
  *
- * @par 
+ * @par
  * Performing an asynchronous wait (C++11):
  * @code
  * void handler(const asio::error_code& error)

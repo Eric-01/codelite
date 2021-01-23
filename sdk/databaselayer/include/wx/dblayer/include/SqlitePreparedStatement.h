@@ -34,7 +34,7 @@ public:
   virtual ~SqlitePreparedStatement();
 
   virtual void Close();
-  
+
   void AddPreparedStatement(sqlite3_stmt* pStatement);
 
   // get field
@@ -54,7 +54,7 @@ public:
 
 private:
   int FindStatementAndAdjustPositionIndex(int* pPosition);
- 
+
   sqlite3* m_pDatabase; // Database pointer needed for error messages
   StatementVector m_Statements;
 };

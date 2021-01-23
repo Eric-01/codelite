@@ -32,7 +32,7 @@
 class WXDLLIMPEXP_SDK CompilerLocatorCrossGCC : public ICompilerLocator
 {
     wxStringSet_t m_locatedFolders;
-    
+
 protected:
     void AddTools(CompilerPtr compiler, const wxString &binFolder,
                   const wxString &prefix = "", const wxString &suffix = "");

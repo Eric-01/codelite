@@ -21,33 +21,33 @@
 
 wxFNBCustomizeDialog::wxFNBCustomizeDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+    this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 
-	wxBoxSizer* mainSizer;
-	mainSizer = new wxBoxSizer( wxVERTICAL );
+    wxBoxSizer* mainSizer;
+    mainSizer = new wxBoxSizer( wxVERTICAL );
 
-	m_notebook1 = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+    m_notebook1 = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 
-	mainSizer->Add( m_notebook1, 1, wxEXPAND | wxALL, 5 );
+    mainSizer->Add( m_notebook1, 1, wxEXPAND | wxALL, 5 );
 
-	m_staticline2 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
-	mainSizer->Add( m_staticline2, 0, wxALL|wxEXPAND, 5 );
-	
-	wxBoxSizer* btnSizer;
-	btnSizer = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_okButton = new wxButton( this, wxID_ANY, _("&OK"), wxDefaultPosition, wxDefaultSize, 0 );
-	btnSizer->Add( m_okButton, 0, wxALL, 5 );
-	
-	m_cancel = new wxButton( this, wxID_ANY, _("&Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
-	btnSizer->Add( m_cancel, 0, wxALL, 5 );
+    m_staticline2 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+    mainSizer->Add( m_staticline2, 0, wxALL|wxEXPAND, 5 );
+    
+    wxBoxSizer* btnSizer;
+    btnSizer = new wxBoxSizer( wxHORIZONTAL );
+    
+    m_okButton = new wxButton( this, wxID_ANY, _("&OK"), wxDefaultPosition, wxDefaultSize, 0 );
+    btnSizer->Add( m_okButton, 0, wxALL, 5 );
+    
+    m_cancel = new wxButton( this, wxID_ANY, _("&Cancel"), wxDefaultPosition, wxDefaultSize, 0 );
+    btnSizer->Add( m_cancel, 0, wxALL, 5 );
 
-	mainSizer->Add( btnSizer, 0, wxALIGN_RIGHT, 5 );
+    mainSizer->Add( btnSizer, 0, wxALIGN_RIGHT, 5 );
 
-	this->SetSizer( mainSizer );
-	this->Layout();
+    this->SetSizer( mainSizer );
+    this->Layout();
 }
 
 wxFNBCustomizeDialog::~wxFNBCustomizeDialog()
 {
-		}
+        }

@@ -32,19 +32,19 @@
 class WXDLLIMPEXP_SDK clDynamicLibrary {
 
 #if defined (__WXMSW__)
-	wxDynamicLibrary m_lib;
+    wxDynamicLibrary m_lib;
 #else //Mac OSX
-	void *m_dllhandle;
+    void *m_dllhandle;
 #endif
     wxString m_error;
     
 public:
-	clDynamicLibrary();
-	~clDynamicLibrary();
-	
-	bool Load(const wxString &name);
-	void Detach();
-	void* GetSymbol(const wxString &name, bool *success);
+    clDynamicLibrary();
+    ~clDynamicLibrary();
+    
+    bool Load(const wxString &name);
+    void Detach();
+    void* GetSymbol(const wxString &name, bool *success);
     
     wxString GetError() {return m_error;}
 };

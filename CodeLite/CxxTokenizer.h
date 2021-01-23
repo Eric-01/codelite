@@ -58,7 +58,7 @@ public:
      *
      */
     wxString GetVisibleScope(const wxString& inputString);
-    
+
     /**
      * @brief return true if the current scanner position is placed inside a PP section
      */

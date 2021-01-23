@@ -22,9 +22,9 @@ public:
 
     ObjectPreview();
     virtual ~ObjectPreview();
-    
+
     bool IsEmpty() const { return m_type.IsEmpty(); }
-    
+
     void SetDescription(const wxString& description) { this->m_description = description; }
     void SetOverflow(bool overflow) { this->m_overflow = overflow; }
     void SetProperties(const std::vector<PropertyPreview*>& properties) { this->m_properties = properties; }

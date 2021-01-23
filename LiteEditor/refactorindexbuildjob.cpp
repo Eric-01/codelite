@@ -32,15 +32,15 @@
 #include "workspace.h"
 
 //#define POST_NEW_STATUS(msg, value, act)
-//	status = new RefactorIndexBuildJobInfo;
-//	status->filename = msg;
-//	status->status = value;
-//	status->action = act;
-//	Post(status);
+//    status = new RefactorIndexBuildJobInfo;
+//    status->filename = msg;
+//    status->status = value;
+//    status->action = act;
+//    Post(status);
 
 RefactorIndexBuildJob::RefactorIndexBuildJob(const std::vector<wxFileName> &files, const wxChar *word)
-		: m_files( files )
-		, m_word(word)
+        : m_files( files )
+        , m_word(word)
 {
 }
 
@@ -50,33 +50,33 @@ RefactorIndexBuildJob::~RefactorIndexBuildJob()
 
 void RefactorIndexBuildJob::Parse(const wxString &word, CppTokensMap &l)
 {
-	clProgressDlg* prgDlg = NULL;
-	// Create a progress dialog
-	prgDlg = new clProgressDlg (NULL, _("Gathering required information..."), wxT(""), (int)m_files.size());
-	prgDlg->Update(0, _("Gathering required information..."));
+    clProgressDlg* prgDlg = NULL;
+    // Create a progress dialog
+    prgDlg = new clProgressDlg (NULL, _("Gathering required information..."), wxT(""), (int)m_files.size());
+    prgDlg->Update(0, _("Gathering required information..."));
 
-	size_t i=0;
-	for ( ; i<m_files.size(); i++) {
+    size_t i=0;
+    for ( ; i<m_files.size(); i++) {
 
-		wxFileName fn = m_files.at(i);
-		CppWordScanner scanner(fn.GetFullPath().mb_str().data());
+        wxFileName fn = m_files.at(i);
+        CppWordScanner scanner(fn.GetFullPath().mb_str().data());
 
-		wxString msg;
-		msg << _("Parsing: ") << fn.GetFullName();
-		// update the progress bar
-		if (!prgDlg->Update(i, msg)){
-			prgDlg->Destroy();
-			l.clear();
-			return;
-		}
+        wxString msg;
+        msg << _("Parsing: ") << fn.GetFullName();
+        // update the progress bar
+        if (!prgDlg->Update(i, msg)){
+            prgDlg->Destroy();
+            l.clear();
+            return;
+        }
 
-		scanner.Match(word.mb_str().data(), l);
-	}
-	prgDlg->Destroy();
+        scanner.Match(word.mb_str().data(), l);
+    }
+    prgDlg->Destroy();
 }
 
 void RefactorIndexBuildJob::Process(wxThread* thread)
 {
-	CppTokensMap l;
-	Parse(m_word.c_str(), l);
+    CppTokensMap l;
+    Parse(m_word.c_str(), l);
 }

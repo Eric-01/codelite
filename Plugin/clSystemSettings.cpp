@@ -60,7 +60,7 @@ void clSystemSettings::OnColoursChanged(clCommandEvent& event)
         ThemeHandlerHelper helper(EventNotifier::Get()->TopFrame());
         helper.UpdateNotebookColours(EventNotifier::Get()->TopFrame());
     }
-    
+
     // Notify about colours changes
     clCommandEvent evtColoursChanged(wxEVT_SYS_COLOURS_CHANGED);
     EventNotifier::Get()->AddPendingEvent(evtColoursChanged);

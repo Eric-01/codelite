@@ -21,7 +21,7 @@ class MainApp : public APP_BASE
 
 protected:
     void DoStartup();
-    
+
 protected:
     /**
      * @brief parse the command line here

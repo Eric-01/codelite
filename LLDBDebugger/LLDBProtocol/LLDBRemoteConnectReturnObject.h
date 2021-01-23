@@ -36,9 +36,9 @@ class LLDBConnectReturnObject
 public:
     LLDBConnectReturnObject();
     ~LLDBConnectReturnObject();
-    
+
     void Clear();
-    
+
     void SetPivotNeeded(bool pivotNeeded) {
         this->m_pivotNeeded = pivotNeeded;
     }

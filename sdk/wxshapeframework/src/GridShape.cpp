@@ -66,9 +66,9 @@ wxSFGridShape::~wxSFGridShape()
 void wxSFGridShape::MarkSerializableDataMembers()
 {
     XS_SERIALIZE_EX(m_nRows, wxT("rows"), sfdvGRIDSHAPE_ROWS);
-	XS_SERIALIZE_EX(m_nCols, wxT("cols"), sfdvGRIDSHAPE_COLS);
-	XS_SERIALIZE_EX(m_nCellSpace, wxT("cell_space"), sfdvGRIDSHAPE_CELLSPACE);
-	XS_SERIALIZE(m_arrCells, wxT("cells"));
+    XS_SERIALIZE_EX(m_nCols, wxT("cols"), sfdvGRIDSHAPE_COLS);
+    XS_SERIALIZE_EX(m_nCellSpace, wxT("cell_space"), sfdvGRIDSHAPE_CELLSPACE);
+    XS_SERIALIZE(m_arrCells, wxT("cells"));
 }
 
 //----------------------------------------------------------------------------------//
@@ -168,30 +168,30 @@ bool wxSFGridShape::InsertToGrid(int index, wxSFShapeBase *shape)
 
 wxSFShapeBase* wxSFGridShape::GetManagedShape(size_t index)
 {
-	if( index < GetChildrenList().GetCount() )
-	{
-		return (wxSFShapeBase*) GetChild( m_arrCells[index] );
-	}
-	else
-		return NULL;
+    if( index < GetChildrenList().GetCount() )
+    {
+        return (wxSFShapeBase*) GetChild( m_arrCells[index] );
+    }
+    else
+        return NULL;
 }
 
 wxSFShapeBase* wxSFGridShape::GetManagedShape(int row, int col)
 {
-	if( (row >= 0) && (row < m_nRows) && (col >=0) && (col < m_nCols) )
-	{
-		return GetManagedShape( row * m_nCols + col );
-	}
-	else
-		return NULL;
+    if( (row >= 0) && (row < m_nRows) && (col >=0) && (col < m_nCols) )
+    {
+        return GetManagedShape( row * m_nCols + col );
+    }
+    else
+        return NULL;
 }
 
 void wxSFGridShape::RemoveFromGrid(long id)
 {
-	if( m_arrCells.Index( id ) != wxNOT_FOUND )
-	{
-		m_arrCells.Remove( id );
-	}
+    if( m_arrCells.Index( id ) != wxNOT_FOUND )
+    {
+        m_arrCells.Remove( id );
+    }
 }
 
 //----------------------------------------------------------------------------------//
@@ -253,8 +253,8 @@ void wxSFGridShape::Update()
     for(size_t i = 0; i < m_arrCells.GetCount(); )
     {
         if( !GetChild(m_arrCells[i])) m_arrCells.RemoveAt(i);
-		else
-			i++;
+        else
+            i++;
     }
 
     // check whether all child shapes' IDs are present in the cells array...
@@ -315,7 +315,7 @@ void wxSFGridShape::FitToChildren()
 void  wxSFGridShape::OnChildDropped(const wxRealPoint& pos, wxSFShapeBase *child)
 {
     wxASSERT(child);
-	wxUnusedVar( pos );
+    wxUnusedVar( pos );
 
     if( child && !child->IsKindOf(CLASSINFO(wxSFLineShape)) ) AppendToGrid( child );
 }

@@ -54,6 +54,6 @@ void SvnShowRecentChangesDlg::DoSelectRevision(int index)
     m_stcDiff->SetReadOnly(false);
     m_stcDiff->SetText(chunk->m_chunk.diff);
     m_stcDiff->SetReadOnly(true);
-    
+
     m_staticTextDesc->SetLabel(chunk->m_chunk.description);
 }

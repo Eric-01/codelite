@@ -56,26 +56,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 class EditorOptionsGeneralRightMarginPanelBase : public wxPanel 
 {
-	private:
-	
-	protected:
-		wxRadioButton* m_radioBtnRMDisabled;
-		wxRadioButton* m_radioBtnRMLine;
-		wxRadioButton* m_radioBtnRMBackground;
-		wxStaticText* m_staticText1;
-		wxTextCtrl* m_rightMarginColumn;
-		wxStaticText* m_staticText2;
-		wxColourPickerCtrl* m_rightMarginColour;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnRightMarginIndicator( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		EditorOptionsGeneralRightMarginPanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 263,143 ), long style = wxTAB_TRAVERSAL ); 
-		~EditorOptionsGeneralRightMarginPanelBase();
-	
+    private:
+    
+    protected:
+        wxRadioButton* m_radioBtnRMDisabled;
+        wxRadioButton* m_radioBtnRMLine;
+        wxRadioButton* m_radioBtnRMBackground;
+        wxStaticText* m_staticText1;
+        wxTextCtrl* m_rightMarginColumn;
+        wxStaticText* m_staticText2;
+        wxColourPickerCtrl* m_rightMarginColour;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnRightMarginIndicator( wxCommandEvent& event ) { event.Skip(); }
+        
+    
+    public:
+        
+        EditorOptionsGeneralRightMarginPanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 263,143 ), long style = wxTAB_TRAVERSAL ); 
+        ~EditorOptionsGeneralRightMarginPanelBase();
+    
 };
 
 #endif //__EDITOROPTIONSGENERALRIGHTMARGINPANELBASE_H__

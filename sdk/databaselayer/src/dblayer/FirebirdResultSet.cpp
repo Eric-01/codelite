@@ -40,7 +40,7 @@ FirebirdResultSet::~FirebirdResultSet()
 bool FirebirdResultSet::Next()
 {
   ResetErrorCodes();
-  
+
   int nReturn = m_pInterface->GetIscDsqlFetch()(m_Status, &m_pStatement, 1, m_pFields);
   if (nReturn == 0) // No errors and retrieval successful
   {
@@ -74,7 +74,7 @@ void FirebirdResultSet::Close()
       ThrowDatabaseException();
     }
   }
-  
+
   // Delete the statement if we have ownership of it
   if (m_bManageStatement && m_pStatement)
   {
@@ -86,7 +86,7 @@ void FirebirdResultSet::Close()
       ThrowDatabaseException();
     }
   }
-  
+
   // Free the output fields structure
   if (m_pFields)
   {
@@ -101,7 +101,7 @@ void FirebirdResultSet::Close()
 int FirebirdResultSet::GetResultInt(int nField)
 {
   ResetErrorCodes();
-  
+
   // Don't use nField-1 here since GetResultString will take care of that
   return GetResultLong(nField);
 }
@@ -109,7 +109,7 @@ int FirebirdResultSet::GetResultInt(int nField)
 wxString FirebirdResultSet::GetResultString(int nField)
 {
   ResetErrorCodes();
-  
+
   wxString strReturn = wxEmptyString;
   XSQLVAR* pVar = &(m_pFields->sqlvar[nField-1]);
   if (IsNull(pVar))
@@ -149,7 +149,7 @@ wxString FirebirdResultSet::GetResultString(int nField)
 long FirebirdResultSet::GetResultLong(int nField)
 {
   ResetErrorCodes();
-  
+
   long nReturn = 0L;
   XSQLVAR* pVar = &(m_pFields->sqlvar[nField-1]);
   if (IsNull(pVar))
@@ -207,7 +207,7 @@ long FirebirdResultSet::GetResultLong(int nField)
 bool FirebirdResultSet::GetResultBool(int nField)
 {
   ResetErrorCodes();
-  
+
   // Don't use nField-1 here since GetResultString will take care of that
   int nValue = GetResultLong(nField);
   return (nValue != 0);
@@ -216,7 +216,7 @@ bool FirebirdResultSet::GetResultBool(int nField)
 wxDateTime FirebirdResultSet::GetResultDate(int nField)
 {
   ResetErrorCodes();
-  
+
   wxDateTime dateReturn = wxInvalidDateTime;
   XSQLVAR* pVar = &(m_pFields->sqlvar[nField-1]);
   if (IsNull(pVar))
@@ -230,19 +230,19 @@ wxDateTime FirebirdResultSet::GetResultDate(int nField)
     if (nType == SQL_TIMESTAMP)
     {
       struct tm timeInTm;
-		  m_pInterface->GetIscDecodeTimestamp()((ISC_TIMESTAMP *)pVar->sqldata, &timeInTm);
+          m_pInterface->GetIscDecodeTimestamp()((ISC_TIMESTAMP *)pVar->sqldata, &timeInTm);
       SetDateTimeFromTm(dateReturn, timeInTm);
     }
     else if (nType == SQL_TYPE_DATE)
     {
       struct tm timeInTm;
-		  m_pInterface->GetIscDecodeSqlDate()((ISC_DATE *)pVar->sqldata, &timeInTm);
+          m_pInterface->GetIscDecodeSqlDate()((ISC_DATE *)pVar->sqldata, &timeInTm);
       SetDateTimeFromTm(dateReturn, timeInTm);
     }
     else if (nType == SQL_TYPE_TIME)
     {
       struct tm timeInTm;
-		  m_pInterface->GetIscDecodeSqlTime()((ISC_TIME *)pVar->sqldata, &timeInTm);
+          m_pInterface->GetIscDecodeSqlTime()((ISC_TIME *)pVar->sqldata, &timeInTm);
       SetDateTimeFromTm(dateReturn, timeInTm);
     }
     else
@@ -284,29 +284,29 @@ double FirebirdResultSet::GetResultDouble(int nField)
     }
     else if (nType == SQL_DOUBLE)
     {
-		  dblReturn = *(double *) (pVar->sqldata);
+          dblReturn = *(double *) (pVar->sqldata);
     }
     else if (nType == SQL_LONG)
     {
-    	dblReturn = *(long *) (pVar->sqldata);
-    	for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
+        dblReturn = *(long *) (pVar->sqldata);
+        for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
     }
     else if (nType == SQL_INT64)
     {
-    	dblReturn = *(ISC_INT64 *) (pVar->sqldata);
-    	for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
+        dblReturn = *(ISC_INT64 *) (pVar->sqldata);
+        for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
     }
     else if (nType == SQL_SHORT)
     {
-    	dblReturn = *(short *) (pVar->sqldata);
-    	for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
+        dblReturn = *(short *) (pVar->sqldata);
+        for(int i = 0; i < -pVar->sqlscale; dblReturn /= 10, i++);
     }
     else
     {
       // Incompatible field type
       // Set error codes and throw an exception here
       dblReturn = 0.00;
-        
+
       SetErrorMessage(_("Invalid field type"));
       SetErrorCode(DATABASE_LAYER_INCOMPATIBLE_FIELD_TYPE);
 
@@ -320,14 +320,14 @@ double FirebirdResultSet::GetResultDouble(int nField)
 void* FirebirdResultSet::GetResultBlob(int nField, wxMemoryBuffer& Buffer)
 {
   ResetErrorCodes();
-  
+
   XSQLVAR* pVar = &(m_pFields->sqlvar[nField-1]);
   if (IsNull(pVar))
   {
     // The column is NULL
     wxMemoryBuffer tempBuffer(0);
     tempBuffer.SetBufSize(0);
-    tempBuffer.SetDataLen(0); 
+    tempBuffer.SetDataLen(0);
     Buffer = tempBuffer;
     return NULL;
   }
@@ -370,7 +370,7 @@ void* FirebirdResultSet::GetResultBlob(int nField, wxMemoryBuffer& Buffer)
       // Set error codes and throw an exception here
       wxMemoryBuffer tempBuffer(0);
       tempBuffer.SetBufSize(0);
-      tempBuffer.SetDataLen(0); 
+      tempBuffer.SetDataLen(0);
       Buffer = tempBuffer;
 
       SetErrorMessage(_("Invalid field type"));
@@ -454,7 +454,7 @@ void FirebirdResultSet::AllocateFieldSpace()
       case SQL_DOUBLE:
         pVar->sqldata = (char*)new double(0.0);
         break;
-      default : 
+      default :
         break;
     }
     if (pVar->sqltype & 1)
@@ -464,7 +464,7 @@ void FirebirdResultSet::AllocateFieldSpace()
 
 void FirebirdResultSet::FreeFieldSpace()
 {
-	if (m_pFields == NULL)
+    if (m_pFields == NULL)
     return;
 
   for (int i = 0; i < m_pFields->sqln; i++)

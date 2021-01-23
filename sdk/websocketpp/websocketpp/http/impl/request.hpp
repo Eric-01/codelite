@@ -40,9 +40,9 @@ namespace parser {
 
 inline size_t request::consume(char const * buf, size_t len) {
     size_t bytes_processed;
-    
+
     if (m_ready) {return 0;}
-    
+
     if (m_body_bytes_needed > 0) {
         bytes_processed = process_body(buf,len);
         if (body_ready()) {
@@ -66,9 +66,9 @@ inline size_t request::consume(char const * buf, size_t len) {
             header_delimiter,
             header_delimiter+sizeof(header_delimiter)-1
         );
-        
+
         m_header_bytes += (end-begin+sizeof(header_delimiter));
-        
+
         if (m_header_bytes > max_header_size) {
             // exceeded max header size
             throw exception("Maximum header size exceeded.",
@@ -101,9 +101,9 @@ inline size_t request::consume(char const * buf, size_t len) {
             m_buf.reset();
 
             // if this was not an upgrade request and has a content length
-            // continue capturing content-length bytes and expose them as a 
+            // continue capturing content-length bytes and expose them as a
             // request body.
-            
+
             if (prepare_body()) {
                 bytes_processed += process_body(buf+bytes_processed,len-bytes_processed);
                 if (body_ready()) {

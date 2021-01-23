@@ -22,25 +22,25 @@ MoveFuncImplBaseDlg::MoveFuncImplBaseDlg(wxWindow* parent, wxWindowID id, const 
         wxCrafterRzeI25InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* bSizer6 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(bSizer6);
-    
+
     wxBoxSizer* bSizer7 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer6->Add(bSizer7, 1, wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_staticText4 = new wxStaticText(this, wxID_ANY, _("Select the file in which to place the function implementation:"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
-    
+
     bSizer7->Add(m_staticText4, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_filePicker = new FilePicker(this);
     bSizer7->Add(m_filePicker, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_staticText5 = new wxStaticText(this, wxID_ANY, _("Function implementation (you can edit the code below):"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
-    
+
     bSizer7->Add(m_staticText5, 0, wxALL, WXC_FROM_DIP(5));
-    
+
     m_preview = new wxStyledTextCtrl(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     wxFont m_previewFont(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, wxT("Sans"));
     m_preview->SetFont(m_previewFont);
@@ -49,21 +49,21 @@ MoveFuncImplBaseDlg::MoveFuncImplBaseDlg(wxWindow* parent, wxWindowID id, const 
     m_preview->SetMarginMask     (4, wxSTC_MASK_FOLDERS);
     m_preview->SetMarginSensitive(4, true);
     m_preview->SetMarginWidth    (4, 0);
-    
+
     // Configure the tracker margin
     m_preview->SetMarginWidth(1, 0);
-    
+
     // Configure the symbol margin
     m_preview->SetMarginType (2, wxSTC_MARGIN_SYMBOL);
     m_preview->SetMarginMask (2, ~(wxSTC_MASK_FOLDERS));
     m_preview->SetMarginWidth(2, 0);
     m_preview->SetMarginSensitive(2, true);
-    
+
     // Configure the line numbers margin
     int m_preview_PixelWidth = 4 + 5 *m_preview->TextWidth(wxSTC_STYLE_LINENUMBER, wxT("9"));
     m_preview->SetMarginType(0, wxSTC_MARGIN_NUMBER);
     m_preview->SetMarginWidth(0,m_preview_PixelWidth);
-    
+
     // Configure the line symbol margin
     m_preview->SetMarginType(3, wxSTC_MARGIN_FORE);
     m_preview->SetMarginMask(3, 0);
@@ -82,21 +82,21 @@ MoveFuncImplBaseDlg::MoveFuncImplBaseDlg(wxWindow* parent, wxWindowID id, const 
     m_preview->SetKeyWords(2, wxT(""));
     m_preview->SetKeyWords(3, wxT(""));
     m_preview->SetKeyWords(4, wxT(""));
-    
+
     bSizer7->Add(m_preview, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_stdBtnSizer2 = new wxStdDialogButtonSizer();
-    
+
     bSizer6->Add(m_stdBtnSizer2, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, WXC_FROM_DIP(10));
-    
+
     m_buttonOK = new wxButton(this, wxID_OK, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_buttonOK->SetDefault();
     m_stdBtnSizer2->AddButton(m_buttonOK);
-    
+
     m_buttonCancel = new wxButton(this, wxID_CANCEL, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_stdBtnSizer2->AddButton(m_buttonCancel);
     m_stdBtnSizer2->Realize();
-    
+
     SetName(wxT("MoveFuncImplBaseDlg"));
     SetSize(-1,-1);
     if (GetSizer()) {
@@ -117,12 +117,12 @@ MoveFuncImplBaseDlg::MoveFuncImplBaseDlg(wxWindow* parent, wxWindowID id, const 
     // Connect events
     m_buttonOK->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MoveFuncImplBaseDlg::OnButtonOK), NULL, this);
     m_buttonCancel->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MoveFuncImplBaseDlg::OnButtonCancel), NULL, this);
-    
+
 }
 
 MoveFuncImplBaseDlg::~MoveFuncImplBaseDlg()
 {
     m_buttonOK->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MoveFuncImplBaseDlg::OnButtonOK), NULL, this);
     m_buttonCancel->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MoveFuncImplBaseDlg::OnButtonCancel), NULL, this);
-    
+
 }

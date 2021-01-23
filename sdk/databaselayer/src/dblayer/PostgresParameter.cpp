@@ -63,7 +63,7 @@ long* PostgresParameter::GetDataLengthPointer()
 const void* PostgresParameter::GetDataPtr()
 {
   const void *pReturn = NULL;
-  
+
   switch (m_nParameterType)
   {
     case PostgresParameter::PARAM_STRING:

@@ -52,7 +52,7 @@ public:
         kCallOnFileSave = (1 << 0),
     };
     typedef std::unordered_map<wxString, ToolInfo> Map_t;
-    
+
 protected:
     void EnableFlag(int flag, bool b)
     {

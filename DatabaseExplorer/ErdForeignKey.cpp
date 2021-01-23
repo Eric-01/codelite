@@ -29,43 +29,43 @@ XS_IMPLEMENT_CLONABLE_CLASS(ErdForeignKey,wxSFRoundOrthoLineShape);
 
 ErdForeignKey::ErdForeignKey():wxSFRoundOrthoLineShape()
 {
-	m_pConstraint = NULL;
-	
-	EnableSerialization( false );
+    m_pConstraint = NULL;
+
+    EnableSerialization( false );
 }
 
 ErdForeignKey::ErdForeignKey(Constraint* pConstraint):wxSFRoundOrthoLineShape()
 {
-	m_pConstraint = pConstraint;
-	wxSFTextShape* pLabel = new wxSFTextShape();
-	
-	if( pLabel )
-	{
-		pLabel->GetFont().SetPointSize(8);
-		pLabel->GetFont().SetWeight(wxFONTWEIGHT_BOLD);
+    m_pConstraint = pConstraint;
+    wxSFTextShape* pLabel = new wxSFTextShape();
 
-		pLabel->SetText(pConstraint->GetName());
-		pLabel->SetVAlign(valignMIDDLE);
-		pLabel->SetHAlign(halignCENTER);
-		pLabel->SetFill(*wxTRANSPARENT_BRUSH);
-		pLabel->SetStyle(sfsLOCK_CHILDREN | sfsPARENT_CHANGE);
-		pLabel->RemoveStyle(sfsPARENT_CHANGE);
-		pLabel->RemoveStyle(sfsSHOW_HANDLES);
-		
-		AddChild(pLabel);
-	}
+    if( pLabel )
+    {
+        pLabel->GetFont().SetPointSize(8);
+        pLabel->GetFont().SetWeight(wxFONTWEIGHT_BOLD);
 
-	SetTrgArrow(CLASSINFO(OneArrow));
-	SetSrcArrow(CLASSINFO(NArrow));
+        pLabel->SetText(pConstraint->GetName());
+        pLabel->SetVAlign(valignMIDDLE);
+        pLabel->SetHAlign(halignCENTER);
+        pLabel->SetFill(*wxTRANSPARENT_BRUSH);
+        pLabel->SetStyle(sfsLOCK_CHILDREN | sfsPARENT_CHANGE);
+        pLabel->RemoveStyle(sfsPARENT_CHANGE);
+        pLabel->RemoveStyle(sfsSHOW_HANDLES);
 
-	SetDockPoint(sfdvLINESHAPE_DOCKPOINT_CENTER);
-	
-	EnableSerialization( false );
+        AddChild(pLabel);
+    }
+
+    SetTrgArrow(CLASSINFO(OneArrow));
+    SetSrcArrow(CLASSINFO(NArrow));
+
+    SetDockPoint(sfdvLINESHAPE_DOCKPOINT_CENTER);
+
+    EnableSerialization( false );
 }
 
 ErdForeignKey::ErdForeignKey(const ErdForeignKey& obj):wxSFRoundOrthoLineShape(obj)
 {
-	m_pConstraint = obj.m_pConstraint;
+    m_pConstraint = obj.m_pConstraint;
 }
 
 ErdForeignKey::~ErdForeignKey()
@@ -74,8 +74,8 @@ ErdForeignKey::~ErdForeignKey()
 
 void ErdForeignKey::CreateHandles()
 {
-	wxSFRoundOrthoLineShape::CreateHandles();
-	
-	RemoveHandle( wxSFShapeHandle::hndLINESTART );
-	RemoveHandle( wxSFShapeHandle::hndLINEEND );
+    wxSFRoundOrthoLineShape::CreateHandles();
+
+    RemoveHandle( wxSFShapeHandle::hndLINESTART );
+    RemoveHandle( wxSFShapeHandle::hndLINEEND );
 }

@@ -89,34 +89,34 @@ WorkspaceSettingsDlg::~WorkspaceSettingsDlg() {}
 
 // void WorkspaceSettingsDlg::OnAddIncludePath( wxCommandEvent& event )
 //{
-//	wxUnusedVar(event);
-//	wxString new_path = wxDirSelector(_("Add Parser Search Path:"), wxT(""), wxDD_DEFAULT_STYLE, wxDefaultPosition,
+//    wxUnusedVar(event);
+//    wxString new_path = wxDirSelector(_("Add Parser Search Path:"), wxT(""), wxDD_DEFAULT_STYLE, wxDefaultPosition,
 //this);
-//	if (new_path.IsEmpty() == false) {
-//		wxString curpaths = m_textCtrlIncludePaths->GetValue();
-//		curpaths.Trim().Trim(false);
-//		if(curpaths.IsEmpty()) {
-//			curpaths << wxT("\n");
-//		}
-//		curpaths << new_path;
-//		m_textCtrlIncludePaths->SetValue(curpaths);
-//	}
+//    if (new_path.IsEmpty() == false) {
+//        wxString curpaths = m_textCtrlIncludePaths->GetValue();
+//        curpaths.Trim().Trim(false);
+//        if(curpaths.IsEmpty()) {
+//            curpaths << wxT("\n");
+//        }
+//        curpaths << new_path;
+//        m_textCtrlIncludePaths->SetValue(curpaths);
+//    }
 //}
 //
 // void WorkspaceSettingsDlg::OnAddExcludePath( wxCommandEvent& event )
 //{
-//	wxUnusedVar(event);
-//	wxString new_path = wxDirSelector(_("Add Parser Exclude Path:"), wxT(""), wxDD_DEFAULT_STYLE, wxDefaultPosition,
+//    wxUnusedVar(event);
+//    wxString new_path = wxDirSelector(_("Add Parser Exclude Path:"), wxT(""), wxDD_DEFAULT_STYLE, wxDefaultPosition,
 //this);
-//	if (new_path.IsEmpty() == false) {
-//		wxString curpaths = m_textCtrlExcludePaths->GetValue();
-//		curpaths.Trim().Trim(false);
-//		if(curpaths.IsEmpty()) {
-//			curpaths << wxT("\n");
-//		}
-//		curpaths << new_path;
-//		m_textCtrlExcludePaths->SetValue(curpaths);
-//	}
+//    if (new_path.IsEmpty() == false) {
+//        wxString curpaths = m_textCtrlExcludePaths->GetValue();
+//        curpaths.Trim().Trim(false);
+//        if(curpaths.IsEmpty()) {
+//            curpaths << wxT("\n");
+//        }
+//        curpaths << new_path;
+//        m_textCtrlExcludePaths->SetValue(curpaths);
+//    }
 //}
 //
 wxArrayString WorkspaceSettingsDlg::GetExcludePaths() const { return wxArrayString(); }

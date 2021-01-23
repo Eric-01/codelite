@@ -8,7 +8,7 @@ if(UNIX AND NOT APPLE)
     set( PLUGIN_NAME "MemCheck")
 
     # Our project is called 'plugin' this is how it will be called in
-    # visual studio, and in our makefiles. 
+    # visual studio, and in our makefiles.
     project( ${PLUGIN_NAME} )
 
     # It was noticed that when using MinGW gcc it is essential that 'core' is mentioned before 'base'.
@@ -18,10 +18,10 @@ if(UNIX AND NOT APPLE)
     include( "${wxWidgets_USE_FILE}" )
 
     # Include paths
-    include_directories("${CL_SRC_ROOT}/Plugin" 
-                        "${CL_SRC_ROOT}/sdk/wxsqlite3/include" 
-                        "${CL_SRC_ROOT}/CodeLite" 
-                        "${CL_SRC_ROOT}/PCH" 
+    include_directories("${CL_SRC_ROOT}/Plugin"
+                        "${CL_SRC_ROOT}/sdk/wxsqlite3/include"
+                        "${CL_SRC_ROOT}/CodeLite"
+                        "${CL_SRC_ROOT}/PCH"
                         "${CL_SRC_ROOT}/Interfaces")
 
     add_definitions(-DWXUSINGDLL_WXSQLITE3)

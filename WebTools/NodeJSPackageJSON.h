@@ -40,23 +40,23 @@ class NodeJSPackageJSON
 public:
     NodeJSPackageJSON();
     virtual ~NodeJSPackageJSON();
-    
+
     /**
      * @brief load the local package.json file stored under the .codelite folder
      */
     bool Load(const wxString& projectPath);
-    
+
     /**
      * @brief create the local package.json file under the .codelite folder
      * baed on the project package.json file
      */
     bool Create(const wxString& projectPath);
-    
+
     /**
      * @brief save the settings
      */
     bool Save(const wxString& projectPath);
-    
+
     void SetDescription(const wxString& description) { this->m_description = description; }
     void SetName(const wxString& name) { this->m_name = name; }
     void SetVersion(const wxString& version) { this->m_version = version; }

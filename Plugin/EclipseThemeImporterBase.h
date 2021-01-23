@@ -103,7 +103,7 @@ protected:
 public:
     const wxString& GetLangName() const { return m_langName; }
     void SetLangName(const wxString& langName) { this->m_langName = langName; }
-    
+
     // Setters/Getters
     void SetFileExtensions(const wxString& fileExtensions) { this->m_fileExtensions = fileExtensions; }
     const wxString& GetFileExtensions() const { return m_fileExtensions; }

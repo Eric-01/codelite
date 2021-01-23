@@ -185,7 +185,7 @@ int MysqlPreparedStatement::FindStatementAndAdjustPositionIndex(int* pPosition)
 {
   if (m_Statements.size() == 0)
     return 0;
-    
+
   // Go through all the elements in the vector
   // Get the number of parameters in each statement
   // Adjust the nPosition for the the broken up statements

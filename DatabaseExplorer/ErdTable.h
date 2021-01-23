@@ -42,35 +42,35 @@
 class ErdTable : public wxSFRoundRectShape {
 
 public:
-	XS_DECLARE_CLONABLE_CLASS(ErdTable);	
+    XS_DECLARE_CLONABLE_CLASS(ErdTable);
 
-	ErdTable();
-	ErdTable(const ErdTable& obj);
-	ErdTable(Table* tab);
-	
-	virtual ~ErdTable();
-	
-	void AddColumn(const wxString& colName, IDbType* type);
-	void UpdateColumns();
-	
-	Table* GetTable() { return (Table*) this->GetUserData(); }
+    ErdTable();
+    ErdTable(const ErdTable& obj);
+    ErdTable(Table* tab);
 
-protected:	
-	void Initialize();
-	
-	wxSFTextShape *m_pLabel;
-	wxSFFlexGridShape* m_pGrid;
-	
-	virtual void DrawHighlighted(wxDC& dc);
-	virtual void DrawHover(wxDC& dc);
-	virtual void DrawNormal(wxDC& dc);
-	
-	void DrawDetails(wxDC& dc);
-	
-	void ClearGrid();
-	void ClearConnections();
-	void AddColumnShape(const wxString& colName, int id, Constraint::constraintType type);
-	void SetCommonProps(wxSFShapeBase* shape);
+    virtual ~ErdTable();
+
+    void AddColumn(const wxString& colName, IDbType* type);
+    void UpdateColumns();
+
+    Table* GetTable() { return (Table*) this->GetUserData(); }
+
+protected:
+    void Initialize();
+
+    wxSFTextShape *m_pLabel;
+    wxSFFlexGridShape* m_pGrid;
+
+    virtual void DrawHighlighted(wxDC& dc);
+    virtual void DrawHover(wxDC& dc);
+    virtual void DrawNormal(wxDC& dc);
+
+    void DrawDetails(wxDC& dc);
+
+    void ClearGrid();
+    void ClearConnections();
+    void AddColumnShape(const wxString& colName, int id, Constraint::constraintType type);
+    void SetCommonProps(wxSFShapeBase* shape);
 };
 
 #endif // ERDTABLE_H

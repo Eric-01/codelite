@@ -25,7 +25,7 @@ FileMgr::FileMgr(const char * file, const char * key) {
             hin = new Hunzip(st, key);
             free(st);
         }
-    }    
+    }
     if (!fin && !hin) fail(MSG_OPEN, file);
 }
 

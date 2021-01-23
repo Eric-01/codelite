@@ -536,7 +536,7 @@ function print_function($functionRef, $childOfInterface, $tabs = 0){
         print_parameters_ref($functionRef->getParameters());
     }
     print ") ";
-    
+
     if($childOfInterface) {
         print ";\n";
     } else {
@@ -906,13 +906,13 @@ function show_help(){
     global $argv0;
     die(<<<EOF
 USAGE: {
-		$argv0
-	} [options] <PHP.net documentation directory>
+        $argv0
+    } [options] <PHP.net documentation directory>
 
 Where options are:
 
-	-help Show this help.
-	-split Split output to different files (one file per PHP extension).
+    -help Show this help.
+    -split Split output to different files (one file per PHP extension).
 
 EOF
    );

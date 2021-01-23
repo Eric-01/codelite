@@ -48,7 +48,7 @@ public:
     ContextBasePtr NewContext(clEditor *parent, const wxString &lexerName);
     ContextBasePtr NewContextByFileName(clEditor *parent, const wxFileName &fileName);
     void Initialize();
-    
+
 private:
     ContextManager();
     virtual ~ContextManager();

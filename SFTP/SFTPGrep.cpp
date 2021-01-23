@@ -15,7 +15,7 @@ SFTPGrep::SFTPGrep(wxWindow* parent)
     m_textCtrlSeachIn->ChangeValue(searchIn);
 }
 
-SFTPGrep::~SFTPGrep() 
+SFTPGrep::~SFTPGrep()
 {
     clConfig::Get().Write("sftp/grep/finw_what", m_textCtrlFindWhat->GetValue());
     clConfig::Get().Write("sftp/grep/search_in", m_textCtrlSeachIn->GetValue());

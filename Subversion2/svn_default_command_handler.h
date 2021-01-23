@@ -32,11 +32,11 @@ class SubversionView;
 
 class SvnDefaultCommandHandler : public SvnCommandHandler {
 public:
-	SvnDefaultCommandHandler(Subversion2 *plugin, int commandId, wxEvtHandler *owner);
-	virtual ~SvnDefaultCommandHandler();
+    SvnDefaultCommandHandler(Subversion2 *plugin, int commandId, wxEvtHandler *owner);
+    virtual ~SvnDefaultCommandHandler();
 
 public:
-	virtual void Process(const wxString &output);
+    virtual void Process(const wxString &output);
 };
 
 #endif // SVN_DEFAULT_COMMAND_HANDLER_H

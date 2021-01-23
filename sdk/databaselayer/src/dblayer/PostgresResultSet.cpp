@@ -24,7 +24,7 @@ PostgresResultSet::PostgresResultSet(PostgresInterface* pInterface, PGresult* pR
   m_nCurrentRow = -1;
   m_nTotalRows = m_pInterface->GetPQntuples()(m_pResult);
   m_bBinaryResults = m_pInterface->GetPQbinaryTuples()(m_pResult);
-  
+
   int nFields = m_pInterface->GetPQnfields()(m_pResult);
   for (int i=0; i<nFields; i++)
   {
@@ -45,7 +45,7 @@ bool PostgresResultSet::Next()
     return false;
 
   m_nCurrentRow++;
-  
+
   return (m_nCurrentRow < m_nTotalRows);
 }
 
@@ -61,7 +61,7 @@ void PostgresResultSet::Close()
   m_FieldLookupMap.clear();
 }
 
-  
+
 // get field
 int PostgresResultSet::GetResultInt(int nField)
 {

@@ -17,10 +17,10 @@ public:
 
   // dtor
   virtual ~SqliteResultSet();
-  
+
   virtual bool Next();
   virtual void Close();
-  
+
   virtual int LookupField(const wxString& strField);
 
   // get field
@@ -37,7 +37,7 @@ public:
   virtual ResultSetMetaData* GetMetaData();
 
 private:
-  
+
   SqlitePreparedStatement* m_pStatement;
   sqlite3_stmt* m_pSqliteStatement;
 

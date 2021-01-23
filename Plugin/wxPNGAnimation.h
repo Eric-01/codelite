@@ -78,7 +78,7 @@ public:
      * @param colour
      */
     void SetPanelColour(const wxColour& colour);
-    
+
     /**
      * @brief is the animation running?
      */

@@ -29,9 +29,9 @@ fix_non_plugins_depends() {
     ## Get list of files to work on
     dylibs=`ls ./wxcrafter.app/Contents/MacOS/*.dylib`
     file_list="${dylibs} ${sos2} ${sos3} ./wxcrafter.app/Contents/MacOS/wxcrafter "
- 
+
     for SO in ${file_list}
-    do   
+    do
     orig_path=`otool -L ${SO}  | grep ${search_string} | awk '{print $1;}'`
     if [ ! -z ${orig_path} ]; then
     ## Loop over the files, and update the path of the wx library

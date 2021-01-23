@@ -66,13 +66,13 @@ bool clTernServer::Start(const wxString& workingDirectory)
     if(!m_jsCCManager->IsEnabled()) return true;
     if(!WebToolsConfig::Get().IsNodeInstalled()) { return true; }
     if(!WebToolsConfig::Get().IsTernInstalled()) { return true; }
-    
+
     m_workingDirectory = workingDirectory;
     WebToolsConfig& conf = WebToolsConfig::Get();
 
     wxString nodeExe = conf.GetNodejs();
     ::WrapWithQuotes(nodeExe);
-    
+
     wxString ternScriptString = conf.GetTernScript().GetFullPath();
     ::WrapWithQuotes(ternScriptString);
 

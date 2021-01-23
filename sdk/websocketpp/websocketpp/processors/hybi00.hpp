@@ -398,7 +398,7 @@ public:
      * @param out The message buffer to prepare the fame in
      * @return Status code, zero on success, non-zero on failure
      */
-    lib::error_code prepare_close(close::status::value, std::string const &, 
+    lib::error_code prepare_close(close::status::value, std::string const &,
         message_ptr out) const
     {
         if (!out) {

@@ -115,18 +115,18 @@ wxCheckTreeCtrl::wxCheckTreeCtrl(wxWindow* parent, wxWindowID id, const wxPoint&
 : m_checkedBmp(16, 16)
 , m_uncheckedBmp(16, 16)
 {
-	Create(parent, id, pos, size, style | wxTR_HAS_BUTTONS | wxTR_LINES_AT_ROOT, validator, name);
-	//create images
-	m_checkedBmp = wxBitmap(Checkbox_on_xpm);
-	m_uncheckedBmp = wxBitmap(Checkbox_off_xpm);
+    Create(parent, id, pos, size, style | wxTR_HAS_BUTTONS | wxTR_LINES_AT_ROOT, validator, name);
+    //create images
+    m_checkedBmp = wxBitmap(Checkbox_on_xpm);
+    m_uncheckedBmp = wxBitmap(Checkbox_off_xpm);
 
-	//create an image list and assign it
-	wxImageList *il = new wxImageList(16, 16, true);
-	il->Add(m_checkedBmp);		//0
-	il->Add(m_uncheckedBmp);	//1
+    //create an image list and assign it
+    wxImageList *il = new wxImageList(16, 16, true);
+    il->Add(m_checkedBmp);		//0
+    il->Add(m_uncheckedBmp);	//1
 
-	//will be owned by the control
-	AssignImageList(il);
+    //will be owned by the control
+    AssignImageList(il);
 }
 
 wxCheckTreeCtrl::~wxCheckTreeCtrl()
@@ -135,92 +135,92 @@ wxCheckTreeCtrl::~wxCheckTreeCtrl()
 
 wxTreeItemId wxCheckTreeCtrl::AddRoot(const wxString& text, bool checked, wxTreeItemData* data)
 {
-	return wxTreeCtrl::AddRoot(text, checked ? 0 : 1, checked ? 0 : 1, data);
+    return wxTreeCtrl::AddRoot(text, checked ? 0 : 1, checked ? 0 : 1, data);
 }
 
 wxTreeItemId wxCheckTreeCtrl::AppendItem(const wxTreeItemId& parent, const wxString& text, bool checked, wxTreeItemData* data)
 {
-	return wxTreeCtrl::AppendItem(parent, text, checked ? 0 : 1, checked ? 0 : 1, data);
+    return wxTreeCtrl::AppendItem(parent, text, checked ? 0 : 1, checked ? 0 : 1, data);
 }
 
 void wxCheckTreeCtrl::OnLeftDown(wxMouseEvent &event)
 {
-	int flags;
-	wxTreeItemId item = wxTreeCtrl::HitTest(event.GetPosition(), flags);
-	if(item.IsOk() && flags & wxTREE_HITTEST_ONITEMICON){
-		if(IsChecked(item)){
-			//fire unselect event
-			wxCheckTreeCtrlEvent e(wxEVT_CKTR_ITEM_UNSELECTED, GetId());
-			e.SetItem(item);
-			e.SetEventObject(this);
-			GetEventHandler()->ProcessEvent(e);
-		
-			//Veto?
-			if(!e.IsAllowed()){
-				return;
-			}
-			Check(item, false);
+    int flags;
+    wxTreeItemId item = wxTreeCtrl::HitTest(event.GetPosition(), flags);
+    if(item.IsOk() && flags & wxTREE_HITTEST_ONITEMICON){
+        if(IsChecked(item)){
+            //fire unselect event
+            wxCheckTreeCtrlEvent e(wxEVT_CKTR_ITEM_UNSELECTED, GetId());
+            e.SetItem(item);
+            e.SetEventObject(this);
+            GetEventHandler()->ProcessEvent(e);
+        
+            //Veto?
+            if(!e.IsAllowed()){
+                return;
+            }
+            Check(item, false);
 
-		}else{
-			//fire select event
-			wxCheckTreeCtrlEvent e(wxEVT_CKTR_ITEM_SELECTED, GetId());
-			e.SetItem(item);
-			e.SetEventObject(this);
-			GetEventHandler()->ProcessEvent(e);
-		
-			//Veto?
-			if(!e.IsAllowed()){
-				return;
-			}
-			Check(item, true);
-		}
-		return;
-	}
-	event.Skip();
+        }else{
+            //fire select event
+            wxCheckTreeCtrlEvent e(wxEVT_CKTR_ITEM_SELECTED, GetId());
+            e.SetItem(item);
+            e.SetEventObject(this);
+            GetEventHandler()->ProcessEvent(e);
+        
+            //Veto?
+            if(!e.IsAllowed()){
+                return;
+            }
+            Check(item, true);
+        }
+        return;
+    }
+    event.Skip();
 }
 
 bool wxCheckTreeCtrl::IsChecked(const wxTreeItemId &item) const
 {
-	int imgId = GetItemImage(item);
-	return imgId == 0;
+    int imgId = GetItemImage(item);
+    return imgId == 0;
 }
 
 void wxCheckTreeCtrl::Check(const wxTreeItemId &item, bool check)
 {
-	if(check){
-		SetItemImage(item, 0);
-		SetItemImage(item, 0, wxTreeItemIcon_Selected);
-	}else{
-		SetItemImage(item, 1);
-		SetItemImage(item, 1, wxTreeItemIcon_Selected);
-	}
+    if(check){
+        SetItemImage(item, 0);
+        SetItemImage(item, 0, wxTreeItemIcon_Selected);
+    }else{
+        SetItemImage(item, 1);
+        SetItemImage(item, 1, wxTreeItemIcon_Selected);
+    }
 }
 
 void wxCheckTreeCtrl::GetItemChildrenRecursive(const wxTreeItemId &parent, std::list<wxTreeItemId> &children)
 {
-	//delete the item's children
-	wxTreeItemIdValue cookie;
-	children.push_back(parent);
-	wxTreeItemId child = GetFirstChild(parent, cookie);
-	while(child.IsOk())
-	{
-		if(ItemHasChildren(child)){
-			GetItemChildrenRecursive(child, children);
-		}else{
-			children.push_back(child);
-		}
-		child = GetNextChild(parent, cookie);
-	}
+    //delete the item's children
+    wxTreeItemIdValue cookie;
+    children.push_back(parent);
+    wxTreeItemId child = GetFirstChild(parent, cookie);
+    while(child.IsOk())
+    {
+        if(ItemHasChildren(child)){
+            GetItemChildrenRecursive(child, children);
+        }else{
+            children.push_back(child);
+        }
+        child = GetNextChild(parent, cookie);
+    }
 }
 
 void wxCheckTreeCtrl::RecursiveCheck(const wxTreeItemId &item, bool check)
 {
-	std::list<wxTreeItemId> children;
-	GetItemChildrenRecursive(item, children);
+    std::list<wxTreeItemId> children;
+    GetItemChildrenRecursive(item, children);
 
-	std::list<wxTreeItemId>::iterator iter = children.begin();
-	for(; iter != children.end(); iter++)
-	{
-		Check((*iter), check);
-	}
+    std::list<wxTreeItemId>::iterator iter = children.begin();
+    for(; iter != children.end(); iter++)
+    {
+        Check((*iter), check);
+    }
 }

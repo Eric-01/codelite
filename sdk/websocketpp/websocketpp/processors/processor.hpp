@@ -108,7 +108,7 @@ int get_websocket_version(request_type& r) {
     if (!r.ready()) {
         return -2;
     }
-    
+
     if (r.get_header("Sec-WebSocket-Version").empty()) {
         return 0;
     }
@@ -188,7 +188,7 @@ public:
     size_t get_max_message_size() const {
         return m_max_message_size;
     }
-    
+
     /// Set maximum message size
     /**
      * Set maximum message size. Maximum message size determines the point at which the
@@ -225,7 +225,7 @@ public:
     virtual err_str_pair negotiate_extensions(request_type const &) {
         return err_str_pair();
     }
-    
+
     /// Initializes extensions based on the Sec-WebSocket-Extensions header
     /**
      * Reads the Sec-WebSocket-Extensions header and determines if any of the
@@ -366,7 +366,7 @@ public:
      * @param out The message buffer to prepare the ping in.
      * @return Status code, zero on success, non-zero on failure
      */
-    virtual lib::error_code prepare_ping(std::string const & in, message_ptr out) const 
+    virtual lib::error_code prepare_ping(std::string const & in, message_ptr out) const
         = 0;
 
     /// Prepare a pong frame
@@ -378,7 +378,7 @@ public:
      * @param out The message buffer to prepare the pong in.
      * @return Status code, zero on success, non-zero on failure
      */
-    virtual lib::error_code prepare_pong(std::string const & in, message_ptr out) const 
+    virtual lib::error_code prepare_pong(std::string const & in, message_ptr out) const
         = 0;
 
     /// Prepare a close frame

@@ -15,10 +15,10 @@ public:
 
   // dtor
   virtual ~TdsResultSet();
-  
+
   virtual bool Next();
   virtual void Close();
-  
+
   virtual int LookupField(const wxString& strField);
 
   // get field

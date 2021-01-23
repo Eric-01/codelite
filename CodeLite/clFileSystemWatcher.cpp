@@ -106,7 +106,7 @@ void clFileSystemWatcher::OnTimer(wxTimerEvent& event)
             // add the missing file to a set
             nonExistingFiles.insert(fn.GetFullPath());
         } else {
-            
+
 #ifdef __WXMSW__
             size_t prev_value = f.file_size;
             size_t curr_value = FileUtils::GetFileSize(fn);

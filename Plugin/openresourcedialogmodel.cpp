@@ -79,7 +79,7 @@ wxDataViewItem OpenResourceDialogModel::GetParent(const wxDataViewItem& item) co
     if ( IsEmpty() ) {
         return wxDataViewItem(NULL);
     }
-    
+
     OpenResourceDialogModel_Item* node = reinterpret_cast<OpenResourceDialogModel_Item*>(item.m_pItem);
     if ( node ) {
         return wxDataViewItem(node->GetParent());
@@ -107,7 +107,7 @@ wxDataViewItem OpenResourceDialogModel::DoAppendItem(const wxDataViewItem& paren
 {
     OpenResourceDialogModel_Item* parentNode = reinterpret_cast<OpenResourceDialogModel_Item*>(parent.m_pItem);
     DoChangeItemType(parent, true);
-    
+
     OpenResourceDialogModel_Item* child = new OpenResourceDialogModel_Item();
     child->SetIsContainer(isContainer);
     child->SetClientObject( clientData );
@@ -189,11 +189,11 @@ void OpenResourceDialogModel::DeleteItem(const wxDataViewItem& item)
 {
     OpenResourceDialogModel_Item* node = reinterpret_cast<OpenResourceDialogModel_Item*>(item.m_pItem);
     if ( node ) {
-        
+
         OpenResourceDialogModel_Item* parent = node->GetParent();
         wxDataViewItem parentItem(parent);
         ItemDeleted(parentItem, item);
-        
+
         // this will also remove it from its model parent children list
         if ( parent == NULL ) {
             // root item, remove it from the roots array
@@ -202,14 +202,14 @@ void OpenResourceDialogModel::DeleteItem(const wxDataViewItem& item)
                 m_data.erase(where);
             }
         }
-        
+
         // If there are no more children, change the item back to 'normal'
         if ( parent && parent->GetChildren().empty() )
             DoChangeItemType(parentItem, false);
-            
+
         wxDELETE(node);
     }
-    
+
     if ( IsEmpty() )
         Cleared();
 }
@@ -306,14 +306,14 @@ void OpenResourceDialogModel::DoChangeItemType(const wxDataViewItem& item, bool 
     OpenResourceDialogModel_Item* node = reinterpret_cast<OpenResourceDialogModel_Item*>(item.GetID());
     if ( !node )
         return;
-    
+
     if ( ( changeToContainer && !node->IsContainer())  || // change an item from non-container to container type
          ( !changeToContainer && node->IsContainer()) ) { // change an item from container to non-container type
 #if defined(__WXGTK__) || defined(__WXMAC__)
         // change the item to container type:
         // 1st we need to delete it
         ItemDeleted(wxDataViewItem(node->GetParent()), item);
-        
+
         // update the node type
         node->SetIsContainer(changeToContainer);
         ItemAdded(wxDataViewItem(node->GetParent()), item);

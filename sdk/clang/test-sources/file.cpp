@@ -166,7 +166,7 @@ void ClangWorkerThread::ProcessRequest(ThreadRequest* request)
             }
 
         } else {
-            
+
             DoSetStatusMsg(wxT("Ready"));
             CL_DEBUG(wxT("Failed to parse Translation UNIT..."));
             PostEvent(wxEVT_CLANG_TU_CREATE_ERROR);
@@ -183,13 +183,13 @@ void ClangWorkerThread::ProcessRequest(ThreadRequest* request)
             CL_DEBUG(wxT("Calling clang_reparseTranslationUnit... done [CTX_ReparseTU]"));
 
         } else {
-            
+
             CL_DEBUG(wxT("An error occurred during reparsing of the TU for file %s. TU: %p"), task->GetFileName().c_str(), (void*)TU);
 
             // The only thing that left to be done here, is to dispose the TU
             clang_disposeTranslationUnit(TU);
             PostEvent(wxEVT_CLANG_TU_CREATE_ERROR);
-            
+
             return;
         }
     }

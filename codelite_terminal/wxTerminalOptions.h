@@ -83,7 +83,7 @@ public:
 
     void SetLogfile(const wxString& logfile) { this->m_logfile = logfile; }
     const wxString& GetLogfile() const { return m_logfile; }
-    
+
     void SetHistory(const wxArrayString& history) ;
     const wxArrayString& GetHistory() const { return m_history; }
 };

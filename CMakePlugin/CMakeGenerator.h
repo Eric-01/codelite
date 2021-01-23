@@ -105,7 +105,7 @@ protected:
     void ReadUntilEndOfUserBlock(wxArrayString& lines, wxString& content);
 
     void AddUserCodeSection(wxString& content, const wxString& sectionPrefix, const wxString& sectionCode = "");
-    
+
     /**
      * @brief add pre|post build commands to the generated CMakeLists.txt file
      * @param buildType can be POST_BUILD, PRE_BUILD or PRE_LINK string

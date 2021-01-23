@@ -18,7 +18,7 @@ class TestXDebugSettings {
         $this->_remoteHost = "";
         $this->_remotePort = "0";
     }
-    
+
     /**
      * @brief a helper method for reading directive using ini_get
      * If the directive could not be found, return $defaultValue
@@ -33,7 +33,7 @@ class TestXDebugSettings {
         }
         return (string)$val;
     }
-    
+
     /**
      * @brief test XDebug INI settings
      */
@@ -44,7 +44,7 @@ class TestXDebugSettings {
         $this->_remoteHost = $this->readIni("xdebug.remote_host", "");
         $this->_remotePort = $this->readIni("xdebug.remote_port", "");
     }
-    
+
     /**
      * @brief ensure that Zend Debugger is not loaded
      */
@@ -58,7 +58,7 @@ class TestXDebugSettings {
             }
         }
     }
-    
+
     /**
      * @brief ensure that xdebug is loaded into PHP
      */
@@ -72,7 +72,7 @@ class TestXDebugSettings {
             }
         }
     }
-    
+
     /**
      * @brief run a small test to test the PHP settings to help the user
      * ensures that everything is setup properly for debugging with XDebug

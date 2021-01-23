@@ -23,7 +23,7 @@ class WXDLLIMPEXP_SDK clScrolledPanel : public wxWindow
 private:
     ScrollBar_t* m_vsb = nullptr;
     ScrollBar_t* m_hsb = nullptr;
-    
+
     int m_pageSize = 0;
     int m_position = 0;
     int m_thumbSize = 0;
@@ -38,7 +38,7 @@ private:
     bool m_dragging = false;
     bool m_neverShowHScrollbar = false;
     bool m_neverShowVScrollbar = false;
-    
+
 protected:
 #if wxUSE_NATIVE_SCROLLBAR
     virtual void OnVScroll(wxScrollEvent& event);
@@ -78,7 +78,7 @@ public:
 
     ScrollBar_t* GetHScrollBar() { return m_hsb; }
     ScrollBar_t* GetVScrollBar() { return m_vsb; }
-    
+
     bool Create(wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition,
                 const wxSize& size = wxDefaultSize, long style = 0);
     /**
@@ -160,7 +160,7 @@ public:
 
     // Process idle events. Override this in the subclass
     virtual void ProcessIdle() {}
-    
+
     /**
      * @brief should we show the scrollbar?
      */

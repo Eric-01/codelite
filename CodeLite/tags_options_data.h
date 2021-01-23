@@ -190,7 +190,7 @@ public:
     wxString ToString() const;
     
     /**
-     * @brief Sync the data stored in this object with the file system 
+     * @brief Sync the data stored in this object with the file system
      */
     void SyncData();
 

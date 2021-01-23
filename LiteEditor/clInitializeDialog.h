@@ -35,7 +35,7 @@ public:
     clInitializeDialog(wxWindow* parent);
     virtual ~clInitializeDialog();
     void StartUpgrade();
-    
+
 protected:
     void OnLexersUpgradeStart(clCommandEvent &e);
     void OnLexersUpgradeProgress(clCommandEvent &e);

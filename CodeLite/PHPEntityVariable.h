@@ -55,10 +55,10 @@ public:
     wxString GetScope() const;
     virtual void Store(PHPLookupTable* lookup);
     virtual void PrintStdout(int indent) const;
-    
+
     void FromJSON(const JSONItem& json);
     JSONItem ToJSON() const;
-    
+
     /**
      * @brief format this variable
      */
@@ -75,7 +75,7 @@ public:
     const wxString& GetDefaultValue() const { return m_defaultValue; }
     wxString GetNameNoDollar() const;
     virtual wxString ToTooltip() const;
-    
+
     // Aliases
     void SetIsReference(bool isReference) { SetFlag(kVar_Reference, isReference); }
     void SetIsNullable(bool isNullable) { SetFlag(kVar_Nullable, isNullable); }

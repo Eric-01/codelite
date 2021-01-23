@@ -36,11 +36,11 @@ FileDropTarget::~FileDropTarget()
 
 bool FileDropTarget::OnDropFiles(wxCoord x, wxCoord y, const wxArrayString &filenames)
 {
-	wxUnusedVar(x);
-	wxUnusedVar(y);
-	for(size_t i=0; i<filenames.GetCount(); i++){
-		clMainFrame::Get()->GetMainBook()->OpenFile(filenames.Item(i));
-	}
-	return true;
+    wxUnusedVar(x);
+    wxUnusedVar(y);
+    for(size_t i=0; i<filenames.GetCount(); i++){
+        clMainFrame::Get()->GetMainBook()->OpenFile(filenames.Item(i));
+    }
+    return true;
 }
 

@@ -77,7 +77,7 @@ PostgresPreparedStatement* PostgresPreparedStatement::CreateStatement(PostgresIn
 
     start++;
   }
-    
+
   // Success?  Return the statement
   return pStatement;
 }
@@ -157,7 +157,7 @@ int PostgresPreparedStatement::GetParameterCount()
   return nParameters;
 }
 
-  
+
 int PostgresPreparedStatement::RunQuery()
 {
   // Iterate through the statements and have them run their queries
@@ -217,7 +217,7 @@ int PostgresPreparedStatement::FindStatementAndAdjustPositionIndex(int* pPositio
 {
   if (m_Statements.size() == 0)
     return 0;
-    
+
   // Go through all the elements in the vector
   // Get the number of parameters in each statement
   // Adjust the nPosition for the the broken up statements

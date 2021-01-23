@@ -32,29 +32,29 @@ public:
      * Constructor for 'histUSE_SERIALIZATION' mode.
      * \param data Pointer to the stream buffer containig serialized content of the shape canvas
      */
-	wxSFCanvasState(wxStreamBuffer* data);
-	/*! \brief
+    wxSFCanvasState(wxStreamBuffer* data);
+    /*! \brief
      * Constructor for 'histUSE_CLONING' mode.
      * \param data Pointer to temporal data manager
      */
-	wxSFCanvasState(wxSFDiagramManager *data);
-	/*! \brief Destructor. */
-	~wxSFCanvasState(void);
+    wxSFCanvasState(wxSFDiagramManager *data);
+    /*! \brief Destructor. */
+    ~wxSFCanvasState(void);
 
 protected:
 
-	// protected functions
-	/*! \brief
+    // protected functions
+    /*! \brief
      * Restore stored canvas state.
-	 * \param canvas Pointer to the shape canvas which content will be replaced by the stored one
-	 */
-	void Restore(wxSFShapeCanvas* canvas);
+     * \param canvas Pointer to the shape canvas which content will be replaced by the stored one
+     */
+    void Restore(wxSFShapeCanvas* canvas);
 
-	// protected data members
-	/*! \brief Memory buffer used during the serialization/deserialization operations. */
-	wxMemoryBuffer m_dataBuffer;
-	/*! \brief Data manager used for storing of temporal canvas state. */
-	wxSFDiagramManager *m_pDataManager;
+    // protected data members
+    /*! \brief Memory buffer used during the serialization/deserialization operations. */
+    wxMemoryBuffer m_dataBuffer;
+    /*! \brief Data manager used for storing of temporal canvas state. */
+    wxSFDiagramManager *m_pDataManager;
 };
 
 WX_DECLARE_LIST(wxSFCanvasState, StateList);

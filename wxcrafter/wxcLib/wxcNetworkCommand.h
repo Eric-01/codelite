@@ -13,7 +13,7 @@ public:
     wxcNetworkCommand();
     wxcNetworkCommand(const wxString& json);
     virtual ~wxcNetworkCommand();
-    
+
     void SetCommandType(const wxCrafter::eCommandType& commandType) {
         this->m_commandType = commandType;
     }

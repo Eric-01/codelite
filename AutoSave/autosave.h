@@ -39,7 +39,7 @@ protected:
 
     void UpdateTimers();
     void DeleteTimer();
-    
+
 public:
     AutoSave(IManager* manager);
     ~AutoSave();

@@ -25,15 +25,15 @@ public:
 
   const wxString& GetErrorMessage();
   int GetErrorCode();
- 
+
   void ResetErrorCodes();
-  
+
 protected:
   void SetErrorMessage(const wxString& strErrorMessage);
   void SetErrorCode(int nErrorCode);
 
   void ThrowDatabaseException();
-  
+
 private:
   wxString m_strErrorMessage;
   int m_nErrorCode;

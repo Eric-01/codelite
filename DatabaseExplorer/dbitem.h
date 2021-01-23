@@ -31,17 +31,17 @@
 /*! \brief Class for saving pointer to database objects into tree control in DbViewerPanel */
 class DbItem : public wxTreeItemData {
 protected:
-	Database* m_pDatabase;
-	Table* m_pTable;	
-	xsSerializable* m_pData;
+    Database* m_pDatabase;
+    Table* m_pTable;	
+    xsSerializable* m_pData;
 public:
-	DbItem(Database* pDatabase, Table* pTable);
-	DbItem(xsSerializable* data);
-	virtual ~DbItem();
-	
-	Database* GetDatabase(){ return this->m_pDatabase; }
-	Table* GetTable(){ return this->m_pTable; }
-	xsSerializable* GetData() { return this->m_pData; }
+    DbItem(Database* pDatabase, Table* pTable);
+    DbItem(xsSerializable* data);
+    virtual ~DbItem();
+
+    Database* GetDatabase(){ return this->m_pDatabase; }
+    Table* GetTable(){ return this->m_pTable; }
+    xsSerializable* GetData() { return this->m_pData; }
 };
 
 #endif // DBITEM_H

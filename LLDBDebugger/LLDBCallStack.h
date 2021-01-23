@@ -41,7 +41,7 @@ class CallstackModel : public wxDataViewListStore
 public:
     CallstackModel(LLDBCallStackPane* ctrl, wxDataViewListCtrl* view) : m_ctrl(ctrl), m_view(view) {}
     virtual ~CallstackModel() {}
-    
+
     bool GetAttr(const wxDataViewItem& item, unsigned int col, wxDataViewItemAttr& attr) const ;
 };
 
@@ -53,7 +53,7 @@ class LLDBCallStackPane : public LLDBCallStackBase
     wxObjectDataPtr<CallstackModel> m_model;
 private:
     void DoCopyBacktraceToClipboard();
-    
+
 protected:
     virtual void OnContextMenu(wxDataViewEvent& event);
     virtual void OnItemActivated(wxDataViewEvent& event);
@@ -63,7 +63,7 @@ protected:
 public:
     LLDBCallStackPane(wxWindow* parent, LLDBPlugin& plugin);
     virtual ~LLDBCallStackPane();
-    
+
     void SetSelectedFrame(int selectedFrame) {
         this->m_selectedFrame = selectedFrame;
     }

@@ -41,6 +41,6 @@ PatchDlg::PatchDlg(wxWindow* parent)
 
 PatchDlg::~PatchDlg()
 {
-    
+
     EditorConfigST::Get()->SetInteger(wxT("m_radioBoxEOLPolicy"), m_radioBoxEOLPolicy->GetSelection());
 }

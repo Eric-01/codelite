@@ -51,18 +51,18 @@ wxSFCircleShape::~wxSFCircleShape()
 
 wxRealPoint wxSFCircleShape::GetBorderPoint(const wxRealPoint& start, const wxRealPoint& end)
 {
-	double dist = Distance(start, end);
-	wxRealPoint nCenter = GetAbsolutePosition() + wxRealPoint(m_nRectSize.x/2, m_nRectSize.y/2);
+    double dist = Distance(start, end);
+    wxRealPoint nCenter = GetAbsolutePosition() + wxRealPoint(m_nRectSize.x/2, m_nRectSize.y/2);
 
-	if(dist)
-	{
-		double srcDx = m_nRectSize.x/2*(end.x-start.x)/dist - (start.x-nCenter.x);
-		double srcDy = m_nRectSize.y/2*(end.y-start.y)/dist - (start.y-nCenter.y);
+    if(dist)
+    {
+        double srcDx = m_nRectSize.x/2*(end.x-start.x)/dist - (start.x-nCenter.x);
+        double srcDy = m_nRectSize.y/2*(end.y-start.y)/dist - (start.y-nCenter.y);
 
-		return wxRealPoint(start.x + srcDx, start.y + srcDy);
-	}
-	else
-		return nCenter;
+        return wxRealPoint(start.x + srcDx, start.y + srcDy);
+    }
+    else
+        return nCenter;
 }
 
 bool wxSFCircleShape::Contains(const wxPoint& pos)
@@ -81,46 +81,46 @@ bool wxSFCircleShape::Contains(const wxPoint& pos)
 
 void wxSFCircleShape::DrawNormal(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	wxRealPoint pos = GetAbsolutePosition();
+    wxRealPoint pos = GetAbsolutePosition();
 
-	dc.SetPen(m_Border);
-	dc.SetBrush(m_Fill);
-	dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(m_Border);
+    dc.SetBrush(m_Fill);
+    dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFCircleShape::DrawHover(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	wxRealPoint pos = GetAbsolutePosition();
+    wxRealPoint pos = GetAbsolutePosition();
 
-	dc.SetPen(wxPen(m_nHoverColor, 1));
-	dc.SetBrush(m_Fill);
-	dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 1));
+    dc.SetBrush(m_Fill);
+    dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFCircleShape::DrawHighlighted(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     wxRealPoint pos = GetAbsolutePosition();
 
-	dc.SetPen(wxPen(m_nHoverColor, 2));
-	dc.SetBrush(m_Fill);
-	dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 2));
+    dc.SetBrush(m_Fill);
+    dc.DrawCircle(int(pos.x + m_nRectSize.x/2), int(pos.y + m_nRectSize.y/2), int(m_nRectSize.x/2));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFCircleShape::DrawShadow(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     if( m_Fill.GetStyle() != wxBRUSHSTYLE_TRANSPARENT )
     {

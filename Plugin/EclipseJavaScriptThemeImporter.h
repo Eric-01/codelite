@@ -34,7 +34,7 @@ class WXDLLIMPEXP_SDK EclipseJavaScriptThemeImporter : public EclipseThemeImport
 public:
     EclipseJavaScriptThemeImporter();
     virtual ~EclipseJavaScriptThemeImporter();
-    
+
     /**
      * @brief import an eclipse XML colour theme
      * @param eclipseXmlFile

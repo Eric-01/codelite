@@ -29,7 +29,7 @@ int MysqlPreparedStatementParameterCollection::GetSize()
 MYSQL_BIND* MysqlPreparedStatementParameterCollection::GetMysqlParameterBindings()
 {
   MYSQL_BIND* pBindings = new MYSQL_BIND[m_Parameters.size()];
-  
+
   memset(pBindings, 0, sizeof(MYSQL_BIND)*m_Parameters.size());
 
   for (unsigned int i=0; i<m_Parameters.size(); i++)

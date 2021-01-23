@@ -2,9 +2,9 @@ if (UNIX)
     macro( FIND_LIBCLANG_OFFICIAL )
         find_library(LIBCLANG_T
                      NAMES libclang.so
-                     HINTS  
-                     /usr/lib 
-                     /usr/local/lib 
+                     HINTS
+                     /usr/lib
+                     /usr/local/lib
                      /usr/lib/llvm-6.0/lib
                      /usr/lib/llvm-5.0/lib
                      /usr/lib/llvm-4.2/lib
@@ -23,29 +23,29 @@ if (UNIX)
                      ${CMAKE_INSTALL_LIBDIR})
 
         find_path(LIBCLANG_INCLUDE_T NAMES clang-c/Index.h
-                  HINTS 
-                  /usr/lib/llvm-6.0/include 
-                  /usr/lib/llvm-5.0/include 
-                  /usr/lib/llvm-4.2/include 
-                  /usr/lib/llvm-4.1/include 
-                  /usr/lib/llvm-4.0/include 
-                  /usr/lib/llvm-3.9/include 
-                  /usr/lib/llvm-3.8/include 
-                  /usr/lib/llvm-3.7/include 
-                  /usr/lib/llvm-3.6/include 
-                  /usr/lib/llvm-3.5/include 
-                  /usr/lib/llvm-3.4/include 
-                  /usr/lib/llvm-3.3/include 
-                  /usr/include/llvm-4.2 
-                  /usr/include/llvm-4.1 
-                  /usr/include/llvm-4.0 
-                  /usr/include/llvm-3.9 
-                  /usr/include/llvm-3.8 
-                  /usr/include/llvm-3.7 
-                  /usr/include/llvm-3.6 
-                  /usr/include/llvm-3.5  
-                  /usr/include/llvm-3.4  
-                  /usr/include/llvm-3.3  
+                  HINTS
+                  /usr/lib/llvm-6.0/include
+                  /usr/lib/llvm-5.0/include
+                  /usr/lib/llvm-4.2/include
+                  /usr/lib/llvm-4.1/include
+                  /usr/lib/llvm-4.0/include
+                  /usr/lib/llvm-3.9/include
+                  /usr/lib/llvm-3.8/include
+                  /usr/lib/llvm-3.7/include
+                  /usr/lib/llvm-3.6/include
+                  /usr/lib/llvm-3.5/include
+                  /usr/lib/llvm-3.4/include
+                  /usr/lib/llvm-3.3/include
+                  /usr/include/llvm-4.2
+                  /usr/include/llvm-4.1
+                  /usr/include/llvm-4.0
+                  /usr/include/llvm-3.9
+                  /usr/include/llvm-3.8
+                  /usr/include/llvm-3.7
+                  /usr/include/llvm-3.6
+                  /usr/include/llvm-3.5
+                  /usr/include/llvm-3.4
+                  /usr/include/llvm-3.3
                   /usr/include/llvm
                   /usr/local/include
                   # For fedora
@@ -62,8 +62,8 @@ if (UNIX)
             set(LIBCLANG_INCLUDE ${LIBCLANG_INCLUDE_T})
             set(LIBCLANG_INSTALL_NEEDED 0)
             ## Check to see if we have a recent version of clang to include clang_getBriefComment
-            execute_process(COMMAND /bin/grep clang_getCompletionBriefComment ${LIBCLANG_INCLUDE_T}/clang-c/Index.h 
-                            OUTPUT_VARIABLE BRIEF_COMMENTS_OUTPUT 
+            execute_process(COMMAND /bin/grep clang_getCompletionBriefComment ${LIBCLANG_INCLUDE_T}/clang-c/Index.h
+                            OUTPUT_VARIABLE BRIEF_COMMENTS_OUTPUT
                             OUTPUT_STRIP_TRAILING_WHITESPACE)
            message("-- Find libClang result: ${BRIEF_COMMENTS_OUTPUT}")
            if (BRIEF_COMMENTS_OUTPUT STREQUAL "")

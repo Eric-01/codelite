@@ -22,81 +22,81 @@ DependenciesPageBase::DependenciesPageBase(wxWindow* parent, wxWindowID id, cons
         wxC312EInitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* boxSizer1 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer1);
-    
+
     m_staticText3 = new wxStaticText(this, wxID_ANY, _("Select build order for configuration:"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     boxSizer1->Add(m_staticText3, 0, wxALL, 5);
-    
+
     wxArrayString m_choiceProjectConfigArr;
     m_choiceProjectConfig = new wxChoice(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1), m_choiceProjectConfigArr, 0);
-    
+
     boxSizer1->Add(m_choiceProjectConfig, 0, wxALL|wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer3 = new wxBoxSizer(wxHORIZONTAL);
-    
+
     boxSizer1->Add(bSizer3, 1, wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer31 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer3->Add(bSizer31, 5, wxEXPAND, 5);
-    
+
     m_staticText1 = new wxStaticText(this, wxID_ANY, _("Projects:"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     bSizer31->Add(m_staticText1, 0, wxLEFT|wxRIGHT|wxTOP, 5);
-    
+
     wxArrayString m_checkListProjectListArr;
     m_checkListProjectList = new wxCheckListBox(this, wxID_ANY, wxDefaultPosition, wxSize(-1,-1), m_checkListProjectListArr, wxLB_SINGLE);
-    
+
     bSizer31->Add(m_checkListProjectList, 1, wxALL|wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer4 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer3->Add(bSizer4, 6, wxEXPAND, 5);
-    
+
     m_staticText2 = new wxStaticText(this, wxID_ANY, _("Build Order:"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     bSizer4->Add(m_staticText2, 0, wxLEFT|wxRIGHT|wxTOP, 5);
-    
+
     wxBoxSizer* bSizer11 = new wxBoxSizer(wxHORIZONTAL);
-    
+
     bSizer4->Add(bSizer11, 1, wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer5 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer11->Add(bSizer5, 1, wxEXPAND, 5);
-    
+
     wxArrayString m_listBoxBuildOrderArr;
     m_listBoxBuildOrder = new wxListBox(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1), m_listBoxBuildOrderArr, 0);
-    
+
     bSizer5->Add(m_listBoxBuildOrder, 1, wxALL|wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer6 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer11->Add(bSizer6, 0, wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer8 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer6->Add(bSizer8, 1, wxEXPAND, 5);
-    
+
     m_buttonUp = new wxButton(this, wxID_UP, _("Up"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     bSizer8->Add(m_buttonUp, 0, wxALL|wxEXPAND, 5);
-    
+
     m_buttonDown = new wxButton(this, wxID_DOWN, _("Down"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     bSizer8->Add(m_buttonDown, 0, wxALL|wxEXPAND, 5);
-    
+
     wxBoxSizer* bSizer7 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer6->Add(bSizer7, 0, 0, 5);
-    
+
     m_buttonApply = new wxButton(this, wxID_APPLY, _("Apply"), wxDefaultPosition, wxSize(-1, -1), 0);
-    
+
     bSizer7->Add(m_buttonApply, 0, wxALL|wxEXPAND, 5);
-    
+
     SetName(wxT("DependenciesPageBase"));
     SetSizeHints(-1,-1);
     if ( GetSizer() ) {
@@ -110,7 +110,7 @@ DependenciesPageBase::DependenciesPageBase(wxWindow* parent, wxWindowID id, cons
     m_buttonDown->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DependenciesPageBase::OnMoveDown), NULL, this);
     m_buttonApply->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DependenciesPageBase::OnApplyButton), NULL, this);
     m_buttonApply->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(DependenciesPageBase::OnApplyButtonUI), NULL, this);
-    
+
 }
 
 DependenciesPageBase::~DependenciesPageBase()
@@ -121,5 +121,5 @@ DependenciesPageBase::~DependenciesPageBase()
     m_buttonDown->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DependenciesPageBase::OnMoveDown), NULL, this);
     m_buttonApply->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(DependenciesPageBase::OnApplyButton), NULL, this);
     m_buttonApply->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(DependenciesPageBase::OnApplyButtonUI), NULL, this);
-    
+
 }

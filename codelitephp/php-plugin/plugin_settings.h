@@ -35,17 +35,17 @@ class PluginSettings : public clConfigItem
 public:
     PluginSettings();
     virtual ~PluginSettings();
-    
+
     void SetOpenWorkspaceFilter(const wxString& openWorkspaceFilter) {
         this->m_openWorkspaceFilter = openWorkspaceFilter;
     }
     const wxString& GetOpenWorkspaceFilter() const {
         return m_openWorkspaceFilter;
     }
-    
+
     static void Load(PluginSettings& settings);
     static void Save(const PluginSettings& settings);
-    
+
 public:
     virtual void FromJSON(const JSONItem& json);
     virtual JSONItem ToJSON() const;

@@ -415,112 +415,112 @@ void yyerror(char *s) {}
 
 void expr_consumBracketsContent(char openBrace)
 {
-	char closeBrace;
+    char closeBrace;
 
-	switch(openBrace) {
-	case '(': closeBrace = ')'; break;
-	case '[': closeBrace = ']'; break;
-	case '<': closeBrace = '>'; break;
-	case '{': closeBrace = '}'; break;
-	default:
-		openBrace = '(';
-		closeBrace = ')';
-		break;
-	}
+    switch(openBrace) {
+    case '(': closeBrace = ')'; break;
+    case '[': closeBrace = ']'; break;
+    case '<': closeBrace = '>'; break;
+    case '{': closeBrace = '}'; break;
+    default:
+        openBrace = '(';
+        closeBrace = ')';
+        break;
+    }
 
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_expr_lex();
-		//printf("ch=%d\n", ch);
-		//fflush(stdout);
-		if(ch == 0){
-			break;
-		}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_expr_lex();
+        //printf("ch=%d\n", ch);
+        //fflush(stdout);
+        if(ch == 0){
+            break;
+        }
 
-		if(ch == closeBrace)
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == openBrace)
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+        if(ch == closeBrace)
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == openBrace)
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 }
 
 void expr_FuncArgList()
 {
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_expr_lex();
-		//printf("ch=%d\n", ch);
-		//fflush(stdout);
-		if(ch ==0){
-			break;
-		}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_expr_lex();
+        //printf("ch=%d\n", ch);
+        //fflush(stdout);
+        if(ch ==0){
+            break;
+        }
 
-		if(ch == ')')
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == '(')
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+        if(ch == ')')
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == '(')
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 }
 
 void expr_consumeTemplateDecl()
 {
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_expr_lex();
-		//printf("ch=%d\n", ch);
-		fflush(stdout);
-		if(ch ==0){
-			break;
-		}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_expr_lex();
+        //printf("ch=%d\n", ch);
+        fflush(stdout);
+        if(ch ==0){
+            break;
+        }
 
-		if(ch == '>')
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == '<')
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+        if(ch == '>')
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == '<')
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 }
 
 void expr_syncParser(){
-	//dont do anything, a hook to allow us to implement some
-	//nice error recovery if needed
+    //dont do anything, a hook to allow us to implement some
+    //nice error recovery if needed
 }
 
 // return the scope name at the end of the input string
 ExpressionResult &parse_expression(const std::string &in)
 {
-	result.Reset();
-	//provide the lexer with new input
-	if( !setExprLexerInput(in) ){
-		return result;
-	}
+    result.Reset();
+    //provide the lexer with new input
+    if( !setExprLexerInput(in) ){
+        return result;
+    }
 
-	//printf("parsing...\n");
-	cl_expr_parse();
-	//do the lexer cleanup
-	cl_expr_lex_clean();
+    //printf("parsing...\n");
+    cl_expr_parse();
+    //do the lexer cleanup
+    cl_expr_lex_clean();
 
-	return result;
+    return result;
 }
 #define YYABORT goto yyabort
 #define YYREJECT goto yyabort
@@ -667,12 +667,12 @@ case 3:
 break;
 case 5:
 {
-								yyclearin;	/*clear lookahead token*/
-								yyerrok;
-								/*fprintf(stderr, "CodeLite: syntax error, unexpected token '%s' found at line %d \n", cl_expr_text, cl_expr_lineno);*/
-								/*fflush(stderr);*/
-								expr_syncParser();
-						}
+                                yyclearin;	/*clear lookahead token*/
+                                yyerrok;
+                                /*fprintf(stderr, "CodeLite: syntax error, unexpected token '%s' found at line %d \n", cl_expr_text, cl_expr_lineno);*/
+                                /*fflush(stderr);*/
+                                expr_syncParser();
+                        }
 break;
 case 6:
 {yyval = ""; }
@@ -736,97 +736,97 @@ case 25:
 break;
 case 26:
 {
-							if(yyvsp[-3].empty()) {
-								yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-								
-							} else {
-								yyval = yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-							}
-						}
+                            if(yyvsp[-3].empty()) {
+                                yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                                
+                            } else {
+                                yyval = yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                            }
+                        }
 break;
 case 27:
 {
-							if(yyvsp[-3].empty()) {
-								yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-								
-							} else {
-								yyval = yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-							}
-						}
+                            if(yyvsp[-3].empty()) {
+                                yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                                
+                            } else {
+                                yyval = yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                            }
+                        }
 break;
 case 28:
 {
-							if(yyvsp[-6].empty()) {
-								yyval = yyvsp[-5] + yyvsp[-4] + yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + " ";
-							} else {
-								yyval = yyvsp[-6] + " " + yyvsp[-5] + yyvsp[-4] + yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + " ";
-							}
-						}
+                            if(yyvsp[-6].empty()) {
+                                yyval = yyvsp[-5] + yyvsp[-4] + yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + " ";
+                            } else {
+                                yyval = yyvsp[-6] + " " + yyvsp[-5] + yyvsp[-4] + yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + " ";
+                            }
+                        }
 break;
 case 29:
 {
-						expr_FuncArgList();
-						yyval = yyvsp[-2];
-						result.m_isaType = true;
-						result.m_name = yyvsp[-2];
-						result.m_isFunc = false;
-						/*printf("Rule 1\n");*/
-						/*result.Print();*/
-					}
+                        expr_FuncArgList();
+                        yyval = yyvsp[-2];
+                        result.m_isaType = true;
+                        result.m_name = yyvsp[-2];
+                        result.m_isFunc = false;
+                        /*printf("Rule 1\n");*/
+                        /*result.Print();*/
+                    }
 break;
 case 30:
 {
-						yyval = yyvsp[0];
-						result.m_isaType = false;
-						result.m_name = yyval;
-						result.m_isFunc = false;
-						result.m_isThis = true;
-						result.m_isPtr = true;
-						/*result.Print();*/
-					}
+                        yyval = yyvsp[0];
+                        result.m_isaType = false;
+                        result.m_name = yyval;
+                        result.m_isFunc = false;
+                        result.m_isThis = true;
+                        result.m_isPtr = true;
+                        /*result.Print();*/
+                    }
 break;
 case 31:
 {
-						yyval = yyvsp[0];
-						result.m_isaType = false;
-						result.m_name = yyval;
-						result.m_isFunc = false;
-						result.m_isThis = true;
-						/*result.Print();*/
-					}
+                        yyval = yyvsp[0];
+                        result.m_isaType = false;
+                        result.m_name = yyval;
+                        result.m_isFunc = false;
+                        result.m_isThis = true;
+                        /*result.Print();*/
+                    }
 break;
 case 32:
 {
-						yyval = yyvsp[0];
-						result.m_isaType = false;
-						result.m_name = yyval;
-						result.m_isFunc = false;
-						result.m_isThis = false;
-						result.m_isPtr = false;
-						/*result.Print();*/
-					}
+                        yyval = yyvsp[0];
+                        result.m_isaType = false;
+                        result.m_name = yyval;
+                        result.m_isFunc = false;
+                        result.m_isThis = false;
+                        result.m_isPtr = false;
+                        /*result.Print();*/
+                    }
 break;
 case 33:
 {
-						result.m_isaType = false;
-						result.m_name = yyvsp[-2];
-						result.m_isThis = false;
-						yyvsp[-3].erase(yyvsp[-3].find_last_not_of(":")+1);
-						result.m_scope = yyvsp[-3];
-						result.m_isTemplate = yyvsp[-1].empty() ? false : true;
-						result.m_templateInitList = yyvsp[-1];
-						/*result.Print();*/
-					}
+                        result.m_isaType = false;
+                        result.m_name = yyvsp[-2];
+                        result.m_isThis = false;
+                        yyvsp[-3].erase(yyvsp[-3].find_last_not_of(":")+1);
+                        result.m_scope = yyvsp[-3];
+                        result.m_isTemplate = yyvsp[-1].empty() ? false : true;
+                        result.m_templateInitList = yyvsp[-1];
+                        /*result.Print();*/
+                    }
 break;
 case 34:
 {
-						yyval = yyvsp[-4];
-						result.m_isaType = true;
-						result.m_name = yyval;
-						result.m_isFunc = false;
-						result.m_isThis = false;
-						/*result.Print();*/
-					}
+                        yyval = yyvsp[-4];
+                        result.m_isaType = true;
+                        result.m_name = yyval;
+                        result.m_isFunc = false;
+                        result.m_isThis = false;
+                        /*result.Print();*/
+                    }
 break;
 case 35:
 {yyval = yyvsp[-1];}
@@ -842,10 +842,10 @@ case 38:
 break;
 case 39:
 {
-						yyval = yyvsp[0];
-						expr_FuncArgList();
-						result.m_isFunc = true;
-					}
+                        yyval = yyvsp[0];
+                        expr_FuncArgList();
+                        result.m_isFunc = true;
+                    }
 break;
 case 40:
 {yyval = yyvsp[0];}
@@ -885,23 +885,23 @@ case 51:
 break;
 case 52:
 {
-					yyval = yyvsp[-5] + yyvsp[-4];
-					yyvsp[-5].erase(yyvsp[-5].find_last_not_of(":")+1);
-					result.m_scope = yyvsp[-5];
-					result.m_name = yyvsp[-4];
-					result.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);;
-					result.m_isTemplate = true;
-					result.m_templateInitList = yyvsp[-3] + yyvsp[-2] + yyvsp[-1];
-				}
+                    yyval = yyvsp[-5] + yyvsp[-4];
+                    yyvsp[-5].erase(yyvsp[-5].find_last_not_of(":")+1);
+                    result.m_scope = yyvsp[-5];
+                    result.m_name = yyvsp[-4];
+                    result.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);;
+                    result.m_isTemplate = true;
+                    result.m_templateInitList = yyvsp[-3] + yyvsp[-2] + yyvsp[-1];
+                }
 break;
 case 53:
 {
-					yyval = yyvsp[-2] + yyvsp[-1];
-					yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
-					result.m_scope = yyvsp[-2];
-					result.m_name = yyvsp[-1];
-					result.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);;
-				}
+                    yyval = yyvsp[-2] + yyvsp[-1];
+                    yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
+                    result.m_scope = yyvsp[-2];
+                    result.m_name = yyvsp[-1];
+                    result.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);;
+                }
 break;
 case 54:
 {yyval = "";}

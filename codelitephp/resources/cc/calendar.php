@@ -57,14 +57,14 @@ function juliantojd ($month, $day, $year) {}
 /**
  * Converts a Julian day count to a Jewish calendar date
  * @link http://www.php.net/manual/en/function.jdtojewish.php
- * @param juliandaycount int 
+ * @param juliandaycount int
  * @param hebrew bool[optional] <p>
  *       If the hebrew parameter is set to true, the
  *       fl parameter is used for Hebrew, string based,
- *       output format.  
+ *       output format.
  *      </p>
  * @param fl int[optional] <p>
- *       The available formats are:  
+ *       The available formats are:
  *       CAL_JEWISH_ADD_ALAFIM_GERESH,
  *       CAL_JEWISH_ADD_ALAFIM,
  *       CAL_JEWISH_ADD_GERESHAYIM.
@@ -92,7 +92,7 @@ function jewishtojd ($month, $day, $year) {}
 /**
  * Converts a Julian Day Count to the French Republican Calendar
  * @link http://www.php.net/manual/en/function.jdtofrench.php
- * @param juliandaycount int 
+ * @param juliandaycount int
  * @return string The french revolution date as a string in the form "month/day/year"
  */
 function jdtofrench ($juliandaycount) {}
@@ -121,36 +121,36 @@ function frenchtojd ($month, $day, $year) {}
  *      </p>
  * @param mode int[optional] <table>
  *       Calendar week modes
- *       
- *        
+ *
+ *
  *         <tr valign="top">
  *          <td>Mode</td>
  *          <td>Meaning</td>
  *         </tr>
- *        
- *        
+ *
+ *
  *         <tr valign="top">
- *          <td>0 (Default)</td> 
+ *          <td>0 (Default)</td>
  *          <td>
  *           Return the day number as an int (0=Sunday, 1=Monday, etc)
  *          </td>
  *         </tr>
  *         <tr valign="top">
- *          <td>1</td> 
+ *          <td>1</td>
  *          <td>
  *           Returns string containing the day of week
  *           (English-Gregorian)
  *          </td>
  *         </tr>
  *         <tr valign="top">
- *          <td>2</td> 
+ *          <td>2</td>
  *          <td>
  *           Return a string containing the abbreviated day of week
  *           (English-Gregorian)
  *          </td>
  *         </tr>
- *        
- *       
+ *
+ *
  *      </table>
  * @return mixed The gregorian weekday as either an integer or string.
  */
@@ -159,8 +159,8 @@ function jddayofweek ($julianday, $mode = null) {}
 /**
  * Returns a month name
  * @link http://www.php.net/manual/en/function.jdmonthname.php
- * @param julianday int 
- * @param mode int 
+ * @param julianday int
+ * @param mode int
  * @return string The month name for the given Julian Day and calendar.
  */
 function jdmonthname ($julianday, $mode) {}
@@ -187,7 +187,7 @@ function easter_date ($year = null) {}
  *       Allows Easter dates to be calculated based
  *       on the Gregorian calendar during the years 1582 - 1752 when set to
  *       CAL_EASTER_ROMAN. See the calendar constants for more valid
- *       constants.      
+ *       constants.
  *       </p>
  * @return int The number of days after March 21st that the Easter Sunday
  *   is in the given year.
@@ -218,22 +218,22 @@ function jdtounix ($jday) {}
  * Converts from a supported calendar to Julian Day Count
  * @link http://www.php.net/manual/en/function.cal-to-jd.php
  * @param calendar int <p>
- *       Calendar to convert from, one of 
+ *       Calendar to convert from, one of
  *       CAL_GREGORIAN,
  *       CAL_JULIAN,
  *       CAL_JEWISH or
  *       CAL_FRENCH.
  *      </p>
  * @param month int <p>
- *       The month as a number, the valid range depends 
+ *       The month as a number, the valid range depends
  *       on the calendar
  *      </p>
  * @param day int <p>
- *       The day as a number, the valid range depends 
+ *       The day as a number, the valid range depends
  *       on the calendar
  *      </p>
  * @param year int <p>
- *       The year as a number, the valid range depends 
+ *       The year as a number, the valid range depends
  *       on the calendar
  *      </p>
  * @return int A Julian Day number.
@@ -278,7 +278,7 @@ function cal_days_in_month ($calendar, $month, $year) {}
  *       Calendar to return information for. If no calendar is specified
  *       information about all calendars is returned.
  *      </p>
- * @return array 
+ * @return array
  */
 function cal_info ($calendar = null) {}
 

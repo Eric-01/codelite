@@ -135,7 +135,7 @@ public:
 
     clRowEntry* GetNextSibling(clRowEntry* item) const;
     clRowEntry* GetPrevSibling(clRowEntry* item) const;
-    
+
     void EnableEvents(bool enable) { m_shutdown = !enable; }
 };
 

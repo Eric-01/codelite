@@ -91,10 +91,10 @@ public:
 private:
     PHPEditorContextMenu();
     virtual ~PHPEditorContextMenu();
-    
+
     void OnCommentSelection(wxCommandEvent &event);
     void OnCommentLine(wxCommandEvent &event);
-    
+
     void DoBuildMenu(wxMenu* menu, IEditor* editor);
     bool IsIncludeOrRequireStatement(wxString& includeWhat);
     bool GetIncludeOrRequireFileName(wxString& fn);

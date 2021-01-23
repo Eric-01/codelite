@@ -26,16 +26,16 @@ protected:
 
 public:
     void OnHelperThreadExit();
-    
+
 public:
     clWebSocketClient(wxEvtHandler* owner);
     virtual ~clWebSocketClient();
-    
+
     /**
      * @brief prepare the socket before starting the main loop
      */
     void Initialise();
-    
+
     /**
      * @brief connect to a remote URL. This function start a background thread to executes the main loop
      */

@@ -17,7 +17,7 @@ FirebirdPreparedStatement::FirebirdPreparedStatement(FirebirdPreparedStatementWr
 {
   SetErrorCode(DATABASE_LAYER_OK);
   SetErrorMessage(_(""));
-  
+
   m_Statements.push_back(Statement);
 }
 */
@@ -53,7 +53,7 @@ void FirebirdPreparedStatement::Close()
     }
   }
 }
-  
+
 void FirebirdPreparedStatement::AddPreparedStatement(const wxString& strSQL)
 {
   FirebirdPreparedStatementWrapper* pWrapper = new FirebirdPreparedStatementWrapper(m_pInterface, m_pDatabase, m_pTransaction, strSQL);
@@ -95,8 +95,8 @@ FirebirdPreparedStatement* FirebirdPreparedStatement::CreateStatement(FirebirdIn
 #endif
     return NULL;
   }
-  
-  
+
+
   // Start a new transaction if appropriate
   if (pTransaction == NULL)
   {
@@ -128,7 +128,7 @@ FirebirdPreparedStatement* FirebirdPreparedStatement::CreateStatement(FirebirdIn
 #endif
       return pStatement;
     }
-    
+
     pStatement->SetManageTransaction(true);
   }
   else
@@ -170,7 +170,7 @@ FirebirdPreparedStatement* FirebirdPreparedStatement::CreateStatement(FirebirdIn
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
       // Set the error code and message
       DatabaseLayerException error(pStatement->GetErrorCode(), pStatement->GetErrorMessage());
- 
+
       try
       {
         delete pStatement; //It's probably better to manually iterate over the list and close the statements, but for now just let close do it
@@ -187,7 +187,7 @@ FirebirdPreparedStatement* FirebirdPreparedStatement::CreateStatement(FirebirdIn
     }
     start++;
   }
-    
+
   // Success?  Return the statement
   return pStatement;
 }
@@ -269,7 +269,7 @@ int FirebirdPreparedStatement::GetParameterCount()
   }
   return nParameters;
 }
-  
+
 int FirebirdPreparedStatement::RunQuery()
 {
   FirebirdStatementVector::iterator start = m_Statements.begin();
@@ -285,7 +285,7 @@ int FirebirdPreparedStatement::RunQuery()
       SetErrorMessage(((FirebirdPreparedStatementWrapper*)(*start))->GetErrorMessage());
       return DATABASE_LAYER_QUERY_RESULT_ERROR;
     }
-    
+
     start++;
   }
 
@@ -333,7 +333,7 @@ DatabaseResultSet* FirebirdPreparedStatement::RunQueryWithResults()
         InterpretErrorCodes();
         ThrowDatabaseException();
       }
-      
+
       // Start a new transaction
       nReturn = m_pInterface->GetIscStartTransaction()(m_Status, &m_pTransaction, 1, &m_pDatabase, 0 /*tpb_length*/, NULL/*tpb*/);
       if (nReturn != 0)
@@ -357,7 +357,7 @@ DatabaseResultSet* FirebirdPreparedStatement::RunQueryWithResults()
     {
       SetErrorCode(pLastStatement->GetErrorCode());
       SetErrorMessage(pLastStatement->GetErrorMessage());
-      
+
       // Wrap the result set deletion in try/catch block if using exceptions.
       //We want to make sure the original error gets to the user
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
@@ -388,7 +388,7 @@ int FirebirdPreparedStatement::FindStatementAndAdjustPositionIndex(int* pPositio
   // Don't mess around if there's just one entry in the vector
   if (m_Statements.size() <= 1)
     return 0;
-    
+
   // Go through all the elements in the vector
   // Get the number of parameters in each statement
   // Adjust the nPosition for the the broken up statements

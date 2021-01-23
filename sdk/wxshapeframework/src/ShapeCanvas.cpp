@@ -7,7 +7,7 @@
  * License:   wxWidgets license (www.wxwidgets.org)
  * Notes:
  **************************************************************/
- 
+
 #include "wx_pch.h"
 
 #ifdef _DEBUG_MSVC
@@ -150,30 +150,30 @@ IMPLEMENT_DYNAMIC_CLASS(wxSFCanvasSettings, xsSerializable);
 wxSFCanvasSettings::wxSFCanvasSettings() : xsSerializable()
 {
     m_nScale = 1;
-	m_nMinScale = sfdvSHAPECANVAS_SCALE_MIN;
-	m_nMaxScale = sfdvSHAPECANVAS_SCALE_MAX;	
+    m_nMinScale = sfdvSHAPECANVAS_SCALE_MIN;
+    m_nMaxScale = sfdvSHAPECANVAS_SCALE_MAX;
     m_nBackgroundColor = sfdvSHAPECANVAS_BACKGROUNDCOLOR;
     m_nCommonHoverColor = sfdvSHAPECANVAS_HOVERCOLOR;
     m_nGridSize = sfdvSHAPECANVAS_GRIDSIZE;
-	m_nGridLineMult = sfdvSHAPECANVAS_GRIDLINEMULT;
+    m_nGridLineMult = sfdvSHAPECANVAS_GRIDLINEMULT;
     m_nGridColor = sfdvSHAPECANVAS_GRIDCOLOR;
-	m_nGridStyle = sfdvSHAPECANVAS_GRIDSTYLE;
-	m_nGradientFrom = sfdvSHAPECANVAS_GRADIENT_FROM;
-	m_nGradientTo = sfdvSHAPECANVAS_GRADIENT_TO;
-	m_nStyle = sfdvSHAPECANVAS_STYLE;
-	m_nShadowOffset = sfdvSHAPECANVAS_SHADOWOFFSET;
-	m_ShadowFill = sfdvSHAPECANVAS_SHADOWBRUSH;
-	m_nPrintHAlign = sfdvSHAPECANVAS_PRINT_HALIGN;
-	m_nPrintVAlign = sfdvSHAPECANVAS_PRINT_VALIGN;
-	m_nPrintMode = sfdvSHAPECANVAS_PRINT_MODE;
+    m_nGridStyle = sfdvSHAPECANVAS_GRIDSTYLE;
+    m_nGradientFrom = sfdvSHAPECANVAS_GRADIENT_FROM;
+    m_nGradientTo = sfdvSHAPECANVAS_GRADIENT_TO;
+    m_nStyle = sfdvSHAPECANVAS_STYLE;
+    m_nShadowOffset = sfdvSHAPECANVAS_SHADOWOFFSET;
+    m_ShadowFill = sfdvSHAPECANVAS_SHADOWBRUSH;
+    m_nPrintHAlign = sfdvSHAPECANVAS_PRINT_HALIGN;
+    m_nPrintVAlign = sfdvSHAPECANVAS_PRINT_VALIGN;
+    m_nPrintMode = sfdvSHAPECANVAS_PRINT_MODE;
 
     XS_SERIALIZE(m_nScale, wxT("scale"));
-	XS_SERIALIZE_EX(m_nMinScale, wxT("min_scale"), sfdvSHAPECANVAS_SCALE_MIN);
+    XS_SERIALIZE_EX(m_nMinScale, wxT("min_scale"), sfdvSHAPECANVAS_SCALE_MIN);
     XS_SERIALIZE_EX(m_nMaxScale, wxT("max_scale"), sfdvSHAPECANVAS_SCALE_MAX);
-	XS_SERIALIZE_EX(m_nStyle, wxT("style"), sfdvSHAPECANVAS_STYLE);
+    XS_SERIALIZE_EX(m_nStyle, wxT("style"), sfdvSHAPECANVAS_STYLE);
     XS_SERIALIZE_EX(m_nBackgroundColor, wxT("background_color"), sfdvSHAPECANVAS_BACKGROUNDCOLOR);
-	XS_SERIALIZE_EX(m_nGradientFrom, wxT("gradient_from"), sfdvSHAPECANVAS_GRADIENT_FROM);
-	XS_SERIALIZE_EX(m_nGradientTo, wxT("gradient_to"), sfdvSHAPECANVAS_GRADIENT_TO);
+    XS_SERIALIZE_EX(m_nGradientFrom, wxT("gradient_from"), sfdvSHAPECANVAS_GRADIENT_FROM);
+    XS_SERIALIZE_EX(m_nGradientTo, wxT("gradient_to"), sfdvSHAPECANVAS_GRADIENT_TO);
     XS_SERIALIZE_EX(m_nCommonHoverColor, wxT("hover_color"), sfdvSHAPECANVAS_HOVERCOLOR);
     XS_SERIALIZE_EX(m_nGridSize, wxT("grid_size"), sfdvSHAPECANVAS_GRIDSIZE);
     XS_SERIALIZE_EX(m_nGridLineMult, wxT("grid_line_mult"), sfdvSHAPECANVAS_GRIDLINEMULT);
@@ -190,20 +190,20 @@ wxSFCanvasSettings::wxSFCanvasSettings() : xsSerializable()
 static const wxChar* dataFormatID = wxT("ShapeFrameWorkDataFormat1_0");
 
 BEGIN_EVENT_TABLE(wxSFShapeCanvas, wxScrolledWindow)
-	EVT_PAINT(wxSFShapeCanvas::_OnPaint)
-	EVT_ERASE_BACKGROUND(wxSFShapeCanvas::_OnEraseBackground)
-	EVT_LEFT_DOWN(wxSFShapeCanvas::_OnLeftDown)
-	EVT_LEFT_UP(wxSFShapeCanvas::_OnLeftUp)
-	EVT_RIGHT_DOWN(wxSFShapeCanvas::_OnRightDown)
-	EVT_RIGHT_UP(wxSFShapeCanvas::_OnRightUp)
-	EVT_LEFT_DCLICK(wxSFShapeCanvas::_OnLeftDoubleClick)
-	EVT_RIGHT_DCLICK(wxSFShapeCanvas::_OnRightDoubleClick)
-	EVT_MOTION(wxSFShapeCanvas::_OnMouseMove)
-	EVT_MOUSEWHEEL(wxSFShapeCanvas::_OnMouseWheel)
-	EVT_KEY_DOWN(wxSFShapeCanvas::_OnKeyDown)
-	EVT_ENTER_WINDOW(wxSFShapeCanvas::_OnEnterWindow)
-	EVT_LEAVE_WINDOW(wxSFShapeCanvas::_OnLeaveWindow)
-	EVT_SIZE(wxSFShapeCanvas::_OnResize)
+    EVT_PAINT(wxSFShapeCanvas::_OnPaint)
+    EVT_ERASE_BACKGROUND(wxSFShapeCanvas::_OnEraseBackground)
+    EVT_LEFT_DOWN(wxSFShapeCanvas::_OnLeftDown)
+    EVT_LEFT_UP(wxSFShapeCanvas::_OnLeftUp)
+    EVT_RIGHT_DOWN(wxSFShapeCanvas::_OnRightDown)
+    EVT_RIGHT_UP(wxSFShapeCanvas::_OnRightUp)
+    EVT_LEFT_DCLICK(wxSFShapeCanvas::_OnLeftDoubleClick)
+    EVT_RIGHT_DCLICK(wxSFShapeCanvas::_OnRightDoubleClick)
+    EVT_MOTION(wxSFShapeCanvas::_OnMouseMove)
+    EVT_MOUSEWHEEL(wxSFShapeCanvas::_OnMouseWheel)
+    EVT_KEY_DOWN(wxSFShapeCanvas::_OnKeyDown)
+    EVT_ENTER_WINDOW(wxSFShapeCanvas::_OnEnterWindow)
+    EVT_LEAVE_WINDOW(wxSFShapeCanvas::_OnLeaveWindow)
+    EVT_SIZE(wxSFShapeCanvas::_OnResize)
 END_EVENT_TABLE()
 
 wxSFShapeCanvas::wxSFShapeCanvas()
@@ -236,72 +236,72 @@ wxSFShapeCanvas::wxSFShapeCanvas(wxSFDiagramManager* manager, wxWindow* parent, 
 
 wxSFShapeCanvas::~wxSFShapeCanvas(void)
 {
-	m_shpMultiEdit.SetParentManager(NULL);
+    m_shpMultiEdit.SetParentManager(NULL);
     m_shpSelection.SetParentManager(NULL);
-	
+
     if( --m_nRefCounter == 0) DeinitializePrinting();
-	
-	//DeleteAllTextCtrls();
-	//Clear();
+
+    //DeleteAllTextCtrls();
+    //Clear();
 }
 bool wxSFShapeCanvas::Create(wxWindow* parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style, const wxString& name)
 {
     // NOTE: user must call wxSFShapeCanvas::SetDiagramManager() to complete
     // canvas initialization!
-	
+
     // perform basic window initialization
     wxScrolledWindow::Create(parent, id, pos, size, style, name);
 
-	// set drop target
-	m_formatShapes.SetId(dataFormatID);
-	SetDropTarget(new wxSFCanvasDropTarget(new wxSFShapeDataObject(m_formatShapes), this));
-	m_fDnDStartedHere = false;
+    // set drop target
+    m_formatShapes.SetId(dataFormatID);
+    SetDropTarget(new wxSFCanvasDropTarget(new wxSFShapeDataObject(m_formatShapes), this));
+    m_fDnDStartedHere = false;
 
-	// initialize data members
-	m_fCanSaveStateOnMouseUp = false;
+    // initialize data members
+    m_fCanSaveStateOnMouseUp = false;
 
-	m_nWorkingMode = modeREADY;
+    m_nWorkingMode = modeREADY;
     m_nSelectionMode = selectNORMAL;
-	m_pSelectedHandle = NULL;
-	m_pNewLineShape = NULL;
-	m_pUnselectedShapeUnderCursor = NULL;
-	m_pSelectedShapeUnderCursor = NULL;
-	m_pTopmostShapeUnderCursor = NULL;
+    m_pSelectedHandle = NULL;
+    m_pNewLineShape = NULL;
+    m_pUnselectedShapeUnderCursor = NULL;
+    m_pSelectedShapeUnderCursor = NULL;
+    m_pTopmostShapeUnderCursor = NULL;
 
-	// initialize selection rectangle
-	m_shpSelection.SetId(0);
-	m_shpSelection.CreateHandles();
-	m_shpSelection.Select(true);
-	m_shpSelection.Show(false);
-	m_shpSelection.ShowHandles(true);
+    // initialize selection rectangle
+    m_shpSelection.SetId(0);
+    m_shpSelection.CreateHandles();
+    m_shpSelection.Select(true);
+    m_shpSelection.Show(false);
+    m_shpSelection.ShowHandles(true);
 
-	// initialize multiedit rectangle
-	m_shpMultiEdit.SetId(0);
-	m_shpMultiEdit.CreateHandles();
-	m_shpMultiEdit.Select(true);
-	m_shpMultiEdit.Show(false);
-	m_shpMultiEdit.ShowHandles(true);
+    // initialize multiedit rectangle
+    m_shpMultiEdit.SetId(0);
+    m_shpMultiEdit.CreateHandles();
+    m_shpMultiEdit.Select(true);
+    m_shpMultiEdit.Show(false);
+    m_shpMultiEdit.ShowHandles(true);
 
 
-	m_CanvasHistory.SetParentCanvas(this);
+    m_CanvasHistory.SetParentCanvas(this);
 
-	if( ++m_nRefCounter == 1 )
-	{
-	    // initialize printing
-	    InitializePrinting();
+    if( ++m_nRefCounter == 1 )
+    {
+        // initialize printing
+        InitializePrinting();
 
         // initialize output bitmap
         int nWidth, nHeight;
         wxDisplaySize(&nWidth, &nHeight);
 
         if( !m_OutBMP.Create(nWidth, nHeight) )
-		{
-			wxLogError(wxT("Couldn't create output bitmap."));
-		}
-	}
+        {
+            wxLogError(wxT("Couldn't create output bitmap."));
+        }
+    }
 
     SetScrollbars(5, 5, 100, 100);
-	SetBackgroundStyle(wxBG_STYLE_CUSTOM);
+    SetBackgroundStyle(wxBG_STYLE_CUSTOM);
 
     return true;
 }
@@ -328,7 +328,7 @@ void wxSFShapeCanvas::EnableGC(bool enab)
 #if wxUSE_GRAPHICS_CONTEXT
         m_fEnableGC = true;
 #else
-		m_fEnableGC = false;
+        m_fEnableGC = false;
         wxASSERT_MSG( m_fEnableGC, wxT("Couldn't enable Graphics context due to missing wxUSE_GRAPHICS_CONTEXT") );
 #endif
     }
@@ -338,53 +338,53 @@ void wxSFShapeCanvas::EnableGC(bool enab)
 
 void wxSFShapeCanvas::_OnPaint(wxPaintEvent& event)
 {
-	wxUnusedVar( event );
-	
-	// use double-buffered painting
-	wxAutoBufferedPaintDC paintDC( this );
+    wxUnusedVar( event );
+
+    // use double-buffered painting
+    wxAutoBufferedPaintDC paintDC( this );
 
 #if wxVERSION_NUMBER < 2900
-	wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
+    wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
 
-	PrepareDC( dc );
-	dc.PrepareGC();
+    PrepareDC( dc );
+    dc.PrepareGC();
 
-	this->DrawBackground( dc, sfFROM_PAINT );
-	this->DrawContent( dc, sfFROM_PAINT );
-	this->DrawForeground( dc, sfFROM_PAINT );
+    this->DrawBackground( dc, sfFROM_PAINT );
+    this->DrawContent( dc, sfFROM_PAINT );
+    this->DrawForeground( dc, sfFROM_PAINT );
 #else
 #if wxUSE_GRAPHICS_CONTEXT
     if( IsGCEnabled() )
-	{
-		wxGCDC gdc( paintDC );
-		
-		PrepareDC( paintDC );
-		PrepareDC( gdc );
-		
-		// scale  GC
-		wxGraphicsContext *pGC = gdc.GetGraphicsContext();
-		pGC->Scale( m_Settings.m_nScale, m_Settings.m_nScale );
-	
-		this->DrawBackground( gdc, sfFROM_PAINT );
-		this->DrawContent( gdc, sfFROM_PAINT );
-		this->DrawForeground( gdc, sfFROM_PAINT );
-	}
-	else
-	{
-		wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
-		
-		PrepareDC( dc );
-		this->DrawBackground( dc, sfFROM_PAINT );
-		this->DrawContent( dc, sfFROM_PAINT );
-		this->DrawForeground( dc, sfFROM_PAINT );
-	}
+    {
+        wxGCDC gdc( paintDC );
+
+        PrepareDC( paintDC );
+        PrepareDC( gdc );
+
+        // scale  GC
+        wxGraphicsContext *pGC = gdc.GetGraphicsContext();
+        pGC->Scale( m_Settings.m_nScale, m_Settings.m_nScale );
+
+        this->DrawBackground( gdc, sfFROM_PAINT );
+        this->DrawContent( gdc, sfFROM_PAINT );
+        this->DrawForeground( gdc, sfFROM_PAINT );
+    }
+    else
+    {
+        wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
+
+        PrepareDC( dc );
+        this->DrawBackground( dc, sfFROM_PAINT );
+        this->DrawContent( dc, sfFROM_PAINT );
+        this->DrawForeground( dc, sfFROM_PAINT );
+    }
 #else
-	wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
-	
-	PrepareDC( dc );
-	this->DrawBackground( dc, sfFROM_PAINT  );
-	this->DrawContent( dc, sfFROM_PAINT  );
-	this->DrawForeground( dc, sfFROM_PAINT  );
+    wxSFScaledDC dc( (wxWindowDC*)&paintDC, m_Settings.m_nScale );
+
+    PrepareDC( dc );
+    this->DrawBackground( dc, sfFROM_PAINT  );
+    this->DrawContent( dc, sfFROM_PAINT  );
+    this->DrawForeground( dc, sfFROM_PAINT  );
 #endif
 #endif
 }
@@ -395,43 +395,43 @@ void wxSFShapeCanvas::DrawBackground(wxDC& dc, bool fromPaint)
     wxSFScaledDC::EnableGC( false );
     #endif
 
-	// erase background
-	if( ContainsStyle( sfsGRADIENT_BACKGROUND ) )
-	{
-	    wxSize nBcgSize = GetVirtualSize() + wxSize(m_Settings.m_nGridSize.x, m_Settings.m_nGridSize.y);
-	    if( m_Settings.m_nScale != 1.f )
+    // erase background
+    if( ContainsStyle( sfsGRADIENT_BACKGROUND ) )
+    {
+        wxSize nBcgSize = GetVirtualSize() + wxSize(m_Settings.m_nGridSize.x, m_Settings.m_nGridSize.y);
+        if( m_Settings.m_nScale != 1.f )
             dc.GradientFillLinear(wxRect(wxPoint(0, 0), wxSize( nBcgSize.x/m_Settings.m_nScale, nBcgSize.y/m_Settings.m_nScale )), m_Settings.m_nGradientFrom, m_Settings.m_nGradientTo, wxSOUTH);
         else
             dc.GradientFillLinear(wxRect(wxPoint(0, 0),  GetVirtualSize() + wxSize(m_Settings.m_nGridSize.x, m_Settings.m_nGridSize.y)), m_Settings.m_nGradientFrom, m_Settings.m_nGradientTo, wxSOUTH);
-	}
-	else
-	{
-		dc.SetBackground(wxBrush(m_Settings.m_nBackgroundColor));
-		dc.Clear();
-	}
+    }
+    else
+    {
+        dc.SetBackground(wxBrush(m_Settings.m_nBackgroundColor));
+        dc.Clear();
+    }
 
-	// show grid
-	if( ContainsStyle( sfsGRID_SHOW ) )
-	{
-		int linedist = m_Settings.m_nGridSize.x * m_Settings.m_nGridLineMult;
-		
-		if( linedist * m_Settings.m_nScale > 3 )
-		{
-			wxRect gridRct(wxPoint(0, 0), GetVirtualSize()+m_Settings.m_nGridSize);
-			int maxx = int(gridRct.GetRight()/m_Settings.m_nScale);
-			int maxy = int(gridRct.GetBottom()/m_Settings.m_nScale);
+    // show grid
+    if( ContainsStyle( sfsGRID_SHOW ) )
+    {
+        int linedist = m_Settings.m_nGridSize.x * m_Settings.m_nGridLineMult;
 
-			dc.SetPen( wxPen(m_Settings.m_nGridColor, 1, (wxPenStyle)m_Settings.m_nGridStyle) );
-			for(int x = gridRct.GetLeft(); x <= maxx; x += linedist)
-			{
-				dc.DrawLine(x, 0, x, maxy);
-			}
-			for(int y = gridRct.GetTop(); y <= maxy; y += linedist)
-			{
-				dc.DrawLine(0, y, maxx, y);
-			}
-		}
-	}
+        if( linedist * m_Settings.m_nScale > 3 )
+        {
+            wxRect gridRct(wxPoint(0, 0), GetVirtualSize()+m_Settings.m_nGridSize);
+            int maxx = int(gridRct.GetRight()/m_Settings.m_nScale);
+            int maxy = int(gridRct.GetBottom()/m_Settings.m_nScale);
+
+            dc.SetPen( wxPen(m_Settings.m_nGridColor, 1, (wxPenStyle)m_Settings.m_nGridStyle) );
+            for(int x = gridRct.GetLeft(); x <= maxx; x += linedist)
+            {
+                dc.DrawLine(x, 0, x, maxy);
+            }
+            for(int y = gridRct.GetTop(); y <= maxy; y += linedist)
+            {
+                dc.DrawLine(0, y, maxx, y);
+            }
+        }
+    }
 
     #if wxVERSION_NUMBER < 2900 && wxUSE_GRAPHICS_CONTEXT
     wxSFScaledDC::EnableGC( m_fEnableGC );
@@ -440,7 +440,7 @@ void wxSFShapeCanvas::DrawBackground(wxDC& dc, bool fromPaint)
 
 void wxSFShapeCanvas::DrawForeground(wxDC& dc, bool fromPaint)
 {
-	// do nothing here...
+    // do nothing here...
 }
 
 void wxSFShapeCanvas::DrawContent(wxDC& dc, bool fromPaint)
@@ -451,174 +451,174 @@ void wxSFShapeCanvas::DrawContent(wxDC& dc, bool fromPaint)
     if(!m_pManager->GetRootItem())return;
 
     wxSFShapeBase *pShape = NULL, *pParentShape = NULL;
-	wxSFLineShape *pLine = NULL;
+    wxSFLineShape *pLine = NULL;
 
-	if(fromPaint)
-	{
-		wxRect updRct;
-		wxRect bbRct;
+    if(fromPaint)
+    {
+        wxRect updRct;
+        wxRect bbRct;
 
-		ShapeList m_lstToDraw;
-		ShapeList m_lstLinesToDraw;
+        ShapeList m_lstToDraw;
+        ShapeList m_lstLinesToDraw;
 
-		// get all existing shapes
-		m_pManager->GetShapes( CLASSINFO(wxSFShapeBase), m_lstToDraw, xsSerializable::searchDFS );
+        // get all existing shapes
+        m_pManager->GetShapes( CLASSINFO(wxSFShapeBase), m_lstToDraw, xsSerializable::searchDFS );
 
-		// get the update rect list
-		wxRegionIterator upd(GetUpdateRegion());
-		// combine updated rectangles
-		bool fFirstRun = true;
-		while(upd)
-		{
-			if( fFirstRun )
-			{
-				updRct = DP2LP(upd.GetRect().Inflate(5, 5));
-				fFirstRun = false;
-			}
-			else
-				updRct.Union(DP2LP(upd.GetRect().Inflate(5, 5)));
+        // get the update rect list
+        wxRegionIterator upd(GetUpdateRegion());
+        // combine updated rectangles
+        bool fFirstRun = true;
+        while(upd)
+        {
+            if( fFirstRun )
+            {
+                updRct = DP2LP(upd.GetRect().Inflate(5, 5));
+                fFirstRun = false;
+            }
+            else
+                updRct.Union(DP2LP(upd.GetRect().Inflate(5, 5)));
 
-			upd++;
-		}
+            upd++;
+        }
 
-		if(m_nWorkingMode == modeSHAPEMOVE)
-		{
-			ShapeList m_lstSelected;
+        if(m_nWorkingMode == modeSHAPEMOVE)
+        {
+            ShapeList m_lstSelected;
 
-			// draw unselected non line-based shapes first...
-			ShapeList::compatibility_iterator node = m_lstToDraw.GetFirst();
-			while(node)
-			{
-				pShape = (wxSFShapeBase*)node->GetData();
-				pParentShape = pShape->GetParentShape();
-				
-				pLine = wxDynamicCast( pShape, wxSFLineShape );
+            // draw unselected non line-based shapes first...
+            ShapeList::compatibility_iterator node = m_lstToDraw.GetFirst();
+            while(node)
+            {
+                pShape = (wxSFShapeBase*)node->GetData();
+                pParentShape = pShape->GetParentShape();
 
-				if ( !pLine || pLine->IsStandAlone() )
-				{
-					if( pShape->Intersects(updRct) )
-					{
-						if( pParentShape )
-						{
-							pLine = wxDynamicCast( pParentShape, wxSFLineShape );
-							if( !pLine || pLine->IsStandAlone() ) pShape->Draw(dc, sfWITHOUTCHILDREN);
-						}
-						else
-							pShape->Draw(dc, sfWITHOUTCHILDREN);
-					}
-				}
-				else
-					m_lstLinesToDraw.Append( pShape );
+                pLine = wxDynamicCast( pShape, wxSFLineShape );
 
-				node = node->GetNext();
-			}
+                if ( !pLine || pLine->IsStandAlone() )
+                {
+                    if( pShape->Intersects(updRct) )
+                    {
+                        if( pParentShape )
+                        {
+                            pLine = wxDynamicCast( pParentShape, wxSFLineShape );
+                            if( !pLine || pLine->IsStandAlone() ) pShape->Draw(dc, sfWITHOUTCHILDREN);
+                        }
+                        else
+                            pShape->Draw(dc, sfWITHOUTCHILDREN);
+                    }
+                }
+                else
+                    m_lstLinesToDraw.Append( pShape );
 
-			// ... and draw connections
-			node = m_lstLinesToDraw.GetFirst();
-			while(node)
-			{
-				pLine = (wxSFLineShape*)node->GetData();
+                node = node->GetNext();
+            }
+
+            // ... and draw connections
+            node = m_lstLinesToDraw.GetFirst();
+            while(node)
+            {
+                pLine = (wxSFLineShape*)node->GetData();
 
                 pLine->GetCompleteBoundingBox(bbRct, wxSFShapeBase::bbSELF | wxSFShapeBase::bbCHILDREN | wxSFShapeBase::bbSHADOW);
                 if( bbRct.Intersects(updRct) )
                 {
-					pLine->Draw(dc, pLine->GetLineMode() == wxSFLineShape::modeREADY);
-				}
+                    pLine->Draw(dc, pLine->GetLineMode() == wxSFLineShape::modeREADY);
+                }
 
-				node = node->GetNext();
-			}
-		}
-		else
-		{
-			// draw parent shapes (children are processed by parent objects)
-			ShapeList::compatibility_iterator node = m_lstToDraw.GetFirst();
-			while(node)
-			{
-				pShape = node->GetData();
-				pParentShape = pShape->GetParentShape();
-				
-				pLine = wxDynamicCast( pShape, wxSFLineShape );
+                node = node->GetNext();
+            }
+        }
+        else
+        {
+            // draw parent shapes (children are processed by parent objects)
+            ShapeList::compatibility_iterator node = m_lstToDraw.GetFirst();
+            while(node)
+            {
+                pShape = node->GetData();
+                pParentShape = pShape->GetParentShape();
 
-				if( !pLine || pLine->IsStandAlone() )
-				{
-					if( pShape->Intersects(updRct) )
-					{
-						if( pParentShape )
-						{
-							pLine = wxDynamicCast( pParentShape, wxSFLineShape );
-							if( !pLine || pLine->IsStandAlone() ) pShape->Draw(dc, sfWITHOUTCHILDREN);
-						}
-						else
-							pShape->Draw(dc, sfWITHOUTCHILDREN);
-					}
-				}
-				else
-					m_lstLinesToDraw.Append( pShape );
+                pLine = wxDynamicCast( pShape, wxSFLineShape );
 
-				node = node->GetNext();
-			}
+                if( !pLine || pLine->IsStandAlone() )
+                {
+                    if( pShape->Intersects(updRct) )
+                    {
+                        if( pParentShape )
+                        {
+                            pLine = wxDynamicCast( pParentShape, wxSFLineShape );
+                            if( !pLine || pLine->IsStandAlone() ) pShape->Draw(dc, sfWITHOUTCHILDREN);
+                        }
+                        else
+                            pShape->Draw(dc, sfWITHOUTCHILDREN);
+                    }
+                }
+                else
+                    m_lstLinesToDraw.Append( pShape );
 
-			// draw connections
-			node = m_lstLinesToDraw.GetFirst();
-			while(node)
-			{
-				pLine = (wxSFLineShape*)node->GetData();
+                node = node->GetNext();
+            }
+
+            // draw connections
+            node = m_lstLinesToDraw.GetFirst();
+            while(node)
+            {
+                pLine = (wxSFLineShape*)node->GetData();
 
                 pLine->GetCompleteBoundingBox(bbRct, wxSFShapeBase::bbSELF | wxSFShapeBase::bbCHILDREN);
                 if( bbRct.Intersects(updRct) )
                 {
-					pLine->Draw(dc, pLine->GetLineMode() == wxSFLineShape::modeREADY);
-				}
+                    pLine->Draw(dc, pLine->GetLineMode() == wxSFLineShape::modeREADY);
+                }
 
-				node = node->GetNext();
-			}
-		}
+                node = node->GetNext();
+            }
+        }
 
         #if wxVERSION_NUMBER < 2900 && wxUSE_GRAPHICS_CONTEXT
         wxSFScaledDC::EnableGC( false );
         #endif
 
-		// draw multiselection if neccessary
-		if(m_shpSelection.IsVisible())
-		{
-			m_shpSelection.Draw(dc);
-		}
-		if(m_shpMultiEdit.IsVisible())
-		{
-			m_shpMultiEdit.Draw(dc);
-		}
-	}
-	else
-	{
-		// draw parent shapes (children are processed by parent objects)
-		SerializableList::compatibility_iterator node = m_pManager->GetRootItem()->GetFirstChildNode();
-		while(node)
-		{
-			pShape = (wxSFShapeBase*)node->GetData();
-			
-			pLine = wxDynamicCast( pShape, wxSFLineShape );
+        // draw multiselection if neccessary
+        if(m_shpSelection.IsVisible())
+        {
+            m_shpSelection.Draw(dc);
+        }
+        if(m_shpMultiEdit.IsVisible())
+        {
+            m_shpMultiEdit.Draw(dc);
+        }
+    }
+    else
+    {
+        // draw parent shapes (children are processed by parent objects)
+        SerializableList::compatibility_iterator node = m_pManager->GetRootItem()->GetFirstChildNode();
+        while(node)
+        {
+            pShape = (wxSFShapeBase*)node->GetData();
 
-			if( !pLine || pLine->IsStandAlone() )
-			{
-				pShape->Draw(dc);
-			}
+            pLine = wxDynamicCast( pShape, wxSFLineShape );
 
-			node = node->GetNext();
-		}
+            if( !pLine || pLine->IsStandAlone() )
+            {
+                pShape->Draw(dc);
+            }
 
-		// draw connections
-		node = m_pManager->GetRootItem()->GetFirstChildNode();
-		while(node)
-		{
-			pLine = wxDynamicCast( node->GetData(), wxSFLineShape );
-		
-			if( pLine && !pLine->IsStandAlone() )
-			{
-				pLine->Draw(dc);
-			}
-			node = node->GetNext();
-		}
-	}
+            node = node->GetNext();
+        }
+
+        // draw connections
+        node = m_pManager->GetRootItem()->GetFirstChildNode();
+        while(node)
+        {
+            pLine = wxDynamicCast( node->GetData(), wxSFLineShape );
+
+            if( pLine && !pLine->IsStandAlone() )
+            {
+                pLine->Draw(dc);
+            }
+            node = node->GetNext();
+        }
+    }
 
     #if wxVERSION_NUMBER < 2900 && wxUSE_GRAPHICS_CONTEXT
     wxSFScaledDC::EnableGC( false );
@@ -627,41 +627,41 @@ void wxSFShapeCanvas::DrawContent(wxDC& dc, bool fromPaint)
 
 void wxSFShapeCanvas::_OnEraseBackground(wxEraseEvent& event)
 {
-	// do nothing to suppress window flickering
-	
-	wxUnusedVar( event );
+    // do nothing to suppress window flickering
+
+    wxUnusedVar( event );
 }
 
 void wxSFShapeCanvas::RefreshCanvas(bool erase, const wxRect& rct)
 {
-	wxPoint lpos = DP2LP(wxPoint(0, 0));
-	wxRect updRct = rct;
+    wxPoint lpos = DP2LP(wxPoint(0, 0));
+    wxRect updRct = rct;
 
-	updRct.Inflate(int(20/m_Settings.m_nScale), int(20/m_Settings.m_nScale));
-	updRct.Offset(-lpos.x, -lpos.y);
+    updRct.Inflate(int(20/m_Settings.m_nScale), int(20/m_Settings.m_nScale));
+    updRct.Offset(-lpos.x, -lpos.y);
 
-	RefreshRect(wxRect(int(updRct.x*m_Settings.m_nScale), int(updRct.y*m_Settings.m_nScale), int(updRct.width*m_Settings.m_nScale), int(updRct.height*m_Settings.m_nScale)), erase);
+    RefreshRect(wxRect(int(updRct.x*m_Settings.m_nScale), int(updRct.y*m_Settings.m_nScale), int(updRct.width*m_Settings.m_nScale), int(updRct.height*m_Settings.m_nScale)), erase);
 }
 
 void wxSFShapeCanvas::InvalidateRect(const wxRect& rct)
 {
-	if( m_nInvalidateRect.IsEmpty() ) m_nInvalidateRect = rct;
-	else
-		m_nInvalidateRect.Union( rct );
+    if( m_nInvalidateRect.IsEmpty() ) m_nInvalidateRect = rct;
+    else
+        m_nInvalidateRect.Union( rct );
 }
 
 void wxSFShapeCanvas::InvalidateVisibleRect()
 {
-	InvalidateRect( DP2LP( GetClientRect() ) );
+    InvalidateRect( DP2LP( GetClientRect() ) );
 }
 
 void wxSFShapeCanvas::RefreshInvalidatedRect()
 {
-	if( !m_nInvalidateRect.IsEmpty() )
-	{
-		RefreshCanvas( false, m_nInvalidateRect );
-		m_nInvalidateRect = wxRect(0, 0, 0, 0);
-	}
+    if( !m_nInvalidateRect.IsEmpty() )
+    {
+        RefreshCanvas( false, m_nInvalidateRect );
+        m_nInvalidateRect = wxRect(0, 0, 0, 0);
+    }
 }
 
 //----------------------------------------------------------------------------------//
@@ -670,157 +670,157 @@ void wxSFShapeCanvas::RefreshInvalidatedRect()
 
 void wxSFShapeCanvas::OnLeftDown(wxMouseEvent& event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     DeleteAllTextCtrls();
-	SetFocus();
+    SetFocus();
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	m_fCanSaveStateOnMouseUp = false;
+    m_fCanSaveStateOnMouseUp = false;
 
-	switch(m_nWorkingMode)
-	{
-	case modeREADY:
-		{
-			m_pSelectedHandle = GetTopmostHandleAtPosition(lpos);
+    switch(m_nWorkingMode)
+    {
+    case modeREADY:
+        {
+            m_pSelectedHandle = GetTopmostHandleAtPosition(lpos);
 
-			if (event.ControlDown() && event.ShiftDown())
-				m_nSelectionMode = selectREMOVE;
-			else if (event.ShiftDown())
-				m_nSelectionMode = selectADD;
-			else
-				m_nSelectionMode = selectNORMAL;
+            if (event.ControlDown() && event.ShiftDown())
+                m_nSelectionMode = selectREMOVE;
+            else if (event.ShiftDown())
+                m_nSelectionMode = selectADD;
+            else
+                m_nSelectionMode = selectNORMAL;
 
-			if(!m_pSelectedHandle)
-			{
-				wxSFShapeBase* pSelectedShape = GetShapeAtPosition(lpos);
-				//wxSFShapeBase* pSelectedShape = GetShapeUnderCursor();
+            if(!m_pSelectedHandle)
+            {
+                wxSFShapeBase* pSelectedShape = GetShapeAtPosition(lpos);
+                //wxSFShapeBase* pSelectedShape = GetShapeUnderCursor();
 
-				wxSFShapeBase* pSelectedTopShape = pSelectedShape;
-				while (pSelectedTopShape != NULL && pSelectedTopShape->ContainsStyle(wxSFShapeBase::sfsPROPAGATE_SELECTION))
-				{
-					pSelectedTopShape = pSelectedTopShape->GetParentShape();
-				}
+                wxSFShapeBase* pSelectedTopShape = pSelectedShape;
+                while (pSelectedTopShape != NULL && pSelectedTopShape->ContainsStyle(wxSFShapeBase::sfsPROPAGATE_SELECTION))
+                {
+                    pSelectedTopShape = pSelectedTopShape->GetParentShape();
+                }
 
-				if (pSelectedShape)
-				{
-					// perform selection
-					ShapeList m_lstSelection;
-					GetSelectedShapes(m_lstSelection);
+                if (pSelectedShape)
+                {
+                    // perform selection
+                    ShapeList m_lstSelection;
+                    GetSelectedShapes(m_lstSelection);
 
-					// cancel previous selections if neccessary...
-					
-					if (m_nSelectionMode == selectNORMAL && (pSelectedTopShape == NULL || m_lstSelection.IndexOf(pSelectedTopShape) == wxNOT_FOUND))
-						DeselectAll();
-					if (pSelectedTopShape != NULL)
-					{
-						pSelectedTopShape->Select(m_nSelectionMode != selectREMOVE);
-					}
+                    // cancel previous selections if neccessary...
 
-					GetSelectedShapes(m_lstSelection);
-					// remove child shapes from the selection
-					ValidateSelection(m_lstSelection);
+                    if (m_nSelectionMode == selectNORMAL && (pSelectedTopShape == NULL || m_lstSelection.IndexOf(pSelectedTopShape) == wxNOT_FOUND))
+                        DeselectAll();
+                    if (pSelectedTopShape != NULL)
+                    {
+                        pSelectedTopShape->Select(m_nSelectionMode != selectREMOVE);
+                    }
 
-					if( m_lstSelection.GetCount() > 1 )
-					{
-						HideAllHandles();
-					}
-					else if (m_nSelectionMode == selectREMOVE && m_lstSelection.GetCount() == 1)
-					{
-						ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-						node->GetData()->Select(true);
-					}
-					
-					// call user defined actions
-					pSelectedShape->OnLeftClick(FitPositionToGrid(lpos));
+                    GetSelectedShapes(m_lstSelection);
+                    // remove child shapes from the selection
+                    ValidateSelection(m_lstSelection);
 
-					// inform selected shapes about begin of dragging...
-					wxSFShapeBase *pShape;
-					ShapeList lstConnections;
+                    if( m_lstSelection.GetCount() > 1 )
+                    {
+                        HideAllHandles();
+                    }
+                    else if (m_nSelectionMode == selectREMOVE && m_lstSelection.GetCount() == 1)
+                    {
+                        ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+                        node->GetData()->Select(true);
+                    }
 
-					ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-					while(node)
-					{
-						pShape = node->GetData();
-						pShape->_OnBeginDrag(FitPositionToGrid(lpos));
+                    // call user defined actions
+                    pSelectedShape->OnLeftClick(FitPositionToGrid(lpos));
 
-						// inform also connections assigned to the shape and its children
-						lstConnections.Clear();
-						AppendAssignedConnections( pShape, lstConnections, true );
+                    // inform selected shapes about begin of dragging...
+                    wxSFShapeBase *pShape;
+                    ShapeList lstConnections;
 
-						ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
-						while( lnode )
-						{
-							lnode->GetData()->_OnBeginDrag(FitPositionToGrid(lpos));
-							lnode = lnode->GetNext();
-						}
+                    ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+                    while(node)
+                    {
+                        pShape = node->GetData();
+                        pShape->_OnBeginDrag(FitPositionToGrid(lpos));
 
-						node = node->GetNext();
-					}
+                        // inform also connections assigned to the shape and its children
+                        lstConnections.Clear();
+                        AppendAssignedConnections( pShape, lstConnections, true );
 
-					if (m_nSelectionMode == selectNORMAL)
-					{
-						m_shpMultiEdit.Show(false);
-						//m_shpMultiEdit.ShowHandles(false);
-						m_nWorkingMode = modeSHAPEMOVE;
-					}
-					else
-					{
-						if (m_lstSelection.GetCount() > 1)
-						{
-							m_shpMultiEdit.Show(true);
-							m_shpMultiEdit.ShowHandles(true);
-						}
-						else
-							m_shpMultiEdit.Show(false);
-						m_nWorkingMode = modeREADY;
-					}
-				}
-				else
-				{
-					if( ContainsStyle(sfsMULTI_SELECTION) )
-					{
-						if (m_nSelectionMode == selectNORMAL)
-						{
-							DeselectAll();
-						}
-						m_selectionStart = wxRealPoint(lpos.x, lpos.y);
-						m_shpSelection.Show(true);
-						m_shpSelection.ShowHandles(false);
-						m_shpSelection.SetRelativePosition(m_selectionStart);
-						m_shpSelection.SetRectSize(wxRealPoint(0, 0));
-						m_nWorkingMode = modeMULTISELECTION;
-					}
-					else
-					{
-						DeselectAll();
-						m_nWorkingMode = modeREADY;
-					}
-				}
+                        ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
+                        while( lnode )
+                        {
+                            lnode->GetData()->_OnBeginDrag(FitPositionToGrid(lpos));
+                            lnode = lnode->GetNext();
+                        }
 
-				// update canvas
-				InvalidateVisibleRect();
-			}
-			else
-			{
-				if(m_pSelectedHandle->GetParentShape() == &m_shpMultiEdit)
-				{
-					if( ContainsStyle(sfsMULTI_SIZE_CHANGE) )
-					{
-					    m_nWorkingMode = modeMULTIHANDLEMOVE;
-					}
-					else
+                        node = node->GetNext();
+                    }
+
+                    if (m_nSelectionMode == selectNORMAL)
+                    {
+                        m_shpMultiEdit.Show(false);
+                        //m_shpMultiEdit.ShowHandles(false);
+                        m_nWorkingMode = modeSHAPEMOVE;
+                    }
+                    else
+                    {
+                        if (m_lstSelection.GetCount() > 1)
+                        {
+                            m_shpMultiEdit.Show(true);
+                            m_shpMultiEdit.ShowHandles(true);
+                        }
+                        else
+                            m_shpMultiEdit.Show(false);
                         m_nWorkingMode = modeREADY;
-				}
-				else
-				{
-					m_nWorkingMode = modeHANDLEMOVE;
-					switch(m_pSelectedHandle->GetType())
-					{
+                    }
+                }
+                else
+                {
+                    if( ContainsStyle(sfsMULTI_SELECTION) )
+                    {
+                        if (m_nSelectionMode == selectNORMAL)
+                        {
+                            DeselectAll();
+                        }
+                        m_selectionStart = wxRealPoint(lpos.x, lpos.y);
+                        m_shpSelection.Show(true);
+                        m_shpSelection.ShowHandles(false);
+                        m_shpSelection.SetRelativePosition(m_selectionStart);
+                        m_shpSelection.SetRectSize(wxRealPoint(0, 0));
+                        m_nWorkingMode = modeMULTISELECTION;
+                    }
+                    else
+                    {
+                        DeselectAll();
+                        m_nWorkingMode = modeREADY;
+                    }
+                }
+
+                // update canvas
+                InvalidateVisibleRect();
+            }
+            else
+            {
+                if(m_pSelectedHandle->GetParentShape() == &m_shpMultiEdit)
+                {
+                    if( ContainsStyle(sfsMULTI_SIZE_CHANGE) )
+                    {
+                        m_nWorkingMode = modeMULTIHANDLEMOVE;
+                    }
+                    else
+                        m_nWorkingMode = modeREADY;
+                }
+                else
+                {
+                    m_nWorkingMode = modeHANDLEMOVE;
+                    switch(m_pSelectedHandle->GetType())
+                    {
                     case wxSFShapeHandle::hndLINESTART:
                         {
                             wxSFLineShape* pLine = (wxSFLineShape*)m_pSelectedHandle->GetParentShape();
@@ -839,28 +839,28 @@ void wxSFShapeCanvas::OnLeftDown(wxMouseEvent& event)
 
                     default:
                         break;
-					}
-				}
-				m_pSelectedHandle->_OnBeginDrag(FitPositionToGrid(lpos));
-			}
-		}
-		break;
+                    }
+                }
+                m_pSelectedHandle->_OnBeginDrag(FitPositionToGrid(lpos));
+            }
+        }
+        break;
 
-	case modeCREATECONNECTION:
-		{
-		    // update the line shape being created
-		    if(m_pNewLineShape)
-		    {
-		        //wxSFShapeBase* pShapeUnder = GetShapeAtPosition(lpos);
-				wxSFShapeBase* pShapeUnder = GetShapeUnderCursor();
-				// propagate request for interactive connection if requested
-				while( pShapeUnder && pShapeUnder->ContainsStyle( wxSFShapeBase::sfsPROPAGATE_INTERACTIVE_CONNECTION ) ) {
-					pShapeUnder = pShapeUnder->GetParentShape();
-				}
+    case modeCREATECONNECTION:
+        {
+            // update the line shape being created
+            if(m_pNewLineShape)
+            {
+                //wxSFShapeBase* pShapeUnder = GetShapeAtPosition(lpos);
+                wxSFShapeBase* pShapeUnder = GetShapeUnderCursor();
+                // propagate request for interactive connection if requested
+                while( pShapeUnder && pShapeUnder->ContainsStyle( wxSFShapeBase::sfsPROPAGATE_INTERACTIVE_CONNECTION ) ) {
+                    pShapeUnder = pShapeUnder->GetParentShape();
+                }
                 // finish connection's creation process if possible
-				if(pShapeUnder && !event.ControlDown())
+                if(pShapeUnder && !event.ControlDown())
                 {
-					if((m_pNewLineShape->GetTrgShapeId() == -1) &&
+                    if((m_pNewLineShape->GetTrgShapeId() == -1) &&
                             (pShapeUnder != m_pNewLineShape) &&
                             (pShapeUnder->GetId() != -1) &&
                             (pShapeUnder->IsConnectionAccepted(m_pNewLineShape->GetClassInfo()->GetClassName())))
@@ -876,32 +876,32 @@ void wxSFShapeCanvas::OnLeftDown(wxMouseEvent& event)
                             m_pNewLineShape->SetEndingConnectionPoint( pShapeUnder->GetNearestConnectionPoint( Conv2RealPoint(lpos) ) );
 
                             // inform user that the line is completed
-							switch (OnPreConnectionFinished(m_pNewLineShape))
-							{
-							case pfsOK:
-								break;
-							case pfsFAILED_AND_CANCEL_LINE:
-								{
-									m_pNewLineShape->SetTrgShapeId(-1);
-									m_pManager->RemoveShape(m_pNewLineShape);
-									m_nWorkingMode = modeREADY;
-									m_pNewLineShape = NULL;
-								}
-								break;
-							case pfsFAILED_AND_CONTINUE_EDIT:
-								{
-									m_pNewLineShape->SetTrgShapeId(-1);
-								}
-								return;
-							}
+                            switch (OnPreConnectionFinished(m_pNewLineShape))
+                            {
+                            case pfsOK:
+                                break;
+                            case pfsFAILED_AND_CANCEL_LINE:
+                                {
+                                    m_pNewLineShape->SetTrgShapeId(-1);
+                                    m_pManager->RemoveShape(m_pNewLineShape);
+                                    m_nWorkingMode = modeREADY;
+                                    m_pNewLineShape = NULL;
+                                }
+                                break;
+                            case pfsFAILED_AND_CONTINUE_EDIT:
+                                {
+                                    m_pNewLineShape->SetTrgShapeId(-1);
+                                }
+                                return;
+                            }
                             m_pNewLineShape->CreateHandles();
 
                             // swith off the "under-construcion" mode
                             m_pNewLineShape->SetLineMode(wxSFLineShape::modeREADY);
-							
-							OnConnectionFinished(m_pNewLineShape);
 
-							m_pNewLineShape->Update();
+                            OnConnectionFinished(m_pNewLineShape);
+
+                            m_pNewLineShape->Update();
                             m_pNewLineShape->Refresh(sfDELAYED);
 
                             m_nWorkingMode = modeREADY;
@@ -919,48 +919,48 @@ void wxSFShapeCanvas::OnLeftDown(wxMouseEvent& event)
                         m_pNewLineShape->GetControlPoints().Append(new wxRealPoint(flpos.x, flpos.y));
                     }
                 }
-		    }
-		}
-		break;
+            }
+        }
+        break;
 
-	default:
-		m_nWorkingMode = modeREADY;
-	}
-	
-	RefreshInvalidatedRect();
+    default:
+        m_nWorkingMode = modeREADY;
+    }
+
+    RefreshInvalidatedRect();
 }
 
 void wxSFShapeCanvas::OnLeftUp(wxMouseEvent &event)
 {
     // HINT: override it for custom actions...
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
-	case modeMULTIHANDLEMOVE:
-	case modeHANDLEMOVE:
-		{
-			// resize parent shape to fit all its children if neccessary
-			if( m_pSelectedHandle->GetParentShape()->GetParentShape() )
-			{
-				((wxSFShapeBase*)m_pSelectedHandle->GetParentShape()->GetParentShape())->Update();
-			}
+    switch(m_nWorkingMode)
+    {
+    case modeMULTIHANDLEMOVE:
+    case modeHANDLEMOVE:
+        {
+            // resize parent shape to fit all its children if neccessary
+            if( m_pSelectedHandle->GetParentShape()->GetParentShape() )
+            {
+                ((wxSFShapeBase*)m_pSelectedHandle->GetParentShape()->GetParentShape())->Update();
+            }
 
-			// if the handle is line handle then return the line to normal state
-			// and re-assign line's source/target shape
-			switch(m_pSelectedHandle->GetType())
-			{
+            // if the handle is line handle then return the line to normal state
+            // and re-assign line's source/target shape
+            switch(m_pSelectedHandle->GetType())
+            {
             case wxSFShapeHandle::hndLINESTART:
             case wxSFShapeHandle::hndLINEEND:
                 {
                     wxSFLineShape* pLine = (wxSFLineShape*)m_pSelectedHandle->GetParentShape();
                     pLine->SetLineMode(wxSFLineShape::modeREADY);
 
-					//wxSFShapeBase* pParentShape = GetShapeAtPosition(lpos, 1, searchBOTH);
-					wxSFShapeBase* pParentShape = GetShapeUnderCursor();
+                    //wxSFShapeBase* pParentShape = GetShapeAtPosition(lpos, 1, searchBOTH);
+                    wxSFShapeBase* pParentShape = GetShapeUnderCursor();
 
-					//if(pParentShape && !pParentShape->IsKindOf(CLASSINFO(wxSFLineShape))  && (pParentShape->IsConnectionAccepted(pLine->GetClassInfo()->GetClassName())))
+                    //if(pParentShape && !pParentShape->IsKindOf(CLASSINFO(wxSFLineShape))  && (pParentShape->IsConnectionAccepted(pLine->GetClassInfo()->GetClassName())))
                     if(pParentShape && (pParentShape != pLine) && (pParentShape->IsConnectionAccepted(pLine->GetClassInfo()->GetClassName())))
                     {
                         if(m_pSelectedHandle->GetType() == wxSFShapeHandle::hndLINESTART)
@@ -985,94 +985,94 @@ void wxSFShapeCanvas::OnLeftUp(wxMouseEvent &event)
 
             default:
                 break;
-			}
+            }
 
-			m_pSelectedHandle->_OnEndDrag(lpos);
+            m_pSelectedHandle->_OnEndDrag(lpos);
 
             m_pSelectedHandle = NULL;
-			if(m_fCanSaveStateOnMouseUp)SaveCanvasState();
-		}
-		break;
+            if(m_fCanSaveStateOnMouseUp)SaveCanvasState();
+        }
+        break;
 
-	case modeSHAPEMOVE:
-		{
-			ShapeList m_lstSelection;
-			GetSelectedShapes(m_lstSelection);
+    case modeSHAPEMOVE:
+        {
+            ShapeList m_lstSelection;
+            GetSelectedShapes(m_lstSelection);
 
-			ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-			while(node)
-			{
-				wxSFShapeBase* pShape = node->GetData();
-				pShape->_OnEndDrag(lpos);
+            ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+            while(node)
+            {
+                wxSFShapeBase* pShape = node->GetData();
+                pShape->_OnEndDrag(lpos);
 
                 ReparentShape( pShape, lpos );
 
-				node = node->GetNext();
-			}
+                node = node->GetNext();
+            }
 
-			if(m_lstSelection.GetCount()>1)
-			{
-				m_shpMultiEdit.Show(true);
-				m_shpMultiEdit.ShowHandles(true);
-			}
-			else
-				m_shpMultiEdit.Show(false);
+            if(m_lstSelection.GetCount()>1)
+            {
+                m_shpMultiEdit.Show(true);
+                m_shpMultiEdit.ShowHandles(true);
+            }
+            else
+                m_shpMultiEdit.Show(false);
 
-			MoveShapesFromNegatives();
+            MoveShapesFromNegatives();
 
-			if(m_fCanSaveStateOnMouseUp)SaveCanvasState();
-		}
-		break;
+            if(m_fCanSaveStateOnMouseUp)SaveCanvasState();
+        }
+        break;
 
-	case modeMULTISELECTION:
-		{
-			ShapeList m_lstSelection;
-			GetSelectedShapes(m_lstSelection);
+    case modeMULTISELECTION:
+        {
+            ShapeList m_lstSelection;
+            GetSelectedShapes(m_lstSelection);
 
-			wxRect selRect(m_shpSelection.GetBoundingBox().GetLeftTop(), m_shpSelection.GetBoundingBox().GetRightBottom());
-			ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
-			while(node)
-			{
-				wxSFShapeBase* pShape = node->GetData();
-				if(pShape->IsActive() && selRect.Contains(pShape->GetBoundingBox()))
-				{
-					while (pShape != NULL && pShape->ContainsStyle(wxSFShapeBase::sfsPROPAGATE_SELECTION))
-					{
-						pShape = pShape->GetParentShape();
-					}
-					if (pShape != NULL)
-					{
-						pShape->Select(m_nSelectionMode != selectREMOVE);
-						int shapePos = m_lstSelection.IndexOf(pShape);
-						if (m_nSelectionMode != selectREMOVE && shapePos == wxNOT_FOUND)
-							m_lstSelection.Append(pShape);
-						else if (m_nSelectionMode == selectREMOVE && shapePos != wxNOT_FOUND)
-							m_lstSelection.DeleteObject(pShape);
-					}
-				}
-				node = node->GetNext();
-			}
+            wxRect selRect(m_shpSelection.GetBoundingBox().GetLeftTop(), m_shpSelection.GetBoundingBox().GetRightBottom());
+            ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
+            while(node)
+            {
+                wxSFShapeBase* pShape = node->GetData();
+                if(pShape->IsActive() && selRect.Contains(pShape->GetBoundingBox()))
+                {
+                    while (pShape != NULL && pShape->ContainsStyle(wxSFShapeBase::sfsPROPAGATE_SELECTION))
+                    {
+                        pShape = pShape->GetParentShape();
+                    }
+                    if (pShape != NULL)
+                    {
+                        pShape->Select(m_nSelectionMode != selectREMOVE);
+                        int shapePos = m_lstSelection.IndexOf(pShape);
+                        if (m_nSelectionMode != selectREMOVE && shapePos == wxNOT_FOUND)
+                            m_lstSelection.Append(pShape);
+                        else if (m_nSelectionMode == selectREMOVE && shapePos != wxNOT_FOUND)
+                            m_lstSelection.DeleteObject(pShape);
+                    }
+                }
+                node = node->GetNext();
+            }
 
-			ValidateSelection(m_lstSelection);
+            ValidateSelection(m_lstSelection);
 
-			if( !m_lstSelection.IsEmpty() )
-			{
-				HideAllHandles();
-				m_shpMultiEdit.Show(true);
-				m_shpMultiEdit.ShowHandles(true);
-			}
-			else
-				m_shpMultiEdit.Show(false);
+            if( !m_lstSelection.IsEmpty() )
+            {
+                HideAllHandles();
+                m_shpMultiEdit.Show(true);
+                m_shpMultiEdit.ShowHandles(true);
+            }
+            else
+                m_shpMultiEdit.Show(false);
 
-			m_shpSelection.Show(false);
+            m_shpSelection.Show(false);
 
-		}
-		break;
+        }
+        break;
 
     default:
         break;
 
-	}
+    }
 
     if(m_nWorkingMode != modeCREATECONNECTION)
     {
@@ -1082,25 +1082,25 @@ void wxSFShapeCanvas::OnLeftUp(wxMouseEvent &event)
         UpdateVirtualSize();
         Refresh(false);
     }
-	else
-		RefreshInvalidatedRect();
+    else
+        RefreshInvalidatedRect();
 }
 
 void wxSFShapeCanvas::OnLeftDoubleClick(wxMouseEvent& event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
     DeleteAllTextCtrls();
-	SetFocus();
+    SetFocus();
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
+    switch(m_nWorkingMode)
+    {
     case modeREADY:
         {
             //wxSFShapeBase* pShape = GetShapeAtPosition(lpos);
-			wxSFShapeBase* pShape = GetShapeUnderCursor();
+            wxSFShapeBase* pShape = GetShapeUnderCursor();
             if(pShape)
             {
                 pShape->OnLeftDoubleClick(lpos);
@@ -1115,28 +1115,28 @@ void wxSFShapeCanvas::OnLeftDoubleClick(wxMouseEvent& event)
 
     default:
         break;
-	}
-	
-	RefreshInvalidatedRect();
+    }
+
+    RefreshInvalidatedRect();
 }
 
 void wxSFShapeCanvas::OnRightDown(wxMouseEvent& event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
     DeleteAllTextCtrls();
-	SetFocus();
+    SetFocus();
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
+    switch(m_nWorkingMode)
+    {
     case modeREADY:
         {
             DeselectAll();
 
             //wxSFShapeBase* pShape = GetShapeAtPosition(lpos);
-			wxSFShapeBase* pShape = GetShapeUnderCursor();
+            wxSFShapeBase* pShape = GetShapeUnderCursor();
             if(pShape)
             {
                 pShape->Select(true);
@@ -1147,40 +1147,40 @@ void wxSFShapeCanvas::OnRightDown(wxMouseEvent& event)
 
     default:
         break;
-	}
+    }
 
-	Refresh(false);
+    Refresh(false);
 }
 
 void wxSFShapeCanvas::OnRightUp(wxMouseEvent &event)
 {
-	// HINT: override it for custom actions...
-	
-	switch(m_nWorkingMode)
-	{
-	case modeREADY:
-		break;
+    // HINT: override it for custom actions...
+
+    switch(m_nWorkingMode)
+    {
+    case modeREADY:
+        break;
 
     default:
         break;
-	}
+    }
 }
 
 void wxSFShapeCanvas::OnRightDoubleClick(wxMouseEvent& event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
     DeleteAllTextCtrls();
-	SetFocus();
+    SetFocus();
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
+    switch(m_nWorkingMode)
+    {
     case modeREADY:
         {
             //wxSFShapeBase* pShape = GetShapeAtPosition(lpos);
-			wxSFShapeBase* pShape = GetShapeUnderCursor();
+            wxSFShapeBase* pShape = GetShapeUnderCursor();
             if(pShape)
             {
                 pShape->OnRightDoubleClick(lpos);
@@ -1191,249 +1191,249 @@ void wxSFShapeCanvas::OnRightDoubleClick(wxMouseEvent& event)
 
     default:
         break;
-	}
-	
-	RefreshInvalidatedRect();
+    }
+
+    RefreshInvalidatedRect();
 }
 
 void wxSFShapeCanvas::OnMouseMove(wxMouseEvent& event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
-	case modeREADY:
-	case modeCREATECONNECTION:
-		{
-			if(!event.Dragging())
-			{
-				// send event to multiedit shape
-				if( m_shpMultiEdit.IsVisible() )m_shpMultiEdit._OnMouseMove(lpos);
+    switch(m_nWorkingMode)
+    {
+    case modeREADY:
+    case modeCREATECONNECTION:
+        {
+            if(!event.Dragging())
+            {
+                // send event to multiedit shape
+                if( m_shpMultiEdit.IsVisible() )m_shpMultiEdit._OnMouseMove(lpos);
 
-				// send event to all user shapes
-				ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
-				while(node)
-				{
-					node->GetData()->_OnMouseMove(lpos);
-					node = node->GetNext();
-				}
+                // send event to all user shapes
+                ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
+                while(node)
+                {
+                    node->GetData()->_OnMouseMove(lpos);
+                    node = node->GetNext();
+                }
 
-				// update unfinished line if any
-				if(m_pNewLineShape)
-				{
+                // update unfinished line if any
+                if(m_pNewLineShape)
+                {
                     wxRect lineRct, updLineRct;
                     m_pNewLineShape->GetCompleteBoundingBox(lineRct, wxSFShapeBase::bbSELF | wxSFShapeBase::bbCHILDREN);
 
-				    m_pNewLineShape->SetUnfinishedPoint(FitPositionToGrid(lpos));
-					m_pNewLineShape->Update();
-					
-				    m_pNewLineShape->GetCompleteBoundingBox(updLineRct, wxSFShapeBase::bbSELF | wxSFShapeBase::bbCHILDREN);
+                    m_pNewLineShape->SetUnfinishedPoint(FitPositionToGrid(lpos));
+                    m_pNewLineShape->Update();
 
-					lineRct.Union(updLineRct);
-					
-					//m_pNewLineShape->Refresh(sfDELAYED);
-					InvalidateRect( lineRct );
-				}
-			}
-		}
-		break;
+                    m_pNewLineShape->GetCompleteBoundingBox(updLineRct, wxSFShapeBase::bbSELF | wxSFShapeBase::bbCHILDREN);
 
-	case modeHANDLEMOVE:
-	case modeMULTIHANDLEMOVE:
-		{
-			if(event.Dragging())
-			{
-				if( m_pSelectedHandle ) m_pSelectedHandle->_OnDragging( FitPositionToGrid(lpos) );
-				if( m_nWorkingMode == modeMULTIHANDLEMOVE ) UpdateMultieditSize();
+                    lineRct.Union(updLineRct);
 
-				m_fCanSaveStateOnMouseUp = true;
-			}
-			else
-			{
-			    if( m_pSelectedHandle ) m_pSelectedHandle->_OnEndDrag(lpos);
+                    //m_pNewLineShape->Refresh(sfDELAYED);
+                    InvalidateRect( lineRct );
+                }
+            }
+        }
+        break;
 
-				m_pSelectedHandle = NULL;
-				m_nWorkingMode = modeREADY;
-			}
-		}
-		// do not always 'break'; allow shape's highlighting in modeHANDLEMOVE as well
-		if(m_nWorkingMode == modeMULTIHANDLEMOVE)break;
+    case modeHANDLEMOVE:
+    case modeMULTIHANDLEMOVE:
+        {
+            if(event.Dragging())
+            {
+                if( m_pSelectedHandle ) m_pSelectedHandle->_OnDragging( FitPositionToGrid(lpos) );
+                if( m_nWorkingMode == modeMULTIHANDLEMOVE ) UpdateMultieditSize();
 
-	case modeSHAPEMOVE:
-		{
-			if( event.Dragging() )
-			{
-				if( ContainsStyle( sfsGRID_USE ) )
-				{
-					if( ( abs( event.GetPosition().x - m_nPrevMousePos.x ) < m_Settings.m_nGridSize.x ) &&
-						( abs( event.GetPosition().y - m_nPrevMousePos.y ) < m_Settings.m_nGridSize.y ) )
-						return;
-				}
-				m_nPrevMousePos = event.GetPosition();
+                m_fCanSaveStateOnMouseUp = true;
+            }
+            else
+            {
+                if( m_pSelectedHandle ) m_pSelectedHandle->_OnEndDrag(lpos);
 
-				if( event.ControlDown() || event.ShiftDown() )
-				{
-					ShapeList lstSelection;
-					GetSelectedShapes(lstSelection);
+                m_pSelectedHandle = NULL;
+                m_nWorkingMode = modeREADY;
+            }
+        }
+        // do not always 'break'; allow shape's highlighting in modeHANDLEMOVE as well
+        if(m_nWorkingMode == modeMULTIHANDLEMOVE)break;
+
+    case modeSHAPEMOVE:
+        {
+            if( event.Dragging() )
+            {
+                if( ContainsStyle( sfsGRID_USE ) )
+                {
+                    if( ( abs( event.GetPosition().x - m_nPrevMousePos.x ) < m_Settings.m_nGridSize.x ) &&
+                        ( abs( event.GetPosition().y - m_nPrevMousePos.y ) < m_Settings.m_nGridSize.y ) )
+                        return;
+                }
+                m_nPrevMousePos = event.GetPosition();
+
+                if( event.ControlDown() || event.ShiftDown() )
+                {
+                    ShapeList lstSelection;
+                    GetSelectedShapes(lstSelection);
 
                     DeselectAll();
 
-					DoDragDrop(lstSelection, lpos);
-				}
-				else
-				{
-					//ShapeList shapes;
-					wxSFShapeBase* pShape;
-					ShapeList lstConnections;
+                    DoDragDrop(lstSelection, lpos);
+                }
+                else
+                {
+                    //ShapeList shapes;
+                    wxSFShapeBase* pShape;
+                    ShapeList lstConnections;
 
-					//m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
-					ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
-					while(node)
-					{
-						pShape = node->GetData();
+                    //m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
+                    ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetFirst();
+                    while(node)
+                    {
+                        pShape = node->GetData();
 
-						if(pShape->IsSelected() && (m_nWorkingMode == modeSHAPEMOVE))
-						{
-							pShape->_OnDragging(FitPositionToGrid(lpos));
+                        if(pShape->IsSelected() && (m_nWorkingMode == modeSHAPEMOVE))
+                        {
+                            pShape->_OnDragging(FitPositionToGrid(lpos));
 
-							// move also connections assigned to this shape and its children
-							lstConnections.Clear();
+                            // move also connections assigned to this shape and its children
+                            lstConnections.Clear();
 
-							AppendAssignedConnections( pShape, lstConnections, true );
+                            AppendAssignedConnections( pShape, lstConnections, true );
 
-							ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
-							while( lnode )
-							{
-								lnode->GetData()->_OnDragging(FitPositionToGrid(lpos));
-								lnode = lnode->GetNext();
-							}
-							
-							// update connections assigned to this shape
-							lstConnections.Clear();
-							
-							m_pManager->GetAssignedConnections( pShape, CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections );
-							lnode = lstConnections.GetFirst();
-							while( lnode )
-							{
-								lnode->GetData()->Update();
-								lnode = lnode->GetNext();
-							}
-							
-						}
-						else
-							pShape->_OnMouseMove(lpos);
+                            ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
+                            while( lnode )
+                            {
+                                lnode->GetData()->_OnDragging(FitPositionToGrid(lpos));
+                                lnode = lnode->GetNext();
+                            }
 
-						node = node->GetNext();
-					}
+                            // update connections assigned to this shape
+                            lstConnections.Clear();
 
-					m_fCanSaveStateOnMouseUp = true;
-				}
-			}
-			else
-				m_nWorkingMode = modeREADY;
-		}
-		break;
+                            m_pManager->GetAssignedConnections( pShape, CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections );
+                            lnode = lstConnections.GetFirst();
+                            while( lnode )
+                            {
+                                lnode->GetData()->Update();
+                                lnode = lnode->GetNext();
+                            }
 
-	case modeMULTISELECTION:
-		{
-			wxRealPoint selectionPos = m_selectionStart;
-			wxRealPoint selectionSize(lpos.x - m_selectionStart.x, lpos.y - m_selectionStart.y);
-			if (selectionSize.x < 0)
-			{
-				selectionPos.x += selectionSize.x;
-				selectionSize.x = -selectionSize.x;
-			}
-			if (selectionSize.y < 0)
-			{
-				selectionPos.y += selectionSize.y;
-				selectionSize.y = -selectionSize.y;
-			}
-			m_shpSelection.SetRelativePosition(selectionPos);
-			m_shpSelection.SetRectSize(selectionSize);
-			
-			InvalidateVisibleRect();
-		}
-		break;
+                        }
+                        else
+                            pShape->_OnMouseMove(lpos);
+
+                        node = node->GetNext();
+                    }
+
+                    m_fCanSaveStateOnMouseUp = true;
+                }
+            }
+            else
+                m_nWorkingMode = modeREADY;
+        }
+        break;
+
+    case modeMULTISELECTION:
+        {
+            wxRealPoint selectionPos = m_selectionStart;
+            wxRealPoint selectionSize(lpos.x - m_selectionStart.x, lpos.y - m_selectionStart.y);
+            if (selectionSize.x < 0)
+            {
+                selectionPos.x += selectionSize.x;
+                selectionSize.x = -selectionSize.x;
+            }
+            if (selectionSize.y < 0)
+            {
+                selectionPos.y += selectionSize.y;
+                selectionSize.y = -selectionSize.y;
+            }
+            m_shpSelection.SetRelativePosition(selectionPos);
+            m_shpSelection.SetRectSize(selectionSize);
+
+            InvalidateVisibleRect();
+        }
+        break;
 
     default:
         break;
-	}
-	
-	RefreshInvalidatedRect();
+    }
+
+    RefreshInvalidatedRect();
 }
 
 void wxSFShapeCanvas::OnMouseWheel(wxMouseEvent& event)
 {
     // HINT: override it for custom actions...
-	
-	if( event.ControlDown() )
-	{
-		double nScale = GetScale();
-		nScale += (double)event.GetWheelRotation()/(event.GetWheelDelta()*10);
-		
-		if( nScale < m_Settings.m_nMinScale ) nScale = m_Settings.m_nMinScale;
-		if( nScale > m_Settings.m_nMaxScale ) nScale = m_Settings.m_nMaxScale;
-		
-		SetScale( nScale );
-		Refresh(false);
-	}
 
-	event.Skip();
+    if( event.ControlDown() )
+    {
+        double nScale = GetScale();
+        nScale += (double)event.GetWheelRotation()/(event.GetWheelDelta()*10);
+
+        if( nScale < m_Settings.m_nMinScale ) nScale = m_Settings.m_nMinScale;
+        if( nScale > m_Settings.m_nMaxScale ) nScale = m_Settings.m_nMaxScale;
+
+        SetScale( nScale );
+        Refresh(false);
+    }
+
+    event.Skip();
 }
 
 void wxSFShapeCanvas::OnKeyDown(wxKeyEvent &event)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	wxSFShapeBase *pShape;
-	ShapeList m_lstSelection;
-	GetSelectedShapes(m_lstSelection);
+    wxSFShapeBase *pShape;
+    ShapeList m_lstSelection;
+    GetSelectedShapes(m_lstSelection);
 
-	switch(event.GetKeyCode())
-	{
-	case WXK_DELETE:
-		{
-		    // send event to selected shapes
-			ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-			while(node)
-			{
-				pShape = node->GetData();
-				if( pShape->ContainsStyle(wxSFShapeBase::sfsPROCESS_DEL) )
-				{
-					pShape->_OnKey(event.GetKeyCode());
-					node = node->GetNext();
-					m_lstSelection.DeleteObject(pShape);
-				}
-				else
-					node = node->GetNext();
-			}
-			
-			ClearTemporaries();
+    switch(event.GetKeyCode())
+    {
+    case WXK_DELETE:
+        {
+            // send event to selected shapes
+            ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+            while(node)
+            {
+                pShape = node->GetData();
+                if( pShape->ContainsStyle(wxSFShapeBase::sfsPROCESS_DEL) )
+                {
+                    pShape->_OnKey(event.GetKeyCode());
+                    node = node->GetNext();
+                    m_lstSelection.DeleteObject(pShape);
+                }
+                else
+                    node = node->GetNext();
+            }
+
+            ClearTemporaries();
 
             // delete selected shapes
-			m_pManager->RemoveShapes(m_lstSelection);
-			m_shpMultiEdit.Show(false);
-			SaveCanvasState();
-			
-			Refresh(false);
-		}
-		break;
+            m_pManager->RemoveShapes(m_lstSelection);
+            m_shpMultiEdit.Show(false);
+            SaveCanvasState();
 
-	case WXK_ESCAPE:
-		{
-			switch(m_nWorkingMode)
-			{
+            Refresh(false);
+        }
+        break;
+
+    case WXK_ESCAPE:
+        {
+            switch(m_nWorkingMode)
+            {
             case modeCREATECONNECTION:
                 {
-					AbortInteractiveConnection();
+                    AbortInteractiveConnection();
                 }
                 break;
 
@@ -1460,74 +1460,74 @@ void wxSFShapeCanvas::OnKeyDown(wxKeyEvent &event)
                     node = node->GetNext();
                 }
                 break;
-			}
-			m_nWorkingMode = modeREADY;
-			
-			Refresh(false);
-		}
-		break;
+            }
+            m_nWorkingMode = modeREADY;
 
-	case WXK_LEFT:
-	case WXK_RIGHT:
-	case WXK_UP:
-	case WXK_DOWN:
-		{
-			wxSFShapeBase *pShape, *pLine;
-			ShapeList lstConnections;
+            Refresh(false);
+        }
+        break;
 
-			ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-			while(node)
-			{
-				pShape = node->GetData();
-				pShape->_OnKey(event.GetKeyCode());
+    case WXK_LEFT:
+    case WXK_RIGHT:
+    case WXK_UP:
+    case WXK_DOWN:
+        {
+            wxSFShapeBase *pShape, *pLine;
+            ShapeList lstConnections;
 
-				// inform also connections assigned to this shape
-				lstConnections.Clear();
-				AppendAssignedConnections( pShape, lstConnections, true );
+            ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+            while(node)
+            {
+                pShape = node->GetData();
+                pShape->_OnKey(event.GetKeyCode());
 
-				ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
-				while( lnode )
-				{
-					pLine = lnode->GetData();
-					if( !pLine->IsSelected() ) pLine->_OnKey(event.GetKeyCode());
-					lnode = lnode->GetNext();
-				}
+                // inform also connections assigned to this shape
+                lstConnections.Clear();
+                AppendAssignedConnections( pShape, lstConnections, true );
 
-				node = node->GetNext();
-			}
+                ShapeList::compatibility_iterator lnode = lstConnections.GetFirst();
+                while( lnode )
+                {
+                    pLine = lnode->GetData();
+                    if( !pLine->IsSelected() ) pLine->_OnKey(event.GetKeyCode());
+                    lnode = lnode->GetNext();
+                }
 
-			// send the event to multiedit ctrl if displayed
-			if( m_shpMultiEdit.IsVisible() )
-			{
-				m_shpMultiEdit._OnKey(event.GetKeyCode());
-			}
-			
-			RefreshInvalidatedRect();
-			SaveCanvasState();
-		}
-		break;
+                node = node->GetNext();
+            }
 
-	default:
-		{
-			ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-			while(node)
-			{
-				node->GetData()->_OnKey(event.GetKeyCode());
-				node = node->GetNext();
-			}
+            // send the event to multiedit ctrl if displayed
+            if( m_shpMultiEdit.IsVisible() )
+            {
+                m_shpMultiEdit._OnKey(event.GetKeyCode());
+            }
 
-			if(m_shpMultiEdit.IsVisible()) UpdateMultieditSize();
-		}
-	}
+            RefreshInvalidatedRect();
+            SaveCanvasState();
+        }
+        break;
+
+    default:
+        {
+            ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+            while(node)
+            {
+                node->GetData()->_OnKey(event.GetKeyCode());
+                node = node->GetNext();
+            }
+
+            if(m_shpMultiEdit.IsVisible()) UpdateMultieditSize();
+        }
+    }
 }
 
 void wxSFShapeCanvas::OnConnectionFinished(wxSFLineShape* connection)
 {
-	// HINT: override to perform user-defined actions...
+    // HINT: override to perform user-defined actions...
 
-	// ... standard implementation generates the wxEVT_SF_LINE_DONE event.
-	long id = -1;
-	if( connection ) id = connection->GetId();
+    // ... standard implementation generates the wxEVT_SF_LINE_DONE event.
+    long id = -1;
+    if( connection ) id = connection->GetId();
 
     wxSFShapeEvent event( wxEVT_SF_LINE_DONE, id);
     event.SetShape( connection );
@@ -1536,39 +1536,39 @@ void wxSFShapeCanvas::OnConnectionFinished(wxSFLineShape* connection)
 
 wxSFShapeCanvas::PRECONNECTIONFINISHEDSTATE wxSFShapeCanvas::OnPreConnectionFinished(wxSFLineShape* connection)
 {
-	// HINT: override to perform user-defined actions...
+    // HINT: override to perform user-defined actions...
 
-	// ... standard implementation generates the wxEVT_SF_LINE_DONE event.
-	long id = -1;
-	if( connection ) id = connection->GetId();
+    // ... standard implementation generates the wxEVT_SF_LINE_DONE event.
+    long id = -1;
+    if( connection ) id = connection->GetId();
 
     wxSFShapeEvent event( wxEVT_SF_LINE_BEFORE_DONE, id);
     event.SetShape( connection );
     ProcessEvent( event );
-	
-	if( event.IsVetoed() )
-		return pfsFAILED_AND_CANCEL_LINE;
-		
-	return pfsOK;
+
+    if( event.IsVetoed() )
+        return pfsFAILED_AND_CANCEL_LINE;
+
+    return pfsOK;
 }
 
 void wxSFShapeCanvas::OnTextChange(wxSFEditTextShape* shape)
 {
     // HINT: override it for custom actions...
 
-	// ... standard implementation generates the wxEVT_SF_TEXT_CHANGE event.
-	long id = -1;
-	if( shape ) id = shape->GetId();
+    // ... standard implementation generates the wxEVT_SF_TEXT_CHANGE event.
+    long id = -1;
+    if( shape ) id = shape->GetId();
 
     wxSFShapeTextEvent event( wxEVT_SF_TEXT_CHANGE, id);
     event.SetShape( shape );
-	event.SetText( shape->GetText() );
+    event.SetText( shape->GetText() );
     ProcessEvent( event );
 }
 
 void wxSFShapeCanvas::OnUpdateVirtualSize(wxRect& virtrct)
 {
-	// HINT: override it for custom actions...
+    // HINT: override it for custom actions...
 }
 
 //----------------------------------------------------------------------------------//
@@ -1619,11 +1619,11 @@ void wxSFShapeCanvas::_OnRightUp(wxMouseEvent& event)
 
 void wxSFShapeCanvas::_OnMouseMove(wxMouseEvent& event)
 {
-	wxPoint lpos = DP2LP(event.GetPosition());
+    wxPoint lpos = DP2LP(event.GetPosition());
 
-	UpdateShapeUnderCursorCache(lpos);
+    UpdateShapeUnderCursorCache(lpos);
 
-	// call user event handler
+    // call user event handler
     this->OnMouseMove(event);
 
     event.Skip();
@@ -1631,7 +1631,7 @@ void wxSFShapeCanvas::_OnMouseMove(wxMouseEvent& event)
 
 void wxSFShapeCanvas::_OnMouseWheel(wxMouseEvent& event)
 {
-	if( ContainsStyle( sfsPROCESS_MOUSEWHEEL ) ) this->OnMouseWheel(event);
+    if( ContainsStyle( sfsPROCESS_MOUSEWHEEL ) ) this->OnMouseWheel(event);
 
     event.Skip();
 }
@@ -1645,51 +1645,51 @@ void wxSFShapeCanvas::_OnKeyDown(wxKeyEvent& event)
 
 void wxSFShapeCanvas::_OnEnterWindow(wxMouseEvent& event)
 {
-	m_nPrevMousePos = event.GetPosition();
+    m_nPrevMousePos = event.GetPosition();
 
     wxPoint lpos = DP2LP(event.GetPosition());
 
-	switch(m_nWorkingMode)
-	{
-	case modeMULTISELECTION:
+    switch(m_nWorkingMode)
+    {
+    case modeMULTISELECTION:
         if( !event.LeftIsDown() )
         {
             UpdateMultieditSize();
             m_shpMultiEdit.Show(false);
             m_nWorkingMode = modeREADY;
-			
+
             InvalidateVisibleRect();
         }
-		break;
+        break;
 
     case modeHANDLEMOVE:
         if( !event.LeftIsDown() )
         {
             if(m_pSelectedHandle)
             {
-				if(m_pSelectedHandle->GetParentShape()->IsKindOf(CLASSINFO(wxSFLineShape)))
-				{
-					wxSFLineShape* pLine = (wxSFLineShape*)m_pSelectedHandle->GetParentShape();
-					pLine->SetLineMode(wxSFLineShape::modeREADY);
-				}
-				else if(m_pSelectedHandle->GetParentShape()->IsKindOf(CLASSINFO(wxSFBitmapShape)))
-				{
-					wxSFBitmapShape* pBitmap = (wxSFBitmapShape*)m_pSelectedHandle->GetParentShape();
-					pBitmap->OnEndHandle(*m_pSelectedHandle);
-				}
+                if(m_pSelectedHandle->GetParentShape()->IsKindOf(CLASSINFO(wxSFLineShape)))
+                {
+                    wxSFLineShape* pLine = (wxSFLineShape*)m_pSelectedHandle->GetParentShape();
+                    pLine->SetLineMode(wxSFLineShape::modeREADY);
+                }
+                else if(m_pSelectedHandle->GetParentShape()->IsKindOf(CLASSINFO(wxSFBitmapShape)))
+                {
+                    wxSFBitmapShape* pBitmap = (wxSFBitmapShape*)m_pSelectedHandle->GetParentShape();
+                    pBitmap->OnEndHandle(*m_pSelectedHandle);
+                }
 
                 m_pSelectedHandle->_OnEndDrag(lpos);
 
                 SaveCanvasState();
-				m_nWorkingMode = modeREADY;
-				m_pSelectedHandle = NULL;
+                m_nWorkingMode = modeREADY;
+                m_pSelectedHandle = NULL;
 
                 InvalidateVisibleRect();
             }
         }
         break;
 
-	case modeMULTIHANDLEMOVE:
+    case modeMULTIHANDLEMOVE:
         if( !event.LeftIsDown() )
         {
             if(m_pSelectedHandle)
@@ -1698,17 +1698,17 @@ void wxSFShapeCanvas::_OnEnterWindow(wxMouseEvent& event)
 
                 SaveCanvasState();
                 m_nWorkingMode = modeREADY;
-				
-				InvalidateVisibleRect();
+
+                InvalidateVisibleRect();
             }
         }
-		break;
+        break;
 
     case modeSHAPEMOVE:
         if( !event.LeftIsDown() )
         {
-			ShapeList m_lstSelection;
-			GetSelectedShapes(m_lstSelection);
+            ShapeList m_lstSelection;
+            GetSelectedShapes(m_lstSelection);
 
             MoveShapesFromNegatives();
             UpdateVirtualSize();
@@ -1728,29 +1728,29 @@ void wxSFShapeCanvas::_OnEnterWindow(wxMouseEvent& event)
             }
 
             m_nWorkingMode = modeREADY;
-            
-			InvalidateVisibleRect();
+
+            InvalidateVisibleRect();
         }
         break;
 
     default:
         break;
-	}
+    }
 
-	RefreshInvalidatedRect();
-	
-	event.Skip();
+    RefreshInvalidatedRect();
+
+    event.Skip();
 }
 
 void wxSFShapeCanvas::_OnLeaveWindow(wxMouseEvent& event)
 {
-	switch(m_nWorkingMode)
-	{
-	case modeMULTISELECTION:
-		break;
+    switch(m_nWorkingMode)
+    {
+    case modeMULTISELECTION:
+        break;
 
-	case modeSHAPEMOVE:
-		break;
+    case modeSHAPEMOVE:
+        break;
 
     case modeCREATECONNECTION:
         break;
@@ -1758,25 +1758,25 @@ void wxSFShapeCanvas::_OnLeaveWindow(wxMouseEvent& event)
     case modeHANDLEMOVE:
         break;
 
-	case modeMULTIHANDLEMOVE:
-		break;
+    case modeMULTIHANDLEMOVE:
+        break;
 
-	default:
+    default:
         m_nWorkingMode = modeREADY;
-		break;
-	}
+        break;
+    }
 
-	event.Skip();
+    event.Skip();
 }
 
 void wxSFShapeCanvas::_OnResize(wxSizeEvent &event)
 {
-	if( m_Settings.m_nStyle & sfsGRADIENT_BACKGROUND )
-	{
-		Refresh(false);
-	}
+    if( m_Settings.m_nStyle & sfsGRADIENT_BACKGROUND )
+    {
+        Refresh(false);
+    }
 
-	event.Skip();
+    event.Skip();
 }
 
 //----------------------------------------------------------------------------------//
@@ -1785,60 +1785,60 @@ void wxSFShapeCanvas::_OnResize(wxSizeEvent &event)
 
 wxPoint wxSFShapeCanvas::DP2LP(const wxPoint& pos) const
 {
-	int x,y;
-	CalcUnscrolledPosition(pos.x, pos.y, &x, &y);
+    int x,y;
+    CalcUnscrolledPosition(pos.x, pos.y, &x, &y);
 
-	return wxPoint(int(x/m_Settings.m_nScale), int(y/m_Settings.m_nScale));
+    return wxPoint(int(x/m_Settings.m_nScale), int(y/m_Settings.m_nScale));
 }
 
 wxRect wxSFShapeCanvas::DP2LP(const wxRect& rct) const
 {
-	int x,y;
-	CalcUnscrolledPosition(rct.x, rct.y, &x, &y);
+    int x,y;
+    CalcUnscrolledPosition(rct.x, rct.y, &x, &y);
 
-	return wxRect(int(x/m_Settings.m_nScale), int(y/m_Settings.m_nScale), int(rct.width/m_Settings.m_nScale), int(rct.height/m_Settings.m_nScale));
+    return wxRect(int(x/m_Settings.m_nScale), int(y/m_Settings.m_nScale), int(rct.width/m_Settings.m_nScale), int(rct.height/m_Settings.m_nScale));
 }
 
 wxPoint wxSFShapeCanvas::LP2DP(const wxPoint& pos) const
 {
-	int x,y;
-	CalcScrolledPosition(pos.x, pos.y, &x, &y);
+    int x,y;
+    CalcScrolledPosition(pos.x, pos.y, &x, &y);
 
-	return wxPoint(int(x*m_Settings.m_nScale), int(y*m_Settings.m_nScale));
+    return wxPoint(int(x*m_Settings.m_nScale), int(y*m_Settings.m_nScale));
 }
 
 wxRect wxSFShapeCanvas::LP2DP(const wxRect& rct) const
 {
-	int x,y;
-	CalcScrolledPosition(rct.x, rct.y, &x, &y);
+    int x,y;
+    CalcScrolledPosition(rct.x, rct.y, &x, &y);
 
-	return wxRect(int(x*m_Settings.m_nScale), int(y*m_Settings.m_nScale), int(rct.width*m_Settings.m_nScale), int(rct.height*m_Settings.m_nScale));
+    return wxRect(int(x*m_Settings.m_nScale), int(y*m_Settings.m_nScale), int(rct.width*m_Settings.m_nScale), int(rct.height*m_Settings.m_nScale));
 }
 
 void wxSFShapeCanvas::SetScale(double scale)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
-	
-	if( scale != 1 )
-	{
-		ShapeList lstShapes;
-		m_pManager->GetShapes(CLASSINFO(wxSFControlShape), lstShapes);
-		if( !lstShapes.IsEmpty() )
-		{
-			wxMessageBox( wxT("Couldn't change scale of shape canvas containing control (GUI) shapes."), wxT("wxShapeFramework"), wxICON_WARNING | wxOK );
-			scale = 1;
-		}
-	}
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	if(scale != 0)m_Settings.m_nScale = scale;
-	else
-		m_Settings.m_nScale = 1;
+    if( scale != 1 )
+    {
+        ShapeList lstShapes;
+        m_pManager->GetShapes(CLASSINFO(wxSFControlShape), lstShapes);
+        if( !lstShapes.IsEmpty() )
+        {
+            wxMessageBox( wxT("Couldn't change scale of shape canvas containing control (GUI) shapes."), wxT("wxShapeFramework"), wxICON_WARNING | wxOK );
+            scale = 1;
+        }
+    }
 
-	// rescale all bitmap shapes if neccessary
-	if( !m_fEnableGC )
-	{
-		ShapeList lstShapes;
+    if(scale != 0)m_Settings.m_nScale = scale;
+    else
+        m_Settings.m_nScale = 1;
+
+    // rescale all bitmap shapes if neccessary
+    if( !m_fEnableGC )
+    {
+        ShapeList lstShapes;
         m_pManager->GetShapes(CLASSINFO(wxSFBitmapShape), lstShapes);
 
         ShapeList::compatibility_iterator node = lstShapes.GetFirst();
@@ -1847,56 +1847,56 @@ void wxSFShapeCanvas::SetScale(double scale)
             node->GetData()->Scale(1, 1);
             node = node->GetNext();
         }
-	}
+    }
 
     UpdateVirtualSize();
 }
 
 void wxSFShapeCanvas::SetScaleToViewAll()
 {
-	wxSize physRct = GetClientSize();
-	wxRect virtRct = GetTotalBoundingBox();
+    wxSize physRct = GetClientSize();
+    wxRect virtRct = GetTotalBoundingBox();
 
-	double hz = (double)physRct.GetWidth() / virtRct.GetRight();
-	double vz = (double)physRct.GetHeight() / virtRct.GetBottom();
+    double hz = (double)physRct.GetWidth() / virtRct.GetRight();
+    double vz = (double)physRct.GetHeight() / virtRct.GetBottom();
 
-	if( hz < vz )
-	{
-		if( hz < 1 ) SetScale(hz);
-		else
-			SetScale(1);
-	}
-	else
-	{
-		if( vz < 1 )SetScale(vz);
-		else
-			SetScale(1);
-	}
+    if( hz < vz )
+    {
+        if( hz < 1 ) SetScale(hz);
+        else
+            SetScale(1);
+    }
+    else
+    {
+        if( vz < 1 )SetScale(vz);
+        else
+            SetScale(1);
+    }
 }
 
 void wxSFShapeCanvas::ScrollToShape(wxSFShapeBase* shape)
 {
-	wxASSERT(shape);
-	if(shape)
-	{
-		int ux, uy;
-		GetScrollPixelsPerUnit(&ux, &uy);
-		wxSize szCanvas = GetClientSize();
-		wxRealPoint ptPos = shape->GetCenter();
-		
-		Scroll(((ptPos.x * m_Settings.m_nScale) - szCanvas.x/2)/ux, ((ptPos.y * m_Settings.m_nScale) - szCanvas.y/2)/uy);
-	}
+    wxASSERT(shape);
+    if(shape)
+    {
+        int ux, uy;
+        GetScrollPixelsPerUnit(&ux, &uy);
+        wxSize szCanvas = GetClientSize();
+        wxRealPoint ptPos = shape->GetCenter();
+
+        Scroll(((ptPos.x * m_Settings.m_nScale) - szCanvas.x/2)/ux, ((ptPos.y * m_Settings.m_nScale) - szCanvas.y/2)/uy);
+    }
 }
 
 wxPoint wxSFShapeCanvas::FitPositionToGrid(const wxPoint& pos)
 {
-	if( ContainsStyle(sfsGRID_USE) )
-	{
-		return wxPoint(pos.x / m_Settings.m_nGridSize.x * m_Settings.m_nGridSize.x,
-			pos.y / m_Settings.m_nGridSize.y * m_Settings.m_nGridSize.y);
-	}
-	else
-		return pos;
+    if( ContainsStyle(sfsGRID_USE) )
+    {
+        return wxPoint(pos.x / m_Settings.m_nGridSize.x * m_Settings.m_nGridSize.x,
+            pos.y / m_Settings.m_nGridSize.y * m_Settings.m_nGridSize.y);
+    }
+    else
+        return pos;
 }
 
 //----------------------------------------------------------------------------------//
@@ -1905,8 +1905,8 @@ wxPoint wxSFShapeCanvas::FitPositionToGrid(const wxPoint& pos)
 
 void wxSFShapeCanvas::LoadCanvas(const wxString& file)
 {
- 	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     bool fChartLoaded = false;
 
@@ -1957,18 +1957,18 @@ void wxSFShapeCanvas::LoadCanvas(const wxString& file)
         SaveCanvasState();
         UpdateVirtualSize();
         Refresh(false);
-		
-		m_pManager->SetModified( false );
+
+        m_pManager->SetModified( false );
     }
 }
 
 void wxSFShapeCanvas::SaveCanvas(const wxString& file)
 {
- 	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	// create root node and save canvas properties
-	wxXmlNode *root = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("canvas"));
+    // create root node and save canvas properties
+    wxXmlNode *root = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("canvas"));
 
     // initialize settings
     m_Settings.m_arrAcceptedShapes.Clear();
@@ -1988,141 +1988,141 @@ void wxSFShapeCanvas::SaveCanvas(const wxString& file)
     wxXmlDocument xmlDoc;
     xmlDoc.SetRoot(root);
     xmlDoc.Save(file, 2);
-	
-	m_pManager->SetModified( false );
+
+    m_pManager->SetModified( false );
 }
 
 void wxSFShapeCanvas::StartInteractiveConnection(wxClassInfo* shapeInfo, const wxPoint& pos,  wxSF::ERRCODE *err)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
-	
-	if(!m_pManager)
-	{
-		if( err ) *err = wxSF::errINVALID_INPUT;
-		return;
-	}
-	else if( err ) *err = wxSF::errOK;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	wxPoint lpos = DP2LP(pos);
+    if(!m_pManager)
+    {
+        if( err ) *err = wxSF::errINVALID_INPUT;
+        return;
+    }
+    else if( err ) *err = wxSF::errOK;
+
+    wxPoint lpos = DP2LP(pos);
 
     if((m_nWorkingMode == modeREADY) && shapeInfo->IsKindOf(CLASSINFO(wxSFLineShape)))
     {
         wxSFShapeBase* pShapeUnder = GetShapeAtPosition(lpos);
-		// propagate request for interactive connection if requested
-		while( pShapeUnder && pShapeUnder->ContainsStyle( wxSFShapeBase::sfsPROPAGATE_INTERACTIVE_CONNECTION ) ) {
-			pShapeUnder = pShapeUnder->GetParentShape();
-		}
-		// start the connection's creation process if possible
-		if( pShapeUnder && (pShapeUnder->GetId() != -1) && pShapeUnder->IsConnectionAccepted(shapeInfo->GetClassName()) )
-		{
-			m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape(shapeInfo, sfDONT_SAVE_STATE);
-			if(m_pNewLineShape)
-			{
-				m_nWorkingMode = modeCREATECONNECTION;
-				m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
+        // propagate request for interactive connection if requested
+        while( pShapeUnder && pShapeUnder->ContainsStyle( wxSFShapeBase::sfsPROPAGATE_INTERACTIVE_CONNECTION ) ) {
+            pShapeUnder = pShapeUnder->GetParentShape();
+        }
+        // start the connection's creation process if possible
+        if( pShapeUnder && (pShapeUnder->GetId() != -1) && pShapeUnder->IsConnectionAccepted(shapeInfo->GetClassName()) )
+        {
+            m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape(shapeInfo, sfDONT_SAVE_STATE);
+            if(m_pNewLineShape)
+            {
+                m_nWorkingMode = modeCREATECONNECTION;
+                m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
 
                  m_pNewLineShape->SetSrcShapeId(pShapeUnder->GetId());
 
                  // switch on the "under-construcion" mode
                  m_pNewLineShape->SetUnfinishedPoint(lpos);
-				 // assign starting point of new line shapes to the nearest connection point of 
-				 // connected shape if exists
-				 m_pNewLineShape->SetStartingConnectionPoint( pShapeUnder->GetNearestConnectionPoint( Conv2RealPoint(lpos) ) );
-			}
+                 // assign starting point of new line shapes to the nearest connection point of
+                 // connected shape if exists
+                 m_pNewLineShape->SetStartingConnectionPoint( pShapeUnder->GetNearestConnectionPoint( Conv2RealPoint(lpos) ) );
+            }
             else if( err ) *err = wxSF::errNOT_CREATED;
         }
-		else if( err ) *err = wxSF::errNOT_ACCEPTED;
+        else if( err ) *err = wxSF::errNOT_ACCEPTED;
     }
-	else if( err ) *err = wxSF::errINVALID_INPUT;
+    else if( err ) *err = wxSF::errINVALID_INPUT;
 }
 
 void wxSFShapeCanvas::StartInteractiveConnection(wxSFLineShape* shape, const wxPoint& pos, wxSF::ERRCODE *err)
 {
-	wxASSERT(m_pManager);
-	wxASSERT(shape);
-	
-	if(!m_pManager || !shape)
-	{
-		if( err ) *err = wxSF::errINVALID_INPUT;
-		return;
-	}
-	else if( err ) *err = wxSF::errOK;
+    wxASSERT(m_pManager);
+    wxASSERT(shape);
 
-	wxPoint lpos = DP2LP(pos);
+    if(!m_pManager || !shape)
+    {
+        if( err ) *err = wxSF::errINVALID_INPUT;
+        return;
+    }
+    else if( err ) *err = wxSF::errOK;
+
+    wxPoint lpos = DP2LP(pos);
 
     if((m_nWorkingMode == modeREADY) && shape->IsKindOf(CLASSINFO(wxSFLineShape)))
     {
         wxSFShapeBase* pShapeUnder = GetShapeAtPosition(lpos);
-		if( pShapeUnder && (pShapeUnder->GetId() != -1) && pShapeUnder->IsConnectionAccepted(shape->GetClassInfo()->GetClassName()) )
-		{
-			if( m_pManager->Contains(shape) ) m_pNewLineShape = shape;
-			else m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape( shape, NULL, wxDefaultPosition, sfINITIALIZE, sfDONT_SAVE_STATE );
-			
-			if(m_pNewLineShape)
-			{
-				m_nWorkingMode = modeCREATECONNECTION;
-				m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
+        if( pShapeUnder && (pShapeUnder->GetId() != -1) && pShapeUnder->IsConnectionAccepted(shape->GetClassInfo()->GetClassName()) )
+        {
+            if( m_pManager->Contains(shape) ) m_pNewLineShape = shape;
+            else m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape( shape, NULL, wxDefaultPosition, sfINITIALIZE, sfDONT_SAVE_STATE );
 
-				m_pNewLineShape->SetSrcShapeId(pShapeUnder->GetId());
+            if(m_pNewLineShape)
+            {
+                m_nWorkingMode = modeCREATECONNECTION;
+                m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
+
+                m_pNewLineShape->SetSrcShapeId(pShapeUnder->GetId());
 
                 // swith on the "under-construcion" mode
                 m_pNewLineShape->SetUnfinishedPoint(lpos);
-				 // assign starting point of new line shapes to the nearest connection point of 
-				 // connected shape if exists
-				 m_pNewLineShape->SetStartingConnectionPoint( pShapeUnder->GetNearestConnectionPoint( Conv2RealPoint(lpos) ) );
+                 // assign starting point of new line shapes to the nearest connection point of
+                 // connected shape if exists
+                 m_pNewLineShape->SetStartingConnectionPoint( pShapeUnder->GetNearestConnectionPoint( Conv2RealPoint(lpos) ) );
 
             }
-			else if( err ) *err = wxSF::errNOT_CREATED;
+            else if( err ) *err = wxSF::errNOT_CREATED;
         }
-		else if( err ) *err = wxSF::errNOT_ACCEPTED;
+        else if( err ) *err = wxSF::errNOT_ACCEPTED;
     }
-	else if( err ) *err = wxSF::errINVALID_INPUT;
+    else if( err ) *err = wxSF::errINVALID_INPUT;
 }
 
 void wxSFShapeCanvas::StartInteractiveConnection(wxSFLineShape* shape, wxSFConnectionPoint* connectionPoint, const wxPoint& pos, wxSF::ERRCODE *err)
 {
-	wxASSERT(m_pManager);
-	wxASSERT(shape);
-	wxASSERT(connectionPoint);
+    wxASSERT(m_pManager);
+    wxASSERT(shape);
+    wxASSERT(connectionPoint);
 
-	if (!m_pManager || !shape || !connectionPoint)
-	{
-		if (err) *err = wxSF::errINVALID_INPUT;
-		return;
-	}
-	else if (err) *err = wxSF::errOK;
+    if (!m_pManager || !shape || !connectionPoint)
+    {
+        if (err) *err = wxSF::errINVALID_INPUT;
+        return;
+    }
+    else if (err) *err = wxSF::errOK;
 
-	wxPoint lpos = DP2LP(pos);
+    wxPoint lpos = DP2LP(pos);
 
-	if ((m_nWorkingMode == modeREADY) && shape->IsKindOf(CLASSINFO(wxSFLineShape)))
-	{
-		if (m_pManager->Contains(shape)) m_pNewLineShape = shape;
-		else m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape(shape, NULL, wxDefaultPosition, sfINITIALIZE, sfDONT_SAVE_STATE);
+    if ((m_nWorkingMode == modeREADY) && shape->IsKindOf(CLASSINFO(wxSFLineShape)))
+    {
+        if (m_pManager->Contains(shape)) m_pNewLineShape = shape;
+        else m_pNewLineShape = (wxSFLineShape*)m_pManager->AddShape(shape, NULL, wxDefaultPosition, sfINITIALIZE, sfDONT_SAVE_STATE);
 
-		if (m_pNewLineShape)
-		{
-			m_nWorkingMode = modeCREATECONNECTION;
-			m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
+        if (m_pNewLineShape)
+        {
+            m_nWorkingMode = modeCREATECONNECTION;
+            m_pNewLineShape->SetLineMode(wxSFLineShape::modeUNDERCONSTRUCTION);
 
-			m_pNewLineShape->SetSrcShapeId(connectionPoint->GetParentShape()->GetId());
+            m_pNewLineShape->SetSrcShapeId(connectionPoint->GetParentShape()->GetId());
 
-			// swith on the "under-construcion" mode
-			m_pNewLineShape->SetUnfinishedPoint(lpos);
-			// assign starting point of new line shapes to the nearest connection point of 
-			// connected shape if exists
-			m_pNewLineShape->SetStartingConnectionPoint(connectionPoint);
+            // swith on the "under-construcion" mode
+            m_pNewLineShape->SetUnfinishedPoint(lpos);
+            // assign starting point of new line shapes to the nearest connection point of
+            // connected shape if exists
+            m_pNewLineShape->SetStartingConnectionPoint(connectionPoint);
 
-		}
-		else if (err) *err = wxSF::errNOT_CREATED;
-	}
-	else if (err) *err = wxSF::errINVALID_INPUT;
+        }
+        else if (err) *err = wxSF::errNOT_CREATED;
+    }
+    else if (err) *err = wxSF::errINVALID_INPUT;
 }
 
 void wxSFShapeCanvas::AbortInteractiveConnection()
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     if(m_pNewLineShape)
     {
@@ -2130,67 +2130,67 @@ void wxSFShapeCanvas::AbortInteractiveConnection()
         m_pNewLineShape = NULL;
         OnConnectionFinished(NULL);
     }
-	m_nWorkingMode = modeREADY;
-	Refresh(false);
+    m_nWorkingMode = modeREADY;
+    Refresh(false);
 }
 
 void wxSFShapeCanvas::SaveCanvasToBMP(const wxString& file)
 {
-	SaveCanvasToImage( file );
+    SaveCanvasToImage( file );
 }
 
 void wxSFShapeCanvas::SaveCanvasToImage(const wxString& file, wxBitmapType type, bool background, double scale)
 {
     // create memory DC a draw the canvas content into
-	
-	double prevScale = GetScale();
-	if( scale == -1 ) scale = prevScale;
-    
-	wxRect bmpBB = GetTotalBoundingBox();
-	
-	bmpBB.SetLeft( bmpBB.GetLeft() * scale );
-	bmpBB.SetTop( bmpBB.GetTop() * scale );
-	bmpBB.SetWidth( bmpBB.GetWidth() * scale );
-	bmpBB.SetHeight( bmpBB.GetHeight() * scale );
-	
+
+    double prevScale = GetScale();
+    if( scale == -1 ) scale = prevScale;
+
+    wxRect bmpBB = GetTotalBoundingBox();
+
+    bmpBB.SetLeft( bmpBB.GetLeft() * scale );
+    bmpBB.SetTop( bmpBB.GetTop() * scale );
+    bmpBB.SetWidth( bmpBB.GetWidth() * scale );
+    bmpBB.SetHeight( bmpBB.GetHeight() * scale );
+
     bmpBB.Inflate( m_Settings.m_nGridSize * scale );
 
     wxBitmap outbmp( bmpBB.GetWidth(), bmpBB.GetHeight() );
-	wxMemoryDC dc( outbmp );
+    wxMemoryDC dc( outbmp );
 
-	wxSFScaledDC outdc( (wxWindowDC*)&dc, scale );
+    wxSFScaledDC outdc( (wxWindowDC*)&dc, scale );
 
     if( outdc.IsOk() )
     {
-		if( scale != prevScale ) SetScale( scale );
-		
-		outdc.SetDeviceOrigin( -bmpBB.GetLeft(), -bmpBB.GetTop() );
-		
-		int prevStyle = GetStyle();
-		wxColour prevColour = GetCanvasColour();
-		
-		if( !background )
-		{
-			RemoveStyle( wxSFShapeCanvas::sfsGRADIENT_BACKGROUND );
+        if( scale != prevScale ) SetScale( scale );
+
+        outdc.SetDeviceOrigin( -bmpBB.GetLeft(), -bmpBB.GetTop() );
+
+        int prevStyle = GetStyle();
+        wxColour prevColour = GetCanvasColour();
+
+        if( !background )
+        {
+            RemoveStyle( wxSFShapeCanvas::sfsGRADIENT_BACKGROUND );
             RemoveStyle( wxSFShapeCanvas::sfsGRID_SHOW );
             SetCanvasColour( *wxWHITE );
-		}
-		
-		this->DrawBackground( outdc, sfNOT_FROM_PAINT );
+        }
+
+        this->DrawBackground( outdc, sfNOT_FROM_PAINT );
         this->DrawContent( outdc, sfNOT_FROM_PAINT );
         this->DrawForeground( outdc, sfNOT_FROM_PAINT );
-		
-		if( !background )
-		{
-			SetStyle( prevStyle );
-			SetCanvasColour( prevColour );
-		}
-		
-		if( scale != prevScale ) SetScale( prevScale );
-		
+
+        if( !background )
+        {
+            SetStyle( prevStyle );
+            SetCanvasColour( prevColour );
+        }
+
+        if( scale != prevScale ) SetScale( prevScale );
+
         if( outbmp.SaveFile(file, type) ) wxMessageBox(wxString::Format(wxT("The image has been saved to '%s'."), file.GetData()), wxT("ShapeFramework"));
-		else
-			 wxMessageBox(wxT("Unable to save image to ") + file + wxT("."), wxT("wxShapeFramework"), wxOK | wxICON_ERROR);
+        else
+             wxMessageBox(wxT("Unable to save image to ") + file + wxT("."), wxT("wxShapeFramework"), wxOK | wxICON_ERROR);
     }
     else
         wxMessageBox(wxT("Could not create output bitmap."), wxT("wxShapeFramework"), wxOK | wxICON_ERROR);
@@ -2198,130 +2198,130 @@ void wxSFShapeCanvas::SaveCanvasToImage(const wxString& file, wxBitmapType type,
 
 void wxSFShapeCanvas::GetSelectedShapes(ShapeList& selection)
 {
- 	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	selection.Clear();
+    selection.Clear();
 
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-		wxSFShapeBase* pShape = node->GetData();
-		if(pShape->IsSelected())selection.Append(pShape);
-		node = node->GetNext();
-	}
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        wxSFShapeBase* pShape = node->GetData();
+        if(pShape->IsSelected())selection.Append(pShape);
+        node = node->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::UpdateShapeUnderCursorCache(const wxPoint& lpos)
 {
-	// search for any shape located under the mouse cursor (used by wxSFShapeCanvas::GetShapeUnderCursor())
+    // search for any shape located under the mouse cursor (used by wxSFShapeCanvas::GetShapeUnderCursor())
 
-	wxSFShapeBase *pShape;
+    wxSFShapeBase *pShape;
 
-	wxSFShapeBase *selShape = NULL, *unselShape = NULL, *topShape = NULL;
-	wxSFLineShape *selLine = NULL, *unselLine = NULL, *topLine = NULL;
+    wxSFShapeBase *selShape = NULL, *unselShape = NULL, *topShape = NULL;
+    wxSFLineShape *selLine = NULL, *unselLine = NULL, *topLine = NULL;
 
-	m_pTopmostShapeUnderCursor = NULL;
-	m_lstCurrentShapes.Clear();
+    m_pTopmostShapeUnderCursor = NULL;
+    m_lstCurrentShapes.Clear();
 
-	m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), m_lstCurrentShapes);
-	ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetLast();
-	while( node )
-	{
-		pShape = node->GetData();
-		if( pShape->IsVisible() && pShape->IsActive() && pShape->Contains(lpos) )
-		{
-			if( pShape->IsKindOf(CLASSINFO(wxSFLineShape)) )
-			{
-				if( !topLine ) topLine = (wxSFLineShape*)pShape;
-				if( pShape->IsSelected() )
-				{
-					if( !selLine ) selLine = (wxSFLineShape*)pShape;
-				}
-				else if (!unselLine ) unselLine = (wxSFLineShape*)pShape;
-			}
-			else
-			{
-				if( !topShape ) topShape = pShape;
-				if( pShape->IsSelected() )
-				{
-					if( !selShape ) selShape = pShape;
-				}
-				else if (!unselShape ) unselShape = pShape;
-			}
-		}
+    m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), m_lstCurrentShapes);
+    ShapeList::compatibility_iterator node = m_lstCurrentShapes.GetLast();
+    while( node )
+    {
+        pShape = node->GetData();
+        if( pShape->IsVisible() && pShape->IsActive() && pShape->Contains(lpos) )
+        {
+            if( pShape->IsKindOf(CLASSINFO(wxSFLineShape)) )
+            {
+                if( !topLine ) topLine = (wxSFLineShape*)pShape;
+                if( pShape->IsSelected() )
+                {
+                    if( !selLine ) selLine = (wxSFLineShape*)pShape;
+                }
+                else if (!unselLine ) unselLine = (wxSFLineShape*)pShape;
+            }
+            else
+            {
+                if( !topShape ) topShape = pShape;
+                if( pShape->IsSelected() )
+                {
+                    if( !selShape ) selShape = pShape;
+                }
+                else if (!unselShape ) unselShape = pShape;
+            }
+        }
 
-		node = node->GetPrevious();
-	}
+        node = node->GetPrevious();
+    }
 
-	// set pointer to logically topmost selected and unselected shape under the mouse cursor
-	if( topLine )
-	{
-		m_pTopmostShapeUnderCursor = topLine;
-	}
-	else
-		m_pTopmostShapeUnderCursor = topShape;
+    // set pointer to logically topmost selected and unselected shape under the mouse cursor
+    if( topLine )
+    {
+        m_pTopmostShapeUnderCursor = topLine;
+    }
+    else
+        m_pTopmostShapeUnderCursor = topShape;
 
-	if( selLine ) m_pSelectedShapeUnderCursor = selLine;
-	else
-		m_pSelectedShapeUnderCursor = selShape;
+    if( selLine ) m_pSelectedShapeUnderCursor = selLine;
+    else
+        m_pSelectedShapeUnderCursor = selShape;
 
-	if( unselLine ) m_pUnselectedShapeUnderCursor = unselLine;
-	else
-		m_pUnselectedShapeUnderCursor = unselShape;
+    if( unselLine ) m_pUnselectedShapeUnderCursor = unselLine;
+    else
+        m_pUnselectedShapeUnderCursor = unselShape;
 }
 
 wxSFShapeBase* wxSFShapeCanvas::GetShapeUnderCursor(SEARCHMODE mode)
 {
-	switch( mode )
-	{
-	case searchBOTH:
-		return m_pTopmostShapeUnderCursor;
+    switch( mode )
+    {
+    case searchBOTH:
+        return m_pTopmostShapeUnderCursor;
 
-	case searchSELECTED:
-		return m_pSelectedShapeUnderCursor;
+    case searchSELECTED:
+        return m_pSelectedShapeUnderCursor;
 
-	case searchUNSELECTED:
-		return m_pUnselectedShapeUnderCursor;
+    case searchUNSELECTED:
+        return m_pUnselectedShapeUnderCursor;
 
-	default:
-		return NULL;
-	}
+    default:
+        return NULL;
+    }
 }
 
 wxSFShapeHandle* wxSFShapeCanvas::GetTopmostHandleAtPosition(const wxPoint& pos)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return NULL;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return NULL;
 
     wxSFShapeHandle* pHandle;
 
-	// first test multiedit handles...
-	if(m_shpMultiEdit.IsVisible())
-	{
-		HandleList::compatibility_iterator hnode = m_shpMultiEdit.GetHandles().GetFirst();
-		while(hnode)
-		{
-			pHandle = hnode->GetData();
-			if(pHandle->IsVisible() && pHandle->Contains(pos))return pHandle;
-			hnode = hnode->GetNext();
-		}
-	}
+    // first test multiedit handles...
+    if(m_shpMultiEdit.IsVisible())
+    {
+        HandleList::compatibility_iterator hnode = m_shpMultiEdit.GetHandles().GetFirst();
+        while(hnode)
+        {
+            pHandle = hnode->GetData();
+            if(pHandle->IsVisible() && pHandle->Contains(pos))return pHandle;
+            hnode = hnode->GetNext();
+        }
+    }
 
-	// ... then test normal handles
+    // ... then test normal handles
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	HandleList::compatibility_iterator hnode;
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-		// iterate through all shape's handles
-		if(node->GetData()->ContainsStyle(wxSFShapeBase::sfsSIZE_CHANGE))
-		{
+    HandleList::compatibility_iterator hnode;
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        // iterate through all shape's handles
+        if(node->GetData()->ContainsStyle(wxSFShapeBase::sfsSIZE_CHANGE))
+        {
             hnode = node->GetData()->GetHandles().GetFirst();
             while(hnode)
             {
@@ -2329,121 +2329,121 @@ wxSFShapeHandle* wxSFShapeCanvas::GetTopmostHandleAtPosition(const wxPoint& pos)
                 if(pHandle->IsVisible() && pHandle->Contains(pos))return pHandle;
                 hnode = hnode->GetNext();
             }
-		}
-		node = node->GetNext();
-	}
+        }
+        node = node->GetNext();
+    }
 
-	return NULL;
+    return NULL;
 }
 
 wxSFShapeBase* wxSFShapeCanvas::GetShapeAtPosition(const wxPoint& pos, int zorder, SEARCHMODE mode)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return NULL;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return NULL;
 
     return m_pManager->GetShapeAtPosition(pos, zorder, (wxSFDiagramManager::SEARCHMODE)mode);
 }
 
 void wxSFShapeCanvas::GetShapesAtPosition(const wxPoint& pos, ShapeList& shapes)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	m_pManager->GetShapesAtPosition( pos, shapes );
+    m_pManager->GetShapesAtPosition( pos, shapes );
 }
 
 void wxSFShapeCanvas::GetShapesInside(const wxRect& rct, ShapeList& shapes)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	m_pManager->GetShapesInside( rct, shapes );
+    m_pManager->GetShapesInside( rct, shapes );
 }
 
 void wxSFShapeCanvas::DeselectAll()
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-		node->GetData()->Select(false);
-		node = node->GetNext();
-	}
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        node->GetData()->Select(false);
+        node = node->GetNext();
+    }
 
     m_shpMultiEdit.Show(false);
 }
 
 void wxSFShapeCanvas::SelectAll()
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	if( !shapes.IsEmpty() )
-	{
-		ShapeList::compatibility_iterator node = shapes.GetFirst();
-		while(node)
-		{
-			node->GetData()->Select(true);
-			node = node->GetNext();
-		}
+    if( !shapes.IsEmpty() )
+    {
+        ShapeList::compatibility_iterator node = shapes.GetFirst();
+        while(node)
+        {
+            node->GetData()->Select(true);
+            node = node->GetNext();
+        }
 
-		ShapeList lstSelection;
-		GetSelectedShapes(lstSelection);
-		ValidateSelection(lstSelection);
+        ShapeList lstSelection;
+        GetSelectedShapes(lstSelection);
+        ValidateSelection(lstSelection);
 
-		HideAllHandles();
-		UpdateMultieditSize();
-		m_shpMultiEdit.Show(true);
-		m_shpMultiEdit.ShowHandles(true);
+        HideAllHandles();
+        UpdateMultieditSize();
+        m_shpMultiEdit.Show(true);
+        m_shpMultiEdit.ShowHandles(true);
 
-		Refresh(false);
-	}
+        Refresh(false);
+    }
 }
 
 void wxSFShapeCanvas::HideAllHandles()
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-		node->GetData()->ShowHandles(false);
-		node = node->GetNext();
-	}
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        node->GetData()->ShowHandles(false);
+        node = node->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::ShowShadows(bool show, SHADOWMODE style)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     wxSFShapeBase *pShape;
 
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-	    pShape = node->GetData();
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        pShape = node->GetData();
 
         if( show )pShape->RemoveStyle(wxSFShapeBase::sfsSHOW_SHADOW);
 
-	    switch(style)
-	    {
-	        case shadowTOPMOST:
+        switch(style)
+        {
+            case shadowTOPMOST:
                 if( !pShape->GetParentShape() )
                 {
                     if( show )pShape->AddStyle(wxSFShapeBase::sfsSHOW_SHADOW);
@@ -2457,58 +2457,58 @@ void wxSFShapeCanvas::ShowShadows(bool show, SHADOWMODE style)
                 else
                     pShape->RemoveStyle(wxSFShapeBase::sfsSHOW_SHADOW);
                 break;
-	    }
+        }
 
-		node = node->GetNext();
-	}
+        node = node->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::ValidateSelection(ShapeList& selection)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	ShapeList lstShapesToRemove;
+    ShapeList lstShapesToRemove;
 
-	wxSFShapeBase *pShape;
+    wxSFShapeBase *pShape;
 
-	// find child shapes that have parents in the list
-	ShapeList::compatibility_iterator node = selection.GetFirst();
-	while(node)
-	{
-		pShape = node->GetData();
-		if( selection.IndexOf(pShape->GetParentShape()) != wxNOT_FOUND )
-		{
-			lstShapesToRemove.Append(pShape);
-		}
+    // find child shapes that have parents in the list
+    ShapeList::compatibility_iterator node = selection.GetFirst();
+    while(node)
+    {
+        pShape = node->GetData();
+        if( selection.IndexOf(pShape->GetParentShape()) != wxNOT_FOUND )
+        {
+            lstShapesToRemove.Append(pShape);
+        }
 
-		node = node->GetNext();
-	}
+        node = node->GetNext();
+    }
 
-	// remove child shapes with parents from the list
-	node = lstShapesToRemove.GetFirst();
-	while(node)
-	{
-		pShape = node->GetData();
+    // remove child shapes with parents from the list
+    node = lstShapesToRemove.GetFirst();
+    while(node)
+    {
+        pShape = node->GetData();
 
-		pShape->Select(false);
-		//pShape->ShowHandles(false);
-		selection.DeleteObject(pShape);
+        pShape->Select(false);
+        //pShape->ShowHandles(false);
+        selection.DeleteObject(pShape);
 
-		node = node->GetNext();
-	}
+        node = node->GetNext();
+    }
 
-	node = selection.GetFirst();
-	while(node)
-	{
-		pShape = node->GetData();
+    node = selection.GetFirst();
+    while(node)
+    {
+        pShape = node->GetData();
 
-		// move selected shapes to the back of the global list
+        // move selected shapes to the back of the global list
         ((xsSerializable*)pShape->GetParent())->GetChildrenList().DeleteObject(pShape);
         ((xsSerializable*)pShape->GetParent())->GetChildrenList().Append(pShape);
 
-		node = node->GetNext();
-	}
+        node = node->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::ValidateSelectionForClipboard(ShapeList& selection, bool storeprevpos)
@@ -2519,30 +2519,30 @@ void wxSFShapeCanvas::ValidateSelectionForClipboard(ShapeList& selection, bool s
     while(node)
     {
         pShape = node->GetData();
-		
-		if(pShape->GetParentShape() ) 
-		{
-			 // remove child shapes without parent and with sfsPARENT_CHANGE style
-			 // defined from the selection
-			if( !pShape->ContainsStyle(wxSFShapeBase::sfsPARENT_CHANGE) &&
-                (selection.IndexOf(pShape->GetParentShape()) == wxNOT_FOUND) )
-			{
-				selection.DeleteObject(pShape);
-				node = selection.GetFirst();
-				continue;
-			}
-			
-			// convert relative position to absolute position if the shape is copied
-			// without its parent
-			if( selection.IndexOf(pShape->GetParentShape()) == wxNOT_FOUND ) 
-			{
-				if( storeprevpos ) StorePrevPosition( pShape );
-				pShape->SetRelativePosition( pShape->GetAbsolutePosition() );
-			}
-		}
 
-		AppendAssignedConnections( pShape, selection, false );
-		node = node->GetNext();
+        if(pShape->GetParentShape() )
+        {
+             // remove child shapes without parent and with sfsPARENT_CHANGE style
+             // defined from the selection
+            if( !pShape->ContainsStyle(wxSFShapeBase::sfsPARENT_CHANGE) &&
+                (selection.IndexOf(pShape->GetParentShape()) == wxNOT_FOUND) )
+            {
+                selection.DeleteObject(pShape);
+                node = selection.GetFirst();
+                continue;
+            }
+
+            // convert relative position to absolute position if the shape is copied
+            // without its parent
+            if( selection.IndexOf(pShape->GetParentShape()) == wxNOT_FOUND )
+            {
+                if( storeprevpos ) StorePrevPosition( pShape );
+                pShape->SetRelativePosition( pShape->GetAbsolutePosition() );
+            }
+        }
+
+        AppendAssignedConnections( pShape, selection, false );
+        node = node->GetNext();
 
 
         /*if(pShape->GetParentShape()
@@ -2553,43 +2553,43 @@ void wxSFShapeCanvas::ValidateSelectionForClipboard(ShapeList& selection, bool s
             node = selection.GetFirst();
         }
         else
-		{
-			AppendAssignedConnections( pShape, selection, false );
+        {
+            AppendAssignedConnections( pShape, selection, false );
             node = node->GetNext();
-		}*/
+        }*/
     }
 }
 
 void wxSFShapeCanvas::AppendAssignedConnections(wxSFShapeBase *shape, ShapeList& selection, bool childrenonly)
 {
-	// add connections assigned to copied topmost shapes and their children to the copy list
+    // add connections assigned to copied topmost shapes and their children to the copy list
 
-	ShapeList lstConnections;
-	ShapeList lstChildren;
+    ShapeList lstConnections;
+    ShapeList lstChildren;
 
-	ShapeList::compatibility_iterator lnode, cnode;
+    ShapeList::compatibility_iterator lnode, cnode;
 
-	shape->GetChildShapes(sfANY, lstChildren, sfRECURSIVE);
+    shape->GetChildShapes(sfANY, lstChildren, sfRECURSIVE);
 
-	// get connections assigned to the parent shape
-	if( !childrenonly )m_pManager->GetAssignedConnections(shape, CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections);
-	// get connections assigned to its child shape
-	cnode = lstChildren.GetFirst();
-	while(cnode)
-	{
-		// get connections assigned to the child shape
-		m_pManager->GetAssignedConnections(cnode->GetData(), CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections);
-		cnode = cnode->GetNext();
-	}
+    // get connections assigned to the parent shape
+    if( !childrenonly )m_pManager->GetAssignedConnections(shape, CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections);
+    // get connections assigned to its child shape
+    cnode = lstChildren.GetFirst();
+    while(cnode)
+    {
+        // get connections assigned to the child shape
+        m_pManager->GetAssignedConnections(cnode->GetData(), CLASSINFO(wxSFLineShape), wxSFShapeBase::lineBOTH, lstConnections);
+        cnode = cnode->GetNext();
+    }
 
-	// insert connections to the copy list
-	lnode = lstConnections.GetFirst();
-	while(lnode)
-	{
-		if( selection.IndexOf( lnode->GetData() ) == wxNOT_FOUND ) selection.Append( lnode->GetData() );
+    // insert connections to the copy list
+    lnode = lstConnections.GetFirst();
+    while(lnode)
+    {
+        if( selection.IndexOf( lnode->GetData() ) == wxNOT_FOUND ) selection.Append( lnode->GetData() );
 
-		lnode = lnode->GetNext();
-	}
+        lnode = lnode->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::ReparentShape(wxSFShapeBase *shape, const wxPoint& parentpos)
@@ -2619,102 +2619,102 @@ void wxSFShapeCanvas::ReparentShape(wxSFShapeBase *shape, const wxPoint& parentp
         }
         else
         {
-			if( m_pManager->IsTopShapeAccepted( shape->GetClassInfo()->GetClassName() ) )
-			{
-				if(shape->GetParentShape())
-				{
-					shape->MoveBy(((wxSFShapeBase*)shape->GetParentShape())->GetAbsolutePosition());
-				}
-				shape->Reparent(m_pManager->GetRootItem());
-			}
+            if( m_pManager->IsTopShapeAccepted( shape->GetClassInfo()->GetClassName() ) )
+            {
+                if(shape->GetParentShape())
+                {
+                    shape->MoveBy(((wxSFShapeBase*)shape->GetParentShape())->GetAbsolutePosition());
+                }
+                shape->Reparent(m_pManager->GetRootItem());
+            }
         }
 
         if( pPrevParent ) pPrevParent->Update();
         if( pParentShape ) pParentShape->Update();
-		if( shape->IsKindOf( CLASSINFO(wxSFControlShape)) ) shape->Update();
+        if( shape->IsKindOf( CLASSINFO(wxSFControlShape)) ) shape->Update();
     }
 }
 
 void wxSFShapeCanvas::RemoveFromTemporaries(wxSFShapeBase* shape)
 {
-	if( shape )
-	{
-		m_lstCurrentShapes.DeleteObject( shape );
+    if( shape )
+    {
+        m_lstCurrentShapes.DeleteObject( shape );
 
-		if( m_pNewLineShape == shape ) m_pNewLineShape = NULL;
+        if( m_pNewLineShape == shape ) m_pNewLineShape = NULL;
 
-		if( m_pUnselectedShapeUnderCursor == shape ) m_pUnselectedShapeUnderCursor = NULL;
+        if( m_pUnselectedShapeUnderCursor == shape ) m_pUnselectedShapeUnderCursor = NULL;
 
-		if( m_pSelectedShapeUnderCursor == shape ) m_pSelectedShapeUnderCursor = NULL;
+        if( m_pSelectedShapeUnderCursor == shape ) m_pSelectedShapeUnderCursor = NULL;
 
-		if( m_pTopmostShapeUnderCursor == shape ) m_pTopmostShapeUnderCursor = NULL;
-	}
+        if( m_pTopmostShapeUnderCursor == shape ) m_pTopmostShapeUnderCursor = NULL;
+    }
 }
 
 void wxSFShapeCanvas::ClearTemporaries()
 {
-	m_lstCurrentShapes.Clear();
+    m_lstCurrentShapes.Clear();
 
-	m_pNewLineShape = NULL;
-	m_pUnselectedShapeUnderCursor = NULL;
-	m_pSelectedShapeUnderCursor = NULL;
-	m_pTopmostShapeUnderCursor = NULL;
+    m_pNewLineShape = NULL;
+    m_pUnselectedShapeUnderCursor = NULL;
+    m_pSelectedShapeUnderCursor = NULL;
+    m_pTopmostShapeUnderCursor = NULL;
 }
 
 void wxSFShapeCanvas::UpdateMultieditSize()
 {
-	// calculate bounding box
-	wxRect unionRct;
-	//bool firstRun = true;
-	ShapeList m_lstSelection;
-	GetSelectedShapes(m_lstSelection);
-	ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
-	while(node)
-	{
-		if(node == m_lstSelection.GetFirst())
-		{
-			unionRct = node->GetData()->GetBoundingBox();
-			//firstRun = false;
-		}
-		else
-			unionRct.Union(node->GetData()->GetBoundingBox());
+    // calculate bounding box
+    wxRect unionRct;
+    //bool firstRun = true;
+    ShapeList m_lstSelection;
+    GetSelectedShapes(m_lstSelection);
+    ShapeList::compatibility_iterator node = m_lstSelection.GetFirst();
+    while(node)
+    {
+        if(node == m_lstSelection.GetFirst())
+        {
+            unionRct = node->GetData()->GetBoundingBox();
+            //firstRun = false;
+        }
+        else
+            unionRct.Union(node->GetData()->GetBoundingBox());
 
         node = node->GetNext();
-	}
-	unionRct.Inflate(sfDEFAULT_ME_OFFSET, sfDEFAULT_ME_OFFSET);
+    }
+    unionRct.Inflate(sfDEFAULT_ME_OFFSET, sfDEFAULT_ME_OFFSET);
 
-	// draw rectangle
-	m_shpMultiEdit.SetRelativePosition(wxRealPoint(unionRct.GetPosition().x, unionRct.GetPosition().y));
-	m_shpMultiEdit.SetRectSize(wxRealPoint(unionRct.GetSize().x, unionRct.GetSize().y));
+    // draw rectangle
+    m_shpMultiEdit.SetRelativePosition(wxRealPoint(unionRct.GetPosition().x, unionRct.GetPosition().y));
+    m_shpMultiEdit.SetRectSize(wxRealPoint(unionRct.GetSize().x, unionRct.GetSize().y));
 }
 
 void wxSFShapeCanvas::SetHoverColour(const wxColour& col)
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	m_Settings.m_nCommonHoverColor = col;
+    m_Settings.m_nCommonHoverColor = col;
 
-	// update Hover color in all existing shapes
+    // update Hover color in all existing shapes
     ShapeList shapes;
     m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
 
-	ShapeList::compatibility_iterator node = shapes.GetFirst();
-	while(node)
-	{
-		node->GetData()->SetHoverColour(col);
-		node = node->GetNext();
-	}
+    ShapeList::compatibility_iterator node = shapes.GetFirst();
+    while(node)
+    {
+        node->GetData()->SetHoverColour(col);
+        node = node->GetNext();
+    }
 }
 
 wxRect wxSFShapeCanvas::GetTotalBoundingBox() const
 {
     wxRect virtRct;
 
-	wxASSERT(m_pManager);
+    wxASSERT(m_pManager);
 
-	if(m_pManager)
-	{
+    if(m_pManager)
+    {
         // calculate total bounding box (includes all shapes)
         ShapeList shapes;
         m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), shapes);
@@ -2731,7 +2731,7 @@ wxRect wxSFShapeCanvas::GetTotalBoundingBox() const
 
             node = node->GetNext();
         }
-	}
+    }
 
     return virtRct;
 }
@@ -2757,14 +2757,14 @@ wxRect wxSFShapeCanvas::GetSelectionBB()
 void wxSFShapeCanvas::UpdateVirtualSize()
 {
     wxRect virtRct = GetTotalBoundingBox();
-	
-	// allow user to modify calculated virtual canvas size
-	this->OnUpdateVirtualSize( virtRct );
+
+    // allow user to modify calculated virtual canvas size
+    this->OnUpdateVirtualSize( virtRct );
 
     // update virtual area of the scrolled window if neccessary
     if(!virtRct.IsEmpty())
     {
-		SetVirtualSize(int(virtRct.GetRight()*m_Settings.m_nScale), int(virtRct.GetBottom()*m_Settings.m_nScale));
+        SetVirtualSize(int(virtRct.GetRight()*m_Settings.m_nScale), int(virtRct.GetBottom()*m_Settings.m_nScale));
     }
     else
         SetVirtualSize(500, 500);
@@ -2772,45 +2772,45 @@ void wxSFShapeCanvas::UpdateVirtualSize()
 
 void wxSFShapeCanvas::DeleteAllTextCtrls()
 {
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	wxSFContentCtrl* pTextCtrl = NULL;
-	ShapeList lstShapes;
-	m_pManager->GetShapes(CLASSINFO(wxSFEditTextShape), lstShapes);
+    wxSFContentCtrl* pTextCtrl = NULL;
+    ShapeList lstShapes;
+    m_pManager->GetShapes(CLASSINFO(wxSFEditTextShape), lstShapes);
 
-	ShapeList::compatibility_iterator node = lstShapes.GetFirst();
-	while(node)
-	{
-		pTextCtrl = ((wxSFEditTextShape*)node->GetData())->GetTextCtrl();
-		if(pTextCtrl)pTextCtrl->Quit( sfAPPLY_TEXT_CHANGES );
-		node = node->GetNext();
-	}
+    ShapeList::compatibility_iterator node = lstShapes.GetFirst();
+    while(node)
+    {
+        pTextCtrl = ((wxSFEditTextShape*)node->GetData())->GetTextCtrl();
+        if(pTextCtrl)pTextCtrl->Quit( sfAPPLY_TEXT_CHANGES );
+        node = node->GetNext();
+    }
 }
 
 void wxSFShapeCanvas::MoveShapesFromNegatives()
 {
-	wxASSERT(m_pManager);
-	if( m_pManager ) m_pManager->MoveShapesFromNegatives();
+    wxASSERT(m_pManager);
+    if( m_pManager ) m_pManager->MoveShapesFromNegatives();
 }
 
 void wxSFShapeCanvas::CenterShapes()
 {
-	wxRect rctBB = GetTotalBoundingBox();
-	wxRect rctPrevBB = rctBB;
-	
-	rctBB = rctBB.CenterIn( wxRect( wxPoint(0, 0), GetSize() ) );
-	
-	double nDx = rctBB.GetLeft() - rctPrevBB.GetLeft();
-	double nDy = rctBB.GetTop() - rctPrevBB.GetTop();
-	
-	for( ShapeList::iterator it = m_lstCurrentShapes.begin(); it != m_lstCurrentShapes.end(); ++it )
-	{
-		wxSFShapeBase *pShape = *it;
-		if( ! pShape->GetParentShape() ) pShape->MoveBy( nDx, nDy );
-	}
-	
-	MoveShapesFromNegatives();
+    wxRect rctBB = GetTotalBoundingBox();
+    wxRect rctPrevBB = rctBB;
+
+    rctBB = rctBB.CenterIn( wxRect( wxPoint(0, 0), GetSize() ) );
+
+    double nDx = rctBB.GetLeft() - rctPrevBB.GetLeft();
+    double nDy = rctBB.GetTop() - rctPrevBB.GetTop();
+
+    for( ShapeList::iterator it = m_lstCurrentShapes.begin(); it != m_lstCurrentShapes.end(); ++it )
+    {
+        wxSFShapeBase *pShape = *it;
+        if( ! pShape->GetParentShape() ) pShape->MoveBy( nDx, nDy );
+    }
+
+    MoveShapesFromNegatives();
 }
 
 void wxSFShapeCanvas::AlignSelected(HALIGN halign, VALIGN valign)
@@ -2934,17 +2934,17 @@ void wxSFShapeCanvas::AlignSelected(HALIGN halign, VALIGN valign)
 
 void wxSFShapeCanvas::Copy()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return;
+    if( !ContainsStyle(sfsCLIPBOARD) )return;
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	// copy selected shapes to the clipboard
+    // copy selected shapes to the clipboard
 
-	if( wxTheClipboard->IsOpened() || ( !wxTheClipboard->IsOpened() && wxTheClipboard->Open()) )
-	{
-		ShapeList lstSelection;
-		GetSelectedShapes(lstSelection);
+    if( wxTheClipboard->IsOpened() || ( !wxTheClipboard->IsOpened() && wxTheClipboard->Open()) )
+    {
+        ShapeList lstSelection;
+        GetSelectedShapes(lstSelection);
 
         ValidateSelectionForClipboard(lstSelection, true);
 
@@ -2952,28 +2952,28 @@ void wxSFShapeCanvas::Copy()
         {
             wxSFShapeDataObject* dataObj = new wxSFShapeDataObject(m_formatShapes, lstSelection, m_pManager);
             wxTheClipboard->SetData(dataObj);
-			
-			RestorePrevPositions();
+
+            RestorePrevPositions();
         }
 
-		if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
-	}
+        if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
+    }
 }
 
 void wxSFShapeCanvas::Cut()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return;
+    if( !ContainsStyle(sfsCLIPBOARD) )return;
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
-	Copy();
-	
-	ClearTemporaries();
+    Copy();
 
-	// remove selected shapes
-	ShapeList lstSelection;
-	GetSelectedShapes(lstSelection);
+    ClearTemporaries();
+
+    // remove selected shapes
+    ShapeList lstSelection;
+    GetSelectedShapes(lstSelection);
 
     ValidateSelectionForClipboard(lstSelection, false);
 
@@ -2988,62 +2988,62 @@ void wxSFShapeCanvas::Cut()
 
 void wxSFShapeCanvas::Paste()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return;
+    if( !ContainsStyle(sfsCLIPBOARD) )return;
 
-	wxASSERT(m_pManager);
-	if(!m_pManager)return;
+    wxASSERT(m_pManager);
+    if(!m_pManager)return;
 
     if( wxTheClipboard->IsOpened() || ( !wxTheClipboard->IsOpened() && wxTheClipboard->Open()) )
-	{
-		// store previous canvas content
-		ShapeList lstOldContent;
-		m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstOldContent);
+    {
+        // store previous canvas content
+        ShapeList lstOldContent;
+        m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstOldContent);
 
-		// read data object from the clipboars
-		wxSFShapeDataObject dataObj(m_formatShapes);
-		if(wxTheClipboard->GetData(dataObj))
-		{
-			wxStringInputStream instream( dataObj.m_Data.GetText() );
+        // read data object from the clipboars
+        wxSFShapeDataObject dataObj(m_formatShapes);
+        if(wxTheClipboard->GetData(dataObj))
+        {
+            wxStringInputStream instream( dataObj.m_Data.GetText() );
 
-			if(instream.IsOk())
-			{
-				// deserialize XML data
-				m_pManager->DeserializeFromXml(instream);
+            if(instream.IsOk())
+            {
+                // deserialize XML data
+                m_pManager->DeserializeFromXml(instream);
 
-				// find dropped shapes
-				ShapeList lstNewContent;
-				ShapeList lstCurrContent;
+                // find dropped shapes
+                ShapeList lstNewContent;
+                ShapeList lstCurrContent;
 
-				m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstCurrContent);
-				ShapeList::compatibility_iterator node = lstCurrContent.GetFirst();
-				while( node )
-				{
-					wxSFShapeBase *pShape = node->GetData();
-					if( lstOldContent.IndexOf(pShape) == wxNOT_FOUND  ) lstNewContent.Append(pShape);
+                m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstCurrContent);
+                ShapeList::compatibility_iterator node = lstCurrContent.GetFirst();
+                while( node )
+                {
+                    wxSFShapeBase *pShape = node->GetData();
+                    if( lstOldContent.IndexOf(pShape) == wxNOT_FOUND  ) lstNewContent.Append(pShape);
 
-					node = node->GetNext();
-				}
+                    node = node->GetNext();
+                }
 
-				// call user-defined handler
-				this->OnPaste(lstNewContent);
+                // call user-defined handler
+                this->OnPaste(lstNewContent);
 
-				SaveCanvasState();
-				Refresh(false);
-			}
-		}
-		if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
-	}
+                SaveCanvasState();
+                Refresh(false);
+            }
+        }
+        if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
+    }
 }
 
 void wxSFShapeCanvas::OnPaste(const ShapeList& pasted)
 {
     // HINT: override it for custom actions...
 
-	// ... standard implementation generates the wxEVT_SF_ON_PASTE event.
+    // ... standard implementation generates the wxEVT_SF_ON_PASTE event.
 
-	if( !ContainsStyle(sfsCLIPBOARD) )return;
+    if( !ContainsStyle(sfsCLIPBOARD) )return;
 
-	// create the drop event and process it
+    // create the drop event and process it
     wxSFShapePasteEvent event( wxEVT_SF_ON_PASTE, this, wxID_ANY);
     event.SetPastedShapes( pasted );
     ProcessEvent( event );
@@ -3051,120 +3051,120 @@ void wxSFShapeCanvas::OnPaste(const ShapeList& pasted)
 
 void wxSFShapeCanvas::Undo()
 {
-	if( !ContainsStyle(sfsUNDOREDO) )return;
-	
-	ClearTemporaries();
+    if( !ContainsStyle(sfsUNDOREDO) )return;
 
-	m_CanvasHistory.RestoreOlderState();
-	m_shpMultiEdit.Show(false);
+    ClearTemporaries();
+
+    m_CanvasHistory.RestoreOlderState();
+    m_shpMultiEdit.Show(false);
 }
 
 void wxSFShapeCanvas::Redo()
 {
-	if( !ContainsStyle(sfsUNDOREDO) )return;
-	
-	ClearTemporaries();
+    if( !ContainsStyle(sfsUNDOREDO) )return;
 
-	m_CanvasHistory.RestoreNewerState();
-	m_shpMultiEdit.Show(false);
+    ClearTemporaries();
+
+    m_CanvasHistory.RestoreNewerState();
+    m_shpMultiEdit.Show(false);
 }
 
 wxDragResult wxSFShapeCanvas::DoDragDrop(ShapeList &shapes, const wxPoint& start)
 {
-	if( !ContainsStyle(sfsDND) )return wxDragNone;
+    if( !ContainsStyle(sfsDND) )return wxDragNone;
 
-	m_nWorkingMode = modeDND;
+    m_nWorkingMode = modeDND;
 
-	wxDragResult result = wxDragNone;
-	
-	ValidateSelectionForClipboard(shapes, true);
+    wxDragResult result = wxDragNone;
 
-	if( !shapes.IsEmpty() )
-	{
-		DeselectAll();
+    ValidateSelectionForClipboard(shapes, true);
 
-		m_fDnDStartedHere = true;
-		m_nDnDStartedAt = start;
+    if( !shapes.IsEmpty() )
+    {
+        DeselectAll();
 
-		wxSFShapeDataObject dataObj(m_formatShapes, shapes, m_pManager);
+        m_fDnDStartedHere = true;
+        m_nDnDStartedAt = start;
 
-		#ifdef __WXGTK__ 
-		wxDropSource dndSrc(this, wxIcon(page_xpm), wxIcon(page_xpm), wxIcon(page_xpm)); 
-		dndSrc.SetData(dataObj); 
-		#elif __WXMAC__ 
-		wxDropSource dndSrc(dataObj, this, wxDROP_ICON(page), wxDROP_ICON(page), wxDROP_ICON(page)); 
-		#else 
-		wxDropSource dndSrc(dataObj); 
-		#endif 
+        wxSFShapeDataObject dataObj(m_formatShapes, shapes, m_pManager);
 
-		result = dndSrc.DoDragDrop(wxDrag_AllowMove);
-		switch(result)
-		{
-		case wxDragMove:
-			m_pManager->RemoveShapes(shapes);
-			break;
+        #ifdef __WXGTK__
+        wxDropSource dndSrc(this, wxIcon(page_xpm), wxIcon(page_xpm), wxIcon(page_xpm));
+        dndSrc.SetData(dataObj);
+        #elif __WXMAC__
+        wxDropSource dndSrc(dataObj, this, wxDROP_ICON(page), wxDROP_ICON(page), wxDROP_ICON(page));
+        #else
+        wxDropSource dndSrc(dataObj);
+        #endif
 
-		default:
-			break;
-		}
+        result = dndSrc.DoDragDrop(wxDrag_AllowMove);
+        switch(result)
+        {
+        case wxDragMove:
+            m_pManager->RemoveShapes(shapes);
+            break;
 
-		m_fDnDStartedHere = false;
-		
-		RestorePrevPositions();
+        default:
+            break;
+        }
 
-		MoveShapesFromNegatives();
-		UpdateVirtualSize();
+        m_fDnDStartedHere = false;
 
-		SaveCanvasState();
-		Refresh(false);
-	}
+        RestorePrevPositions();
 
-	m_nWorkingMode = modeREADY;
+        MoveShapesFromNegatives();
+        UpdateVirtualSize();
 
-	return result;
+        SaveCanvasState();
+        Refresh(false);
+    }
+
+    m_nWorkingMode = modeREADY;
+
+    return result;
 }
 
 void wxSFShapeCanvas::_OnDrop(wxCoord x, wxCoord y, wxDragResult def, wxDataObject *data)
 {
-	if( data )
-	{
-		wxStringInputStream instream( ((wxSFShapeDataObject*)data)->m_Data.GetText() );
+    if( data )
+    {
+        wxStringInputStream instream( ((wxSFShapeDataObject*)data)->m_Data.GetText() );
 
-		if(instream.IsOk())
-		{
-			// store previous canvas content
-			/* wxSFShapeBase *pShape;
+        if(instream.IsOk())
+        {
+            // store previous canvas content
+            /* wxSFShapeBase *pShape;
 
-			ShapeList lstNewContent;
-			ShapeList lstCurrContent;
-			ShapeList lstOldContent;
+            ShapeList lstNewContent;
+            ShapeList lstCurrContent;
+            ShapeList lstOldContent;
 
-			m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstOldContent);
+            m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstOldContent);
 
-			// deserialize XML data
-			m_pManager->DeserializeFromXml(instream);
+            // deserialize XML data
+            m_pManager->DeserializeFromXml(instream);
 
-			// find dropped shapes
-			m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstCurrContent);
-			ShapeList::compatibility_iterator node = lstCurrContent.GetFirst();
-			while(node)
-			{
-				pShape = node->GetData();
-				if( lstOldContent.IndexOf(pShape) == wxNOT_FOUND )
-				{
-				    pShape->Select( true );
-				    lstNewContent.Append(pShape);
-				}
+            // find dropped shapes
+            m_pManager->GetShapes(CLASSINFO(wxSFShapeBase), lstCurrContent);
+            ShapeList::compatibility_iterator node = lstCurrContent.GetFirst();
+            while(node)
+            {
+                pShape = node->GetData();
+                if( lstOldContent.IndexOf(pShape) == wxNOT_FOUND )
+                {
+                    pShape->Select( true );
+                    lstNewContent.Append(pShape);
+                }
 
-				node = node->GetNext();
-			}
+                node = node->GetNext();
+            }
 
             wxPoint lpos = DP2LP(wxPoint(x, y));
 
             int dx = 0, dy = 0;
             if( m_fDnDStartedHere )
             {
-				dx = lpos.x - m_nDnDStartedAt.x;
+                dx = lpos.x - m_nDnDStartedAt.x;
                 dy = lpos.y - m_nDnDStartedAt.y;
             }
 
@@ -3175,90 +3175,90 @@ void wxSFShapeCanvas::_OnDrop(wxCoord x, wxCoord y, wxDragResult def, wxDataObje
                 pShape = node->GetData();
                 if( !pShape->GetParentShape() )
                 {
-					pShape->MoveBy(dx, dy);
-					ReparentShape( pShape, lpos );
-				}
+                    pShape->MoveBy(dx, dy);
+                    ReparentShape( pShape, lpos );
+                }
 
                 node = node->GetNext();
-            } */ 
-			
-			ShapeList lstNewContent;
-			ShapeList lstParentsToUpdate;
-			wxPoint lpos = DP2LP(wxPoint(x, y));
+            } */
+
+            ShapeList lstNewContent;
+            ShapeList lstParentsToUpdate;
+            wxPoint lpos = DP2LP(wxPoint(x, y));
 
             int dx = 0;
-			int dy = 0;
+            int dy = 0;
             if( m_fDnDStartedHere )
             {
-				dx = lpos.x - m_nDnDStartedAt.x;
+                dx = lpos.x - m_nDnDStartedAt.x;
                 dy = lpos.y - m_nDnDStartedAt.y;
             }
-			
-			wxSFDiagramManager mgr;
-			mgr.GetUsedIDs() = m_pManager->GetUsedIDs();
-			mgr.DeserializeFromXml( instream );
-			
-			wxSFShapeBase *parent = m_pManager->GetShapeAtPosition( lpos, //Conv2Point( shape->GetAbsolutePosition()
-																	1, 
-																	wxSFDiagramManager::searchUNSELECTED );
 
-			
-			SerializableList &topshapes = mgr.GetRootItem()->GetChildrenList();
-			for( SerializableList::iterator it = topshapes.begin(); it != topshapes.end(); ++it )
-			{
-				wxSFShapeBase *shape = (wxSFShapeBase*)*it;
-				shape->MoveBy( dx, dy );
-							
-				// do not reparent connection lines
-				wxSFLineShape *line = wxDynamicCast( shape, wxSFLineShape );
-				if( line && ! line->IsStandAlone() ) parent = NULL;
-				
-				shape = m_pManager->AddShape( (wxSFShapeBase*)shape->Clone(),
-											  parent,
-											  parent ? LP2DP( Conv2Point( shape->GetAbsolutePosition() - parent->GetAbsolutePosition() ) ) : LP2DP( Conv2Point( shape->GetAbsolutePosition() ) ),
-											  sfINITIALIZE,
-											  sfDONT_SAVE_STATE );
-									  
-				if( shape )
-				{
-					if( parent ) 
-					{
-						parent->OnChildDropped( shape->GetAbsolutePosition() - parent->GetAbsolutePosition(), shape );
-						// update each target parent just once
-						if( lstParentsToUpdate.Find( parent ) == NULL ) lstParentsToUpdate.Append( parent );
-					}
-					lstNewContent.Append( shape );
-				}
-			}
-			
+            wxSFDiagramManager mgr;
+            mgr.GetUsedIDs() = m_pManager->GetUsedIDs();
+            mgr.DeserializeFromXml( instream );
+
+            wxSFShapeBase *parent = m_pManager->GetShapeAtPosition( lpos, //Conv2Point( shape->GetAbsolutePosition()
+                                                                    1,
+                                                                    wxSFDiagramManager::searchUNSELECTED );
+
+
+            SerializableList &topshapes = mgr.GetRootItem()->GetChildrenList();
+            for( SerializableList::iterator it = topshapes.begin(); it != topshapes.end(); ++it )
+            {
+                wxSFShapeBase *shape = (wxSFShapeBase*)*it;
+                shape->MoveBy( dx, dy );
+
+                // do not reparent connection lines
+                wxSFLineShape *line = wxDynamicCast( shape, wxSFLineShape );
+                if( line && ! line->IsStandAlone() ) parent = NULL;
+
+                shape = m_pManager->AddShape( (wxSFShapeBase*)shape->Clone(),
+                                              parent,
+                                              parent ? LP2DP( Conv2Point( shape->GetAbsolutePosition() - parent->GetAbsolutePosition() ) ) : LP2DP( Conv2Point( shape->GetAbsolutePosition() ) ),
+                                              sfINITIALIZE,
+                                              sfDONT_SAVE_STATE );
+
+                if( shape )
+                {
+                    if( parent )
+                    {
+                        parent->OnChildDropped( shape->GetAbsolutePosition() - parent->GetAbsolutePosition(), shape );
+                        // update each target parent just once
+                        if( lstParentsToUpdate.Find( parent ) == NULL ) lstParentsToUpdate.Append( parent );
+                    }
+                    lstNewContent.Append( shape );
+                }
+            }
+
             DeselectAll();
-			
-			for( ShapeList::iterator it = lstParentsToUpdate.begin(); it != lstParentsToUpdate.end(); ++it )
-			{
-				(*it)->Update();
-			}			
 
-			if( !m_fDnDStartedHere )
-			{
-				SaveCanvasState();
-				Refresh(false);
-			}
+            for( ShapeList::iterator it = lstParentsToUpdate.begin(); it != lstParentsToUpdate.end(); ++it )
+            {
+                (*it)->Update();
+            }
 
-			// call user-defined drop handler
-			this->OnDrop(x, y, def, lstNewContent);
-		}
-	}
+            if( !m_fDnDStartedHere )
+            {
+                SaveCanvasState();
+                Refresh(false);
+            }
+
+            // call user-defined drop handler
+            this->OnDrop(x, y, def, lstNewContent);
+        }
+    }
 }
 
 void wxSFShapeCanvas::OnDrop(wxCoord x, wxCoord y, wxDragResult def, const ShapeList& dropped)
 {
     // HINT: override it for custom actions...
 
-	// ... standard implementation generates the wxEVT_SF_ON_DROP event.
+    // ... standard implementation generates the wxEVT_SF_ON_DROP event.
 
-	if( !ContainsStyle(sfsDND) )return;
+    if( !ContainsStyle(sfsDND) )return;
 
-	// create the drop event and process it
+    // create the drop event and process it
     wxSFShapeDropEvent event( wxEVT_SF_ON_DROP, x, y, this, def, wxID_ANY);
     event.SetDroppedShapes( dropped );
     ProcessEvent( event );
@@ -3266,55 +3266,55 @@ void wxSFShapeCanvas::OnDrop(wxCoord x, wxCoord y, wxDragResult def, const Shape
 
 void wxSFShapeCanvas::SaveCanvasState()
 {
-	if( !ContainsStyle(sfsUNDOREDO) )return;
+    if( !ContainsStyle(sfsUNDOREDO) )return;
 
-	m_CanvasHistory.SaveCanvasState();
+    m_CanvasHistory.SaveCanvasState();
 }
 
 bool wxSFShapeCanvas::CanCopy()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return false;
+    if( !ContainsStyle(sfsCLIPBOARD) )return false;
 
-	ShapeList lstSelection;
-	GetSelectedShapes(lstSelection);
-	return !lstSelection.IsEmpty();
+    ShapeList lstSelection;
+    GetSelectedShapes(lstSelection);
+    return !lstSelection.IsEmpty();
 }
 
 bool wxSFShapeCanvas::CanCut()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return false;
+    if( !ContainsStyle(sfsCLIPBOARD) )return false;
 
-	return CanCopy();
+    return CanCopy();
 }
 
 bool wxSFShapeCanvas::CanPaste()
 {
-	if( !ContainsStyle(sfsCLIPBOARD) )return false;
+    if( !ContainsStyle(sfsCLIPBOARD) )return false;
 
-	bool result = false;
+    bool result = false;
 
     //if( wxTheClipboard->Open() )
-	if( wxTheClipboard->IsOpened() || ( !wxTheClipboard->IsOpened() && wxTheClipboard->Open()) )
-	{
-		result = wxTheClipboard->IsSupported(m_formatShapes);
-		if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
-	}
+    if( wxTheClipboard->IsOpened() || ( !wxTheClipboard->IsOpened() && wxTheClipboard->Open()) )
+    {
+        result = wxTheClipboard->IsSupported(m_formatShapes);
+        if( wxTheClipboard->IsOpened() )wxTheClipboard->Close();
+    }
 
-	return result;
+    return result;
 }
 
 bool wxSFShapeCanvas::CanUndo()
 {
-	if( !ContainsStyle(sfsUNDOREDO) )return false;
+    if( !ContainsStyle(sfsUNDOREDO) )return false;
 
-	return m_CanvasHistory.CanUndo();
+    return m_CanvasHistory.CanUndo();
 }
 
 bool wxSFShapeCanvas::CanRedo()
 {
-	if( !ContainsStyle(sfsUNDOREDO) )return false;
+    if( !ContainsStyle(sfsUNDOREDO) )return false;
 
-	return m_CanvasHistory.CanRedo();
+    return m_CanvasHistory.CanRedo();
 }
 
 bool wxSFShapeCanvas::CanAlignSelected()
@@ -3324,24 +3324,24 @@ bool wxSFShapeCanvas::CanAlignSelected()
 
 void wxSFShapeCanvas::ClearCanvasHistory()
 {
-	m_CanvasHistory.Clear();
+    m_CanvasHistory.Clear();
 }
 
 /*wxMemoryBuffer wxSFShapeCanvas::CreateMembufferFromString(const wxString& str)
 {
-	// create memory stream with copied data
-	wxMemoryBuffer dataBuffer;
-	wxMemoryOutputStream outstream;
-	wxTextOutputStream tout(outstream);
+    // create memory stream with copied data
+    wxMemoryBuffer dataBuffer;
+    wxMemoryOutputStream outstream;
+    wxTextOutputStream tout(outstream);
 
-	tout.WriteString(str);
+    tout.WriteString(str);
 
-	wxStreamBuffer* strbuff = outstream.GetOutputStreamBuffer();
-	strbuff->ResetBuffer();
-	dataBuffer.AppendData(strbuff->GetBufferStart(), strbuff->GetDataLeft());
-	dataBuffer.AppendByte(0);
+    wxStreamBuffer* strbuff = outstream.GetOutputStreamBuffer();
+    strbuff->ResetBuffer();
+    dataBuffer.AppendData(strbuff->GetBufferStart(), strbuff->GetDataLeft());
+    dataBuffer.AppendByte(0);
 
-	return dataBuffer;
+    return dataBuffer;
 }*/
 
 //----------------------------------------------------------------------------------//
@@ -3381,7 +3381,7 @@ void wxSFShapeCanvas::Print(wxSFPrintout *printout, bool prompt)
     wxPrintDialogData printDialogData(* g_printData);
     wxPrinter printer(& printDialogData);
 
-	DeselectAll();
+    DeselectAll();
 
     if (!printer.Print(this, printout, prompt))
     {
@@ -3393,7 +3393,7 @@ void wxSFShapeCanvas::Print(wxSFPrintout *printout, bool prompt)
     else {
         (*g_printData) = printer.GetPrintDialogData().GetPrintData();
     }
-	delete printout;
+    delete printout;
 }
 
 void wxSFShapeCanvas::PrintPreview()
@@ -3405,7 +3405,7 @@ void wxSFShapeCanvas::PrintPreview(wxSFPrintout *preview, wxSFPrintout *printout
 {
     wxASSERT(preview);
 
-	DeselectAll();
+    DeselectAll();
 
     // Pass two printout objects: for preview, and possible printing.
     wxPrintDialogData printDialogData(* g_printData);
@@ -3436,17 +3436,17 @@ void wxSFShapeCanvas::PageSetup()
 
 void wxSFShapeCanvas::RestorePrevPositions()
 {
-	for(PositionMap::iterator it = m_mapPrevPositions.begin(); it != m_mapPrevPositions.end(); ++it )
-	{
-		((wxSFShapeBase*)it->first)->SetRelativePosition( *it->second );
-		delete it->second;
-	}
-	m_mapPrevPositions.clear();
+    for(PositionMap::iterator it = m_mapPrevPositions.begin(); it != m_mapPrevPositions.end(); ++it )
+    {
+        ((wxSFShapeBase*)it->first)->SetRelativePosition( *it->second );
+        delete it->second;
+    }
+    m_mapPrevPositions.clear();
 }
 
 void wxSFShapeCanvas::StorePrevPosition(const wxSFShapeBase* shape)
 {
-	m_mapPrevPositions[ (wxUIntPtr)shape ] = new wxRealPoint( shape->GetRelativePosition() );
+    m_mapPrevPositions[ (wxUIntPtr)shape ] = new wxRealPoint( shape->GetRelativePosition() );
 }
 
 /*#ifdef __WXMAC__
@@ -3460,26 +3460,26 @@ void wxSFShapeCanvas::PageMargins()
     (*g_printData) = pageMarginsDialog.GetPageSetupDialogData().GetPrintData();
     (*g_pageSetupData) = pageMarginsDialog.GetPageSetupDialogData();
 }
-#endif 
+#endif
 
-#ifdef __WXMAC__ 
-void wxSFShapeCanvas::PageMargins() 
-{ 
-	(*g_pageSetupData) = *g_printData; 
+#ifdef __WXMAC__
+void wxSFShapeCanvas::PageMargins()
+{
+    (*g_pageSetupData) = *g_printData;
 
-	wxWindow * win = this; 
-	while (!win->IsTopLevel())
-	{ 
-		win = win->GetParent(); 
-		if (!win) break; 
-	} 
- 
-	wxMacPageMarginsDialog pageMarginsDialog((win)?(wxFrame*)win : NULL, g_pageSetupData); 
-	pageMarginsDialog.ShowModal(); 
- 
-	(*g_printData) = pageMarginsDialog.GetPageSetupDialogData().GetPrintData(); 
-	(*g_pageSetupData) = pageMarginsDialog.GetPageSetupDialogData();
-} 
+    wxWindow * win = this;
+    while (!win->IsTopLevel())
+    {
+        win = win->GetParent();
+        if (!win) break;
+    }
+
+    wxMacPageMarginsDialog pageMarginsDialog((win)?(wxFrame*)win : NULL, g_pageSetupData);
+    pageMarginsDialog.ShowModal();
+
+    (*g_printData) = pageMarginsDialog.GetPageSetupDialogData().GetPrintData();
+    (*g_pageSetupData) = pageMarginsDialog.GetPageSetupDialogData();
+}
 #endif */
 
 //----------------------------------------------------------------------------------//
@@ -3489,7 +3489,7 @@ void wxSFShapeCanvas::PageMargins()
 wxSFCanvasDropTarget::wxSFCanvasDropTarget(wxDataObject *data, wxSFShapeCanvas *parent)
 : wxDropTarget(data)
 {
-	m_pParentCanvas = parent;
+    m_pParentCanvas = parent;
 }
 
 wxSFCanvasDropTarget::~wxSFCanvasDropTarget()
@@ -3498,12 +3498,12 @@ wxSFCanvasDropTarget::~wxSFCanvasDropTarget()
 
 wxDragResult wxSFCanvasDropTarget::OnData(wxCoord x, wxCoord y, wxDragResult def)
 {
-	if(!GetData())
-	{
-		return wxDragNone;
-	}
+    if(!GetData())
+    {
+        return wxDragNone;
+    }
 
-	m_pParentCanvas->_OnDrop(x, y, def, GetDataObject());
+    m_pParentCanvas->_OnDrop(x, y, def, GetDataObject());
 
-	return def;
+    return def;
 }

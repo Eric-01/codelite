@@ -32,9 +32,9 @@ public:
   virtual ~FirebirdPreparedStatement();
 
   virtual void Close();
-  
+
   void AddPreparedStatement(const wxString& strSQL);
-  
+
   // get field
   virtual void SetParamInt(int nPosition, int nValue);
   virtual void SetParamDouble(int nPosition, double dblValue);
@@ -44,7 +44,7 @@ public:
   virtual void SetParamDate(int nPosition, const wxDateTime& date);
   virtual void SetParamBool(int nPosition, bool bValue);
   virtual int GetParameterCount();
-  
+
   virtual int RunQuery();
   virtual DatabaseResultSet* RunQueryWithResults();
 

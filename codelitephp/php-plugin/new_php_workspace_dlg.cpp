@@ -59,7 +59,7 @@ void NewPHPWorkspaceDlg::OnFolderSelected(wxCommandEvent& event)
 {
     wxUnusedVar(event);
     wxFileName fn(m_textCtrlPath->GetValue());
-    
+
     // Use the last folder path as the project name
     m_textCtrlName->ChangeValue(fn.GetName());
 }

@@ -40,12 +40,12 @@ public:
      * @brief write the CC usage to the database
      */
     void StoreCCUsage(const wxString& key, int weight);
-    
+
     /**
      * @brief write the GTA usage to the database
      */
     void StoreGTAUsage(const wxString& key, int weight);
-    
+
     /**
      * @brief clear the content of the database
      */

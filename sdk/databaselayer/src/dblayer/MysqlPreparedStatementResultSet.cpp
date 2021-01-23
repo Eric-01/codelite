@@ -43,7 +43,7 @@ MysqlPreparedStatementResultSet::MysqlPreparedStatementResultSet(MysqlInterface*
       MysqlPreparedStatementParameter* pParameter = new MysqlPreparedStatementParameter(pCurrentBinding, pCurrentField);
       if (pParameter)
         pParameter->SetEncoding(GetEncoding());
-      
+
       m_BindingWrappers[i] = pParameter;
       m_FieldLookupMap[strFieldName] = i;
 
@@ -204,8 +204,8 @@ wxDateTime MysqlPreparedStatementResultSet::GetResultDate(int nField)
     if ((*(pResultBinding->is_null) == false))
     {
       MYSQL_TIME* pDate = (MYSQL_TIME*)(pResultBinding->buffer);
-	  if(pDate->year > 0 && pDate->month > 0 && pDate->day > 0)
-		returnDate.Set(pDate->day, wxDateTime::Month(pDate->month-1), pDate->year, pDate->hour, pDate->minute, pDate->second);
+      if(pDate->year > 0 && pDate->month > 0 && pDate->day > 0)
+        returnDate.Set(pDate->day, wxDateTime::Month(pDate->month-1), pDate->year, pDate->hour, pDate->minute, pDate->second);
     }
   }
   return returnDate;

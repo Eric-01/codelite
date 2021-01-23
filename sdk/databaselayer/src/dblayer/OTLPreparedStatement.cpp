@@ -160,7 +160,7 @@ void OTLPreparedStatement::SetParamDate(int nPosition, const wxDateTime& dateVal
     if (nIndex > -1)
     {
       /*//fixme
-           OTL::occi::Date date(m_pEnvironment, dateValue.GetYear(), dateValue.GetMonth(), dateValue.GetDay(), 
+           OTL::occi::Date date(m_pEnvironment, dateValue.GetYear(), dateValue.GetMonth(), dateValue.GetDay(),
                dateValue.GetHour(), dateValue.GetMinute(), dateValue.GetSecond());
            m_Statements[nIndex]->setDate(nPosition, date);
         */

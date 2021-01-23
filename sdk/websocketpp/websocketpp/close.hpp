@@ -155,7 +155,7 @@ namespace status {
      * illegal on the wire.
      */
     static value const tls_handshake = 1015;
-    
+
     /// A generic subprotocol error
     /**
      * Indicates that a subprotocol error occurred. Typically this involves
@@ -163,7 +163,7 @@ namespace status {
      * subprotocol in use.
      */
     static value const subprotocol_error = 3000;
-    
+
     /// A invalid subprotocol data
     /**
      * Indicates that data was received that violated the specification of the
@@ -219,7 +219,7 @@ namespace status {
                 code == policy_violation || code == message_too_big ||
                  code == internal_endpoint_error);
     }
-    
+
     /// Return a human readable interpretation of a WebSocket close code
     /**
      * See https://tools.ietf.org/html/rfc6455#section-7.4 for more details.

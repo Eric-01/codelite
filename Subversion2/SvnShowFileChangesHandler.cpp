@@ -19,7 +19,7 @@ void SvnShowFileChangesHandler::Process(const wxString& output)
     SvnShowDiffChunk curchange;
     wxArrayString lines = ::wxStringTokenize(output, "\n", wxTOKEN_RET_DELIMS);
     if(lines.IsEmpty()) return;
-    
+
     // Remove everything until we find the first line that starts with "---------..."
     // Remove it and then break the loop
     while(!lines.IsEmpty()) {

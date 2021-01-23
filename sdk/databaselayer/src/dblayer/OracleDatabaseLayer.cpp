@@ -82,7 +82,7 @@ bool OracleDatabaseLayer::Open()
 
     wxCharBuffer tnsStringBuffer = ConvertToUnicodeStream(tnsString);
     std::string strTnsString(tnsStringBuffer);
-    
+
     if (m_pEnvironment == NULL)
       m_pEnvironment = oracle::occi::Environment::createEnvironment();
 
@@ -216,7 +216,7 @@ void OracleDatabaseLayer::RollBack()
   }
 }
 
-  
+
   // query database
 bool OracleDatabaseLayer::RunQuery(const wxString& strQuery, bool bParseQuery)
 {
@@ -314,7 +314,7 @@ DatabaseResultSet* OracleDatabaseLayer::RunQueryWithResults(const wxString& strQ
   return pResultSet;
 }
 
-  
+
 // PreparedStatement support
 PreparedStatement* OracleDatabaseLayer::PrepareStatement(const wxString& strQuery)
 {

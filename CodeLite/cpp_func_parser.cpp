@@ -519,30 +519,30 @@ void yyerror(char *s) {}
 
 void func_consumeFuncArgList()
 {
-	curr_func.m_signature = "(";
+    curr_func.m_signature = "(";
 
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_scope_lex();
-		if(ch == 0)
-		{
-			break;
-		}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_scope_lex();
+        if(ch == 0)
+        {
+            break;
+        }
 
-		curr_func.m_signature += cl_func_lval;
-		curr_func.m_signature += " ";
-		if(ch == ')')
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == '(')
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+        curr_func.m_signature += cl_func_lval;
+        curr_func.m_signature += " ";
+        if(ch == ')')
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == '(')
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 }
 
 /**
@@ -550,71 +550,71 @@ void func_consumeFuncArgList()
  */
 void func_consumeDecl()
 {
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_scope_lex();
-		//printf("ch=%d\n", ch);
-		//fflush(stdout);
-		if(ch ==0)
-		{
-			break;
-		}
-		if(ch == '}')
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == '{')
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_scope_lex();
+        //printf("ch=%d\n", ch);
+        //fflush(stdout);
+        if(ch ==0)
+        {
+            break;
+        }
+        if(ch == '}')
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == '{')
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 
 }
 
 void func_consumeTemplateDecl()
 {
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = cl_scope_lex();
-		//printf("ch=%d\n", ch);
-		//fflush(stdout);
-		if(ch ==0){
-			break;
-		}
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = cl_scope_lex();
+        //printf("ch=%d\n", ch);
+        //fflush(stdout);
+        if(ch ==0){
+            break;
+        }
 
-		if(ch == '>')
-		{
-			depth--;
-			continue;
-		}
-		else if(ch == '<')
-		{
-			depth ++ ;
-			continue;
-		}
-	}
+        if(ch == '>')
+        {
+            depth--;
+            continue;
+        }
+        else if(ch == '<')
+        {
+            depth ++ ;
+            continue;
+        }
+    }
 }
 
 // return the scope name at the end of the input string
 void get_functions(const std::string &in, FunctionList &li, const std::map<std::string, std::string> &ignoreTokens)
 {
-	if( !setLexerInput(in, ignoreTokens) )
-	{
-		return;
-	}
+    if( !setLexerInput(in, ignoreTokens) )
+    {
+        return;
+    }
 
-	g_funcs = &li;
+    g_funcs = &li;
 
-	//call tghe main parsing routine
-	cl_func_parse();
-	g_funcs = NULL;
+    //call tghe main parsing routine
+    cl_func_parse();
+    g_funcs = NULL;
 
-	//do the lexer cleanup
-	cl_scope_lex_clean();
+    //do the lexer cleanup
+    cl_scope_lex_clean();
 }
 #define YYABORT goto yyabort
 #define YYREJECT goto yyabort
@@ -812,8 +812,8 @@ case 20:
 break;
 case 22:
 {
-							/*printf("CodeLite: syntax error, unexpected token '%s' found\n", cl_func_lval.c_str());*/
-						}
+                            /*printf("CodeLite: syntax error, unexpected token '%s' found\n", cl_func_lval.c_str());*/
+                        }
 break;
 case 23:
 { yyval = "";}
@@ -847,18 +847,18 @@ case 33:
 break;
 case 34:
 {
-							yyval = yyvsp[-3] +  yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-						}
+                            yyval = yyvsp[-3] +  yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                        }
 break;
 case 35:
 {
-							yyval = yyvsp[-3] +  yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-						}
+                            yyval = yyvsp[-3] +  yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                        }
 break;
 case 36:
 {
-							yyval = yyvsp[-6] + yyvsp[-5] + yyvsp[-4] +yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + yyvsp[0] + " " ;
-						}
+                            yyval = yyvsp[-6] + yyvsp[-5] + yyvsp[-4] +yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + yyvsp[0] + " " ;
+                        }
 break;
 case 37:
 {yyval = yyvsp[0];}
@@ -874,24 +874,24 @@ case 71:
 break;
 case 72:
 {
-						/*trim down trailing '::' from scope name*/
-						yyvsp[-9].erase(yyvsp[-9].find_last_not_of(":")+1);
-						curr_func.m_isVirtual = yyvsp[-12].find("virtual") != std::string::npos;
-						curr_func.m_isPureVirtual = yyvsp[-2].find("=") != std::string::npos;
-						curr_func.m_isConst = yyvsp[-4].find("const") != std::string::npos;
-						curr_func.m_name = yyvsp[-7];
-						curr_func.m_scope = yyvsp[-8];
-						curr_func.m_retrunValusConst = yyvsp[-11];
-						curr_func.m_lineno = cl_scope_lineno;
-						curr_func.m_throws = yyvsp[-3];
+                        /*trim down trailing '::' from scope name*/
+                        yyvsp[-9].erase(yyvsp[-9].find_last_not_of(":")+1);
+                        curr_func.m_isVirtual = yyvsp[-12].find("virtual") != std::string::npos;
+                        curr_func.m_isPureVirtual = yyvsp[-2].find("=") != std::string::npos;
+                        curr_func.m_isConst = yyvsp[-4].find("const") != std::string::npos;
+                        curr_func.m_name = yyvsp[-7];
+                        curr_func.m_scope = yyvsp[-8];
+                        curr_func.m_retrunValusConst = yyvsp[-11];
+                        curr_func.m_lineno = cl_scope_lineno;
+                        curr_func.m_throws = yyvsp[-3];
                         curr_func.m_returnValue.m_rightSideConst = yyvsp[-9];
                         curr_func.m_returnValue.m_isConst = !yyvsp[-11].empty();
-						if(g_funcs)
-						{
-							g_funcs->push_back(curr_func);
-						}
-						curr_func.Reset();
-					}
+                        if(g_funcs)
+                        {
+                            g_funcs->push_back(curr_func);
+                        }
+                        curr_func.Reset();
+                    }
 break;
 case 73:
 {yyval = "";}
@@ -961,35 +961,35 @@ case 98:
 break;
 case 99:
 {
-								yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
-								curr_func.m_returnValue.m_type = yyvsp[-1];
-								curr_func.m_returnValue.m_typeScope = yyvsp[-2];
-								curr_func.m_returnValue.m_starAmp = yyvsp[0];
-								curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
-								yyval = yyvsp[-2] + yyvsp[-1] + yyvsp[0];
-							}
+                                yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
+                                curr_func.m_returnValue.m_type = yyvsp[-1];
+                                curr_func.m_returnValue.m_typeScope = yyvsp[-2];
+                                curr_func.m_returnValue.m_starAmp = yyvsp[0];
+                                curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
+                                yyval = yyvsp[-2] + yyvsp[-1] + yyvsp[0];
+                            }
 break;
 case 100:
 {
-								yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
-								curr_func.m_returnValue.m_type = yyvsp[-1];
-								curr_func.m_returnValue.m_typeScope = yyvsp[-2];
-								curr_func.m_returnValue.m_starAmp = yyvsp[0];
-								curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
-								yyval = yyvsp[-2] + yyvsp[-1] + yyvsp[0]  ;
-							}
+                                yyvsp[-2].erase(yyvsp[-2].find_last_not_of(":")+1);
+                                curr_func.m_returnValue.m_type = yyvsp[-1];
+                                curr_func.m_returnValue.m_typeScope = yyvsp[-2];
+                                curr_func.m_returnValue.m_starAmp = yyvsp[0];
+                                curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
+                                yyval = yyvsp[-2] + yyvsp[-1] + yyvsp[0]  ;
+                            }
 break;
 case 101:
 {
-								yyvsp[-5].erase(yyvsp[-5].find_last_not_of(":")+1);
-								curr_func.m_returnValue.m_type = yyvsp[-4];
-								curr_func.m_returnValue.m_typeScope = yyvsp[-5];
-								curr_func.m_returnValue.m_starAmp = yyvsp[0];
-								curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
-								curr_func.m_returnValue.m_isTemplate = true;
-								curr_func.m_returnValue.m_templateDecl = yyvsp[-2];
-								yyval = yyvsp[-5] + yyvsp[-4] + yyvsp[-3]  + yyvsp[-2] + yyvsp[-1] + yyvsp[0] ;
-							}
+                                yyvsp[-5].erase(yyvsp[-5].find_last_not_of(":")+1);
+                                curr_func.m_returnValue.m_type = yyvsp[-4];
+                                curr_func.m_returnValue.m_typeScope = yyvsp[-5];
+                                curr_func.m_returnValue.m_starAmp = yyvsp[0];
+                                curr_func.m_returnValue.m_isPtr = (yyvsp[0].find("*") != (size_t)-1);
+                                curr_func.m_returnValue.m_isTemplate = true;
+                                curr_func.m_returnValue.m_templateDecl = yyvsp[-2];
+                                yyval = yyvsp[-5] + yyvsp[-4] + yyvsp[-3]  + yyvsp[-2] + yyvsp[-1] + yyvsp[0] ;
+                            }
 break;
     }
     yyssp -= yym;

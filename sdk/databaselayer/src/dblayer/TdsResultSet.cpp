@@ -27,7 +27,7 @@ void TdsResultSet::Close()
 
   //if (m_pResultInfo == NULL)
     //fprintf(stderr, "m_pResultInfo is still NULL!!!\n");
-  
+
   if (m_pResultInfo != NULL)
     tds_free_results(m_pResultInfo);
 
@@ -37,44 +37,44 @@ void TdsResultSet::Close()
 void TdsResultSet::FreeResultSets()
 {
   //fprintf(stderr, "In TdsResultSet::FreeResultSets()\n");
-	int rc;
-	int result_type;
-	//while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
-	while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROW|TDS_TOKEN_RESULTS|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
-	//while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS|TDS_RETURN_ROWFMT|TDS_RETURN_ROW|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
+    int rc;
+    int result_type;
+    //while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
+    while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROW|TDS_TOKEN_RESULTS|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
+    //while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS|TDS_RETURN_ROWFMT|TDS_RETURN_ROW|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
   {
-		switch (result_type)
+        switch (result_type)
     {
-		case TDS_DONE_RESULT:
-		case TDS_DONEPROC_RESULT:
-		case TDS_DONEINPROC_RESULT:
-			/* ignore possible spurious result (TDS7+ send it) */
-		case TDS_STATUS_RESULT:
-			break;
-		case TDS_ROWFMT_RESULT:
-		case TDS_COMPUTEFMT_RESULT:
-		case TDS_DESCRIBE_RESULT:
-			break;
+        case TDS_DONE_RESULT:
+        case TDS_DONEPROC_RESULT:
+        case TDS_DONEINPROC_RESULT:
+            /* ignore possible spurious result (TDS7+ send it) */
+        case TDS_STATUS_RESULT:
+            break;
+        case TDS_ROWFMT_RESULT:
+        case TDS_COMPUTEFMT_RESULT:
+        case TDS_DESCRIBE_RESULT:
+            break;
     case TDS_ROW_RESULT:
-			//fprintf(stderr, "Warning:  TdsResultSet query should not return results.  Type: %d\n", result_type);
+            //fprintf(stderr, "Warning:  TdsResultSet query should not return results.  Type: %d\n", result_type);
     /*
       if (m_pDatabase->current_results && m_pDatabase->current_results->num_cols > 0)
       {
-			  fprintf(stderr, "Info:  TdsResultSet processing tokens\n");
-  			while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
+              fprintf(stderr, "Info:  TdsResultSet processing tokens\n");
+            while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
         {
-		  	  fprintf(stderr, "Warning:  TdsResultSet TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
-			    if (result_type != TDS_ROW_RESULT)
-			      break;
- 
-    			if (!m_pDatabase->current_results)
-	      		continue;
-		  	}
-			  fprintf(stderr, "Info:  TdsResultSet done processing tokens\n");
+              fprintf(stderr, "Warning:  TdsResultSet TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
+                if (result_type != TDS_ROW_RESULT)
+                  break;
+
+                if (!m_pDatabase->current_results)
+                continue;
+            }
+              fprintf(stderr, "Info:  TdsResultSet done processing tokens\n");
       }
       else
       {
-			  fprintf(stderr, "Info:  TdsResultSet NOT processing tokens\n");
+              fprintf(stderr, "Info:  TdsResultSet NOT processing tokens\n");
       }
       if (m_pDatabase != NULL)
         tds_free_all_results(m_pDatabase);
@@ -83,34 +83,34 @@ void TdsResultSet::FreeResultSets()
       if (m_pDatabase != NULL)
         tds_free_all_results(m_pDatabase);
       return;
-			break;
-		default:
-			//fprintf(stderr, "Error:  TdsResultSet query should not return results.  Type: %d\n", result_type);
+            break;
+        default:
+            //fprintf(stderr, "Error:  TdsResultSet query should not return results.  Type: %d\n", result_type);
       // Clean up after ourselves
       if (m_pDatabase != NULL)
         tds_free_all_results(m_pDatabase);
-			return;
-		}
-	}
+            return;
+        }
+    }
 
   // Clean up after ourselves
   if (m_pDatabase != NULL)
     tds_free_all_results(m_pDatabase);
 
-	if (rc == TDS_FAIL)
+    if (rc == TDS_FAIL)
   {
-		//fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
+        //fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
     SetErrorInformationFromDatabaseLayer();
     ThrowDatabaseException();
-		return;
-	}
+        return;
+    }
   else if (rc != TDS_NO_MORE_RESULTS)
   {
-		//fprintf(stderr, "tds_process_tokens() unexpected return\n");
+        //fprintf(stderr, "tds_process_tokens() unexpected return\n");
     SetErrorInformationFromDatabaseLayer();
     ThrowDatabaseException();
-		return;
-	}
+        return;
+    }
 }
 
 
@@ -270,7 +270,7 @@ double TdsResultSet::GetResultDouble(int nField)
   const double* src = (const double*) curcol->column_data;
 
   double dblValue = *src;
-  
+
   return dblValue;
 }
 
@@ -298,7 +298,7 @@ void* TdsResultSet::GetResultBlob(int nField, wxMemoryBuffer& Buffer)
   //fprintf(stderr, "Blob size = %d\n", nLength);
   void* pBuffer = Buffer.GetWriteBuf(nLength);
   memcpy(pBuffer, src, nLength);
-  
+
   return Buffer.GetData();
 
 /*

@@ -42,7 +42,7 @@ void OnTerminate(int signo)
         ::remove( s_localSocket.mb_str(wxConvUTF8).data() );
         wxPrintf("codelite-lldb: bye\n");
         exit(0);
-        
+
     } else {
         // Kill our child process and exit
         wxPrintf("codelite-lldb: bye\n");
@@ -95,10 +95,10 @@ int main(int argc, char** argv)
         PrintUsage();
         exit(EXIT_FAILURE);
     }
-    
+
     // Initialize SBDebugger
     lldb::SBDebugger::Initialize();
-    
+
     if ( !s_localSocket.IsEmpty() ) {
         // Start on local socket
         CodeLiteLLDBApp app(s_localSocket);
@@ -107,7 +107,7 @@ int main(int argc, char** argv)
         wxPrintf("codelite-lldb: removing socket file '%s'\n", s_localSocket);
         ::remove( s_localSocket.mb_str(wxConvUTF8).data() );
         wxPrintf("codelite-lldb: bye\n");
-        
+
     } else if ( !tcpConnectString.IsEmpty() ) {
         // TCP/IP mode, redirect stdout/err
         // wxFileName stdout_err(::wxGetHomeDir(), ".codelite-lldb-stdout-stderr.log");
@@ -121,10 +121,10 @@ int main(int argc, char** argv)
         wxString ip_addr    = tcpConnectString.BeforeFirst(':');
         wxString port_str   = tcpConnectString.AfterFirst(':');
         port_str.ToCLong( &portNum );
-        
+
         wxString invocationLine;
         invocationLine << argv[0] << " -t " << tcpConnectString << "'";
-        
+
         // Connect using tcp-ip
         // When using tcp-ip we fork the child process and wait until it terminates
         // Child code

@@ -30,18 +30,18 @@ public:
   // ctor()
   TdsDatabaseLayer();
   TdsDatabaseLayer(const wxString& strServer, const wxString& strDatabase, const wxString& strUser, const wxString& strPassword, int nTdsVersion = TDS_80);
-  
+
   // dtor()
   virtual ~TdsDatabaseLayer();
-  
+
   // open database
   virtual bool Open(const wxString& strDatabase);
-  
+
   bool Connect();
 
-  // close database  
+  // close database
   virtual bool Close();
-  
+
   // Is the connection to the database open?
   virtual bool IsOpen();
 
@@ -49,15 +49,15 @@ public:
   virtual void BeginTransaction();
   virtual void Commit();
   virtual void RollBack();
-  
+
   // query database
   virtual int RunQuery(const wxString& strQuery, bool bParseQuery);
   virtual DatabaseResultSet* RunQueryWithResults(const wxString& strQuery);
-  
+
   // PreparedStatement support
   virtual PreparedStatement* PrepareStatement(const wxString& strQuery);
   PreparedStatement* PrepareStatement(const wxString& strQuery, bool bLogForCleanup);
-  
+
   void SetServer(const wxString& strServer) { m_strServer = strServer; }
   void SetDatabase(const wxString& strDatabase) { m_strDatabase = strDatabase; }
   void SetLogin(const wxString& strLogin) { m_strLogin = strLogin; }

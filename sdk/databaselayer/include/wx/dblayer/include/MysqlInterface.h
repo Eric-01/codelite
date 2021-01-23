@@ -83,7 +83,7 @@ public:
   MysqlStmtBindParamType GetMysqlStmtBindParam() { return m_pMysqlStmtBindParam; }
   MysqlStmtFetchType GetMysqlStmtFetch() { return m_pMysqlStmtFetch; }
   MysqlStmtBindResultType GetMysqlStmtBindResult() { return m_pMysqlStmtBindResult; }
-  
+
 private:
   wxDynamicLibrary m_MysqlDLL;
 

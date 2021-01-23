@@ -35,8 +35,8 @@ public:
   void SetParam(int nPosition, const wxDateTime& dateValue);
   void SetParam(int nPosition, bool bValue);
   void SetParam(int nPosition, PostgresParameter& Parameter);
-  
-  
+
+
 private:
   ArrayOfPostgresParameters m_Parameters;
 };

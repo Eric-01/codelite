@@ -47,7 +47,7 @@ const PHPDocProperty::Tuple_t& PHPDocProperty::ParseMethods()
             line = line.Mid(where + 7); // skip "@method"
             line.Replace("\t", " ");
             line.Trim().Trim(false);
-        
+
             // @method [return type] [name]([[type] [parameter]<, …>]) [<description>]
             wxString sig;
             sig = line.AfterFirst('(');

@@ -28,7 +28,7 @@
  * Purpose:   Header to create icon for plugin.
  * Author:    Václav Špruček
  * Created:   2012-03-04
- * Copyright: Václav Špruček 
+ * Copyright: Václav Špruček
  * License:   wxWidgets license (www.wxwidgets.org)
  * Notes:
  **************************************************************/
@@ -69,7 +69,7 @@ const static char * cg16_icon_xpm[] =
 ".+===+.....+---+.",
 "..+++.......+++.."
 };
-	
+
 /**
 * @brief Define Call Graph icon for sie 24x24.
 */

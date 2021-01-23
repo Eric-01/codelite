@@ -47,21 +47,21 @@ protected:
     wxString                m_active;
     wxString                m_buildPerspective;
     wxAuiManager *          m_aui;
-    
+
 protected:
     wxString DoGetPathFromName(const wxString &name);
     void DoEnsureDebuggerPanesAreVisible();
     void DoShowPane(const wxString &panename, bool show, bool &needUpdate);
     // Event handlers
     void OnPaneClosing(wxAuiManagerEvent &event);
-    
+
 public:
     PerspectiveManager();
     virtual ~PerspectiveManager();
-    
+
     void ConnectEvents(wxAuiManager* mgr);
     void DisconnectEvents();
-    
+
     void ToggleOutputPane(bool hide);
     void SetActive(const wxString& active) {
         this->m_active = active;
@@ -75,7 +75,7 @@ public:
     void          LoadPerspectiveByMenuId(int id);
     void          SavePerspective(const wxString &name = wxT(""), bool notify = true);
     void          SavePerspectiveIfNotExists(const wxString &name);
-    
+
     wxArrayString GetAllPerspectives();
     void          DeleteAllPerspectives();
     void          ClearIds();

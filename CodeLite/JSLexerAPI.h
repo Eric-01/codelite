@@ -64,14 +64,14 @@ struct WXDLLIMPEXP_CL JSLexerToken
         , type(0)
     {
     }
-    
+
     JSLexerToken(int tokenType)
         : lineNumber(0)
         , column(0)
         , type(tokenType)
     {
     }
-    
+
     void Clear() {
         lineNumber = 0;
         column = 0;
@@ -92,7 +92,7 @@ private:
     int m_commentStartLine;
     int m_commentEndLine;
     FILE* m_currentPF;
-    
+
 public:
     void* parserData;
 
@@ -179,5 +179,5 @@ WXDLLIMPEXP_CL wxString jsLexerCurrentToken(JSScanner_t scanner);
  * @brief return the associated data with this scanner
  */
 WXDLLIMPEXP_CL JSLexerUserData* jsLexerGetUserData(JSScanner_t scanner);
- 
+
 #endif

@@ -33,7 +33,7 @@ class PHPUserWorkspace
 {
     XDebugBreakpoint::List_t m_breakpoints;
     wxString                 m_workspacePath;
-    
+
 protected:
     wxFileName GetFileName() const;
 

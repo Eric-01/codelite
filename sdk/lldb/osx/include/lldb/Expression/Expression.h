@@ -92,7 +92,7 @@ public:
 
   /// LLVM-style RTTI support.
   ExpressionKind getKind() const { return m_kind; }
-  
+
 private:
   /// LLVM-style RTTI support.
   const ExpressionKind m_kind;

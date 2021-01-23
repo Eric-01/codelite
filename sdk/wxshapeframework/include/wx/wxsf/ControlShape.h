@@ -42,27 +42,27 @@ public:
     virtual ~EventSink();
 
     // public functions
-	/*!
+    /*!
      * \brief Event handler used for delayed processing of a mouse button events.
-	 * The handler creates new key event instance and sends it to a shape canvas for further processing.
-	 * \param event Mouse event
-	 */
-	void _OnMouseButton(wxMouseEvent &event);
-	/*!
+     * The handler creates new key event instance and sends it to a shape canvas for further processing.
+     * \param event Mouse event
+     */
+    void _OnMouseButton(wxMouseEvent &event);
+    /*!
      * \brief Event handler used for delayed processing of a mouse event (mouse movement).
-	 * The handler creates new key event instance and sends it to a shape canvas for further processing.
-	 * \param event Mouse event
-	 */
-	void _OnMouseMove(wxMouseEvent &event);
-	/*!
-	 * \brief Event handler used for delayed processing of a key event.
-	 * The handler creates new key event instance and sends it to a shape canvas for further processing.
-	 * \param event Keyboard event
-	 */
-	void _OnKeyDown(wxKeyEvent &event);
+     * The handler creates new key event instance and sends it to a shape canvas for further processing.
+     * \param event Mouse event
+     */
+    void _OnMouseMove(wxMouseEvent &event);
+    /*!
+     * \brief Event handler used for delayed processing of a key event.
+     * The handler creates new key event instance and sends it to a shape canvas for further processing.
+     * \param event Keyboard event
+     */
+    void _OnKeyDown(wxKeyEvent &event);
 
     /*! \brief Event handler used for adjusting the parent shape's size in accordance to size of managed GUI control. */
-	void _OnSize(wxSizeEvent &event);
+    void _OnSize(wxSizeEvent &event);
 
 protected:
     // protected data members
@@ -70,16 +70,16 @@ protected:
     wxSFControlShape *m_pParentShape;
 
     // protected functions
-	/*!
-	 * \brief Send copy of incomming event to a shape canvas.
-	 * \param event Event to be send
-	 */
+    /*!
+     * \brief Send copy of incomming event to a shape canvas.
+     * \param event Event to be send
+     */
     void SendEvent(wxEvent &event);
-	/*!
-	 * \brief Modify given mouse event (recalculate the event's position in accordance to parent control
-	 * shape's position.
-	 * \param event Mouse event to be updated;
-	 */
+    /*!
+     * \brief Modify given mouse event (recalculate the event's position in accordance to parent control
+     * shape's position.
+     * \param event Mouse event to be updated;
+     */
     void UpdateMouseEvent(wxMouseEvent &event);
 };
 
@@ -186,8 +186,8 @@ public:
      * \return Offset size
      */
     int GetControlOffset(){return m_nControlOffset;}
-	
-	// public functions
+
+    // public functions
     /*! \brief Update size and position of the managed control according to the parent shape. */
     void UpdateControl();
     /*! \brief Update size of the shape position according to the managed control. */
@@ -196,78 +196,78 @@ public:
     // public virtual functions
 
     /*!
-	 * \brief Scale the shape size by in both directions. The function can be overrided if necessary
+     * \brief Scale the shape size by in both directions. The function can be overrided if necessary
      * (new implementation should call default one ore scale shape's children manualy if neccesary).
      * \param x Horizontal scale factor
      * \param y Vertical scale factor
      * \param children TRUE if the shape's children shoould be scaled as well, otherwise the shape will be updated after scaling via Update() function.
      */
-	virtual void Scale(double x, double y, bool children = sfWITHCHILDREN);
-	/*!
-	 * \brief Move the shape to the given absolute position. The function can be overrided if necessary.
-	 * \param x X coordinate
-	 * \param y Y coordinate
-	 */
-	virtual void MoveTo(double x, double y);
-	/*!
-	 * \brief Move the shape by the given offset. The function can be overrided if neccessary.
-	 * \param x X offset
-	 * \param y Y offset
-	 */
-	virtual void MoveBy(double x, double y);
-	
-	/*! \brief Upate shape (align all child shapes an resize it to fit them) */
-	virtual void Update();
+    virtual void Scale(double x, double y, bool children = sfWITHCHILDREN);
+    /*!
+     * \brief Move the shape to the given absolute position. The function can be overrided if necessary.
+     * \param x X coordinate
+     * \param y Y coordinate
+     */
+    virtual void MoveTo(double x, double y);
+    /*!
+     * \brief Move the shape by the given offset. The function can be overrided if neccessary.
+     * \param x X offset
+     * \param y Y offset
+     */
+    virtual void MoveBy(double x, double y);
+
+    /*! \brief Upate shape (align all child shapes an resize it to fit them) */
+    virtual void Update();
 
     /*! \brief Resize the shape to bound all child shapes. The function can be overrided if neccessary. */
-	virtual void FitToChildren();
+    virtual void FitToChildren();
 
-	/*!
-	 * \brief Event handler called at the begining of the shape dragging process.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \sa wxSFShapeCanvas
-	 */
-	virtual void OnBeginDrag(const wxPoint& pos);
-	/*!
-	 * \brief Event handler called at the end of the shape dragging process.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \param pos Current mouse position
-	 * \sa wxSFShapeCanvas
-	 */
-	virtual void OnEndDrag(const wxPoint& pos);
-	/*!
-	 * \brief Event handler called when the user started to drag the shape handle.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \param handle Reference to dragged handle
-	 */
-	virtual void OnBeginHandle(wxSFShapeHandle& handle);
-	/*!
-	 * \brief Event handler called during dragging of the shape handle.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \param handle Reference to dragged handle
-	 */
-	virtual void OnHandle(wxSFShapeHandle& handle);
-	/*!
-	 * \brief Event handler called when the user finished dragging of the shape handle.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \param handle Reference to dragged handle
-	 */
-	virtual void OnEndHandle(wxSFShapeHandle& handle);
+    /*!
+     * \brief Event handler called at the begining of the shape dragging process.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \sa wxSFShapeCanvas
+     */
+    virtual void OnBeginDrag(const wxPoint& pos);
+    /*!
+     * \brief Event handler called at the end of the shape dragging process.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \param pos Current mouse position
+     * \sa wxSFShapeCanvas
+     */
+    virtual void OnEndDrag(const wxPoint& pos);
+    /*!
+     * \brief Event handler called when the user started to drag the shape handle.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \param handle Reference to dragged handle
+     */
+    virtual void OnBeginHandle(wxSFShapeHandle& handle);
+    /*!
+     * \brief Event handler called during dragging of the shape handle.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \param handle Reference to dragged handle
+     */
+    virtual void OnHandle(wxSFShapeHandle& handle);
+    /*!
+     * \brief Event handler called when the user finished dragging of the shape handle.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \param handle Reference to dragged handle
+     */
+    virtual void OnEndHandle(wxSFShapeHandle& handle);
 
 protected:
 
@@ -303,8 +303,8 @@ private:
     wxPen m_PrevBorder;
 
     // private functions
-	 /*! \brief Initialize serializable properties. */
-	void MarkSerializableDataMembers();
+     /*! \brief Initialize serializable properties. */
+    void MarkSerializableDataMembers();
 
 };
 

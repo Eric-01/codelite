@@ -36,7 +36,7 @@ public:
 
   void AddStatement(PGconn* pDatabase, const wxString& strSQL, const wxString& strStatementName);
   static PostgresPreparedStatement* CreateStatement(PostgresInterface* pInterface, PGconn* pDatabase, const wxString& strSQL);
-  
+
   // set field
   virtual void SetParamInt(int nPosition, int nValue);
   virtual void SetParamDouble(int nPosition, double dblValue);
@@ -46,7 +46,7 @@ public:
   virtual void SetParamDate(int nPosition, const wxDateTime& dateValue);
   virtual void SetParamBool(int nPosition, bool bValue);
   virtual int GetParameterCount();
-  
+
   virtual int RunQuery();
   virtual DatabaseResultSet* RunQueryWithResults();
 

@@ -34,7 +34,7 @@ class wxSocketBase;
 class XDebugBreakpointCmdHandler : public XDebugCommandHandler
 {
     XDebugBreakpoint &m_breakpoint;
-    
+
 public:
     XDebugBreakpointCmdHandler(XDebugManager* mgr, int transcationId, XDebugBreakpoint &breakpoint);
     virtual ~XDebugBreakpointCmdHandler();

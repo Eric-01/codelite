@@ -25,7 +25,7 @@ clResizableTooltip::~clResizableTooltip()
     clConfig::Get().Write("Tooltip/Height", GetSize().GetHeight());
     clConfig::Get().Write("Tooltip/Width", GetSize().GetWidth());
 }
-    
+
 void clResizableTooltip::OnItemExpanding(wxTreeEvent& event) { event.Skip(); }
 
 void clResizableTooltip::Clear() { m_treeCtrl->DeleteAllItems(); }

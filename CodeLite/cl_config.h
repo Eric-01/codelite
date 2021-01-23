@@ -89,7 +89,7 @@ protected:
     wxFileName m_filename;
     JSON* m_root;
     std::map<wxString, wxArrayString> m_cacheRecentItems;
-    
+
 protected:
     void DoDeleteProperty(const wxString& property);
     JSONItem GetGeneralSetting();
@@ -156,15 +156,15 @@ public:
     // wxArrayString
     wxArrayString Read(const wxString& name, const wxArrayString& defaultValue);
     void Write(const wxString& name, const wxArrayString& value);
-    
+
     // wxFont
     wxFont Read(const wxString& name, const wxFont& defaultValue);
     void Write(const wxString& name, const wxFont& value);
-    
+
     // wxColour
     wxColour Read(const wxString& name, const wxColour& defaultValue);
     void Write(const wxString& name, const wxColour& value);
-    
+
     // Quick Find Bar history
     void AddQuickFindSearchItem(const wxString& str);
     void AddQuickFindReplaceItem(const wxString& str);

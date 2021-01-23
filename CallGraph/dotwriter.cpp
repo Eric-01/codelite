@@ -130,14 +130,14 @@ void DotWriter::WriteToDotLanguage()
             dlabel += wxT("(");
             // self or children if have function childern line
             // if(line->self >= line->childern)
-            //	dlabel += wxString::Format(wxT("%.2f"), line->self);
+            //     dlabel += wxString::Format(wxT("%.2f"), line->self);
             // else
             dlabel += wxString::Format(wxT("%.2f"), line->self + line->children);
             dlabel += wxT("s)");
             dlabel += wxT("\\n");
             if(line->called0 != -1) dlabel += wxString::Format(wxT("%i"), line->called0) + wxT("x");
             // if(line->recursive)
-            //	dlabel += wxT(" (") + wxString::Format(wxT("%i"),line->called0 + line->called1) + wxT("x)");
+            //     dlabel += wxT(" (") + wxString::Format(wxT("%i"),line->called0 + line->called1) + wxT("x)");
             dlabel += wxT("\",fontcolor=\"");
             dlabel += DefineColorForLabel(ReturnIndexForColor(line->time, dwcn));
             dlabel += wxT("\", color=\"");

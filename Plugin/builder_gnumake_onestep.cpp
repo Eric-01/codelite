@@ -86,7 +86,7 @@ void BuilderGnuMakeOneStep::CreateLinkTargets(
     CreateTargets(type, bldConf, text); // overridden CreateTargets
 
     // if (bldConf->IsLinkerRequired()) {
-    //	CreateTargets(type, bldConf, text);
+    //     CreateTargets(type, bldConf, text);
     //}
 }
 

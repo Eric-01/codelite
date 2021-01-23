@@ -32,17 +32,17 @@
 class WXDLLIMPEXP_CL XORString
 {
     wxString m_value;
-    
+
 protected:
     wxString toHexString(const wxString &value) const;
     wxString fromHexString(const wxString& hexString) const;
     wxString XOR(const wxString& str, const wxChar KEY) const;
-    
+
 public:
     XORString(const wxString &value);
     XORString();
     virtual ~XORString();
-    
+
     wxString Decrypt(const wxChar byte = 's') const;
     wxString Encrypt(const wxChar byte = 's') const;
 };

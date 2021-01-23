@@ -23,7 +23,7 @@ public:
 
     void SetDebuggerFeatures(size_t debuggerFeatures) { this->m_debuggerFeatures = debuggerFeatures; }
     size_t GetDebuggerFeatures() const { return m_debuggerFeatures; }
-    
+
     /**
      * @brief is the toolbar visible?
      */

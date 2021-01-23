@@ -1,6 +1,6 @@
 #include "../include/SqliteResultSetMetaData.h"
 
-/* 
+/*
    SPECIAL NOTE:
     The sqlite3_column_* functions are 0-based, but the JDBC ResultSetMetaData
     functions are 1-based.  To be consistent with the 1-based JDBC (and also

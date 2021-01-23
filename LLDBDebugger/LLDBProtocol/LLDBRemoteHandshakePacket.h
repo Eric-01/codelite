@@ -37,7 +37,7 @@ public:
     LLDBRemoteHandshakePacket();
     LLDBRemoteHandshakePacket(const wxString &json);
     ~LLDBRemoteHandshakePacket();
-    
+
     // Serialization API
     void FromJSON(const JSONItem& json);
     JSONItem ToJSON() const;

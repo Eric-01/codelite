@@ -40,46 +40,46 @@ class IManager;
 /** Implementing EditSnippetsBaseDlg */
 class EditSnippetsDlg : public EditSnippetsBaseDlg
 {
-	bool 			m_modified;		// modified flag
-	SnipWiz* 		m_pPlugin;		// pointer to plugin
-	IManager*		m_manager;
-	
+    bool 			m_modified;		// modified flag
+    SnipWiz* 		m_pPlugin;		// pointer to plugin
+    IManager*		m_manager;
+    
 protected:
-	// Handlers for EditSnippetsBaseDlg events.
-	void OnItemSelected( wxCommandEvent& event );
-	void OnAddSnippet( wxCommandEvent& event );
-	void OnAddSnippetUI( wxUpdateUIEvent& event );
-	void OnChangeSnippet( wxCommandEvent& event );
-	void OnChangeSnippetUI( wxUpdateUIEvent& event );
-	void OnRemoveSnippet( wxCommandEvent& event );
-	void OnRemoveSnippetUI( wxUpdateUIEvent& event );
-	
-	void SelectItem(long index);
-	void OnButtonKeyShortcut(wxCommandEvent &e);
-	void DoItemSelected(const wxString& text);
-	
+    // Handlers for EditSnippetsBaseDlg events.
+    void OnItemSelected( wxCommandEvent& event );
+    void OnAddSnippet( wxCommandEvent& event );
+    void OnAddSnippetUI( wxUpdateUIEvent& event );
+    void OnChangeSnippet( wxCommandEvent& event );
+    void OnChangeSnippetUI( wxUpdateUIEvent& event );
+    void OnRemoveSnippet( wxCommandEvent& event );
+    void OnRemoveSnippetUI( wxUpdateUIEvent& event );
+    
+    void SelectItem(long index);
+    void OnButtonKeyShortcut(wxCommandEvent &e);
+    void DoItemSelected(const wxString& text);
+    
 public:
-	/** Constructor */
-	EditSnippetsDlg( wxWindow* parent, SnipWiz *plugin, IManager *manager );
-	
-	void Initialize();
-	
-	swStringDb* GetStringDb() ;
-	
-	void SetModified(const bool& modified) {
-		this->m_modified = modified;
-	}
-	
-	void SetPPlugin(SnipWiz* pPlugin) {
-		this->m_pPlugin = pPlugin;
-	}
-	
-	const bool& GetModified() const {
-		return m_modified;
-	}
-	SnipWiz* GetPPlugin() {
-		return m_pPlugin;
-	}
+    /** Constructor */
+    EditSnippetsDlg( wxWindow* parent, SnipWiz *plugin, IManager *manager );
+    
+    void Initialize();
+    
+    swStringDb* GetStringDb() ;
+    
+    void SetModified(const bool& modified) {
+        this->m_modified = modified;
+    }
+    
+    void SetPPlugin(SnipWiz* pPlugin) {
+        this->m_pPlugin = pPlugin;
+    }
+    
+    const bool& GetModified() const {
+        return m_modified;
+    }
+    SnipWiz* GetPPlugin() {
+        return m_pPlugin;
+    }
 };
 
 #endif // __editsnippetsdlg__

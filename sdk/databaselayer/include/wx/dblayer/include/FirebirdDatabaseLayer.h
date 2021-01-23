@@ -19,19 +19,19 @@ public:
   FirebirdDatabaseLayer(const wxString& strServer , const wxString& strDatabase, const wxString& strUser, const wxString& strPassword, const wxString& strRole);
   //FirebirdDatabaseLayer(isc_db_handle pDatabase) { m_pDatabase = pDatabase; }
   FirebirdDatabaseLayer(void* pDatabase) { m_pDatabase = pDatabase; }
-  
+
   // dtor()
   virtual ~FirebirdDatabaseLayer();
-  
+
   // open database
   virtual bool Open(const wxString& strDatabase);
   virtual bool Open();
   virtual bool Open(const wxString& strDatabase, const wxString& strUser, const wxString& strPassword);
   virtual bool Open(const wxString& strServer, const wxString& strDatabase, const wxString& strUser = wxT(""), const wxString& strPassword = wxT(""));
-  
-  // close database  
+
+  // close database
   virtual bool Close();
-  
+
   // Is the connection to the database open?
   virtual bool IsOpen();
 
@@ -39,14 +39,14 @@ public:
   virtual void BeginTransaction();
   virtual void Commit();
   virtual void RollBack();
-  
+
   // query database
   virtual int RunQuery(const wxString& strQuery, bool bParseQuery);
   virtual DatabaseResultSet* RunQueryWithResults(const wxString& strQuery);
-  
+
   // PreparedStatement support
   virtual PreparedStatement* PrepareStatement(const wxString& strQuery);
-  
+
   static int TranslateErrorCode(int nCode);
   //static wxString TranslateErrorCodeToString(FirebirdInterface* pInterface, int nCode, ISC_STATUS_ARRAY status);
   static wxString TranslateErrorCodeToString(FirebirdInterface* pInterface, int nCode, void* status);
@@ -67,8 +67,8 @@ public:
 
 private:
   void Connect();
-  void InterpretErrorCodes(); 
-  
+  void InterpretErrorCodes();
+
 #ifndef DONT_USE_DYNAMIC_DATABASE_LAYER_LINKING
   FirebirdInterface* m_pInterface;
 #endif

@@ -109,7 +109,7 @@ bool OdbcDatabaseLayer::Open( )
      SQLSMALLINT iLen;
 
      memset(buff, 0, 8192*sizeof(SQLTCHAR));
-     
+
      //wxCharBuffer connectionCharBuffer = ConvertToUnicodeStream(m_strConnection);
      void* connectionCharBuffer = (void*)m_strConnection.c_str();
 #if wxUSE_GUI
@@ -131,8 +131,8 @@ bool OdbcDatabaseLayer::Open( )
      return false;
    }
 
-   m_bIsConnected = true;    
-        
+   m_bIsConnected = true;
+
    return true;
 }
 
@@ -174,7 +174,7 @@ bool OdbcDatabaseLayer::Open( const wxString& strDSN, const wxString& strUser, c
     m_bPrompt = false;
     m_pParent = NULL;
 #endif
-        
+
     return Open();
 }
 
@@ -185,7 +185,7 @@ bool OdbcDatabaseLayer::Close()
    CloseResultSets();
    CloseStatements();
 
-   if (m_bIsConnected) 
+   if (m_bIsConnected)
    {
       SQLRETURN nRet = m_pInterface->GetSQLDisconnect()((SQLHDBC)m_sqlHDBC);
       if ( nRet != SQL_SUCCESS )
@@ -246,7 +246,7 @@ void OdbcDatabaseLayer::RollBack()
      InterpretErrorCodes( nRet );
      ThrowDatabaseException();
    }
-   
+
    nRet = m_pInterface->GetSQLSetConnectAttr()((SQLHDBC)m_sqlHDBC, SQL_ATTR_AUTOCOMMIT, (SQLPOINTER)SQL_AUTOCOMMIT_ON, SQL_IS_INTEGER);
    if ( nRet != SQL_SUCCESS )
    {
@@ -316,7 +316,7 @@ void* OdbcDatabaseLayer::allocStmth()
     ResetErrorCodes();
 
     SQLHANDLE handle = NULL;
-        
+
     SQLRETURN nRet = m_pInterface->GetSQLAllocHandle()(SQL_HANDLE_STMT, (SQLHDBC)m_sqlHDBC, &handle);
     if ( nRet != SQL_SUCCESS )
     {
@@ -402,7 +402,7 @@ bool OdbcDatabaseLayer::TableExists(const wxString& table)
     bReturn = true;
 
   m_pInterface->GetSQLFreeStmt()(pStatement, SQL_CLOSE);
-  
+
   return bReturn;
 }
 
@@ -434,7 +434,7 @@ bool OdbcDatabaseLayer::ViewExists(const wxString& view)
     bReturn = true;
 
   m_pInterface->GetSQLFreeStmt()(pStatement, SQL_CLOSE);
-  
+
   return bReturn;
 }
 
@@ -485,7 +485,7 @@ wxArrayString OdbcDatabaseLayer::GetTables()
   }
 
   m_pInterface->GetSQLFreeStmt()(pStatement, SQL_CLOSE);
-  
+
   return returnArray;
 }
 
@@ -536,7 +536,7 @@ wxArrayString OdbcDatabaseLayer::GetViews()
   }
 
   m_pInterface->GetSQLFreeStmt()(pStatement, SQL_CLOSE);
-  
+
   return returnArray;
 }
 
@@ -607,12 +607,12 @@ void OdbcDatabaseLayer::InterpretErrorCodes( long nCode, void* stmth_ptr )
     memset(strBuffer, 0, ERR_BUFFER_LEN*sizeof(SQLTCHAR));
 
     if (stmth_ptr)
-      m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, (SQLHSTMT)stmth_ptr, 1, strState, &iNativeCode, 
-        strBuffer, ERR_BUFFER_LEN, &iMsgLen);  
+      m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, (SQLHSTMT)stmth_ptr, 1, strState, &iNativeCode,
+        strBuffer, ERR_BUFFER_LEN, &iMsgLen);
     else
       m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_DBC, (SQLHDBC)m_sqlHDBC, 1, strState, &iNativeCode,
-        strBuffer, ERR_BUFFER_LEN, &iMsgLen);  
- 
+        strBuffer, ERR_BUFFER_LEN, &iMsgLen);
+
     SetErrorCode((int)iNativeCode);
     //SetErrorMessage(ConvertFromUnicodeStream((char*)strBuffer));
     SetErrorMessage(wxString((wxChar*)strBuffer));

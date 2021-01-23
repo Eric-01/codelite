@@ -80,7 +80,7 @@ class CMakeHelpTab : public CMakeHelpTabBase, public wxThreadHelper,
 
 // Public Ctors & Dtors
 public:
-   
+
     /**
      * @brief Constructor.
      *
@@ -92,7 +92,7 @@ public:
 
 // Protected Events
 protected:
-    
+
     /**
      * @brief create help page with a given content
      */
@@ -247,7 +247,7 @@ public:
      * @brief stop the worker thread
      */
     virtual void Stop();
-    
+
 // Protected Operations
 protected:
 
@@ -302,7 +302,7 @@ private:
 
     /// Current progress state.
     int m_progress;
-    
+
     ThemeHandlerHelper::Ptr m_themeHelper;
 };
 

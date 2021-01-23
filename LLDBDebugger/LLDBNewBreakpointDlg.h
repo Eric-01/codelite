@@ -35,7 +35,7 @@ public:
     LLDBNewBreakpointDlg(wxWindow* parent);
     virtual ~LLDBNewBreakpointDlg();
     LLDBBreakpoint::Ptr_t GetBreakpoint();
-    
+
 protected:
     virtual void OnCheckFileAndLine(wxCommandEvent& event);
     virtual void OnCheckFuncName(wxCommandEvent& event);

@@ -4268,7 +4268,7 @@ void wxStyledTextCtrl::OnMouseWheel(wxMouseEvent& evt)
     m_swx->DoMouseWheel(evt.GetWheelRotation(),
                         evt.GetWheelDelta(),
 #ifdef __WXGTK__
-			5,
+            5,
 #else
                         evt.GetLinesPerAction(),
 #endif

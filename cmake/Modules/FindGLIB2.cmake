@@ -5,7 +5,7 @@
 #  GLIB2_INCLUDE_DIRS - the GLib2 include directory
 #  GLIB2_LIBRARIES - Link these to use GLib2
 #
-#  HAVE_GLIB_GREGEX_H  glib has gregex.h header and 
+#  HAVE_GLIB_GREGEX_H  glib has gregex.h header and
 #                      supports g_regex_match_simple
 #
 #  Copyright (c) 2006 Andreas Schneider <mail@cynapses.org>
@@ -207,11 +207,11 @@ ELSE (GLIB2_LIBRARIES AND GLIB2_INCLUDE_DIRS )
 ENDIF (GLIB2_LIBRARIES AND GLIB2_INCLUDE_DIRS)
 
 IF ( GLIB2_FOUND )
-	# Check if system has a newer version of glib
-	# which supports g_regex_match_simple
-	INCLUDE( CheckIncludeFiles )
-	SET( CMAKE_REQUIRED_INCLUDES ${GLIB2_INCLUDE_DIRS} )
-	CHECK_INCLUDE_FILES ( glib/gregex.h HAVE_GLIB_GREGEX_H )
-	# Reset CMAKE_REQUIRED_INCLUDES
-	SET( CMAKE_REQUIRED_INCLUDES "" )
+    # Check if system has a newer version of glib
+    # which supports g_regex_match_simple
+    INCLUDE( CheckIncludeFiles )
+    SET( CMAKE_REQUIRED_INCLUDES ${GLIB2_INCLUDE_DIRS} )
+    CHECK_INCLUDE_FILES ( glib/gregex.h HAVE_GLIB_GREGEX_H )
+    # Reset CMAKE_REQUIRED_INCLUDES
+    SET( CMAKE_REQUIRED_INCLUDES "" )
 ENDIF( GLIB2_FOUND )

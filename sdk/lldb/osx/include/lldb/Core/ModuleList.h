@@ -53,7 +53,7 @@ public:
   bool SetClangModulesCachePath(llvm::StringRef path);
   bool GetEnableExternalLookup() const;
   bool SetEnableExternalLookup(bool new_value);
-}; 
+};
 
 /// \class ModuleList ModuleList.h "lldb/Core/ModuleList.h"
 /// A collection class for Module objects.
@@ -116,10 +116,10 @@ public:
   ///     If true, and a notifier function is set, the notifier function
   ///     will be called.  Defaults to true.
   ///
-  ///     When this ModuleList is the Target's ModuleList, the notifier 
-  ///     function is Target::ModulesDidLoad -- the call to 
-  ///     ModulesDidLoad may be deferred when adding multiple Modules 
-  ///     to the Target, but it must be called at the end, 
+  ///     When this ModuleList is the Target's ModuleList, the notifier
+  ///     function is Target::ModulesDidLoad -- the call to
+  ///     ModulesDidLoad may be deferred when adding multiple Modules
+  ///     to the Target, but it must be called at the end,
   ///     before resuming execution.
   void Append(const lldb::ModuleSP &module_sp, bool notify = true);
 
@@ -141,10 +141,10 @@ public:
   ///     If true, and a notifier function is set, the notifier function
   ///     will be called.  Defaults to true.
   ///
-  ///     When this ModuleList is the Target's ModuleList, the notifier 
-  ///     function is Target::ModulesDidLoad -- the call to 
-  ///     ModulesDidLoad may be deferred when adding multiple Modules 
-  ///     to the Target, but it must be called at the end, 
+  ///     When this ModuleList is the Target's ModuleList, the notifier
+  ///     function is Target::ModulesDidLoad -- the call to
+  ///     ModulesDidLoad may be deferred when adding multiple Modules
+  ///     to the Target, but it must be called at the end,
   ///     before resuming execution.
   bool AppendIfNeeded(const lldb::ModuleSP &module_sp, bool notify = true);
 
@@ -438,10 +438,10 @@ public:
   ///     If true, and a notifier function is set, the notifier function
   ///     will be called.  Defaults to true.
   ///
-  ///     When this ModuleList is the Target's ModuleList, the notifier 
-  ///     function is Target::ModulesDidUnload -- the call to 
-  ///     ModulesDidUnload may be deferred when removing multiple Modules 
-  ///     from the Target, but it must be called at the end, 
+  ///     When this ModuleList is the Target's ModuleList, the notifier
+  ///     function is Target::ModulesDidUnload -- the call to
+  ///     ModulesDidUnload may be deferred when removing multiple Modules
+  ///     from the Target, but it must be called at the end,
   ///     before resuming execution.
   bool Remove(const lldb::ModuleSP &module_sp, bool notify = true);
 
@@ -500,7 +500,7 @@ public:
   static size_t RemoveOrphanSharedModules(bool mandatory);
 
   static bool RemoveSharedModuleIfOrphaned(const Module *module_ptr);
-  
+
   void ForEach(std::function<bool(const lldb::ModuleSP &module_sp)> const
                    &callback) const;
 

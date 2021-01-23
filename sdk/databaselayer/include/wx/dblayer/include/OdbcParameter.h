@@ -42,10 +42,10 @@ public:
     PARAM_BLOB,
     PARAM_NULL
   };
-   
+
   long GetDataLength();
   long* GetDataLengthPointer();
-  
+
   void* GetDataPtr();
   SQLSMALLINT GetValueType();
   SQLSMALLINT GetParameterType();
@@ -58,7 +58,7 @@ public:
 
 private:
   int m_nParameterType;
-  
+
   // A union would probably be better here
   TIMESTAMP_STRUCT m_DateValue;
   wxString m_strValue;
@@ -69,7 +69,7 @@ private:
   wxMemoryBuffer m_BufferValue;
   wxCharBuffer m_CharBufferValue;
   long m_nBufferLength;
-  
+
 };
 
 

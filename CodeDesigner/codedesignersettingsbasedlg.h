@@ -29,34 +29,34 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class CodeDesignerBaseDlg
 ///////////////////////////////////////////////////////////////////////////////
-class CodeDesignerBaseDlg : public wxDialog 
+class CodeDesignerBaseDlg : public wxDialog
 {
-	private:
-	
-	protected:
-		wxPanel* m_panel1;
-		wxStaticText* m_staticText1;
-		wxTextCtrl* m_textCtrlCDPath;
-		wxButton* m_buttonBrowse;
-		wxStaticText* m_staticText3;
-		wxTextCtrl* m_textCtrlComPort;
-		
-		wxStaticLine* m_staticline1;
-		wxButton* m_buttonOk;
-		wxButton* m_buttonCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnInit( wxInitDialogEvent& event ) { event.Skip(); }
-		virtual void OnButtonBrowse( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonOK( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonCancel( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		CodeDesignerBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("CodeDesigner RAD Settings..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~CodeDesignerBaseDlg();
-	
+    private:
+
+    protected:
+        wxPanel* m_panel1;
+        wxStaticText* m_staticText1;
+        wxTextCtrl* m_textCtrlCDPath;
+        wxButton* m_buttonBrowse;
+        wxStaticText* m_staticText3;
+        wxTextCtrl* m_textCtrlComPort;
+
+        wxStaticLine* m_staticline1;
+        wxButton* m_buttonOk;
+        wxButton* m_buttonCancel;
+
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnInit( wxInitDialogEvent& event ) { event.Skip(); }
+        virtual void OnButtonBrowse( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnButtonOK( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnButtonCancel( wxCommandEvent& event ) { event.Skip(); }
+
+
+    public:
+
+        CodeDesignerBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("CodeDesigner RAD Settings..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE );
+        ~CodeDesignerBaseDlg();
+
 };
 
 #endif //__codedesignersettingsbasedlg__

@@ -3034,12 +3034,12 @@ void FileViewTree::OnBuildParentProject(wxCommandEvent& e)
     wxUnusedVar(e);
     wxTreeItemId item = GetSelection();
     CHECK_ITEM_RET(item);
-    
+
     ProjectPtr proj = GetItemProject(item);
     CHECK_PTR_RET(proj);
-    
+
     // Trigger project only build
     wxCommandEvent eventBuild(wxEVT_CMD_BUILD_PROJECT_ONLY);
     eventBuild.SetString(proj->GetName());
-    EventNotifier::Get()->QueueEvent(eventBuild.Clone());    
+    EventNotifier::Get()->QueueEvent(eventBuild.Clone());
 }

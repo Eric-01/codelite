@@ -17,7 +17,7 @@ clCommandProcessor::clCommandProcessor(const wxString& command, const wxString& 
 {
     Bind(wxEVT_ASYNC_PROCESS_OUTPUT, &clCommandProcessor::OnProcessOutput, this);
     Bind(wxEVT_ASYNC_PROCESS_TERMINATED, &clCommandProcessor::OnProcessTerminated, this);
-    
+
 }
 
 clCommandProcessor::~clCommandProcessor() { wxDELETE(m_process); }
@@ -30,7 +30,7 @@ void clCommandProcessor::ExecuteCommand()
     clCommandEvent eventStart(wxEVT_COMMAND_PROCESSOR_OUTPUT);
     eventStart.SetString(message);
     GetFirst()->ProcessEvent(eventStart);
-    
+
     m_output.Clear();
     m_process = ::CreateAsyncProcess(this, m_command, m_processFlags, m_workingDirectory);
     if(!m_process) {

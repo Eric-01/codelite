@@ -35,16 +35,16 @@ class WXDLLIMPEXP_CL TerminalEmulatorUI : public TerminalEmulatorUIBase
 private:
     void DoBindTerminal(TerminalEmulator* terminal);
     void DoUnBindTerminal(TerminalEmulator* terminal);
-    
+
 public:
     TerminalEmulatorUI(wxWindow* parent);
     virtual ~TerminalEmulatorUI();
-    
+
     void Clear();
     void SetTerminal(TerminalEmulator* terminal) ;
     TerminalEmulator* GetTerminal() { return m_terminal; }
     wxStyledTextCtrl* GetTerminalOutputWindow() { return m_stc; }
-    
+
 protected:
     virtual void OnSendCommand(wxCommandEvent& event);
     void OnProcessExit(clCommandEvent& e);

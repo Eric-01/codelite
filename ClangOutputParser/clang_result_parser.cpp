@@ -295,99 +295,99 @@ YYSTYPE yyvs[YYSTACKSIZE];
 #define yystacksize YYSTACKSIZE
 
 void clang_parse_string(const std::string& str){
-	clangEntryVector.clear();
-	clang_lex_clean();
-	clang_set_lexer_input(str);
-	clang_result_parse();
-	clang_lex_clean();
+    clangEntryVector.clear();
+    clang_lex_clean();
+    clang_set_lexer_input(str);
+    clang_result_parse();
+    clang_lex_clean();
 }
 
 const ClangEntryVector& clang_results() {
-	return clangEntryVector;
+    return clangEntryVector;
 }
 
 void clang_result_error(char*){
 }
 
 void clang_read_signature() {
-	clang_entry.signature = "(";
-	int depth = 1;
-	while(depth > 0)
-	{
-		int ch = clang_yylex();
-		if(ch == 0){
-			break;
-		}
-		
-		switch(ch) {
-		case CLANG_ARG_DELIM_OPEN:
-		case CLANG_ARG_DELIM_CLOSE:
-		case CLANG_ARG_OPT_DELIM_OPEN:
-		case CLANG_ARG_OPT_DELIM_CLOSE:
-			break;
-			
-		case (int)'(':
-			depth++;
-			break;
-			
-		case (int)')':
-			depth--;
-			if(depth == 0)
-				clang_yyless(0);
-			break;
-			
-		default:
-			clang_entry.signature += clang_lex_get_string();
-			clang_entry.signature += " ";
-			break;
-		}
-	}
-	clang_entry.signature += ")";
+    clang_entry.signature = "(";
+    int depth = 1;
+    while(depth > 0)
+    {
+        int ch = clang_yylex();
+        if(ch == 0){
+            break;
+        }
+        
+        switch(ch) {
+        case CLANG_ARG_DELIM_OPEN:
+        case CLANG_ARG_DELIM_CLOSE:
+        case CLANG_ARG_OPT_DELIM_OPEN:
+        case CLANG_ARG_OPT_DELIM_CLOSE:
+            break;
+            
+        case (int)'(':
+            depth++;
+            break;
+            
+        case (int)')':
+            depth--;
+            if(depth == 0)
+                clang_yyless(0);
+            break;
+            
+        default:
+            clang_entry.signature += clang_lex_get_string();
+            clang_entry.signature += " ";
+            break;
+        }
+    }
+    clang_entry.signature += ")";
 }
 
 void clang_read_type_name(std::string &store){
-	store.clear();
-	int depth = 1;
-	while(true)
-	{
-		int ch = clang_yylex();
-		if(ch == 0){
-			break;
-		}
-		
-		switch(ch) {
-		case CLANG_DELIM_CLOSE:
-			clang_yyless(0);
-			return;
-			
-		default:
-			store += clang_lex_get_string();
-			store += " ";
-			break;
-		}
-	}
+    store.clear();
+    int depth = 1;
+    while(true)
+    {
+        int ch = clang_yylex();
+        if(ch == 0){
+            break;
+        }
+        
+        switch(ch) {
+        case CLANG_DELIM_CLOSE:
+            clang_yyless(0);
+            return;
+            
+        default:
+            store += clang_lex_get_string();
+            store += " ";
+            break;
+        }
+    }
 }
 
 void clang_read_entry_name(std::string &store){
-	store.clear();
-	while(true)
-	{
-		int ch = clang_yylex();
-		if(ch == 0){
-			break;
-		}
-		
-		switch(ch) {
-		case (int)':':
-			clang_yyless(0);
-			return;
-			
-		default:
-			store += clang_lex_get_string();
-			store += " ";
-			break;
-		}
-	}
+    store.clear();
+    while(true)
+    {
+        int ch = clang_yylex();
+        if(ch == 0){
+            break;
+        }
+        
+        switch(ch) {
+        case (int)':':
+            clang_yyless(0);
+            return;
+            
+        default:
+            store += clang_lex_get_string();
+            store += " ";
+            break;
+        }
+    }
 }
 #define YYABORT goto yyabort
 #define YYREJECT goto yyabort
@@ -534,24 +534,24 @@ case 3:
 break;
 case 5:
 {
-				   /*printf("CodeLite: syntax error, unexpected token '%s' found\n", clang_lex_get_string().c_str());*/
-				 }
+                   /*printf("CodeLite: syntax error, unexpected token '%s' found\n", clang_lex_get_string().c_str());*/
+                 }
 break;
 case 6:
 {
-					bool is_func = !clang_entry.signature.empty();
-					clang_entry.parent       = yyvsp[-2];
-					clang_entry.type_name    = is_func ? std::string() : clang_entry.tmp;
-					clang_entry.return_value = is_func ? clang_entry.tmp : std::string();
-					
-					if (clang_entry.type == ClangEntry::TypeUnknown) {
-						if(is_func)
-							clang_entry.type = ClangEntry::TypeMethod;
-						else 
-							clang_entry.type = ClangEntry::TypeVariable;
-					}
-					clangEntryVector.push_back(clang_entry);
-				}
+                    bool is_func = !clang_entry.signature.empty();
+                    clang_entry.parent       = yyvsp[-2];
+                    clang_entry.type_name    = is_func ? std::string() : clang_entry.tmp;
+                    clang_entry.return_value = is_func ? clang_entry.tmp : std::string();
+                    
+                    if (clang_entry.type == ClangEntry::TypeUnknown) {
+                        if(is_func)
+                            clang_entry.type = ClangEntry::TypeMethod;
+                        else 
+                            clang_entry.type = ClangEntry::TypeVariable;
+                    }
+                    clangEntryVector.push_back(clang_entry);
+                }
 break;
 case 7:
 {yyval = yyvsp[0];}
@@ -600,22 +600,22 @@ case 21:
 break;
 case 22:
 {
-				clang_entry.name.clear();
-				clang_entry.name = yyvsp[0];
-			}
+                clang_entry.name.clear();
+                clang_entry.name = yyvsp[0];
+            }
 break;
 case 23:
 {
-				clang_entry.name.clear();
-				clang_entry.name = yyvsp[-1] + yyvsp[0];
-			}
+                clang_entry.name.clear();
+                clang_entry.name = yyvsp[-1] + yyvsp[0];
+            }
 break;
 case 24:
 {
-				clang_entry.name.clear();
-				clang_entry.name = yyvsp[-1] + yyvsp[0];
-				clang_entry.type = ClangEntry::TypeDtor;
-			}
+                clang_entry.name.clear();
+                clang_entry.name = yyvsp[-1] + yyvsp[0];
+                clang_entry.type = ClangEntry::TypeDtor;
+            }
 break;
 case 26:
 {clang_read_signature();}
@@ -634,20 +634,20 @@ case 33:
 break;
 case 34:
 {
-				if(clang_entry.tmp.find("enum ") != std::string::npos) {
-					clang_entry.type = ClangEntry::TypeEnum;
-				}
-			}
+                if(clang_entry.tmp.find("enum ") != std::string::npos) {
+                    clang_entry.type = ClangEntry::TypeEnum;
+                }
+            }
 break;
 case 35:
 {
-			  clang_entry.type = ClangEntry::TypeCtor;
-		  }
+              clang_entry.type = ClangEntry::TypeCtor;
+          }
 break;
 case 36:
 {
-			clang_entry.type = ClangEntry::TypeClass;
-		  }
+            clang_entry.type = ClangEntry::TypeClass;
+          }
 break;
     }
     yyssp -= yym;

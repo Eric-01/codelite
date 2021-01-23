@@ -15,7 +15,7 @@
  *       If matches are found for parenthesized substrings of
  *       pattern and the function is called with the
  *       third argument regs, the matches will be stored
- *       in the elements of the array regs. 
+ *       in the elements of the array regs.
  *      </p>
  *      <p>
  *       $regs[1] will contain the substring which starts at
@@ -44,7 +44,7 @@ function ereg ($pattern, $string, array &$regs = null) {}
  *       If pattern contains parenthesized substrings,
  *       replacement may contain substrings of the form
  *       \digit, which will be
- *       replaced by the text matching the digit'th parenthesized substring; 
+ *       replaced by the text matching the digit'th parenthesized substring;
  *       \0 will produce the entire contents of string.
  *       Up to nine substrings may be used. Parentheses may be nested, in which
  *       case they are counted by the opening parenthesis.
@@ -52,7 +52,7 @@ function ereg ($pattern, $string, array &$regs = null) {}
  * @param string string <p>
  *       The input string.
  *      </p>
- * @return string The modified string is returned. If no matches are found in 
+ * @return string The modified string is returned. If no matches are found in
  *   string, then it will be returned unchanged.
  */
 function ereg_replace ($pattern, $replacement, $string) {}
@@ -70,7 +70,7 @@ function ereg_replace ($pattern, $replacement, $string) {}
  *       If matches are found for parenthesized substrings of
  *       pattern and the function is called with the
  *       third argument regs, the matches will be stored
- *       in the elements of the array regs. 
+ *       in the elements of the array regs.
  *      </p>
  *      <p>
  *       $regs[1] will contain the substring which starts at the first left
@@ -98,7 +98,7 @@ function eregi ($pattern, $string, array &$regs = null) {}
  *       If pattern contains parenthesized substrings,
  *       replacement may contain substrings of the form
  *       \digit, which will be
- *       replaced by the text matching the digit'th parenthesized substring; 
+ *       replaced by the text matching the digit'th parenthesized substring;
  *       \0 will produce the entire contents of string.
  *       Up to nine substrings may be used. Parentheses may be nested, in which
  *       case they are counted by the opening parenthesis.
@@ -106,7 +106,7 @@ function eregi ($pattern, $string, array &$regs = null) {}
  * @param string string <p>
  *       The input string.
  *      </p>
- * @return string The modified string is returned. If no matches are found in 
+ * @return string The modified string is returned. If no matches are found in
  *   string, then it will be returned unchanged.
  */
 function eregi_replace ($pattern, $replacement, $string) {}
@@ -122,7 +122,7 @@ function eregi_replace ($pattern, $replacement, $string) {}
  *       special by regular expressions, you'll need to escape them first. If
  *       you think split (or any other regex function, for
  *       that matter) is doing something weird, please read the file
- *       regex.7, included in the 
+ *       regex.7, included in the
  *       regex/ subdirectory of the PHP distribution. It's
  *       in manpage format, so you'll want to do something along the lines of
  *       man /usr/local/src/regex/regex.7 in order to read it.
@@ -162,7 +162,7 @@ function split ($pattern, $string, $limit = null) {}
  *       special by regular expressions, you'll need to escape them first. If
  *       you think spliti (or any other regex function, for
  *       that matter) is doing something weird, please read the file
- *       regex.7, included in the 
+ *       regex.7, included in the
  *       regex/ subdirectory of the PHP distribution. It's
  *       in manpage format, so you'll want to do something along the lines of
  *       man /usr/local/src/regex/regex.7 in order to read it.

@@ -40,12 +40,12 @@ class LLDBTooltip : public clResizableTooltip
 {
     LLDBPlugin *m_plugin;
     std::map<int, wxTreeItemId> m_itemsPendingExpansion;
-    
+
 private:
     void DoCleanup();
     LLDBVariableClientData* ItemData( const wxTreeItemId & item ) const;
     void DoAddVariable(const wxTreeItemId& parent, LLDBVariable::Ptr_t variable);
-    
+
 public:
     LLDBTooltip(LLDBPlugin* plugin);
     virtual ~LLDBTooltip();

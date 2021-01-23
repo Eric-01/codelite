@@ -90,15 +90,15 @@ void WordCompletionDictionary::DoCacheActiveEditor(bool overwrite)
 
     if(!overwrite && m_files.count(activeEditor->GetFileName().GetFullPath()))
         return; // we already have this file in the cache
-        
+
     m_files.erase(activeEditor->GetFileName().GetFullPath());
-    
+
     // Insert a dummy entry, so we won't queue this file if not needed
     m_files.insert(std::make_pair(activeEditor->GetFileName().GetFullPath(), wxStringSet_t()));
-    
+
     // Queue this file
     wxStyledTextCtrl* stc = activeEditor->GetCtrl();
-    
+
     // Invoke the thread to parse and suggets words for this file
     WordCompletionThreadRequest* req = new WordCompletionThreadRequest;
     req->buffer = stc->GetText();

@@ -32,7 +32,7 @@ public:
 
   void Prepare(const wxString& strSQL);
   void Prepare();
-  
+
   // set field
   void SetParam(int nPosition, int nValue);
   void SetParam(int nPosition, double dblValue);
@@ -42,7 +42,7 @@ public:
   void SetParam(int nPosition, const wxDateTime& dateValue);
   void SetParam(int nPosition, bool bValue);
   int GetParameterCount();
-  
+
   int RunQuery();
   DatabaseResultSet* RunQueryWithResults();
 
@@ -51,13 +51,13 @@ public:
 
 private:
   void InterpretErrorCodes();
-  
+
   wxString m_strSQL;
   isc_stmt_handle m_pStatement;
   XSQLDA* m_pParameters;
   isc_db_handle m_pDatabase;
   isc_tr_handle m_pTransaction;
- 
+
   FirebirdParameterCollection* m_pParameterCollection;
 
   ISC_STATUS_ARRAY m_Status;

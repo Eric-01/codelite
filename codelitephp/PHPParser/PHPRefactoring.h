@@ -35,7 +35,7 @@ class PHPRefactoring
     PHPRefactoring();
 protected:
     bool FindByName(const PHPEntityBase::List_t& entries, const wxString &name) const;
-    
+
 public:
     virtual ~PHPRefactoring();
     static PHPRefactoring& Get();

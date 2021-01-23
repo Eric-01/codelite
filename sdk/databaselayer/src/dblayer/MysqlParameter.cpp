@@ -91,7 +91,7 @@ long unsigned int* MysqlParameter::GetDataLengthPtr()
 const void* MysqlParameter::GetDataPtr()
 {
   const void *pReturn = NULL;
-  
+
   switch (m_nParameterType)
   {
     case MysqlParameter::PARAM_STRING:

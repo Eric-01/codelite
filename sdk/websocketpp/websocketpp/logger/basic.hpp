@@ -89,7 +89,7 @@ public:
      , m_dynamic_channels(other.m_dynamic_channels)
      , m_out(other.m_out)
     {}
-    
+
 #ifdef _WEBSOCKETPP_DEFAULT_DELETE_FUNCTIONS_
     // no copy assignment operator because of const member variables
     basic<concurrency,names> & operator=(basic<concurrency,names> const &) = delete;

@@ -1,8 +1,8 @@
 # define minimum cmake version
 cmake_minimum_required(VERSION 2.6.2)
- 
+
 # Our project is called 'codelite' this is how it will be called in
-# visual studio, and in our makefiles. 
+# visual studio, and in our makefiles.
 project(codelite-make)
 
 # It was noticed that when using MinGW gcc it is essential that 'core' is mentioned before 'base'.
@@ -36,7 +36,7 @@ if ( UNIX )
     set( UTIL_LIB "-lutil")
 endif ( UNIX )
 
-target_link_libraries(codelite-make ${LINKER_OPTIONS} ${wxWidgets_LIBRARIES} -L"${CL_LIBPATH}" 
+target_link_libraries(codelite-make ${LINKER_OPTIONS} ${wxWidgets_LIBRARIES} -L"${CL_LIBPATH}"
                         libcodelite plugin ${UTIL_LIB} )
 
 CL_INSTALL_EXECUTABLE(codelite-make)

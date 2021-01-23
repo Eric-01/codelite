@@ -33,11 +33,11 @@
 class CodePreviewDialog : public _CodePreviewDialog {
 
 public:
-	CodePreviewDialog(wxWindow* parent, const wxString& sourceCode);
-	virtual ~CodePreviewDialog();
+    CodePreviewDialog(wxWindow* parent, const wxString& sourceCode);
+    virtual ~CodePreviewDialog();
 
 public:
-	virtual void OnOKClick(wxCommandEvent& event);
+    virtual void OnOKClick(wxCommandEvent& event);
 };
 
 #endif // CODEPREVIEWDIALOG_H

@@ -17,8 +17,8 @@ DefaultWorkspacePage::DefaultWorkspacePage(wxWindow* parent)
 {
     // Allow the PHP view to accepts folders
     SetBackgroundStyle(wxBG_STYLE_PAINT);
-    
-    
+
+
     wxColour bg = clSystemSettings::GetColour(wxSYS_COLOUR_3DFACE);
     m_colours.InitFromColour(bg);
     if(clConfig::Get().Read("UseCustomBaseColour", false)) {
@@ -27,8 +27,8 @@ DefaultWorkspacePage::DefaultWorkspacePage(wxWindow* parent)
     }
     m_staticText523->SetBackgroundColour(m_colours.GetBgColour());
     m_staticText523->SetForegroundColour(m_colours.GetItemTextColour());
-    
-    
+
+
     SetDropTarget(new clFileOrFolderDropTarget(this));
     m_staticText523->SetBackgroundColour(m_colours.GetBgColour());
     m_staticText523->SetForegroundColour(m_colours.GetItemTextColour());

@@ -42,27 +42,27 @@
  */
 class WXDLLIMPEXP_SDK ConsoleFinder
 {
-	wxString  m_ConsoleTty;
-	int       m_nConsolePid;
-	wxString  m_consoleCommand;
+    wxString  m_ConsoleTty;
+    int       m_nConsolePid;
+    wxString  m_consoleCommand;
 
 private:
-	int RunConsole(const wxString &title);
-	wxString GetConsoleTty(int ConsolePid);
+    int RunConsole(const wxString &title);
+    wxString GetConsoleTty(int ConsolePid);
 
 public:
-	ConsoleFinder();
-	virtual ~ConsoleFinder();
+    ConsoleFinder();
+    virtual ~ConsoleFinder();
 
-	bool FindConsole(const wxString &title, wxString &consoleName);
-	void FreeConsole();
+    bool FindConsole(const wxString &title, wxString &consoleName);
+    void FreeConsole();
 
-	void SetConsoleCommand(const wxString& consoleCommand) {
-		this->m_consoleCommand = consoleCommand;
-	}
-	const wxString& GetConsoleCommand() const {
-		return m_consoleCommand;
-	}
+    void SetConsoleCommand(const wxString& consoleCommand) {
+        this->m_consoleCommand = consoleCommand;
+    }
+    const wxString& GetConsoleCommand() const {
+        return m_consoleCommand;
+    }
 };
 
 #endif

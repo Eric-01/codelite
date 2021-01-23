@@ -249,7 +249,7 @@ TagTreePtr TagsManager::ParseSourceFile(const wxFileName& fp, std::vector<Commen
 
 TagTreePtr TagsManager::ParseSourceFile2(const wxFileName& fp, const wxString& tags, std::vector<CommentPtr>* comments)
 {
-    //	return ParseTagsFile(tags, project);
+    // return ParseTagsFile(tags, project);
     int count(0);
     TagTreePtr ttp = TagTreePtr(TreeFromTags(tags, count));
 

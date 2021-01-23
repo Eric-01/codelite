@@ -78,7 +78,7 @@ public:
     };
     typedef std::vector<LineInfo> LineInfoVec_t;
     typedef std::vector<std::pair<int, int> > SeqLinePair_t;
-    
+
     enum DiffMode {
         kTwoPanes = 0x01,
         kOnePane  = 0x02

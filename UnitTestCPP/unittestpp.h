@@ -44,7 +44,7 @@ class UnitTestPP : public IPlugin
     wxString m_output;
     UnitTestsPage* m_outputPage;
     clTabTogglerHelper::Ptr_t m_tabHelper;
-    
+
 public:
     UnitTestPP(IManager* manager);
     ~UnitTestPP();

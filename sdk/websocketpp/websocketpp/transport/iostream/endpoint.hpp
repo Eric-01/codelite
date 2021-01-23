@@ -116,14 +116,14 @@ public:
     bool is_secure() const {
         return m_is_secure;
     }
-    
+
     /// Sets the write handler
     /**
      * The write handler is called when the iostream transport receives data
      * that needs to be written to the appropriate output location. This handler
      * can be used in place of registering an ostream for output.
      *
-     * The signature of the handler is 
+     * The signature of the handler is
      * `lib::error_code (connection_hdl, char const *, size_t)` The
      * code returned will be reported and logged by the core library.
      *
@@ -134,7 +134,7 @@ public:
     void set_write_handler(write_handler h) {
         m_write_handler = h;
     }
-    
+
     /// Sets the shutdown handler
     /**
      * The shutdown handler is called when the iostream transport receives a
@@ -208,7 +208,7 @@ private:
     std::ostream *  m_output_stream;
     shutdown_handler m_shutdown_handler;
     write_handler   m_write_handler;
-    
+
     lib::shared_ptr<elog_type>     m_elog;
     lib::shared_ptr<alog_type>     m_alog;
     bool            m_is_secure;

@@ -28,15 +28,15 @@ class WXDLLIMPEXP_XS SerializableList;
 
 namespace wxXS
 {
-	WX_DECLARE_OBJARRAY_WITH_DECL(wxRealPoint, RealPointArray, class WXDLLIMPEXP_XS);
-	WX_DECLARE_LIST_WITH_DECL(wxRealPoint, RealPointList, class WXDLLIMPEXP_XS);
+    WX_DECLARE_OBJARRAY_WITH_DECL(wxRealPoint, RealPointArray, class WXDLLIMPEXP_XS);
+    WX_DECLARE_LIST_WITH_DECL(wxRealPoint, RealPointList, class WXDLLIMPEXP_XS);
 
-	WX_DEFINE_USER_EXPORTED_ARRAY_CHAR(char, CharArray, class WXDLLIMPEXP_XS);
-	WX_DEFINE_USER_EXPORTED_ARRAY_INT(int, IntArray, class WXDLLIMPEXP_XS);
-	WX_DEFINE_USER_EXPORTED_ARRAY_LONG(long, LongArray, class WXDLLIMPEXP_XS);
-	WX_DEFINE_USER_EXPORTED_ARRAY_DOUBLE(double, DoubleArray, class WXDLLIMPEXP_XS);
+    WX_DEFINE_USER_EXPORTED_ARRAY_CHAR(char, CharArray, class WXDLLIMPEXP_XS);
+    WX_DEFINE_USER_EXPORTED_ARRAY_INT(int, IntArray, class WXDLLIMPEXP_XS);
+    WX_DEFINE_USER_EXPORTED_ARRAY_LONG(long, LongArray, class WXDLLIMPEXP_XS);
+    WX_DEFINE_USER_EXPORTED_ARRAY_DOUBLE(double, DoubleArray, class WXDLLIMPEXP_XS);
 
-	WX_DECLARE_STRING_HASH_MAP_WITH_DECL(wxString, StringMap, class WXDLLIMPEXP_XS);
+    WX_DECLARE_STRING_HASH_MAP_WITH_DECL(wxString, StringMap, class WXDLLIMPEXP_XS);
 }
 
 /*!
@@ -72,16 +72,16 @@ public:
     virtual void Write(xsProperty *property, wxXmlNode *target){wxUnusedVar(property);wxUnusedVar(target);}
     /*!
      * \brief Get textual representation of current property value.
-	 * \param property Pointer to the source property object
-	 * \return Textual representation of property's value
+     * \param property Pointer to the source property object
+     * \return Textual representation of property's value
      */
-	virtual wxString GetValueStr(xsProperty *property){wxUnusedVar(property);return wxT("");}
+    virtual wxString GetValueStr(xsProperty *property){wxUnusedVar(property);return wxT("");}
     /*!
      * \brief Set value defined by its textual representation to given property.
-	 * \param property Pointer to the target property object
-	 * \param valstr Textual representation of given value
+     * \param property Pointer to the target property object
+     * \param valstr Textual representation of given value
      */
-	virtual void SetValueStr(xsProperty *property, const wxString& valstr){wxUnusedVar(property); wxUnusedVar(valstr);}
+    virtual void SetValueStr(xsProperty *property, const wxString& valstr){wxUnusedVar(property); wxUnusedVar(valstr);}
 
     /*!
      * \brief Create new XML node of given name and value and assign it to the given
@@ -112,16 +112,16 @@ protected:
 class name : public xsPropertyIO \
 { \
 public: \
-	DECLARE_DYNAMIC_CLASS(name); \
-	name(){;} \
-	virtual ~name(){;} \
+    DECLARE_DYNAMIC_CLASS(name); \
+    name(){;} \
+    virtual ~name(){;} \
 \
-	virtual void Read(xsProperty *property, wxXmlNode *source); \
-	virtual void Write(xsProperty *property, wxXmlNode *target); \
-	virtual wxString GetValueStr(xsProperty *property); \
-	virtual void SetValueStr(xsProperty *property, const wxString& valstr); \
-	static wxString ToString(const datatype& value); \
-	static datatype FromString(const wxString& value); \
+    virtual void Read(xsProperty *property, wxXmlNode *source); \
+    virtual void Write(xsProperty *property, wxXmlNode *target); \
+    virtual wxString GetValueStr(xsProperty *property); \
+    virtual void SetValueStr(xsProperty *property, const wxString& valstr); \
+    static wxString ToString(const datatype& value); \
+    static datatype FromString(const wxString& value); \
 }; \
 
 /*!
@@ -134,16 +134,16 @@ public: \
 class decoration name : public xsPropertyIO \
 { \
 public: \
-	DECLARE_DYNAMIC_CLASS(name); \
-	name(){;} \
-	virtual ~name(){;} \
+    DECLARE_DYNAMIC_CLASS(name); \
+    name(){;} \
+    virtual ~name(){;} \
 \
-	virtual void Read(xsProperty *property, wxXmlNode *source); \
-	virtual void Write(xsProperty *property, wxXmlNode *target); \
-	virtual wxString GetValueStr(xsProperty *property); \
-	virtual void SetValueStr(xsProperty *property, const wxString& valstr); \
-	static wxString ToString(const datatype& value); \
-	static datatype FromString(const wxString& value); \
+    virtual void Read(xsProperty *property, wxXmlNode *source); \
+    virtual void Write(xsProperty *property, wxXmlNode *target); \
+    virtual wxString GetValueStr(xsProperty *property); \
+    virtual void SetValueStr(xsProperty *property, const wxString& valstr); \
+    static wxString ToString(const datatype& value); \
+    static datatype FromString(const wxString& value); \
 }; \
 
 /*!
@@ -172,12 +172,12 @@ void name::Write(xsProperty *property, wxXmlNode *target) \
 \
 wxString name::GetValueStr(xsProperty *property) \
 { \
-	return ToString(*((datatype*)property->m_pSourceVariable)); \
+    return ToString(*((datatype*)property->m_pSourceVariable)); \
 } \
 \
 void name::SetValueStr(xsProperty *property, const wxString& valstr) \
 { \
-	*((datatype*)property->m_pSourceVariable) = FromString(valstr); \
+    *((datatype*)property->m_pSourceVariable) = FromString(valstr); \
 } \
 
 /*!

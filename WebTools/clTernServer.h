@@ -52,14 +52,14 @@ struct clTernDefinition {
         , end(wxNOT_FOUND)
     {
     }
-    
+
     /**
      * @brief is this location defined on the web?
      */
     bool IsURL() const {
         return !url.IsEmpty();
     }
-    
+
 };
 
 class clTernServer : public wxEvtHandler
@@ -105,7 +105,7 @@ public:
     bool Start(const wxString& workingDirectory);
     void Terminate();
     void ClearFatalErrorFlag();
-    
+
     /**
      * @brief tell tern to reset the server
      */
@@ -114,7 +114,7 @@ public:
      * @brief reparse the current file
      */
     bool PostReparseCommand(IEditor *editor);
-    
+
     /**
      * @brief post a CC request at the current editor position
      */
@@ -129,7 +129,7 @@ public:
      * @brief locate a definition of expression under the caret
      */
     bool PostFindDefinitionRequest(IEditor* editor);
-    
+
     const wxCodeCompletionBoxEntry::Vec_t& GetEntries() const { return m_entries; }
 
     /**

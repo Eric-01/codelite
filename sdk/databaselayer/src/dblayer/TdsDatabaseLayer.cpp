@@ -12,7 +12,7 @@ TdsContextToDatabaseLayerMap TdsDatabaseLayer::m_ContextLookupMap;
 static int tsql_handle_message(const TDSCONTEXT * pContext, TDSSOCKET * pTdsSocket, TDSMESSAGE * pMessage)
 {
   //fprintf(stderr, "In tsql_handle_message: %d\n", pMessage->msgno);
-	if (pMessage->msgno != 5701 && pMessage->msgno != 5703 && pMessage->msgno != 20018)
+    if (pMessage->msgno != 5701 && pMessage->msgno != 5703 && pMessage->msgno != 20018)
   {
     TdsDatabaseLayer* pLayer = TdsDatabaseLayer::LookupTdsLayer(pContext);
     if (pLayer != NULL)
@@ -22,23 +22,23 @@ static int tsql_handle_message(const TDSCONTEXT * pContext, TDSSOCKET * pTdsSock
     else
     {
       //fprintf(stderr, "In tsql_handle_message (%d)\n", pMessage->msgno);
-	    if (pMessage->msgno == 0)
+        if (pMessage->msgno == 0)
       {
-		    //fprintf(stderr, "%s\n", pMessage->message);
-		    return 0;
-	    }
+            //fprintf(stderr, "%s\n", pMessage->message);
+            return 0;
+        }
 
-		    fprintf(stderr, "Msg %d, Level %d, State %d, Server %s, Line %d\n%s\n",
-			    pMessage->msgno, pMessage->severity, pMessage->state, pMessage->server, pMessage->line_number, pMessage->message);
+            fprintf(stderr, "Msg %d, Level %d, State %d, Server %s, Line %d\n%s\n",
+                pMessage->msgno, pMessage->severity, pMessage->state, pMessage->server, pMessage->line_number, pMessage->message);
     }
   }
-	return 0;
+    return 0;
 }
 
 static int tsql_handle_error(const TDSCONTEXT * pContext, TDSSOCKET * pTdsSocket, TDSMESSAGE * pMessage)
 {
   //fprintf(stderr, "In tsql_handle_error: %d\n", pMessage->msgno);
-	if (pMessage->msgno != 5701 && pMessage->msgno != 5703 && pMessage->msgno != 20018)
+    if (pMessage->msgno != 5701 && pMessage->msgno != 5703 && pMessage->msgno != 20018)
   {
     TdsDatabaseLayer* pLayer = TdsDatabaseLayer::LookupTdsLayer(pContext);
     if (pLayer != NULL)
@@ -48,31 +48,31 @@ static int tsql_handle_error(const TDSCONTEXT * pContext, TDSSOCKET * pTdsSocket
     else
     {
       //fprintf(stderr, "In tsql_handle_error (%d)\n", pMessage->msgno);
-	    if (pMessage->msgno == 0)
+        if (pMessage->msgno == 0)
       {
-		    //fprintf(stderr, "%s\n", pMessage->message);
-		    return 0;
-	    }
-		  fprintf(stderr, "Msg %d, Level %d, State %d, Server %s, Line %d\n%s\n",
-			  pMessage->msgno, pMessage->severity, pMessage->state, pMessage->server, pMessage->line_number, pMessage->message);
-	  }
+            //fprintf(stderr, "%s\n", pMessage->message);
+            return 0;
+        }
+          fprintf(stderr, "Msg %d, Level %d, State %d, Server %s, Line %d\n%s\n",
+              pMessage->msgno, pMessage->severity, pMessage->state, pMessage->server, pMessage->line_number, pMessage->message);
+      }
   }
 
-	return 0;
+    return 0;
 }
 
 wxString RemoveLastSemiColon(const wxString& strvalue)
 {
-	wxString result = strvalue;
+    wxString result = strvalue;
 
-	if (result.size() == 0)
-		return result;	
+    if (result.size() == 0)
+        return result;
 
-	if (result[result.size()-1] == ';' )
-	{
+    if (result[result.size()-1] == ';' )
+    {
     result.RemoveLast();
-	}	
-	return result;
+    }
+    return result;
 }
 
 
@@ -124,7 +124,7 @@ bool TdsDatabaseLayer::Open(const wxString& strDatabase)
     //SetErrorMessage(ConvertFromUnicodeStream(???));
     return false;
   }
-  
+
   // Change the database
   if (!RunQuery(_("USE ") + strDatabase, false))
   {
@@ -137,10 +137,10 @@ bool TdsDatabaseLayer::Open(const wxString& strDatabase)
 // Connect to the server
 bool TdsDatabaseLayer::Connect()
 {
-	m_pLogin = tds_alloc_login();
-	if (m_pLogin == NULL)
+    m_pLogin = tds_alloc_login();
+    if (m_pLogin == NULL)
   {
-		//fprintf(stderr, "tds_alloc_login() failed.\n");
+        //fprintf(stderr, "tds_alloc_login() failed.\n");
     SetError(DATABASE_LAYER_ERROR, wxT("Failed to allocate login"));
     // Reset the variables so there are not mistaken as initialized
     m_pDatabase = NULL;
@@ -151,17 +151,17 @@ bool TdsDatabaseLayer::Connect()
       m_pContext = NULL;
     }
     ThrowDatabaseException();
-		return false;
-	}
+        return false;
+    }
   wxCharBuffer serverBuffer = ConvertToUnicodeStream(m_strServer);
   tds_set_server(m_pLogin, serverBuffer);
   wxCharBuffer loginBuffer = ConvertToUnicodeStream(m_strLogin);
-	tds_set_user(m_pLogin, loginBuffer);
+    tds_set_user(m_pLogin, loginBuffer);
   wxCharBuffer passwordBuffer = ConvertToUnicodeStream(m_strPassword);
-	tds_set_passwd(m_pLogin, passwordBuffer);
-	tds_set_app(m_pLogin, "DatabaseLayer");
-	tds_set_library(m_pLogin, "TDS-Library");
-	tds_set_client_charset(m_pLogin, "UTF-8");
+    tds_set_passwd(m_pLogin, passwordBuffer);
+    tds_set_app(m_pLogin, "DatabaseLayer");
+    tds_set_library(m_pLogin, "TDS-Library");
+    tds_set_client_charset(m_pLogin, "UTF-8");
   switch (m_nTdsVersion)
   {
     case TDS_42:
@@ -183,8 +183,8 @@ bool TdsDatabaseLayer::Connect()
       tds_set_version(m_pLogin, 0, 0);
       break;
   };
-  
-	m_pContext = tds_alloc_context(NULL);
+
+    m_pContext = tds_alloc_context(NULL);
   if (m_pContext == NULL)
   {
     //fprintf(stderr, "tds_alloc_context() failed.\n");
@@ -204,8 +204,8 @@ bool TdsDatabaseLayer::Connect()
     ThrowDatabaseException();
     return false;
   }
-	m_pContext->msg_handler = tsql_handle_message;
-	m_pContext->err_handler = tsql_handle_error;
+    m_pContext->msg_handler = tsql_handle_message;
+    m_pContext->err_handler = tsql_handle_error;
 
   // Add the context (and this databaselayer) from the lookup map
   //  used by the error handler
@@ -231,18 +231,18 @@ bool TdsDatabaseLayer::Connect()
     ThrowDatabaseException();
     return false;
   }
-	tds_set_parent(m_pDatabase, NULL);
+    tds_set_parent(m_pDatabase, NULL);
 
-	TDSCONNECTION* pConnection = tds_read_config_info(NULL, m_pLogin, m_pContext->locale);
-	if (!pConnection || tds_connect(m_pDatabase, pConnection) == TDS_FAIL)
+    TDSCONNECTION* pConnection = tds_read_config_info(NULL, m_pLogin, m_pContext->locale);
+    if (!pConnection || tds_connect(m_pDatabase, pConnection) == TDS_FAIL)
   {
-		if (pConnection)
+        if (pConnection)
     {
-			tds_free_socket(m_pDatabase);
-			//m_pDatabase = NULL;
-			tds_free_connection(pConnection);
-		}
-		//fprintf(stderr, "tds_connect() failed\n");
+            tds_free_socket(m_pDatabase);
+            //m_pDatabase = NULL;
+            tds_free_connection(pConnection);
+        }
+        //fprintf(stderr, "tds_connect() failed\n");
     if (GetErrorCode() == DATABASE_LAYER_OK)
     {
       SetError(DATABASE_LAYER_ERROR, wxT("Database connection failed"));
@@ -260,14 +260,14 @@ bool TdsDatabaseLayer::Connect()
       m_pContext = NULL;
     }
     ThrowDatabaseException();
-		return false;
-	}
-	tds_free_connection(pConnection);
+        return false;
+    }
+    tds_free_connection(pConnection);
 
   return true;
 }
 
-// close database  
+// close database
 bool TdsDatabaseLayer::Close()
 {
   //puts("Resetting error codes");
@@ -281,13 +281,13 @@ bool TdsDatabaseLayer::Close()
   if (m_pDatabase != NULL)
   {
     //puts("Freeing socket");
-	  tds_free_socket(m_pDatabase);
+      tds_free_socket(m_pDatabase);
     m_pDatabase = NULL;
   }
   if (m_pLogin != NULL)
   {
     //puts("Freeing login");
-  	tds_free_login(m_pLogin);
+    tds_free_login(m_pLogin);
     m_pLogin = NULL;
   }
   if (m_pContext != NULL)
@@ -299,8 +299,8 @@ bool TdsDatabaseLayer::Close()
 
     // Free the context
     //puts("Freeing context");
-	  tds_free_context(m_pContext);
-  	m_pContext = NULL;
+      tds_free_context(m_pContext);
+    m_pContext = NULL;
   }
 
   return true;
@@ -314,94 +314,94 @@ bool TdsDatabaseLayer::IsOpen()
 void TdsDatabaseLayer::FreeAllocatedResultSets()
 {
   //fprintf(stderr, "In FreeAllocatedResultSets\n");
-	int rc;
-	int result_type;
+    int rc;
+    int result_type;
   /* */
-	//while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
-	//while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROW|TDS_TOKEN_RESULTS|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
-	while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
+    //while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
+    //while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_RETURN_ROW|TDS_TOKEN_RESULTS|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
+    while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW|TDS_RETURN_COMPUTE)) == TDS_SUCCEED)
   {
-		switch (result_type)
+        switch (result_type)
     {
-		case TDS_DONE_RESULT:
-		case TDS_DONEPROC_RESULT:
-		case TDS_DONEINPROC_RESULT:
-		case TDS_STATUS_RESULT:
-			break;
-		case TDS_ROWFMT_RESULT:
-		case TDS_COMPUTEFMT_RESULT:
-		case TDS_DESCRIBE_RESULT:
-			break;
+        case TDS_DONE_RESULT:
+        case TDS_DONEPROC_RESULT:
+        case TDS_DONEINPROC_RESULT:
+        case TDS_STATUS_RESULT:
+            break;
+        case TDS_ROWFMT_RESULT:
+        case TDS_COMPUTEFMT_RESULT:
+        case TDS_DESCRIBE_RESULT:
+            break;
     case TDS_ROW_RESULT:
-			//fprintf(stderr, "Warning (%d):  TdsDatabaseLayer query should not return results.  Type: %d\n", result_type, result_type);
+            //fprintf(stderr, "Warning (%d):  TdsDatabaseLayer query should not return results.  Type: %d\n", result_type, result_type);
       if (m_pDatabase->current_results && m_pDatabase->current_results->num_cols > 0)
       {
-  			while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
+            while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
         {
-		  	  //fprintf(stderr, "Warning:  TdsDatabaseLayer TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
-			    if (result_type != TDS_ROW_RESULT)
-			      break;
- 
-    			if (!m_pDatabase->current_results)
-	      		continue;
-		  	}
+              //fprintf(stderr, "Warning:  TdsDatabaseLayer TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
+                if (result_type != TDS_ROW_RESULT)
+                  break;
+
+                if (!m_pDatabase->current_results)
+                continue;
+            }
       }
       if (m_pDatabase != NULL)
         tds_free_all_results(m_pDatabase);
       return;
-			break;
-		default:
-			//fprintf(stderr, "Error:  TdsDatabaseLayer query should not return results.  Type: %d\n", result_type);
-			return;
+            break;
+        default:
+            //fprintf(stderr, "Error:  TdsDatabaseLayer query should not return results.  Type: %d\n", result_type);
+            return;
       //break;
-		}
-	}
- /* 
-			while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS) == TDS_SUCCEED) {
-				switch (result_type) {
-				case TDS_ROWFMT_RESULT:
-					break;
-				case TDS_ROW_RESULT:
-					while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED) {
-						if (result_type != TDS_ROW_RESULT)
-							break;
- 
-						if (!m_pDatabase->current_results)
-							continue;
- 
-						TDSCOLUMN* col = m_pDatabase->current_results->columns[0];
-						int ctype = tds_get_conversion_type(col->column_type, col->column_size);
+        }
+    }
+ /*
+            while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS) == TDS_SUCCEED) {
+                switch (result_type) {
+                case TDS_ROWFMT_RESULT:
+                    break;
+                case TDS_ROW_RESULT:
+                    while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED) {
+                        if (result_type != TDS_ROW_RESULT)
+                            break;
 
-						unsigned char* src = col->column_data;
-						int srclen = col->column_cur_size;
- 
+                        if (!m_pDatabase->current_results)
+                            continue;
+
+                        TDSCOLUMN* col = m_pDatabase->current_results->columns[0];
+                        int ctype = tds_get_conversion_type(col->column_type, col->column_size);
+
+                        unsigned char* src = col->column_data;
+                        int srclen = col->column_cur_size;
+
             CONV_RESULT dres;
-						tds_convert(m_pDatabase->tds_ctx, ctype, (TDS_CHAR *) src, srclen, SYBINT4, &dres);
-						int optionval = dres.i;
-					}
-					break;
-				default:
-					break;
-				}
-			}
+                        tds_convert(m_pDatabase->tds_ctx, ctype, (TDS_CHAR *) src, srclen, SYBINT4, &dres);
+                        int optionval = dres.i;
+                    }
+                    break;
+                default:
+                    break;
+                }
+            }
  */
 
   // Make sure to clean up after ourselves
   if (m_pDatabase != NULL)
     tds_free_all_results(m_pDatabase);
 
-	if (rc == TDS_FAIL)
+    if (rc == TDS_FAIL)
   {
     ThrowDatabaseException();
-		//fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
-		return;
-	}
+        //fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
+        return;
+    }
   else if (rc != TDS_NO_MORE_RESULTS)
   {
     ThrowDatabaseException();
-		//fprintf(stderr, "tds_process_tokens() unexpected return\n");
-		return;
-	}
+        //fprintf(stderr, "tds_process_tokens() unexpected return\n");
+        return;
+    }
 }
 
 void TdsDatabaseLayer::BeginTransaction()
@@ -474,7 +474,7 @@ DatabaseResultSet* TdsDatabaseLayer::RunQueryWithResults(const wxString& strQuer
     FreeAllocatedResultSets();
 
     wxArrayString QueryArray = ParseQueries(strQuery);
-     
+
     for (unsigned int i=0; i<(QueryArray.size()-1); i++)
     {
       char* szErrorMessage = NULL;

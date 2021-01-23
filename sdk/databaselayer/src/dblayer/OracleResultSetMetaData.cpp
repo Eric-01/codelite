@@ -51,7 +51,7 @@ int OracleResultSetMetaData::GetColumnType(int i)
     case oracle::occi::OCCITIMESTAMP:
       fieldType = COLUMN_DATE;
       break;
-    default:  
+    default:
       fieldType = COLUMN_UNKNOWN;
       break;
   };

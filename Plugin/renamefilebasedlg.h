@@ -56,32 +56,32 @@
 ///////////////////////////////////////////////////////////////////////////////
 class RenameFileBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText8;
-		wxTextCtrl* m_textCtrlReplaceWith;
-		wxStaticText* m_staticText1;
-		wxCheckListBox* m_checkListMatches;
-		wxStaticText* m_staticText3;
-		wxStaticText* m_staticTextIncludedInFile;
-		wxStaticText* m_staticText5;
-		wxStaticText* m_staticTextFoundInLine;
-		wxStaticText* m_staticText9;
-		wxStaticText* m_staticTextPattern;
-		wxButton* m_buttonOk;
-		wxButton* m_buttonCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnFileSelected( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnFileToggeled( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		RenameFileBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Fix Include Statement"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 574,437 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
-		~RenameFileBaseDlg();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText8;
+        wxTextCtrl* m_textCtrlReplaceWith;
+        wxStaticText* m_staticText1;
+        wxCheckListBox* m_checkListMatches;
+        wxStaticText* m_staticText3;
+        wxStaticText* m_staticTextIncludedInFile;
+        wxStaticText* m_staticText5;
+        wxStaticText* m_staticTextFoundInLine;
+        wxStaticText* m_staticText9;
+        wxStaticText* m_staticTextPattern;
+        wxButton* m_buttonOk;
+        wxButton* m_buttonCancel;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnFileSelected( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnFileToggeled( wxCommandEvent& event ) { event.Skip(); }
+        
+    
+    public:
+        
+        RenameFileBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Fix Include Statement"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 574,437 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+        ~RenameFileBaseDlg();
+    
 };
 
 #endif //__renamefilebasedlg__

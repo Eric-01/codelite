@@ -60,7 +60,7 @@ public:
   ///     The vector of CompilerTypes that was found.
   std::vector<CompilerType> FindTypes(ConstString name, uint32_t max_matches);
 
-  /// Interface for ExternalASTMerger.  Returns an ImporterSource 
+  /// Interface for ExternalASTMerger.  Returns an ImporterSource
   /// allowing type completion.
   ///
   /// \return

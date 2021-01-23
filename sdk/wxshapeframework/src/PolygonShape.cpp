@@ -25,30 +25,30 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFPolygonShape, wxSFRectShape);
 wxSFPolygonShape::wxSFPolygonShape(void)
 : wxSFRectShape()
 {
-	m_fConnectToVertex = sfdvPOLYGONSHAPE_VERTEXCONNECTIONS;
+    m_fConnectToVertex = sfdvPOLYGONSHAPE_VERTEXCONNECTIONS;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFPolygonShape::wxSFPolygonShape(int n, const wxRealPoint pts[], const wxRealPoint& pos, wxSFDiagramManager* manager)
 : wxSFRectShape(pos, wxRealPoint(1, 1), manager)
 {
-	m_fConnectToVertex = sfdvPOLYGONSHAPE_VERTEXCONNECTIONS;
+    m_fConnectToVertex = sfdvPOLYGONSHAPE_VERTEXCONNECTIONS;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 
-	SetVertices(n, pts);
+    SetVertices(n, pts);
 }
 
 wxSFPolygonShape::wxSFPolygonShape(const wxSFPolygonShape& obj)
 : wxSFRectShape(obj)
 {
-	m_fConnectToVertex = obj.m_fConnectToVertex;
+    m_fConnectToVertex = obj.m_fConnectToVertex;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 
-	m_arrVertices.Clear();
-	for(size_t i = 0; i < obj.m_arrVertices.Count(); i++)m_arrVertices.Add(obj.m_arrVertices[i]);
+    m_arrVertices.Clear();
+    for(size_t i = 0; i < obj.m_arrVertices.Count(); i++)m_arrVertices.Add(obj.m_arrVertices[i]);
 }
 
 wxSFPolygonShape::~wxSFPolygonShape(void)
@@ -57,7 +57,7 @@ wxSFPolygonShape::~wxSFPolygonShape(void)
 
 void wxSFPolygonShape::MarkSerializableDataMembers()
 {
-	XS_SERIALIZE_EX(m_fConnectToVertex, wxT("connect_to_vertex"), sfdvPOLYGONSHAPE_VERTEXCONNECTIONS);
+    XS_SERIALIZE_EX(m_fConnectToVertex, wxT("connect_to_vertex"), sfdvPOLYGONSHAPE_VERTEXCONNECTIONS);
     XS_SERIALIZE(m_arrVertices, wxT("vertices"));
 }
 
@@ -67,12 +67,12 @@ void wxSFPolygonShape::MarkSerializableDataMembers()
 
 void wxSFPolygonShape::SetVertices(size_t n, const wxRealPoint pts[])
 {
-	m_arrVertices.Clear();
+    m_arrVertices.Clear();
 
-	for(size_t i = 0; i < n; i++)m_arrVertices.Add(pts[i]);
+    for(size_t i = 0; i < n; i++)m_arrVertices.Add(pts[i]);
 
-	NormalizeVertices();
-	FitBoundingBoxToVertices();
+    NormalizeVertices();
+    FitBoundingBoxToVertices();
 }
 
 //----------------------------------------------------------------------------------//
@@ -83,71 +83,71 @@ wxRealPoint wxSFPolygonShape::GetBorderPoint(const wxRealPoint& start, const wxR
 {
     // HINT: override it for custom actions ...
 
-	bool fSuccess = false;
-	double tmpMinDist = 0, minDist = 0;
-	wxRealPoint tmpIntersection, intersection;
-	size_t ptsCnt = m_arrVertices.Count();
+    bool fSuccess = false;
+    double tmpMinDist = 0, minDist = 0;
+    wxRealPoint tmpIntersection, intersection;
+    size_t ptsCnt = m_arrVertices.Count();
 
-	wxRealPoint *pts = new wxRealPoint[ptsCnt];
-	GetTranslatedVerices(pts);
+    wxRealPoint *pts = new wxRealPoint[ptsCnt];
+    GetTranslatedVerices(pts);
 
-	intersection = start; //GetCenter();
+    intersection = start; //GetCenter();
 
-	if(ptsCnt == 0)return GetCenter();
+    if(ptsCnt == 0)return GetCenter();
 
-	if(m_fConnectToVertex)
-	{
-		minDist = Distance(pts[0], end);
-		intersection = pts[0];
+    if(m_fConnectToVertex)
+    {
+        minDist = Distance(pts[0], end);
+        intersection = pts[0];
 
-		for(size_t i = 1; i < ptsCnt; i++)
-		{
-			tmpMinDist = Distance(pts[i], end);
-			if(tmpMinDist < minDist)
-			{
-				minDist = tmpMinDist;
-				intersection = pts[i];
-			}
-		}
+        for(size_t i = 1; i < ptsCnt; i++)
+        {
+            tmpMinDist = Distance(pts[i], end);
+            if(tmpMinDist < minDist)
+            {
+                minDist = tmpMinDist;
+                intersection = pts[i];
+            }
+        }
 
-		delete [] pts;
-		return intersection;
-	}
-	else
-	{
-		for(size_t i = 0; i < ptsCnt; i++)
-		{
-			if(LinesIntersection(pts[i], pts[(i+1) % ptsCnt], start, end, tmpIntersection))
-			{
-				if(!fSuccess)
-				{
-					minDist = Distance(intersection, end);
-					intersection = tmpIntersection;
-				}
-				else
-				{
-					tmpMinDist = Distance(intersection, end);
-					if(tmpMinDist < minDist)
-					{
-						minDist = tmpMinDist;
-						intersection = tmpIntersection;
-					}
-				}
-				fSuccess = true;
-			}
-		}
+        delete [] pts;
+        return intersection;
+    }
+    else
+    {
+        for(size_t i = 0; i < ptsCnt; i++)
+        {
+            if(LinesIntersection(pts[i], pts[(i+1) % ptsCnt], start, end, tmpIntersection))
+            {
+                if(!fSuccess)
+                {
+                    minDist = Distance(intersection, end);
+                    intersection = tmpIntersection;
+                }
+                else
+                {
+                    tmpMinDist = Distance(intersection, end);
+                    if(tmpMinDist < minDist)
+                    {
+                        minDist = tmpMinDist;
+                        intersection = tmpIntersection;
+                    }
+                }
+                fSuccess = true;
+            }
+        }
 
-		delete [] pts;
+        delete [] pts;
 
-		if(fSuccess)
-		{
-			return intersection;
-		}
-		else
-		{
-			return GetCenter();
-		}
-	}
+        if(fSuccess)
+        {
+            return intersection;
+        }
+        else
+        {
+            return GetCenter();
+        }
+    }
 }
 
 void wxSFPolygonShape::FitToChildren()
@@ -159,10 +159,10 @@ void wxSFPolygonShape::FitToChildren()
 
 void wxSFPolygonShape::Scale(double x, double y, bool children)
 {
-	m_nRectSize.x *= x;
-	m_nRectSize.y *= y;
+    m_nRectSize.x *= x;
+    m_nRectSize.y *= y;
 
-	FitVerticesToBoundingBox();
+    FitVerticesToBoundingBox();
 
     // call default function implementation (needed for scaling of shape's children)
     wxSFShapeBase::Scale(x, y, children);
@@ -170,9 +170,9 @@ void wxSFPolygonShape::Scale(double x, double y, bool children)
 
 void wxSFPolygonShape::OnHandle(wxSFShapeHandle& handle)
 {
-	wxSFRectShape::OnHandle(handle);
+    wxSFRectShape::OnHandle(handle);
 
-	FitVerticesToBoundingBox();
+    FitVerticesToBoundingBox();
 }
 
 //----------------------------------------------------------------------------------//
@@ -181,87 +181,87 @@ void wxSFPolygonShape::OnHandle(wxSFShapeHandle& handle)
 
 void wxSFPolygonShape::GetExtents(double *minx, double *miny, double *maxx, double *maxy)
 {
-	if(m_arrVertices.Count() == 0)return;
+    if(m_arrVertices.Count() == 0)return;
 
-	*minx = *maxx = m_arrVertices[0].x;
-	*miny = *maxy = m_arrVertices[0].y;
+    *minx = *maxx = m_arrVertices[0].x;
+    *miny = *maxy = m_arrVertices[0].y;
 
-	for(size_t i = 1; i < m_arrVertices.Count(); i++)
-	{
-		if(m_arrVertices[i].x < *minx)*minx = m_arrVertices[i].x;
-		if(m_arrVertices[i].x > *maxx)*maxx = m_arrVertices[i].x;
-		if(m_arrVertices[i].y < *miny)*miny = m_arrVertices[i].y;
-		if(m_arrVertices[i].y > *maxy)*maxy = m_arrVertices[i].y;
-	}
+    for(size_t i = 1; i < m_arrVertices.Count(); i++)
+    {
+        if(m_arrVertices[i].x < *minx)*minx = m_arrVertices[i].x;
+        if(m_arrVertices[i].x > *maxx)*maxx = m_arrVertices[i].x;
+        if(m_arrVertices[i].y < *miny)*miny = m_arrVertices[i].y;
+        if(m_arrVertices[i].y > *maxy)*maxy = m_arrVertices[i].y;
+    }
 }
 
 void wxSFPolygonShape::GetTranslatedVerices(wxRealPoint pts[])
 {
-	wxRealPoint absPos = GetAbsolutePosition();
+    wxRealPoint absPos = GetAbsolutePosition();
 
-	for(size_t i = 0; i < m_arrVertices.Count(); i++)pts[i] = absPos + m_arrVertices[i];
+    for(size_t i = 0; i < m_arrVertices.Count(); i++)pts[i] = absPos + m_arrVertices[i];
 }
 
 void wxSFPolygonShape::GetTranslatedVerices(wxPoint pts[])
 {
-	wxPoint absPos = Conv2Point(GetAbsolutePosition());
+    wxPoint absPos = Conv2Point(GetAbsolutePosition());
 
-	for(size_t i = 0; i < m_arrVertices.Count(); i++)pts[i] = absPos + Conv2Point(m_arrVertices[i]);
+    for(size_t i = 0; i < m_arrVertices.Count(); i++)pts[i] = absPos + Conv2Point(m_arrVertices[i]);
 }
 
 void wxSFPolygonShape::NormalizeVertices()
 {
-	// move all vertices so the polygon's relative bounding box will be located in the origin
+    // move all vertices so the polygon's relative bounding box will be located in the origin
 
-	double minx = 0, miny = 0, maxx = 0, maxy = 0, dx = 0, dy = 0;
+    double minx = 0, miny = 0, maxx = 0, maxy = 0, dx = 0, dy = 0;
 
-	GetExtents(&minx, &miny, &maxx, &maxy);
+    GetExtents(&minx, &miny, &maxx, &maxy);
 
-	dx = minx*(-1);
-	dy = miny*(-1);
+    dx = minx*(-1);
+    dy = miny*(-1);
 
-	for(size_t i = 0; i < m_arrVertices.Count(); i++)
-	{
-		m_arrVertices[i].x += dx;
-		m_arrVertices[i].y += dy;
-	}
+    for(size_t i = 0; i < m_arrVertices.Count(); i++)
+    {
+        m_arrVertices[i].x += dx;
+        m_arrVertices[i].y += dy;
+    }
 }
 
 void wxSFPolygonShape::FitVerticesToBoundingBox()
 {
-	double minx = 0, miny = 0, maxx = 0, maxy = 0, sx = 1, sy = 1;
+    double minx = 0, miny = 0, maxx = 0, maxy = 0, sx = 1, sy = 1;
 
-	GetExtents(&minx, &miny, &maxx, &maxy);
+    GetExtents(&minx, &miny, &maxx, &maxy);
 
-	sx = m_nRectSize.x/(maxx - minx);
-	sy = m_nRectSize.y/(maxy - miny);
+    sx = m_nRectSize.x/(maxx - minx);
+    sy = m_nRectSize.y/(maxy - miny);
 
-	for(size_t i = 0; i < m_arrVertices.Count(); i++)
-	{
-		m_arrVertices[i].x *= sx;
-		m_arrVertices[i].y *= sy;
-	}
+    for(size_t i = 0; i < m_arrVertices.Count(); i++)
+    {
+        m_arrVertices[i].x *= sx;
+        m_arrVertices[i].y *= sy;
+    }
 }
 
 void wxSFPolygonShape::FitBoundingBoxToVertices()
 {
-	double minx = 0, miny = 0, maxx = 0, maxy = 0;
+    double minx = 0, miny = 0, maxx = 0, maxy = 0;
 
-	GetExtents(&minx, &miny, &maxx, &maxy);
+    GetExtents(&minx, &miny, &maxx, &maxy);
 
-	m_nRectSize.x = maxx - minx;
-	m_nRectSize.y = maxy - miny;
+    m_nRectSize.x = maxx - minx;
+    m_nRectSize.y = maxy - miny;
 }
 
 void wxSFPolygonShape::DrawPolygonShape(wxDC& dc)
 {
-	size_t vcount = m_arrVertices.Count();
-	wxPoint *pts = new wxPoint[vcount];
+    size_t vcount = m_arrVertices.Count();
+    wxPoint *pts = new wxPoint[vcount];
 
-	GetTranslatedVerices(pts);
-	dc.DrawPolygon(vcount, pts);
+    GetTranslatedVerices(pts);
+    dc.DrawPolygon(vcount, pts);
 
-	delete [] pts;
+    delete [] pts;
 }
 
 //----------------------------------------------------------------------------------//
@@ -270,40 +270,40 @@ void wxSFPolygonShape::DrawPolygonShape(wxDC& dc)
 
 void wxSFPolygonShape::DrawNormal(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(m_Border);
-	dc.SetBrush(m_Fill);
-	DrawPolygonShape(dc);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(m_Border);
+    dc.SetBrush(m_Fill);
+    DrawPolygonShape(dc);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFPolygonShape::DrawHover(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(wxPen(m_nHoverColor, 1));
-	dc.SetBrush(m_Fill);
-	DrawPolygonShape(dc);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 1));
+    dc.SetBrush(m_Fill);
+    DrawPolygonShape(dc);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFPolygonShape::DrawHighlighted(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(wxPen(m_nHoverColor, 2));
-	dc.SetBrush(m_Fill);
-	DrawPolygonShape(dc);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 2));
+    dc.SetBrush(m_Fill);
+    DrawPolygonShape(dc);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFPolygonShape::DrawShadow(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     if( m_Fill.GetStyle() != wxBRUSHSTYLE_TRANSPARENT )
     {

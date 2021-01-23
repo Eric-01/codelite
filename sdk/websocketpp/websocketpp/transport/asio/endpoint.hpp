@@ -161,7 +161,7 @@ public:
             rhs.m_acceptor = NULL;
             rhs.m_listen_backlog = lib::asio::socket_base::max_connections;
             rhs.m_state = UNINITIALIZED;
-            
+
             // TODO: this needs to be updated
         }
         return *this;
@@ -226,7 +226,7 @@ public:
      * @param ec Set to indicate what error occurred, if any.
      */
     void init_asio(lib::error_code & ec) {
-        // Use a smart pointer until the call is successful and ownership has 
+        // Use a smart pointer until the call is successful and ownership has
         // successfully been taken. Use unique_ptr when available.
         // TODO: remove the use of auto_ptr when C++98/03 support is no longer
         //       necessary.
@@ -248,7 +248,7 @@ public:
      * @see init_asio(io_service_ptr ptr)
      */
     void init_asio() {
-        // Use a smart pointer until the call is successful and ownership has 
+        // Use a smart pointer until the call is successful and ownership has
         // successfully been taken. Use unique_ptr when available.
         // TODO: remove the use of auto_ptr when C++98/03 support is no longer
         //       necessary.
@@ -379,7 +379,7 @@ public:
     lib::asio::io_service & get_io_service() {
         return *m_io_service;
     }
-    
+
     /// Get local TCP endpoint
     /**
      * Extracts the local endpoint from the acceptor. This represents the
@@ -387,7 +387,7 @@ public:
      *
      * Sets a bad_descriptor error if the acceptor is not currently listening
      * or otherwise unavailable.
-     * 
+     *
      * @since 0.7.0
      *
      * @param ec Set to indicate what error occurred, if any.
@@ -426,10 +426,10 @@ public:
 
         m_acceptor->open(ep.protocol(),bec);
         if (bec) {ec = clean_up_listen_after_error(bec);return;}
-        
+
         m_acceptor->set_option(lib::asio::socket_base::reuse_address(m_reuse_addr),bec);
         if (bec) {ec = clean_up_listen_after_error(bec);return;}
-        
+
         // if a TCP pre-bind handler is present, run it
         if (m_tcp_pre_bind_handler) {
             ec = m_tcp_pre_bind_handler(m_acceptor);
@@ -438,13 +438,13 @@ public:
                 return;
             }
         }
-        
+
         m_acceptor->bind(ep,bec);
         if (bec) {ec = clean_up_listen_after_error(bec);return;}
-        
+
         m_acceptor->listen(m_listen_backlog,bec);
         if (bec) {ec = clean_up_listen_after_error(bec);return;}
-        
+
         // Success
         m_state = LISTENING;
         ec = lib::error_code();
@@ -828,7 +828,7 @@ protected:
         m_elog = e;
     }
 
-    void handle_accept(accept_handler callback, lib::asio::error_code const & 
+    void handle_accept(accept_handler callback, lib::asio::error_code const &
         asio_ec)
     {
         lib::error_code ret_ec;

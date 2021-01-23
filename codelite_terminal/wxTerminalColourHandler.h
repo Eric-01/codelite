@@ -28,7 +28,7 @@ protected:
     eColourHandlerState m_state = eColourHandlerState::kNormal;
     wxColour GetColour(long colour_number);
     void SetCaretEnd();
-    
+
 protected:
     void Append(const wxString& buffer);
     void SetStyleFromEscape(const wxString& escape);

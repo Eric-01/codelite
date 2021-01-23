@@ -40,7 +40,7 @@ public:
 protected:
     wxString m_expression;
     int      m_evalReason;
-    
+
 public:
     XDebugEvalCmdHandler(const wxString &expression, int evalReason, XDebugManager* mgr, int transcationId);
     virtual ~XDebugEvalCmdHandler();

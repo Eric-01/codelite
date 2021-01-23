@@ -237,7 +237,7 @@ class QMapPrinter:
             if gdb.parse_and_eval:
                 ret = int(gdb.parse_and_eval('QMap<%s, %s>::payload()' % (self.ktype, self.vtype)))
                 if (ret): return ret;
-            
+
             #if the inferior function call didn't work, let's try to calculate ourselves
 
             #we can't use QMapPayloadNode as it's inlined
@@ -256,7 +256,7 @@ class QMapPrinter:
                 ret += 2
 
             ret -= gdb.lookup_type('void').pointer().sizeof
-            
+
             return ret
 
         def concrete (self, data_node):

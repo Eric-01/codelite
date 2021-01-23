@@ -24,25 +24,25 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFCircleArrow, wxSFSolidArrow);
 wxSFCircleArrow::wxSFCircleArrow(void)
 : wxSFSolidArrow()
 {
-	m_nRadius = sfdvARROW_RADIUS;
-	
-	XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
+    m_nRadius = sfdvARROW_RADIUS;
+
+    XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
 }
 
 wxSFCircleArrow::wxSFCircleArrow(wxSFShapeBase* parent)
 : wxSFSolidArrow(parent)
 {
-	m_nRadius = sfdvARROW_RADIUS;
-	
-	XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
+    m_nRadius = sfdvARROW_RADIUS;
+
+    XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
 }
 
 wxSFCircleArrow::wxSFCircleArrow(const wxSFCircleArrow& obj)
 : wxSFSolidArrow(obj)
 {
-	m_nRadius = obj.m_nRadius;
-	
-	XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
+    m_nRadius = obj.m_nRadius;
+
+    XS_SERIALIZE_INT_EX( m_nRadius, wxT("radius"), sfdvARROW_RADIUS );
 }
 
 wxSFCircleArrow::~wxSFCircleArrow(void)
@@ -55,12 +55,12 @@ wxSFCircleArrow::~wxSFCircleArrow(void)
 
 void wxSFCircleArrow::Draw(const wxRealPoint &from, const wxRealPoint &to, wxDC& dc)
 {
-	wxUnusedVar(from);
+    wxUnusedVar(from);
 
-	dc.SetPen(m_Pen);
+    dc.SetPen(m_Pen);
     dc.SetBrush(m_Fill);
     dc.DrawCircle( Conv2Point( to ), m_nRadius );
     dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxNullPen);
 }
 

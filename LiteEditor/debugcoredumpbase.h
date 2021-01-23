@@ -54,41 +54,41 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class DebugCoreDumpDlgBase
 ///////////////////////////////////////////////////////////////////////////////
-class DebugCoreDumpDlgBase : public wxDialog 
+class DebugCoreDumpDlgBase : public wxDialog
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText2;
-		wxComboBox* m_Core;
-		wxButton* m_buttonBrowseCore;
-		wxStaticText* m_staticText21;
-		wxComboBox* m_ExeFilepath;
-		wxButton* m_buttonBrowseExe;
-		wxStaticText* m_staticText5;
-		wxComboBox* m_WD;
-		wxButton* m_buttonBrowseWD;
-		wxStaticText* m_staticText3;
-		wxChoice* m_choiceDebuggers;
-		
-		wxStaticLine* m_staticline1;
-		wxButton* m_buttonDebug;
-		wxButton* m_buttonCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnButtonBrowseCore( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonBrowseExe( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonBrowseWD( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnButtonDebug( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnDebugBtnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
-		virtual void OnButtonCancel( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		DebugCoreDumpDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Debug a core dump"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
-		~DebugCoreDumpDlgBase();
-	
+    private:
+
+    protected:
+        wxStaticText* m_staticText2;
+        wxComboBox* m_Core;
+        wxButton* m_buttonBrowseCore;
+        wxStaticText* m_staticText21;
+        wxComboBox* m_ExeFilepath;
+        wxButton* m_buttonBrowseExe;
+        wxStaticText* m_staticText5;
+        wxComboBox* m_WD;
+        wxButton* m_buttonBrowseWD;
+        wxStaticText* m_staticText3;
+        wxChoice* m_choiceDebuggers;
+
+        wxStaticLine* m_staticline1;
+        wxButton* m_buttonDebug;
+        wxButton* m_buttonCancel;
+
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnButtonBrowseCore( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnButtonBrowseExe( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnButtonBrowseWD( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnButtonDebug( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnDebugBtnUpdateUI( wxUpdateUIEvent& event ) { event.Skip(); }
+        virtual void OnButtonCancel( wxCommandEvent& event ) { event.Skip(); }
+
+
+    public:
+
+        DebugCoreDumpDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Debug a core dump"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+        ~DebugCoreDumpDlgBase();
+
 };
 
 #endif //__debugcoredumpbase__

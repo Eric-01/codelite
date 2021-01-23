@@ -47,18 +47,18 @@
 class xsSerializable;
 class AdapterSelectDlg : public _AdapterSelectDlg {
 
-	public:
-		AdapterSelectDlg(wxWindow* parent, wxWindow* pParentBook, IManager* pManager, xsSerializable* pConnections);
-		virtual ~AdapterSelectDlg();
+    public:
+        AdapterSelectDlg(wxWindow* parent, wxWindow* pParentBook, IManager* pManager, xsSerializable* pConnections);
+        virtual ~AdapterSelectDlg();
 
-		virtual void OnMysqlClick(wxCommandEvent& event);
-		virtual void OnSqliteClick(wxCommandEvent& event);
-		virtual void OnPostgresClick(wxCommandEvent& event);
+        virtual void OnMysqlClick(wxCommandEvent& event);
+        virtual void OnSqliteClick(wxCommandEvent& event);
+        virtual void OnPostgresClick(wxCommandEvent& event);
 
-	protected:
-		wxWindow* m_pParentBook;
-		IManager* m_pManager;
-		xsSerializable* m_pConnectons;
+    protected:
+        wxWindow* m_pParentBook;
+        IManager* m_pManager;
+        xsSerializable* m_pConnectons;
 };
 
 #endif // ADAPTERSELECTDLG_H

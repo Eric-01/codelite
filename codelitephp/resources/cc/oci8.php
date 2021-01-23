@@ -4,218 +4,218 @@
 
 class OCI_Lob  {
 
-	/**
-	 * Returns large object's contents
-	 * @link http://www.php.net/manual/en/oci-lob.load.php
-	 */
-	public function load () {}
+    /**
+     * Returns large object's contents
+     * @link http://www.php.net/manual/en/oci-lob.load.php
+     */
+    public function load () {}
 
-	/**
-	 * Returns the current position of internal pointer of large object
-	 * @link http://www.php.net/manual/en/oci-lob.tell.php
-	 */
-	public function tell () {}
+    /**
+     * Returns the current position of internal pointer of large object
+     * @link http://www.php.net/manual/en/oci-lob.tell.php
+     */
+    public function tell () {}
 
-	/**
-	 * Truncates large object
-	 * @link http://www.php.net/manual/en/oci-lob.truncate.php
-	 * @param length[optional]
-	 */
-	public function truncate ($length) {}
+    /**
+     * Truncates large object
+     * @link http://www.php.net/manual/en/oci-lob.truncate.php
+     * @param length[optional]
+     */
+    public function truncate ($length) {}
 
-	/**
-	 * Erases a specified portion of the internal LOB data
-	 * @link http://www.php.net/manual/en/oci-lob.erase.php
-	 * @param offset[optional]
-	 * @param length[optional]
-	 */
-	public function erase ($offset, $length) {}
+    /**
+     * Erases a specified portion of the internal LOB data
+     * @link http://www.php.net/manual/en/oci-lob.erase.php
+     * @param offset[optional]
+     * @param length[optional]
+     */
+    public function erase ($offset, $length) {}
 
-	/**
-	 * Flushes/writes buffer of the LOB to the server
-	 * @link http://www.php.net/manual/en/oci-lob.flush.php
-	 * @param flag[optional]
-	 */
-	public function flush ($flag) {}
+    /**
+     * Flushes/writes buffer of the LOB to the server
+     * @link http://www.php.net/manual/en/oci-lob.flush.php
+     * @param flag[optional]
+     */
+    public function flush ($flag) {}
 
-	/**
-	 * Changes current state of buffering for the large object
-	 * @link http://www.php.net/manual/en/oci-lob.setbuffering.php
-	 * @param mode
-	 */
-	public function setbuffering ($mode) {}
+    /**
+     * Changes current state of buffering for the large object
+     * @link http://www.php.net/manual/en/oci-lob.setbuffering.php
+     * @param mode
+     */
+    public function setbuffering ($mode) {}
 
-	/**
-	 * Returns current state of buffering for the large object
-	 * @link http://www.php.net/manual/en/oci-lob.getbuffering.php
-	 */
-	public function getbuffering () {}
+    /**
+     * Returns current state of buffering for the large object
+     * @link http://www.php.net/manual/en/oci-lob.getbuffering.php
+     */
+    public function getbuffering () {}
 
-	/**
-	 * Moves the internal pointer to the beginning of the large object
-	 * @link http://www.php.net/manual/en/oci-lob.rewind.php
-	 */
-	public function rewind () {}
+    /**
+     * Moves the internal pointer to the beginning of the large object
+     * @link http://www.php.net/manual/en/oci-lob.rewind.php
+     */
+    public function rewind () {}
 
-	/**
-	 * Reads part of the large object
-	 * @link http://www.php.net/manual/en/oci-lob.read.php
-	 * @param length
-	 */
-	public function read ($length) {}
+    /**
+     * Reads part of the large object
+     * @link http://www.php.net/manual/en/oci-lob.read.php
+     * @param length
+     */
+    public function read ($length) {}
 
-	/**
-	 * Tests for end-of-file on a large object's descriptor
-	 * @link http://www.php.net/manual/en/oci-lob.eof.php
-	 */
-	public function eof () {}
+    /**
+     * Tests for end-of-file on a large object's descriptor
+     * @link http://www.php.net/manual/en/oci-lob.eof.php
+     */
+    public function eof () {}
 
-	/**
-	 * Sets the internal pointer of the large object
-	 * @link http://www.php.net/manual/en/oci-lob.seek.php
-	 * @param offset
-	 * @param whence[optional]
-	 */
-	public function seek ($offset, $whence) {}
+    /**
+     * Sets the internal pointer of the large object
+     * @link http://www.php.net/manual/en/oci-lob.seek.php
+     * @param offset
+     * @param whence[optional]
+     */
+    public function seek ($offset, $whence) {}
 
-	/**
-	 * Writes data to the large object
-	 * @link http://www.php.net/manual/en/oci-lob.write.php
-	 * @param string
-	 * @param length[optional]
-	 */
-	public function write ($string, $length) {}
+    /**
+     * Writes data to the large object
+     * @link http://www.php.net/manual/en/oci-lob.write.php
+     * @param string
+     * @param length[optional]
+     */
+    public function write ($string, $length) {}
 
-	/**
-	 * Appends data from the large object to another large object
-	 * @link http://www.php.net/manual/en/oci-lob.append.php
-	 * @param lob_descriptor_from
-	 */
-	public function append ($lob_descriptor_from) {}
+    /**
+     * Appends data from the large object to another large object
+     * @link http://www.php.net/manual/en/oci-lob.append.php
+     * @param lob_descriptor_from
+     */
+    public function append ($lob_descriptor_from) {}
 
-	/**
-	 * Returns size of large object
-	 * @link http://www.php.net/manual/en/oci-lob.size.php
-	 */
-	public function size () {}
+    /**
+     * Returns size of large object
+     * @link http://www.php.net/manual/en/oci-lob.size.php
+     */
+    public function size () {}
 
-	/**
-	 * &Alias; <function>OCI-Lob::export</function>
-	 * @link http://www.php.net/manual/en/oci-lob.writetofile.php
-	 * @param filename
-	 * @param start[optional]
-	 * @param length[optional]
-	 */
-	public function writetofile ($filename, $start, $length) {}
+    /**
+     * &Alias; <function>OCI-Lob::export</function>
+     * @link http://www.php.net/manual/en/oci-lob.writetofile.php
+     * @param filename
+     * @param start[optional]
+     * @param length[optional]
+     */
+    public function writetofile ($filename, $start, $length) {}
 
-	/**
-	 * Exports LOB's contents to a file
-	 * @link http://www.php.net/manual/en/oci-lob.export.php
-	 * @param filename
-	 * @param start[optional]
-	 * @param length[optional]
-	 */
-	public function export ($filename, $start, $length) {}
+    /**
+     * Exports LOB's contents to a file
+     * @link http://www.php.net/manual/en/oci-lob.export.php
+     * @param filename
+     * @param start[optional]
+     * @param length[optional]
+     */
+    public function export ($filename, $start, $length) {}
 
-	/**
-	 * Imports file data to the LOB
-	 * @link http://www.php.net/manual/en/oci-lob.import.php
-	 * @param filename
-	 */
-	public function import ($filename) {}
+    /**
+     * Imports file data to the LOB
+     * @link http://www.php.net/manual/en/oci-lob.import.php
+     * @param filename
+     */
+    public function import ($filename) {}
 
-	/**
-	 * Writes a temporary large object
-	 * @link http://www.php.net/manual/en/oci-lob.writetemporary.php
-	 * @param data
-	 * @param type[optional]
-	 */
-	public function writetemporary ($data, $type) {}
+    /**
+     * Writes a temporary large object
+     * @link http://www.php.net/manual/en/oci-lob.writetemporary.php
+     * @param data
+     * @param type[optional]
+     */
+    public function writetemporary ($data, $type) {}
 
-	/**
-	 * Closes LOB descriptor
-	 * @link http://www.php.net/manual/en/oci-lob.close.php
-	 */
-	public function close () {}
+    /**
+     * Closes LOB descriptor
+     * @link http://www.php.net/manual/en/oci-lob.close.php
+     */
+    public function close () {}
 
-	/**
-	 * Saves data to the large object
-	 * @link http://www.php.net/manual/en/oci-lob.save.php
-	 * @param data
-	 * @param offset[optional]
-	 */
-	public function save ($data, $offset) {}
+    /**
+     * Saves data to the large object
+     * @link http://www.php.net/manual/en/oci-lob.save.php
+     * @param data
+     * @param offset[optional]
+     */
+    public function save ($data, $offset) {}
 
-	/**
-	 * &Alias; <function>OCI-Lob::import</function>
-	 * @link http://www.php.net/manual/en/oci-lob.savefile.php
-	 * @param filename
-	 */
-	public function savefile ($filename) {}
+    /**
+     * &Alias; <function>OCI-Lob::import</function>
+     * @link http://www.php.net/manual/en/oci-lob.savefile.php
+     * @param filename
+     */
+    public function savefile ($filename) {}
 
-	/**
-	 * Frees resources associated with the LOB descriptor
-	 * @link http://www.php.net/manual/en/oci-lob.free.php
-	 */
-	public function free () {}
+    /**
+     * Frees resources associated with the LOB descriptor
+     * @link http://www.php.net/manual/en/oci-lob.free.php
+     */
+    public function free () {}
 
 }
 
 class OCI_Collection  {
 
-	/**
-	 * Appends element to the collection
-	 * @link http://www.php.net/manual/en/oci-collection.append.php
-	 * @param value
-	 */
-	public function append ($value) {}
+    /**
+     * Appends element to the collection
+     * @link http://www.php.net/manual/en/oci-collection.append.php
+     * @param value
+     */
+    public function append ($value) {}
 
-	/**
-	 * Returns value of the element
-	 * @link http://www.php.net/manual/en/oci-collection.getelem.php
-	 * @param index
-	 */
-	public function getelem ($index) {}
+    /**
+     * Returns value of the element
+     * @link http://www.php.net/manual/en/oci-collection.getelem.php
+     * @param index
+     */
+    public function getelem ($index) {}
 
-	/**
-	 * Assigns a value to the element of the collection
-	 * @link http://www.php.net/manual/en/oci-collection.assignelem.php
-	 * @param index
-	 * @param value
-	 */
-	public function assignelem ($index, $value) {}
+    /**
+     * Assigns a value to the element of the collection
+     * @link http://www.php.net/manual/en/oci-collection.assignelem.php
+     * @param index
+     * @param value
+     */
+    public function assignelem ($index, $value) {}
 
-	/**
-	 * Assigns a value to the collection from another existing collection
-	 * @link http://www.php.net/manual/en/oci-collection.assign.php
-	 * @param collection_from
-	 */
-	public function assign ($collection_from) {}
+    /**
+     * Assigns a value to the collection from another existing collection
+     * @link http://www.php.net/manual/en/oci-collection.assign.php
+     * @param collection_from
+     */
+    public function assign ($collection_from) {}
 
-	/**
-	 * Returns size of the collection
-	 * @link http://www.php.net/manual/en/oci-collection.size.php
-	 */
-	public function size () {}
+    /**
+     * Returns size of the collection
+     * @link http://www.php.net/manual/en/oci-collection.size.php
+     */
+    public function size () {}
 
-	/**
-	 * Returns the maximum number of elements in the collection
-	 * @link http://www.php.net/manual/en/oci-collection.max.php
-	 */
-	public function max () {}
+    /**
+     * Returns the maximum number of elements in the collection
+     * @link http://www.php.net/manual/en/oci-collection.max.php
+     */
+    public function max () {}
 
-	/**
-	 * Trims elements from the end of the collection
-	 * @link http://www.php.net/manual/en/oci-collection.trim.php
-	 * @param number
-	 */
-	public function trim ($number) {}
+    /**
+     * Trims elements from the end of the collection
+     * @link http://www.php.net/manual/en/oci-collection.trim.php
+     * @param number
+     */
+    public function trim ($number) {}
 
-	/**
-	 * Frees the resources associated with the collection object
-	 * @link http://www.php.net/manual/en/oci-collection.free.php
-	 */
-	public function free () {}
+    /**
+     * Frees the resources associated with the collection object
+     * @link http://www.php.net/manual/en/oci-collection.free.php
+     */
+    public function free () {}
 
 }
 
@@ -287,8 +287,8 @@ function oci_define_by_name ($statement, $column_name, &$variable, $type = null)
  *      </p>
  *      <p>
  *       Possible values for type are:
- *       
- *        
+ *
+ *
  *         <p>
  *          SQLT_BFILEE or OCI_B_BFILE
  *           - for BFILEs;
@@ -322,8 +322,8 @@ function oci_bind_by_name ($statement, $bv_name, &$variable, $maxlength = null, 
  *       available types below:
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  *         <p>
  *          SQLT_NUM - for arrays of NUMBER.
  *         </p>
@@ -433,14 +433,14 @@ function oci_field_type_raw ($statement, $field) {}
  *        An optional second parameter can be one of the following constants:
  *       <table>
  *        Execution Modes
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>OCI_COMMIT_ON_SUCCESS</td>
  *           <td>Automatically commit all outstanding changes for
@@ -462,8 +462,8 @@ function oci_field_type_raw ($statement, $field) {}
  *             use OCI_DEFAULT which is equivalent
  *             to OCI_NO_AUTO_COMMIT.</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  *      <p>
@@ -480,7 +480,7 @@ function oci_field_type_raw ($statement, $field) {}
  *      </p>
  *      <p>
  *       If OCI_NO_AUTO_COMMIT mode is used for any
- *       statement including queries, and 
+ *       statement including queries, and
  *        oci_commit
  *       or oci_rollback is not subsequently
  *       called, then OCI8 will perform a rollback at the end of the
@@ -576,14 +576,14 @@ function oci_fetch_assoc ($statement) {}
  *       constants:
  *       <table>
  *        oci_fetch_array Modes
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>OCI_BOTH</td>
  *           <td>Returns an array with both associative and numeric
@@ -611,8 +611,8 @@ function oci_fetch_assoc ($statement) {}
  *           <td>Returns the contents of LOBs instead of the LOB
  *             descriptors.</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  *      <p>
@@ -641,7 +641,7 @@ function oci_fetch_assoc ($statement) {}
  *   uppercase associative indices in the result array.  Case-sensitive
  *   column names will have array indices using the exact column case.
  *   Use var_dump on the result array to verify the
- *   appropriate case to use for each query. 
+ *   appropriate case to use for each query.
  *  </p>
  *  <p>
  *   The table name is not included in the array index.  If your query
@@ -692,14 +692,14 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  *       structure and whether associative arrays should be used.
  *       <table>
  *        oci_fetch_all Array Structure Modes
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>OCI_FETCHSTATEMENT_BY_ROW</td>
  *           <td>The outer array will contain one sub-array per query
@@ -710,8 +710,8 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  *           <td>The outer array will contain one sub-array per query
  *           column. This is the default.</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  *      <p>
@@ -719,14 +719,14 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  *        Only one index mode will be returned.
  *       <table>
  *        oci_fetch_all Array Index Modes
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>OCI_NUM</td>
  *           <td>Numeric indexes are used for each column's array.</td>
@@ -736,8 +736,8 @@ function ocifetchinto ($statement_resource, &$result, $mode) {}
  *           <td>Associative indexes are used for each column's
  *           array. This is the default.</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  *      <p>
@@ -778,7 +778,7 @@ function oci_free_statement ($statement) {}
  * @param onoff bool <p>
  *       Set this to false to turn debug output off or true to turn it on.
  *      </p>
- * @return void 
+ * @return void
  */
 function oci_internal_debug ($onoff) {}
 
@@ -796,7 +796,7 @@ function oci_num_fields ($statement) {}
  * Prepares an Oracle statement for execution
  * @link http://www.php.net/manual/en/function.oci-parse.php
  * @param connection resource <p>
- *       An Oracle connection identifier, returned by 
+ *       An Oracle connection identifier, returned by
  *       oci_connect, oci_pconnect, or oci_new_connect.
  *      </p>
  * @param sql_text string <p>
@@ -833,7 +833,7 @@ function oci_get_implicit_resultset ($statement) {}
  * Allocates and returns a new cursor (statement handle)
  * @link http://www.php.net/manual/en/function.oci-new-cursor.php
  * @param connection resource <p>
- *       An Oracle connection identifier, returned by 
+ *       An Oracle connection identifier, returned by
  *       oci_connect or oci_pconnect.
  *      </p>
  * @return resource a new statement handle, or false on error.
@@ -882,14 +882,14 @@ function oci_server_version ($connection) {}
  *   following strings.
  *   <table>
  *    Statement type
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Return String</td>
  *       <td>Notes</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>ALTER</td>
  *       <td></td>
@@ -934,8 +934,8 @@ function oci_server_version ($connection) {}
  *       <td>UNKNOWN</td>
  *       <td></td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  *  </p>
  *  <p>
@@ -957,7 +957,7 @@ function oci_num_rows ($statement) {}
  * Closes an Oracle connection
  * @link http://www.php.net/manual/en/function.oci-close.php
  * @param connection resource <p>
- *       An Oracle connection identifier returned by 
+ *       An Oracle connection identifier returned by
  *       oci_connect, oci_pconnect,
  *       or oci_new_connect.
  *      </p>
@@ -1020,7 +1020,7 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
  *       For most errors, resource is the
  *       resource handle that was passed to the failing function call.
  *       For connection errors with oci_connect,
- *       oci_new_connect or 
+ *       oci_new_connect or
  *       oci_pconnect do not pass resource.
  *      </p>
  * @return array If no error is found, oci_error returns
@@ -1030,15 +1030,15 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
  *  <p>
  *   <table>
  *   oci_error Array Description
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Array key</td>
  *       <td>Type</td>
  *       <td>&Description;</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>code</td>
  *       <td>integer</td>
@@ -1069,8 +1069,8 @@ function oci_pconnect ($username, $password, $connection_string = null, $charact
  *         an empty string.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function oci_error ($resource = null) {}
@@ -1078,7 +1078,7 @@ function oci_error ($resource = null) {}
 /**
  * Frees a descriptor
  * @link http://www.php.net/manual/en/function.oci-free-descriptor.php
- * @param descriptor resource 
+ * @param descriptor resource
  * @return bool Returns true on success, false on failure.
  */
 function oci_free_descriptor ($descriptor) {}
@@ -1241,11 +1241,11 @@ function oci_rollback ($connection) {}
  * Initializes a new empty LOB or FILE descriptor
  * @link http://www.php.net/manual/en/function.oci-new-descriptor.php
  * @param connection resource <p>
- *       An Oracle connection identifier, returned by 
+ *       An Oracle connection identifier, returned by
  *       oci_connect or oci_pconnect.
  *      </p>
  * @param type int[optional] <p>
- *       Valid values for type are: 
+ *       Valid values for type are:
  *       OCI_DTYPE_FILE, OCI_DTYPE_LOB and
  *       OCI_DTYPE_ROWID.
  *      </p>
@@ -1323,7 +1323,7 @@ function oci_set_client_info ($connection, $client_info) {}
  * Changes password of Oracle's user
  * @link http://www.php.net/manual/en/function.oci-password-change.php
  * @param connection resource <p>
- *       An Oracle connection identifier, returned by 
+ *       An Oracle connection identifier, returned by
  *       oci_connect or oci_pconnect.
  *      </p>
  * @param username string <p>
@@ -1389,7 +1389,7 @@ function oci_collection_trim ($collection, $number) {}
  * Allocates new collection object
  * @link http://www.php.net/manual/en/function.oci-new-collection.php
  * @param connection resource <p>
- *       An Oracle connection identifier, returned by 
+ *       An Oracle connection identifier, returned by
  *       oci_connect or oci_pconnect.
  *      </p>
  * @param tdo string <p>
@@ -2191,14 +2191,14 @@ define ('OCI_D_LOB', 50);
 define ('OCI_D_ROWID', 54);
 
 /**
- * Used with 
+ * Used with
  *           to indicate that a temporary CLOB should be created.
  * @link http://www.php.net/manual/en/oci8.constants.php
  */
 define ('OCI_TEMP_CLOB', 2);
 
 /**
- * Used with 
+ * Used with
  *           to indicate that a temporary BLOB should be created.
  * @link http://www.php.net/manual/en/oci8.constants.php
  */

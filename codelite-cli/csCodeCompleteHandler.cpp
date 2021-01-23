@@ -13,7 +13,7 @@ csCodeCompleteHandler::~csCodeCompleteHandler() {}
 void csCodeCompleteHandler::DoProcessCommand(const JSONItem& options)
 {
     CHECK_STR_PARAM("lang", m_lang);
-    
+
     wxString handlerName;
     handlerName << "code-complete-" << m_lang;
     csCommandHandlerBase::Ptr_t handler = m_codeCompleteHandlers.FindHandler(handlerName);

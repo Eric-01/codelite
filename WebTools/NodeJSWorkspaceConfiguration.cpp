@@ -15,7 +15,7 @@ void NodeJSWorkspaceConfiguration::FromJSON(const JSONItem& json)
 {
     m_folders = json.namedObject("folders").toArrayString();
     ConvertToRelative(m_folders);
-    
+
     m_showHiddenFiles = json.namedObject("m_showHiddenFiles").toBool(m_showHiddenFiles);
 
     m_isOk = false;

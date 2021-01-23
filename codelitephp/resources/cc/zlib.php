@@ -90,7 +90,7 @@ function gzgets ($zp, $length = null) {}
  *       The length of data to get.
  *      </p>
  * @param allowable_tags string[optional] <p>
- *       You can use this optional parameter to specify tags which should not 
+ *       You can use this optional parameter to specify tags which should not
  *       be stripped.
  *      </p>
  * @return string The uncompressed and stripped string, or false on error.
@@ -118,13 +118,13 @@ function gzread ($zp, $length) {}
  *       The file name.
  *      </p>
  * @param mode string <p>
- *       As in fopen (rb or 
- *       wb) but can also include a compression level 
+ *       As in fopen (rb or
+ *       wb) but can also include a compression level
  *       (wb9) or a strategy: f for
  *       filtered data as in wb6f, h for
  *       Huffman only compression as in wb1h.
  *       (See the description of deflateInit2
- *       in zlib.h for 
+ *       in zlib.h for
  *       more information about the strategy parameter.)
  *      </p>
  * @param use_include_path int[optional] <p>
@@ -132,7 +132,7 @@ function gzread ($zp, $length) {}
  *       want to search for the file in the include_path too.
  *      </p>
  * @return resource a file pointer to the file opened, after that, everything you read
- *   from this file descriptor will be transparently decompressed and what you 
+ *   from this file descriptor will be transparently decompressed and what you
  *   write gets compressed.
  *  </p>
  *  <p>
@@ -164,10 +164,10 @@ function gzpassthru ($zp) {}
  *      </p>
  * @param whence int[optional] <p>
  *       whence values are:
- *       
+ *
  *        SEEK_SET - Set position equal to offset bytes.
  *        SEEK_CUR - Set position to current location plus offset.
- *       
+ *
  *      </p>
  *      <p>
  *       If whence is not specified, it is assumed to be
@@ -200,19 +200,19 @@ function gztell ($zp) {}
  *       The string to write.
  *      </p>
  * @param length int[optional] <p>
- *       The number of uncompressed bytes to write. If supplied, writing will 
+ *       The number of uncompressed bytes to write. If supplied, writing will
  *       stop after length (uncompressed) bytes have been
  *       written or the end of string is reached,
  *       whichever comes first.
  *      </p>
- *      
+ *
  *       <p>
  *        Note that if the length argument is given,
  *        then the magic_quotes_runtime
  *        configuration option will be ignored and no slashes will be
  *        stripped from string.
  *       </p>
- * @return int the number of (uncompressed) bytes written to the given gz-file 
+ * @return int the number of (uncompressed) bytes written to the given gz-file
  *   stream.
  */
 function gzwrite ($zp, $string, $length = null) {}
@@ -273,7 +273,7 @@ function gzcompress ($data, $level = null, $encoding = null) {}
  *  </p>
  *  <p>
  *   The function will return an error if the uncompressed data is more than
- *   32768 times the length of the compressed input data 
+ *   32768 times the length of the compressed input data
  *   or more than the optional parameter length.
  */
 function gzuncompress ($data, $length = null) {}
@@ -309,7 +309,7 @@ function gzdeflate ($data, $level = null, $encoding = null) {}
  *  </p>
  *  <p>
  *   The function will return an error if the uncompressed data is more than
- *   32768 times the length of the compressed input data 
+ *   32768 times the length of the compressed input data
  *   or more than the optional parameter length.
  */
 function gzinflate ($data, $length = null) {}
@@ -327,7 +327,7 @@ function gzinflate ($data, $length = null) {}
  *      </p>
  * @param encoding_mode int[optional] <p>
  *       The encoding mode. Can be FORCE_GZIP (the default)
- *       or FORCE_DEFLATE. 
+ *       or FORCE_DEFLATE.
  *      </p>
  *      <p>
  *       Prior to PHP 5.4.0, using FORCE_DEFLATE results in
@@ -360,15 +360,15 @@ function gzdecode ($data, $length = null) {}
  * Compress data with the specified encoding
  * @link http://www.php.net/manual/en/function.zlib-encode.php
  * @param data string <p>
- *      
+ *
  *     </p>
  * @param encoding string <p>
- *      
+ *
  *     </p>
  * @param level string[optional] <p>
- *      
+ *
  *     </p>
- * @return string 
+ * @return string
  */
 function zlib_encode ($data, $encoding, $level = null) {}
 
@@ -376,12 +376,12 @@ function zlib_encode ($data, $encoding, $level = null) {}
  * Uncompress any raw/gzip/zlib encoded data
  * @link http://www.php.net/manual/en/function.zlib-decode.php
  * @param data string <p>
- *      
+ *
  *     </p>
  * @param max_decoded_len string[optional] <p>
- *      
+ *
  *     </p>
- * @return string 
+ * @return string
  */
 function zlib_decode ($data, $max_decoded_len = null) {}
 
@@ -400,7 +400,7 @@ function zlib_get_coding_type () {}
  *      </p>
  * @param mode int <p>
  *      </p>
- * @return string 
+ * @return string
  */
 function ob_gzhandler ($buffer, $mode) {}
 

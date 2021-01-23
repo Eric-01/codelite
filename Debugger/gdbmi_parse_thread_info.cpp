@@ -41,13 +41,13 @@ void GdbMIThreadInfoParser::Parse(const wxString& info)
     wxString buffer = info;
     wxString threadsInfo;
     wxString threadBlock;
-    
+
     if ( !ReadBlock(buffer, "[]", threadsInfo) )
         return;
-    
+
     wxString activeThreadId;
     ReadKeyValuePair(buffer, "current-thread-id=", activeThreadId);
-    
+
     while ( ReadBlock(threadsInfo, "{}", threadBlock) ) {
         GdbMIThreadInfo ti;
         ReadKeyValuePair(threadBlock, "id=",        ti.threadId);
@@ -66,10 +66,10 @@ bool GdbMIThreadInfoParser::ReadBlock(wxString& input, const wxString& pair, wxS
     wxChar closeChar = pair.GetChar(1);
     block.clear();
     int depth = 0;
-    
+
     const int StateSearchStart = 0;
     const int StateCollecting  = 1;
-    
+
     int curstate = StateSearchStart;
     for(size_t i=0; i<input.length(); ++i) {
         wxChar ch = input.GetChar(i);
@@ -94,7 +94,7 @@ bool GdbMIThreadInfoParser::ReadBlock(wxString& input, const wxString& pair, wxS
             } else if ( ch == openChar ) {
                 depth++;
             }
-            
+
             block << ch;
             break;
         }
@@ -107,7 +107,7 @@ bool GdbMIThreadInfoParser::ReadKeyValuePair(const wxString& input, const wxStri
     int where = input.Find(key);
     if ( where == wxNOT_FOUND )
         return false;
-    
+
     wxString sub = input.Mid(where);
     return ReadBlock(sub, "\"\"", value);
 }

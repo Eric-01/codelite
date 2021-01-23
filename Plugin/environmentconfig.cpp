@@ -229,7 +229,7 @@ wxString EnvironmentConfig::DoExpandVariables(const wxString& in)
                 unresolvedVars.insert(std::make_pair(replacement, text));
             }
         }
-        
+
         // dont allow recrusive replacements
         if(replacement.Contains(text)) { break; }
         result.Replace(text, replacement);

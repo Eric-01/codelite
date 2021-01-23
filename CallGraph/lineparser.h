@@ -43,24 +43,24 @@
  * @brief Class define structure for data structure.
  */
 class LineParser
-{	
+{
 public:
-	int index;
-	float time;
-	float self;
-	float children;
-	int called0;
-	int called1;
-	wxString name;
-	int nameid;
-	bool parents; // input to primary line - not used in call graph
-	bool pline; // primary line
-	bool child; //  output from primary line
-	bool cycle; 
-	bool recursive;
-	int  cycleid;
-	
-	LineParser* Clone();
+    int index;
+    float time;
+    float self;
+    float children;
+    int called0;
+    int called1;
+    wxString name;
+    int nameid;
+    bool parents; // input to primary line - not used in call graph
+    bool pline; // primary line
+    bool child; //  output from primary line
+    bool cycle;
+    bool recursive;
+    int  cycleid;
+
+    LineParser* Clone();
 };
 
 WX_DECLARE_LIST( LineParser, LineParserList );

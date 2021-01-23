@@ -6,7 +6,7 @@
  * Opens an FTP connection
  * @link http://www.php.net/manual/en/function.ftp-connect.php
  * @param host string <p>
- *       The FTP server address. This parameter shouldn't have any trailing 
+ *       The FTP server address. This parameter shouldn't have any trailing
  *       slashes and shouldn't be prefixed with ftp://.
  *      </p>
  * @param port int[optional] <p>
@@ -27,7 +27,7 @@ function ftp_connect ($host, $port = null, $timeout = null) {}
  * Opens an Secure SSL-FTP connection
  * @link http://www.php.net/manual/en/function.ftp-ssl-connect.php
  * @param host string <p>
- *       The FTP server address. This parameter shouldn't have any trailing 
+ *       The FTP server address. This parameter shouldn't have any trailing
  *       slashes and shouldn't be prefixed with ftp://.
  *      </p>
  * @param port int[optional] <p>
@@ -119,7 +119,7 @@ function ftp_exec ($ftp_stream, $command) {}
  *       The command to execute.
  *      </p>
  * @return array the server's response as an array of strings.
- *   No parsing is performed on the response string, nor does 
+ *   No parsing is performed on the response string, nor does
  *   ftp_raw determine if the command succeeded.
  */
 function ftp_raw ($ftp_stream, $command) {}
@@ -177,7 +177,7 @@ function ftp_chmod ($ftp_stream, $mode, $filename) {}
  *       The number of bytes to allocate.
  *      </p>
  * @param result string[optional] <p>
- *       A textual representation of the servers response will be returned by 
+ *       A textual representation of the servers response will be returned by
  *       reference in result if a variable is provided.
  *      </p>
  * @return bool Returns true on success, false on failure.
@@ -194,7 +194,7 @@ function ftp_alloc ($ftp_stream, $filesize, &$result = null) {}
  *       The directory to be listed. This parameter can also include arguments, eg.
  *       ftp_nlist($conn_id, "-la /your/dir");
  *       Note that this parameter isn't escaped so there may be some issues with
- *       filenames containing spaces and other characters. 
+ *       filenames containing spaces and other characters.
  *      </p>
  * @return array an array of filenames from the specified directory on success or
  *   false on error.
@@ -219,7 +219,7 @@ function ftp_nlist ($ftp_stream, $directory) {}
  *  </p>
  *  <p>
  *   The output is not parsed in any way. The system type identifier returned by
- *   ftp_systype can be used to determine how the results 
+ *   ftp_systype can be used to determine how the results
  *   should be interpreted.
  */
 function ftp_rawlist ($ftp_stream, $directory, $recursive = null) {}
@@ -357,7 +357,7 @@ function ftp_size ($ftp_stream, $remote_file) {}
  * @param remote_file string <p>
  *       The file from which to extract the last modification time.
  *      </p>
- * @return int the last modified time as a Unix timestamp on success, or -1 on 
+ * @return int the last modified time as a Unix timestamp on success, or -1 on
  *   error.
  */
 function ftp_mdtm ($ftp_stream, $remote_file) {}
@@ -425,12 +425,12 @@ function ftp_close ($ftp_stream) {}
  *       Currently, the following options are supported:
  *       <table>
  *        Supported runtime FTP options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>FTP_TIMEOUT_SEC</td>
  *           <td>
- *            Changes the timeout in seconds used for all network related 
+ *            Changes the timeout in seconds used for all network related
  *            functions. value must be an integer that
  *            is greater than 0. The default timeout is 90 seconds.
  *           </td>
@@ -438,14 +438,14 @@ function ftp_close ($ftp_stream) {}
  *          <tr valign="top">
  *           <td>FTP_AUTOSEEK</td>
  *           <td>
- *            When enabled, GET or PUT requests with a 
+ *            When enabled, GET or PUT requests with a
  *            resumepos or startpos
  *            parameter will first seek to the requested position within the file.
  *            This is enabled by default.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param value mixed <p>
@@ -469,8 +469,8 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  *       Currently, the following options are supported:
  *       <table>
  *        Supported runtime FTP options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>FTP_TIMEOUT_SEC</td>
  *           <td>
@@ -480,14 +480,14 @@ function ftp_set_option ($ftp_stream, $option, $value) {}
  *          <tr valign="top">
  *           <td>FTP_AUTOSEEK</td>
  *           <td>
- *            Returns true if this option is on, false otherwise. 
+ *            Returns true if this option is on, false otherwise.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
- * @return mixed the value on success or false if the given 
+ * @return mixed the value on success or false if the given
  *   option is not supported. In the latter case, a
  *   warning message is also thrown.
  */

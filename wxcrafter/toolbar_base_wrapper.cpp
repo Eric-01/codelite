@@ -42,7 +42,7 @@ ToolbarBaseWrapper::ToolbarBaseWrapper(int type)
         new StringProperty(PROP_MARGINS, wxT("-1,-1"), _("Sets the values to be used as margins for the toolbar.")));
     AddProperty(new StringProperty(PROP_PADDING, wxT("1"), _("Sets the space between tools.")));
     AddProperty(new StringProperty(PROP_SEPARATOR_SIZE, wxT("5"), _("Sets the width of separators.")));
-    
+
     AddProperty(new CategoryProperty(_("Subclass")));
     AddProperty(new StringProperty(PROP_SUBCLASS_NAME, wxT(""),
                                    _("The name of the derived class. Used both for C++ and XRC generated code.")));

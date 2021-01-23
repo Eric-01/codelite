@@ -40,13 +40,13 @@ public:
         m_localFolder.Clear();
         m_remoteFolder.Clear();
     }
-    
+
     /**
      * @brief sanity
-     * @return 
+     * @return
      */
     bool IsValid() const;
-    
+
     void SetLocalFolder(const wxString& localFolder) {
         this->m_localFolder = localFolder;
     }
@@ -59,7 +59,7 @@ public:
     const wxString& GetRemoteFolder() const {
         return m_remoteFolder;
     }
-    
+
     /**
      * @brief convert local path to remote path. ToRemote() will always use UNIX style format ("/")
      */

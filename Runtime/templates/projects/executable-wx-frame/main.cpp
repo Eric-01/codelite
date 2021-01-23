@@ -22,11 +22,11 @@ IMPLEMENT_APP(MainApp);
 
 bool MainApp::OnInit()
 {
-	SetTopWindow( new MainFrame( NULL ) );
-	GetTopWindow()->Show();
-	
-	// true = enter the main loop
-	return true;
+    SetTopWindow( new MainFrame( NULL ) );
+    GetTopWindow()->Show();
+    
+    // true = enter the main loop
+    return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,10 +43,10 @@ MainFrame::~MainFrame()
 
 void MainFrame::OnCloseFrame(wxCloseEvent& event)
 {
-	Destroy();
+    Destroy();
 }
 
 void MainFrame::OnExitClick(wxCommandEvent& event)
 {
-	Destroy();
+    Destroy();
 }

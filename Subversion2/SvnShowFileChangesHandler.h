@@ -22,7 +22,7 @@ struct SvnShowDiffChunk {
         commentArr.Clear();
         // Extract the revision number
         revision = description.BeforeFirst('|').Trim().Trim(false);
-        
+
         description.Trim().Trim(false);
     }
 

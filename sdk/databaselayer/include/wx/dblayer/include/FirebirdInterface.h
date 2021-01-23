@@ -38,14 +38,14 @@ typedef ISC_STATUS (ISC_EXPORT *isc_create_blob2Type)(ISC_STATUS*, isc_db_handle
   isc_tr_handle*, isc_blob_handle*, ISC_QUAD*, short, const ISC_SCHAR*);
 typedef ISC_STATUS (ISC_EXPORT *isc_open_blob2Type)(ISC_STATUS*, isc_db_handle*,
   isc_tr_handle*, isc_blob_handle*, ISC_QUAD*, ISC_USHORT, const ISC_UCHAR*);
-typedef ISC_STATUS (ISC_EXPORT *isc_put_segmentType)(ISC_STATUS*, isc_blob_handle*, 
+typedef ISC_STATUS (ISC_EXPORT *isc_put_segmentType)(ISC_STATUS*, isc_blob_handle*,
   unsigned short, const ISC_SCHAR*);
 typedef ISC_STATUS (ISC_EXPORT *isc_close_blobType)(ISC_STATUS*, isc_blob_handle*);
 typedef ISC_STATUS (ISC_EXPORT *isc_commit_retainingType)(ISC_STATUS*, isc_tr_handle*);
 typedef ISC_STATUS (ISC_EXPORT *isc_dsql_free_statementType)(ISC_STATUS*, isc_stmt_handle*, unsigned short);
 typedef ISC_STATUS (ISC_EXPORT *isc_dsql_describe_bindType)(ISC_STATUS*, isc_stmt_handle*,
   unsigned short, XSQLDA*);
-typedef ISC_STATUS (ISC_EXPORT *isc_dsql_executeType)(ISC_STATUS*, isc_tr_handle*, 
+typedef ISC_STATUS (ISC_EXPORT *isc_dsql_executeType)(ISC_STATUS*, isc_tr_handle*,
   isc_stmt_handle*, unsigned short, XSQLDA*);
 typedef ISC_STATUS (ISC_EXPORT *isc_dsql_sql_infoType)(ISC_STATUS*, isc_stmt_handle*,
   short, const ISC_SCHAR*, short, ISC_SCHAR*);

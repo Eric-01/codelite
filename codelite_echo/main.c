@@ -24,7 +24,7 @@ int main(int argc, char** argv)
     }
     fprintf(stdout, "\r\n");
     fflush(stdout);
-    
+
 #ifdef WIN32
     Sleep(SECONDS_TO_SLEEP*1000); // Under Windows its in ms
 #else

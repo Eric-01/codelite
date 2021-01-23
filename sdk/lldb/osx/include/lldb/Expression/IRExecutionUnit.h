@@ -302,12 +302,12 @@ private:
                           size_t Size) override {}
 
     uint64_t getSymbolAddress(const std::string &Name) override;
-    
+
     // Find the address of the symbol Name.  If Name is a missing weak symbol
     // then missing_weak will be true.
-    uint64_t GetSymbolAddressAndPresence(const std::string &Name, 
+    uint64_t GetSymbolAddressAndPresence(const std::string &Name,
                                          bool &missing_weak);
-    
+
     llvm::JITSymbol findSymbol(const std::string &Name) override;
 
     void *getPointerToNamedFunction(const std::string &Name,

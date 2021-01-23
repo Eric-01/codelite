@@ -64,7 +64,7 @@ inline size_t response::consume(char const * buf, size_t len) {
         );
 
         m_header_bytes += (end-begin+sizeof(header_delimiter));
-        
+
         if (m_header_bytes > max_header_size) {
             // exceeded max header size
             throw exception("Maximum header size exceeded.",

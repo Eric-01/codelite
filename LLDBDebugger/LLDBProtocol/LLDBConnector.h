@@ -401,11 +401,11 @@ protected:
      */
     void SendSingleBreakpointCommand(const eCommandType commandType, const wxFileName& filename, const int line);
 
-	/**
-	 * @brief Send a thread command.
+    /**
+     * @brief Send a thread command.
      * @param commandType the command to send.
-	 * @param threadIds list of thread ids to operate on.
-	 */
+     * @param threadIds list of thread ids to operate on.
+     */
     void SendThreadCommand(const eCommandType commandType, const std::vector<int>& threadIds);
 };
 

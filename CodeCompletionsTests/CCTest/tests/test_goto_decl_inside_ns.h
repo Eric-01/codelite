@@ -2,7 +2,7 @@ namespace Baz
 {
 struct Tada
 {
-    int bar;  
+    int bar;
 };
 
 class Foo

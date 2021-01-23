@@ -23,7 +23,7 @@ GeneralImages::GeneralImages()
         wxCDEE4InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     {
         wxBitmap bmp;
         wxIcon icn;
@@ -32,7 +32,7 @@ GeneralImages::GeneralImages()
         this->Add( icn );
         m_bitmaps.insert( std::make_pair(wxT("dbgAsm"), bmp ) );
     }
-    
+
     {
         wxBitmap bmp;
         wxIcon icn;
@@ -41,7 +41,7 @@ GeneralImages::GeneralImages()
         this->Add( icn );
         m_bitmaps.insert( std::make_pair(wxT("tabClose"), bmp ) );
     }
-    
+
 }
 
 GeneralImages::~GeneralImages()

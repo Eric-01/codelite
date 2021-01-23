@@ -22,7 +22,7 @@ TailPanel::TailPanel(wxWindow* parent, Tail* plugin)
 {
     clThemeUpdater::Get().RegisterWindow(this);
     clThemeUpdater::Get().RegisterWindow(m_staticTextFileName);
-    
+
     DoBuildToolbar();
     m_fileWatcher.reset(new clFileSystemWatcher());
     m_fileWatcher->SetOwner(this);

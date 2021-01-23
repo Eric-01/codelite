@@ -41,7 +41,7 @@ znSettingsDlg::znSettingsDlg(wxWindow* parent)
         m_colourPickerHighlightColour->SetColour(wxColour(data.GetHighlightColour()));
         m_checkBoxUseVScrollbar->SetValue(data.IsUseScrollbar());
     }
-    
+
     m_spinCtrlZoomFactor->SetValue(data.GetZoomFactor());
     GetSizer()->Fit(this);
     CentreOnParent();

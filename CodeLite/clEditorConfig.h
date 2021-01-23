@@ -30,7 +30,7 @@ public:
     bool trim_trailing_whitespace;
     bool insert_final_newline;
     wxString end_of_line;
-    wxFileName filename; // the path to the .editorconfig file 
+    wxFileName filename; // the path to the .editorconfig file
     typedef std::vector<clEditorConfigSection> Vec_t;
 
     clEditorConfigSection()
@@ -43,15 +43,15 @@ public:
         , insert_final_newline(false)
     {
     }
-    
+
     /**
      * @brief print this section properties to the log file
      */
     void PrintToLog();
-    
+
     void SetFilename(const wxFileName& filename) {this->filename = filename;}
     const wxFileName& GetFilename() const {return filename;}
-    
+
     void SetCharset(const wxString& charset)
     {
         this->charset = charset;

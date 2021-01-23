@@ -19,7 +19,7 @@ DictMgr::DictMgr(const char * dictpath, const char * etype) : numdict(0)
 }
 
 
-DictMgr::~DictMgr() 
+DictMgr::~DictMgr()
 {
   dictentry * pdict = NULL;
   if (pdentry) {
@@ -62,7 +62,7 @@ int  DictMgr::parse_file(const char * dictpath, const char * etype)
       return 1;
     }
 
-    // step one is to parse the dictionary list building up the 
+    // step one is to parse the dictionary list building up the
     // descriptive structures
 
     // read in each line ignoring any that dont start with etype
@@ -126,7 +126,7 @@ int DictMgr::get_list(dictentry ** ppentry)
 
 
 // strip strings into token based on single char delimiter
-// acts like strsep() but only uses a delim char and not 
+// acts like strsep() but only uses a delim char and not
 // a delim string
 
 char * DictMgr::mystrsep(char ** stringp, const char delim)
@@ -138,7 +138,7 @@ char * DictMgr::mystrsep(char ** stringp, const char delim)
      char * dp = (char *)memchr(mp,(int)((unsigned char)delim),n);
      if (dp) {
         *stringp = dp+1;
-        size_t nc = dp - mp; 
+        size_t nc = dp - mp;
         rv = (char *) malloc(nc+1);
         if (rv) {
            memcpy(rv,mp,nc);

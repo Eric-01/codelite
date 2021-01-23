@@ -33,7 +33,7 @@ class SelectDropTargetDlg : public SelectDropTargetBaseDlg
     std::map<wxString, wxWindow*> m_views;
     wxArrayString m_folders;
     wxWindow* m_selectedView;
-    
+
 public:
     SelectDropTargetDlg(wxWindow* parent, const wxArrayString& folders);
     virtual ~SelectDropTargetDlg();

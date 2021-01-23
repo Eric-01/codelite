@@ -850,7 +850,7 @@ public:
     asio::detail::throw_error(ec, "receive_from");
     return s;
   }
-  
+
   /// Receive raw data with the endpoint of the sender.
   /**
    * This function is used to receive raw data. The function call will block
@@ -877,7 +877,7 @@ public:
     asio::detail::throw_error(ec, "receive_from");
     return s;
   }
-  
+
   /// Receive raw data with the endpoint of the sender.
   /**
    * This function is used to receive raw data. The function call will block

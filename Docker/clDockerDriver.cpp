@@ -288,17 +288,17 @@ void clDockerDriver::Build(const wxFileName& filepath, const clDockerWorkspaceSe
 void clDockerDriver::Run(const wxFileName& filepath, const clDockerWorkspaceSettings& settings)
 {
     clDockerBuildableFile::Ptr_t info = settings.GetFileInfo(filepath);
-    
+
     // get the base command (docker exe + run/up)
     wxString command, args;
     info->GetRunBaseCommand(command, args);
-    
+
     // get user defined options
     wxString runOptions = info->GetRunOptions();
     runOptions.Trim().Trim(false);
     if(!runOptions.empty()) { args << " " << runOptions; }
     clDEBUG() << "Docker run:" << command << " " << args;
-    
+
     // Open terminal, and execute the command
     clConsoleBase::Ptr_t console = clConsoleBase::GetTerminal();
     console->SetTerminalNeeded(true);

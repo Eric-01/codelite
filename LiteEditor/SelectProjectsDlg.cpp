@@ -34,19 +34,19 @@ SelectProjectsDlg::SelectProjectsDlg(wxWindow* parent)
     m_checkListBoxProjects->Clear();
     wxArrayString projects;
     ManagerST::Get()->GetProjectList( projects );
-    
+
     for(size_t i=0; i<projects.GetCount(); ++i) {
         unsigned int pos = m_checkListBoxProjects->Append(projects.Item(i));
         m_checkListBoxProjects->Check(pos, true);
     }
-    
+
     SetName("SelectProjectsDlg");
     WindowAttrManager::Load(this);
 }
 
 SelectProjectsDlg::~SelectProjectsDlg()
 {
-    
+
 }
 
 void SelectProjectsDlg::OnSelectAll(wxCommandEvent& event)

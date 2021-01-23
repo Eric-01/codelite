@@ -3,14 +3,14 @@
   <Project Name="test_clang" Path="test_clang.project" Active="Yes"/>
   <Environment>
     <![CDATA[
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+
   ]]>
   </Environment>
   <BuildMatrix>

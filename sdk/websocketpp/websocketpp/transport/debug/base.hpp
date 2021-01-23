@@ -48,9 +48,9 @@ enum value {
 
     /// not implemented
     not_implemented,
-    
+
     invalid_num_bytes,
-    
+
     double_read
 };
 

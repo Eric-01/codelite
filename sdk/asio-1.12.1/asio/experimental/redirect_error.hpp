@@ -34,7 +34,7 @@ template <typename CompletionToken>
 class redirect_error_t
 {
 public:
-  /// Constructor. 
+  /// Constructor.
   template <typename T>
   redirect_error_t(ASIO_MOVE_ARG(T) completion_token,
       asio::error_code& ec)

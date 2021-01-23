@@ -21,65 +21,65 @@
 class WXDLLIMPEXP_SF wxSFSolidArrow :	public wxSFArrowBase
 {
 public:
-	XS_DECLARE_CLONABLE_CLASS(wxSFSolidArrow);
+    XS_DECLARE_CLONABLE_CLASS(wxSFSolidArrow);
 
     /*! \brief Default constructor. */
-	wxSFSolidArrow(void);
-	/*!
+    wxSFSolidArrow(void);
+    /*!
      * \brief User constructor.
-	 * \param parent Pointer to the parent shape
-	 */
-	wxSFSolidArrow(wxSFShapeBase* parent);
+     * \param parent Pointer to the parent shape
+     */
+    wxSFSolidArrow(wxSFShapeBase* parent);
     /*!
      * \brief Copy constructor.
-	 * \param obj Reference to the source object
-	 */
-	wxSFSolidArrow(const wxSFSolidArrow& obj);
-	/*! \brief Destructor. */
-	virtual ~wxSFSolidArrow(void);
+     * \param obj Reference to the source object
+     */
+    wxSFSolidArrow(const wxSFSolidArrow& obj);
+    /*! \brief Destructor. */
+    virtual ~wxSFSolidArrow(void);
 
-	// public functions
+    // public functions
 
-	// public member data accessors
-	/*!
+    // public member data accessors
+    /*!
      * \brief Set a brush filling the arrow's body.
-	 * \param br Reference to the brush
-	 */
-	void SetArrowFill(const wxBrush& br) {m_Fill = br;}
-	/**
-	 * \brief Set a pen used for drawing of the arrow's border.
-	 * \param pen Reference to the pen
-	 */
-	void SetArrowPen(const wxPen& pen) {m_Pen = pen;}
-	/*!
+     * \param br Reference to the brush
+     */
+    void SetArrowFill(const wxBrush& br) {m_Fill = br;}
+    /**
+     * \brief Set a pen used for drawing of the arrow's border.
+     * \param pen Reference to the pen
+     */
+    void SetArrowPen(const wxPen& pen) {m_Pen = pen;}
+    /*!
      * \brief Get current brush used for filling of the arrow's body.
-	 * \return Constant reference to current brush
-	 */
-	const wxBrush& GetArrowFill() const {return m_Fill;}
-	/**
-	 * \brief Get current pen used for drawing of the arrow's border.
-	 * \return Constant reference to current pen
-	 */
-	const wxPen& GetArrowPen() const {return m_Pen;}
-	
-	// public virtual functions
-	/*!
+     * \return Constant reference to current brush
+     */
+    const wxBrush& GetArrowFill() const {return m_Fill;}
+    /**
+     * \brief Get current pen used for drawing of the arrow's border.
+     * \return Constant reference to current pen
+     */
+    const wxPen& GetArrowPen() const {return m_Pen;}
+
+    // public virtual functions
+    /*!
      * \brief Draw arrow shape at the end of a virtual line.
-	 * \param from Start of the virtual line
-	 * \param to End of the virtual line
-	 * \param dc Device context for drawing
-	 */
-	virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
+     * \param from Start of the virtual line
+     * \param to End of the virtual line
+     * \param dc Device context for drawing
+     */
+    virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
 
 protected:
-	// protected data members
-	/*! \brief Arrows brush. */
-	wxBrush m_Fill;
-	/*! \brief Arrow pen */
-	wxPen m_Pen;
-	
-	// protected functions
-	void MarkSerializableDataMembers();
+    // protected data members
+    /*! \brief Arrows brush. */
+    wxBrush m_Fill;
+    /*! \brief Arrow pen */
+    wxPen m_Pen;
+
+    // protected functions
+    void MarkSerializableDataMembers();
 };
 
 #endif //_WXSFSOLIDARROW_H

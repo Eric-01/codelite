@@ -23,22 +23,22 @@
 
 wxXmlNode* wxSFPolygonShape::Serialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	if(node)
-	{
-		node = wxSFRectShape::Serialize(node);
-	}
+    if(node)
+    {
+        node = wxSFRectShape::Serialize(node);
+    }
 
-	return node;
+    return node;
 }
 
 void wxSFPolygonShape::Deserialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	wxSFRectShape::Deserialize(node);
+    wxSFRectShape::Deserialize(node);
 
-	NormalizeVertices();
-	FitVerticesToBoundingBox();
+    NormalizeVertices();
+    FitVerticesToBoundingBox();
 }

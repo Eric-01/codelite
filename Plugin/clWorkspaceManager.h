@@ -46,18 +46,18 @@ public:
 
     void SetWorkspace(IWorkspace* workspace) { this->m_workspace = workspace; }
     IWorkspace* GetWorkspace() { return m_workspace; }
-    
+
     /**
      * @brief return list of all supported workspaces
      */
     wxArrayString GetAllWorkspaces() const;
-    
+
     /**
      * @brief return an array containing the files mask for all the workspace
      * types
      */
     wxArrayString GetUnifiedFilesMask() const;
-    
+
     /**
      * @brief do we have a workspace opened?
      */

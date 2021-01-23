@@ -66,7 +66,7 @@ namespace asio {
  * timer.wait();
  * @endcode
  *
- * @par 
+ * @par
  * Performing an asynchronous wait:
  * @code
  * void handler(const asio::error_code& error)

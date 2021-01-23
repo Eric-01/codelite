@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${BUILD_DIRECTORY}/bin")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${BUILD_DIRECTORY}/lib")
 
 # Our project is called 'codelite' this is how it will be called in
-# visual studio, and in our makefiles. 
+# visual studio, and in our makefiles.
 project(codelite-cli)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
@@ -46,7 +46,7 @@ FILE(GLOB CODELITELIB_SRCS
 FILE(GLOB CODELITESERVER_SRCS "*.cpp")
 
 # and finally prepare list of includes directories
-include_directories("${CL_SRC_ROOT}/sdk/wxsqlite3/include" 
+include_directories("${CL_SRC_ROOT}/sdk/wxsqlite3/include"
                     "${CL_SRC_ROOT}/CodeLite"
                     "${CL_SRC_ROOT}/sdk/codelite_indexer/network")
 
@@ -62,9 +62,9 @@ if(UNIX)
     set(UTIL_LIB "-lutil -ldl")
 endif(UNIX)
 
-target_link_libraries(codelite-cli 
+target_link_libraries(codelite-cli
                         codelitelib
-                        ${LINKER_OPTIONS} 
-                        ${wxWidgets_LIBRARIES} 
+                        ${LINKER_OPTIONS}
+                        ${wxWidgets_LIBRARIES}
                         ${UTIL_LIB})
 #add_subdirectory(codelite-client)

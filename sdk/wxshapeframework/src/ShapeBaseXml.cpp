@@ -23,28 +23,28 @@
 
 wxXmlNode* wxSFShapeBase::Serialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	node = xsSerializable::Serialize(node);
+    node = xsSerializable::Serialize(node);
 
-	return node;
+    return node;
 }
 
 void wxSFShapeBase::Deserialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	xsSerializable::Deserialize(node);
+    xsSerializable::Deserialize(node);
 
-	if( m_pUserData )
-	{
-	    m_pUserData->SetParent(this);
-	}
-	
-	// update fixed connection points
-	for( ConnectionPointList::iterator it = m_lstConnectionPts.begin(); it != m_lstConnectionPts.end(); ++it )
-	{
-		wxSFConnectionPoint *pCp = (wxSFConnectionPoint*) *it;
-		pCp->SetParentShape( this );
-	}
+    if( m_pUserData )
+    {
+        m_pUserData->SetParent(this);
+    }
+
+    // update fixed connection points
+    for( ConnectionPointList::iterator it = m_lstConnectionPts.begin(); it != m_lstConnectionPts.end(); ++it )
+    {
+        wxSFConnectionPoint *pCp = (wxSFConnectionPoint*) *it;
+        pCp->SetParentShape( this );
+    }
 }

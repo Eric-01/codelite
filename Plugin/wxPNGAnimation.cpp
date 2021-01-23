@@ -31,7 +31,7 @@ wxPNGAnimation::wxPNGAnimation(wxWindow* parent,
             m_bitmaps.push_back(bmp);
         }
     }
-    
+
     Bind(wxEVT_PAINT, &wxPNGAnimation::OnPaint, this);
     Bind(wxEVT_ERASE_BACKGROUND, &wxPNGAnimation::OnEraseBG, this);
     Bind(wxEVT_TIMER, &wxPNGAnimation::OnTimer, this, m_timer->GetId());

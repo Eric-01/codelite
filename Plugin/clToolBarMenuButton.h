@@ -1,7 +1,7 @@
 #ifndef CLTOOLBARMENUBUTTON_H
 #define CLTOOLBARMENUBUTTON_H
 
-#include "clToolBarButtonBase.h" 
+#include "clToolBarButtonBase.h"
 
 class WXDLLIMPEXP_SDK clToolBarMenuButton : public clToolBarButtonBase
 {

@@ -22,7 +22,7 @@ public:
   BreakpointLocationCollection();
 
   ~BreakpointLocationCollection();
-  
+
   BreakpointLocationCollection &operator=(const BreakpointLocationCollection &rhs);
 
   /// Add the breakpoint \a bp_loc_sp to the list.

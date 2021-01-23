@@ -51,7 +51,7 @@ void TweaksSettings::FromJSON(const JSONItem& json)
     m_globalFgColour = json.namedObject("m_globalFgColour").toColour();
     m_enableTweaks = json.namedObject("m_enableTweaks").toBool(false);
     m_flags = json.namedObject("m_flags").toSize_t();
-    
+
     JSONItem arr = json.namedObject("projects");
     int size = arr.arraySize();
     for(int i=0; i<size; ++i) {
@@ -64,14 +64,14 @@ void TweaksSettings::FromJSON(const JSONItem& json)
 JSONItem TweaksSettings::ToJSON() const
 {
     JSONItem e = JSONItem::createObject(GetName());
-    
+
     e.addProperty("m_globalBgColour", m_globalBgColour);
     e.addProperty("m_globalFgColour", m_globalFgColour);
     e.addProperty("m_enableTweaks", m_enableTweaks);
     e.addProperty("m_flags", m_flags);
     JSONItem arr = JSONItem::createArray("projects");
     e.append( arr );
-    
+
     ProjectTweaks::Map_t::const_iterator iter = m_projects.begin();
     for( ; iter != m_projects.end(); ++iter ) {
         arr.arrayAppend( iter->second.ToJSON() );
@@ -85,7 +85,7 @@ TweaksSettings& TweaksSettings::Load()
     if(!clCxxWorkspaceST::Get()->IsOpen()) {
         return *this;
     }
-    
+
     wxFileName fn(clCxxWorkspaceST::Get()->GetPrivateFolder(), "tweaks.conf");
     clConfig conf( fn.GetFullPath() );
     conf.ReadItem( this );

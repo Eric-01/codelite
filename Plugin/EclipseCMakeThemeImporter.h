@@ -34,7 +34,7 @@ class WXDLLIMPEXP_SDK EclipseCMakeThemeImporter : public EclipseThemeImporterBas
 public:
     EclipseCMakeThemeImporter();
     virtual ~EclipseCMakeThemeImporter();
-    
+
     virtual LexerConf::Ptr_t Import(const wxFileName& eclipseXmlFile);
 };
 

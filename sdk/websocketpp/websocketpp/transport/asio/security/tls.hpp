@@ -233,7 +233,7 @@ protected:
      * @param callback Handler to call back with completion information
      */
     void pre_init(init_handler callback) {
-        // TODO: is this the best way to check whether this function is 
+        // TODO: is this the best way to check whether this function is
         //       available in the version of OpenSSL being used?
         // TODO: consider case where host is an IP address
 #if OPENSSL_VERSION_NUMBER >= 0x90812f

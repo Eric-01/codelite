@@ -26,24 +26,24 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFRoundRectShape, wxSFRectShape);
 
 wxSFRoundRectShape::wxSFRoundRectShape(void) : wxSFRectShape()
 {
-	m_nRadius = sfdvROUNDRECTSHAPE_RADIUS;
+    m_nRadius = sfdvROUNDRECTSHAPE_RADIUS;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRoundRectShape::wxSFRoundRectShape(const wxRealPoint& pos, const wxRealPoint &size, double radius, wxSFDiagramManager* manager)
 : wxSFRectShape(pos, size, manager)
 {
-	m_nRadius = radius;
+    m_nRadius = radius;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRoundRectShape::wxSFRoundRectShape(const wxSFRoundRectShape& obj) : wxSFRectShape(obj)
 {
-	m_nRadius = obj.m_nRadius;
+    m_nRadius = obj.m_nRadius;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRoundRectShape::~wxSFRoundRectShape(void)
@@ -52,7 +52,7 @@ wxSFRoundRectShape::~wxSFRoundRectShape(void)
 
 void wxSFRoundRectShape::MarkSerializableDataMembers()
 {
-	XS_SERIALIZE_EX(m_nRadius, wxT("radius"), sfdvROUNDRECTSHAPE_RADIUS);
+    XS_SERIALIZE_EX(m_nRadius, wxT("radius"), sfdvROUNDRECTSHAPE_RADIUS);
 }
 
 //----------------------------------------------------------------------------------//
@@ -61,24 +61,24 @@ void wxSFRoundRectShape::MarkSerializableDataMembers()
 
 bool wxSFRoundRectShape::Contains(const wxPoint &pos)
 {
-	// get original bounding box
-	wxRect shpBB = GetBoundingBox();
+    // get original bounding box
+    wxRect shpBB = GetBoundingBox();
 
-	// calculate modified boxes
-	wxRect hr(shpBB);
-	hr.Deflate(0, (int)m_nRadius);
-	wxRect vr(shpBB);
-	vr.Deflate((int)m_nRadius, 0);
+    // calculate modified boxes
+    wxRect hr(shpBB);
+    hr.Deflate(0, (int)m_nRadius);
+    wxRect vr(shpBB);
+    vr.Deflate((int)m_nRadius, 0);
 
-	// test whether given position is inside body rect or rounded corners
-	if(hr.Contains(pos))return true;
-	else if(vr.Contains(pos))return true;
-	else if(IsInCircle(pos, shpBB.GetTopLeft() + wxPoint((int)m_nRadius, (int)m_nRadius)))return true;
-	else if(IsInCircle(pos, shpBB.GetBottomLeft() + wxPoint((int)m_nRadius, (int)-m_nRadius)))return true;
-	else if(IsInCircle(pos, shpBB.GetTopRight() + wxPoint((int)-m_nRadius, (int)m_nRadius)))return true;
-	else if(IsInCircle(pos, shpBB.GetBottomRight() + wxPoint((int)-m_nRadius, (int)-m_nRadius)))return true;
+    // test whether given position is inside body rect or rounded corners
+    if(hr.Contains(pos))return true;
+    else if(vr.Contains(pos))return true;
+    else if(IsInCircle(pos, shpBB.GetTopLeft() + wxPoint((int)m_nRadius, (int)m_nRadius)))return true;
+    else if(IsInCircle(pos, shpBB.GetBottomLeft() + wxPoint((int)m_nRadius, (int)-m_nRadius)))return true;
+    else if(IsInCircle(pos, shpBB.GetTopRight() + wxPoint((int)-m_nRadius, (int)m_nRadius)))return true;
+    else if(IsInCircle(pos, shpBB.GetBottomRight() + wxPoint((int)-m_nRadius, (int)-m_nRadius)))return true;
 
-	return false;
+    return false;
 }
 
 //----------------------------------------------------------------------------------//
@@ -87,34 +87,34 @@ bool wxSFRoundRectShape::Contains(const wxPoint &pos)
 
 void wxSFRoundRectShape::DrawNormal(wxDC& dc)
 {
-	dc.SetPen(m_Border);
-	dc.SetBrush(m_Fill);
-	dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(m_Border);
+    dc.SetBrush(m_Fill);
+    dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRoundRectShape::DrawHover(wxDC& dc)
 {
-	dc.SetPen(wxPen(m_nHoverColor, 1));
-	dc.SetBrush(m_Fill);
-	dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 1));
+    dc.SetBrush(m_Fill);
+    dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRoundRectShape::DrawHighlighted(wxDC& dc)
 {
-	dc.SetPen(wxPen(m_nHoverColor, 2));
-	dc.SetBrush(m_Fill);
-	dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 2));
+    dc.SetBrush(m_Fill);
+    dc.DrawRoundedRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize), m_nRadius);
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRoundRectShape::DrawShadow(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     if( m_Fill.GetStyle() != wxBRUSHSTYLE_TRANSPARENT )
     {

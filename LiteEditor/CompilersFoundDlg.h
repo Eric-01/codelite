@@ -39,14 +39,14 @@ private:
      * using the active MinGW compiler
      */
     void MSWUpdateToolchain(CompilerPtr compiler);
-    
+
 public:
     CompilersFoundDlg(wxWindow* parent, const ICompilerLocator::CompilerVec_t& compilers);
     virtual ~CompilersFoundDlg();
-    
+
     CompilerPtr GetCompiler(const wxDataViewItem& item) const;
     bool IsDefaultCompiler(CompilerPtr compiler) const;
-    
+
 protected:
     virtual void OnItemActivated(wxDataViewEvent& event);
 };

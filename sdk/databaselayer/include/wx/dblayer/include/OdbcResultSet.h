@@ -38,10 +38,10 @@ public:
 
   // dtor
   virtual ~OdbcResultSet();
-  
+
   virtual bool Next();
   virtual void Close();
-  
+
   // get field
   virtual int GetResultInt(int nField);
   virtual wxString GetResultString(int nField);
@@ -52,7 +52,7 @@ public:
   virtual double GetResultDouble(int nField);
   virtual bool IsFieldNull(int nField);
   virtual int GetFieldLength(int nField);
-  
+
   virtual int GetFieldLength(const wxString& strField);
 
   // get MetaData
@@ -63,7 +63,7 @@ private:
   void InterpretErrorCodes( long nCode, SQLHSTMT stmth_ptr=NULL );
   virtual int LookupField(const wxString& strField);
   bool IsBlob(int nField);
-  
+
   OdbcPreparedStatement* m_pStatement;
   SQLHSTMT m_pOdbcStatement;
 

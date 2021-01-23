@@ -151,7 +151,7 @@ enum processor_errors {
 
     /// Extension related operation was ignored because extensions are disabled
     extensions_disabled,
-    
+
     /// Short Ke3 read. Hybi00 requires a third key to be read from the 8 bytes
     /// after the handshake. Less than 8 bytes were read.
     short_key3

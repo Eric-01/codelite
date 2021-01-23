@@ -42,9 +42,9 @@ protected:
     void OnEvaluateUI(wxUpdateUIEvent& event);
     void OnUpdate(wxCommandEvent& e);
     void OnUpdateUI(wxUpdateUIEvent& event);
-    
+
     void UpdateDebuggerPane();
-    
+
 public:
     /** Constructor */
     MemoryView(wxWindow* parent);

@@ -34,7 +34,7 @@ class WXDLLIMPEXP_SDK clAuiToolStickness
 {
     wxAuiToolBar* m_tb;
     wxAuiToolBarItem* m_item;
-    
+
 public:
     clAuiToolStickness(wxAuiToolBar* tb, int toolId);
     virtual ~clAuiToolStickness();

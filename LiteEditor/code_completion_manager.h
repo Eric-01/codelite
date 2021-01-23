@@ -91,11 +91,11 @@ protected:
     void OnFindImpl(clCodeCompletionEvent& event);
     void OnFunctionCalltip(clCodeCompletionEvent& event);
     void OnTypeInfoToolTip(clCodeCompletionEvent& event);
-    
+
 public:
     CodeCompletionManager();
     virtual ~CodeCompletionManager();
-    
+
     /**
      * @brief force a refresh based on the current settings
      */

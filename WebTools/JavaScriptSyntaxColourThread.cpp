@@ -18,12 +18,12 @@ void JavaScriptSyntaxColourThread::ProcessRequest(ThreadRequest* request)
 
     JavaScriptFunctionsLocator collector(req->filename, req->content);
     collector.Parse();
-    
+
     JavaScriptSyntaxColourThread::Reply reply;
     reply.filename = req->filename;
     reply.functions = collector.GetFunctionsString();
     reply.properties = collector.GetPropertiesString();
-    
+
     m_plugin->CallAfter(&WebTools::ColourJavaScript, reply);
 }
 

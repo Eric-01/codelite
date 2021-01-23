@@ -12,11 +12,11 @@ protected:
      * @return true on success, false otherwise
      */
     bool DoParseCommandLine(wxCmdLineParser &parser);
-    
+
 public:
     MainApp();
     virtual ~MainApp();
-    
+
     /**
      * @brief intialize the application
      */

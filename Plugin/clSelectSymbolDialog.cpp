@@ -11,7 +11,7 @@ clSelectSymbolDialog::clSelectSymbolDialog(wxWindow* parent, const clSelectSymbo
     std::for_each(entries.begin(), entries.end(), [&](const clSelectSymbolDialogEntry& entry) {
         AddSymbol(entry.name, entry.bmp, entry.help, entry.clientData);
     });
-    
+
     if(m_dvListCtrl->GetItemCount()) {
         m_dvListCtrl->Select(m_dvListCtrl->RowToItem(0));
     }

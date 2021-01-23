@@ -21,7 +21,7 @@ bool MainApp::OnInit()
     if ( !DoParseCommandLine(parser) ) {
         return false;
     }
-    
+
     // place your initialization code here
     return true;
 }

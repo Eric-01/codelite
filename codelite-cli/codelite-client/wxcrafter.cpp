@@ -22,44 +22,44 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
         wxC9ED9InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* boxSizer1 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer1);
-    
+
     m_mainPanel = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxTAB_TRAVERSAL);
-    
+
     boxSizer1->Add(m_mainPanel, 1, wxEXPAND, WXC_FROM_DIP(5));
-    
+
     wxBoxSizer* boxSizer11 = new wxBoxSizer(wxVERTICAL);
     m_mainPanel->SetSizer(boxSizer11);
-    
+
     wxFlexGridSizer* flexGridSizer15 = new wxFlexGridSizer(0, 2, 0, 0);
     flexGridSizer15->SetFlexibleDirection( wxBOTH );
     flexGridSizer15->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     flexGridSizer15->AddGrowableCol(0);
     flexGridSizer15->AddGrowableCol(1);
-    
+
     boxSizer11->Add(flexGridSizer15, 1, wxALL|wxEXPAND|wxALIGN_CENTER_HORIZONTAL, WXC_FROM_DIP(5));
-    
+
     m_buttonConnect = new wxButton(m_mainPanel, wxID_CONNECT, _("Connect"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
-    
+
     flexGridSizer15->Add(m_buttonConnect, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_buttonDisconnect = new wxButton(m_mainPanel, wxID_DISCONNECT, _("Disconnect"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
-    
+
     flexGridSizer15->Add(m_buttonDisconnect, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_buttonList = new wxButton(m_mainPanel, wxID_LIST, _("List folders"), wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
-    
+
     flexGridSizer15->Add(m_buttonList, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_stc = new wxStyledTextCtrl(m_mainPanel, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_mainPanel, wxSize(-1,-1)), 0);
     // Configure the fold margin
     m_stc->SetMarginType     (4, wxSTC_MARGIN_SYMBOL);
     m_stc->SetMarginMask     (4, wxSTC_MASK_FOLDERS);
     m_stc->SetMarginSensitive(4, true);
     m_stc->SetMarginWidth    (4, 16);
-    
+
     m_stc->SetProperty(wxT("fold"),wxT("1"));
     m_stc->MarkerDefine(wxSTC_MARKNUM_FOLDEROPEN,    wxSTC_MARK_ARROWDOWN);
     m_stc->MarkerDefine(wxSTC_MARKNUM_FOLDER,        wxSTC_MARK_ARROW);
@@ -70,18 +70,18 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_stc->MarkerDefine(wxSTC_MARKNUM_FOLDERMIDTAIL, wxSTC_MARK_BACKGROUND);
     // Configure the tracker margin
     m_stc->SetMarginWidth(1, 0);
-    
+
     // Configure the symbol margin
     m_stc->SetMarginType (2, wxSTC_MARGIN_SYMBOL);
     m_stc->SetMarginMask (2, ~(wxSTC_MASK_FOLDERS));
     m_stc->SetMarginWidth(2, 0);
     m_stc->SetMarginSensitive(2, true);
-    
+
     // Configure the line numbers margin
     int m_stc_PixelWidth = 4 + 5 *m_stc->TextWidth(wxSTC_STYLE_LINENUMBER, wxT("9"));
     m_stc->SetMarginType(0, wxSTC_MARGIN_NUMBER);
     m_stc->SetMarginWidth(0,m_stc_PixelWidth);
-    
+
     // Configure the line symbol margin
     m_stc->SetMarginType(3, wxSTC_MARGIN_FORE);
     m_stc->SetMarginMask(3, 0);
@@ -97,24 +97,24 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_stc->SetKeyWords(2, wxT(""));
     m_stc->SetKeyWords(3, wxT(""));
     m_stc->SetKeyWords(4, wxT(""));
-    
+
     boxSizer11->Add(m_stc, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_menuBar = new wxMenuBar(0);
     this->SetMenuBar(m_menuBar);
-    
+
     m_name6 = new wxMenu();
     m_menuBar->Append(m_name6, _("File"));
-    
+
     m_menuItem7 = new wxMenuItem(m_name6, wxID_EXIT, _("Exit\tAlt-X"), _("Quit"), wxITEM_NORMAL);
     m_name6->Append(m_menuItem7);
-    
+
     m_name8 = new wxMenu();
     m_menuBar->Append(m_name8, _("Help"));
-    
+
     m_menuItem9 = new wxMenuItem(m_name8, wxID_ABOUT, _("About..."), wxT(""), wxITEM_NORMAL);
     m_name8->Append(m_menuItem9);
-    
+
     SetName(wxT("MainFrameBaseClass"));
     SetSize(-1,-1);
     if (GetSizer()) {
@@ -141,7 +141,7 @@ MainFrameBaseClass::MainFrameBaseClass(wxWindow* parent, wxWindowID id, const wx
     m_buttonList->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(MainFrameBaseClass::OnListUI), NULL, this);
     this->Connect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnExit), NULL, this);
     this->Connect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnAbout), NULL, this);
-    
+
 }
 
 MainFrameBaseClass::~MainFrameBaseClass()
@@ -154,5 +154,5 @@ MainFrameBaseClass::~MainFrameBaseClass()
     m_buttonList->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(MainFrameBaseClass::OnListUI), NULL, this);
     this->Disconnect(m_menuItem7->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnExit), NULL, this);
     this->Disconnect(m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainFrameBaseClass::OnAbout), NULL, this);
-    
+
 }

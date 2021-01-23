@@ -24,7 +24,7 @@ OraclePreparedStatement::~OraclePreparedStatement()
 {
   Close();
 }
-  
+
 void OraclePreparedStatement::Close()
 {
   CloseResultSets();
@@ -178,7 +178,7 @@ void OraclePreparedStatement::SetParamDate(int nPosition, const wxDateTime& date
     int nIndex = FindStatementAndAdjustPositionIndex(&nPosition);
     if (nIndex > -1)
     {
-      oracle::occi::Date date(m_pEnvironment, dateValue.GetYear(), dateValue.GetMonth()+1, dateValue.GetDay(), 
+      oracle::occi::Date date(m_pEnvironment, dateValue.GetYear(), dateValue.GetMonth()+1, dateValue.GetDay(),
           dateValue.GetHour(), dateValue.GetMinute(), dateValue.GetSecond());
       m_Statements[nIndex]->GetStatement()->setDate(nPosition, date);
     }
@@ -291,7 +291,7 @@ int OraclePreparedStatement::FindStatementAndAdjustPositionIndex(int* pPosition)
   // Don't mess around if there's just one entry in the vector
   if (m_Statements.size() == 0)
     return 0;
-    
+
   // Go through all the elements in the vector
   // Get the number of parameters in each statement
   // Adjust the nPosition for the the broken up statements

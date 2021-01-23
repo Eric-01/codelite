@@ -9,6 +9,6 @@ class WXDLLIMPEXP_SDK clAboutDialog : public clAboutDialogBase
 public:
     clAboutDialog(wxWindow* parent, const wxString& version);
     virtual ~clAboutDialog();
-    
+
 };
 #endif // CLABOUTDIALOG_H

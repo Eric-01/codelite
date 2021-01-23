@@ -100,7 +100,7 @@ typedef void (*ssh_logging_callback) (int priority,
  * @param userdata Userdata to be passed to the callback function.
  */
 typedef void (*ssh_status_callback) (ssh_session session, float status,
-		void *userdata);
+        void *userdata);
 
 /**
  * @brief SSH global request callback. All global request will go through this
@@ -186,7 +186,7 @@ typedef struct ssh_callbacks_struct *ssh_callbacks;
  * @returns SSH_AUTH_DENIED Authentication failed.
  */
 typedef int (*ssh_auth_password_callback) (ssh_session session, const char *user, const char *password,
-		void *userdata);
+        void *userdata);
 
 /**
  * @brief SSH authentication callback. Tries to authenticates user with the "none" method
@@ -213,7 +213,7 @@ typedef int (*ssh_auth_none_callback) (ssh_session session, const char *user, vo
  * user and principal can be different. Only the latter is guaranteed to be safe.
  */
 typedef int (*ssh_auth_gssapi_mic_callback) (ssh_session session, const char *user, const char *principal,
-		void *userdata);
+        void *userdata);
 
 /**
  * @brief SSH authentication callback.
@@ -229,7 +229,7 @@ typedef int (*ssh_auth_gssapi_mic_callback) (ssh_session session, const char *us
  * @returns SSH_AUTH_DENIED Authentication failed.
  */
 typedef int (*ssh_auth_pubkey_callback) (ssh_session session, const char *user, struct ssh_key_struct *pubkey,
-		char signature_state, void *userdata);
+        char signature_state, void *userdata);
 
 
 /**
@@ -265,7 +265,7 @@ typedef ssh_channel (*ssh_channel_open_request_session_callback) (ssh_session se
  * with libgssapi.
  */
 typedef ssh_string (*ssh_gssapi_select_oid_callback) (ssh_session session, const char *user,
-		int n_oid, ssh_string *oids, void *userdata);
+        int n_oid, ssh_string *oids, void *userdata);
 
 /*
  * @brief handle the negociation of a security context, server side.
@@ -280,7 +280,7 @@ typedef ssh_string (*ssh_gssapi_select_oid_callback) (ssh_session session, const
  * with libgssapi.
  */
 typedef int (*ssh_gssapi_accept_sec_ctx_callback) (ssh_session session,
-		ssh_string input_token, ssh_string *output_token, void *userdata);
+        ssh_string input_token, ssh_string *output_token, void *userdata);
 
 /*
  * @brief Verify and authenticates a MIC, server side.
@@ -294,7 +294,7 @@ typedef int (*ssh_gssapi_accept_sec_ctx_callback) (ssh_session session,
  * with libgssapi.
  */
 typedef int (*ssh_gssapi_verify_mic_callback) (ssh_session session,
-		ssh_string mic, void *mic_buffer, size_t mic_buffer_size, void *userdata);
+        ssh_string mic, void *mic_buffer, size_t mic_buffer_size, void *userdata);
 
 
 /**
@@ -380,10 +380,10 @@ struct ssh_socket_callbacks_struct {
    * User-provided data. User is free to set anything he wants here
    */
   void *userdata;
-	/**
-	 * This function will be called each time data appears on socket. The data
-	 * not consumed will appear on the next data event.
-	 */
+    /**
+     * This function will be called each time data appears on socket. The data
+     * not consumed will appear on the next data event.
+     */
   ssh_callback_data data;
   /** This function will be called each time a controlflow state changes, i.e.
    * the socket is available for reading or writing.
@@ -418,7 +418,7 @@ typedef struct ssh_socket_callbacks_struct *ssh_socket_callbacks;
  * evolves with time.
  */
 #define ssh_callbacks_init(p) do {\
-	(p)->size=sizeof(*(p)); \
+    (p)->size=sizeof(*(p)); \
 } while(0);
 
 /**
@@ -525,19 +525,19 @@ typedef int (*ssh_packet_callback) (ssh_session session, uint8_t type, ssh_buffe
  * @endcode
  */
 #define SSH_PACKET_CALLBACK(name) \
-	int name (ssh_session session, uint8_t type, ssh_buffer packet, void *user)
+    int name (ssh_session session, uint8_t type, ssh_buffer packet, void *user)
 
 struct ssh_packet_callbacks_struct {
-	/** Index of the first packet type being handled */
-	uint8_t start;
-	/** Number of packets being handled by this callback struct */
-	uint8_t n_callbacks;
-	/** A pointer to n_callbacks packet callbacks */
-	ssh_packet_callback *callbacks;
+    /** Index of the first packet type being handled */
+    uint8_t start;
+    /** Number of packets being handled by this callback struct */
+    uint8_t n_callbacks;
+    /** A pointer to n_callbacks packet callbacks */
+    ssh_packet_callback *callbacks;
   /**
    * User-provided data. User is free to set anything he wants here
    */
-	void *user;
+    void *user;
 };
 
 typedef struct ssh_packet_callbacks_struct *ssh_packet_callbacks;
@@ -915,7 +915,7 @@ typedef int (*ssh_thread_callback) (void **lock);
 
 typedef unsigned long (*ssh_thread_id_callback) (void);
 struct ssh_threads_callbacks_struct {
-	const char *type;
+    const char *type;
   ssh_thread_callback mutex_init;
   ssh_thread_callback mutex_destroy;
   ssh_thread_callback mutex_lock;

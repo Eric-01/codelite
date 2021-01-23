@@ -35,7 +35,7 @@ class ImportFilesDialogNew : public ImportFilesDialogNewBase
 {
     wxDataViewItem m_root;
     wxVariant MakeIconText(const wxString &text, const wxBitmap& bmp) const;
-    
+
 protected:
     virtual void OnBrowse(wxCommandEvent& event);
     virtual void OnItemExpanding(wxDataViewEvent& event);

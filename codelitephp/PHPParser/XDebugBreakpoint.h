@@ -38,14 +38,14 @@ class XDebugBreakpoint
 
 public:
     typedef std::list<XDebugBreakpoint> List_t;
-    
+
     /// A "Clear Id" for breakpoint functor
     struct ClearIdFunctor {
         void operator()(XDebugBreakpoint& bp) {
             bp.SetBreakpointId(wxNOT_FOUND);
         }
     };
-    
+
     // Predicate class to be used with std::find_if
     struct Equal
     {
@@ -67,11 +67,11 @@ public:
     bool IsApplied() const {
         return m_breakpointId != wxNOT_FOUND;
     }
-    
+
     bool IsNull() const {
         return m_line == wxNOT_FOUND;
     }
-    
+
     void SetBreakpointId(int breakpointId) {
         this->m_breakpointId = breakpointId;
     }
@@ -90,7 +90,7 @@ public:
     int GetLine() const {
         return m_line;
     }
-    
+
     /// Serialization
     JSONItem ToJSON() const;
     void FromJSON(const JSONItem& json);

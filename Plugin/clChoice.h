@@ -20,7 +20,7 @@ public:
                 long style = 0, const wxValidator& validator = wxDefaultValidator,
                 const wxString& name = wxChoiceNameStr);
     virtual ~clChoice();
-    
+
     void SetText(const wxString& text);
 };
 #else

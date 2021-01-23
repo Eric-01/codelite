@@ -187,12 +187,12 @@ public:
      * @brief Selects given row.
      */
     void SelectRow(size_t row);
-    
+
     /**
      * @brief Unselects given row
      */
     void UnselectRow(size_t row);
-    
+
     /**
      * @brief Returns true if row is selected
      */

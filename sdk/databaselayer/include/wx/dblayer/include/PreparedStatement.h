@@ -33,7 +33,7 @@ public:
 
   /// Close the result set (call DatabaseLayer::ClosePreparedStatement() instead on the statement)
   virtual void Close() = 0;
-  
+
   // set parameters
   /// Set the parameter at the 1-based position to an int value
   virtual void SetParamInt(int nPosition, int nValue) = 0;
@@ -52,7 +52,7 @@ public:
   /// Set the parameter at the 1-based position to a boolean value
   virtual void SetParamBool(int nPosition, bool bValue) = 0;
   virtual int GetParameterCount() = 0;
-  
+
   /// Run an insert, update, or delete query on the database
   virtual int RunQuery() = 0;
   /// Run an insert, update, or delete query on the database
@@ -61,7 +61,7 @@ public:
   // function names more consistent with JDBC and wxSQLite3
   // these just provide wrappers for existing functions
   /// See RunQuery
-  int ExecuteUpdate() { return RunQuery(); } 
+  int ExecuteUpdate() { return RunQuery(); }
   /// See RunQueryWithResults
   DatabaseResultSet* ExecuteQuery() { return RunQueryWithResults(); }
 
@@ -73,7 +73,7 @@ protected:
   void CloseResultSets();
   /// Add result set object pointer to the list for "garbage collection"
   void LogResultSetForCleanup(DatabaseResultSet* pResultSet) { m_ResultSets.insert(pResultSet); }
-  
+
 private:
   StatementResultSetHashSet m_ResultSets;
 };

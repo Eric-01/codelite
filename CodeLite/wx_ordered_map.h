@@ -128,7 +128,7 @@ public:
         m_list.erase(iter->second);
         m_map.erase(iter);
     }
-    
+
     /**
      * @brief is empty?
      */

@@ -624,7 +624,7 @@ public:
   lldb::SBBreakpoint BreakpointCreateByAddress(addr_t address);
 
   lldb::SBBreakpoint BreakpointCreateBySBAddress(SBAddress &address);
-  
+
   /// Create a breakpoint using a scripted resolver.
   ///
   /// \param[in] class_name
@@ -632,16 +632,16 @@ public:
   ///
   /// \param[in] extra_args
   ///    This is an SBStructuredData object that will get passed to the
-  ///    constructor of the class in class_name.  You can use this to 
-  ///    reuse the same class, parametrizing with entries from this 
+  ///    constructor of the class in class_name.  You can use this to
+  ///    reuse the same class, parametrizing with entries from this
   ///    dictionary.
   ///
   /// \param module_list
-  ///    If this is non-empty, this will be used as the module filter in the 
+  ///    If this is non-empty, this will be used as the module filter in the
   ///    SearchFilter created for this breakpoint.
   ///
   /// \param file_list
-  ///    If this is non-empty, this will be used as the comp unit filter in the 
+  ///    If this is non-empty, this will be used as the comp unit filter in the
   ///    SearchFilter created for this breakpoint.
   ///
   /// \return

@@ -54,17 +54,17 @@
 ///////////////////////////////////////////////////////////////////////////////
 class clProgressDlgBase : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticLabel;
-		wxGauge* m_gauge;
-	
-	public:
-		
-		clProgressDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("CodeLite"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 400,-1 ), long style = wxSTAY_ON_TOP|wxSTATIC_BORDER ); 
-		~clProgressDlgBase();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticLabel;
+        wxGauge* m_gauge;
+    
+    public:
+        
+        clProgressDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("CodeLite"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 400,-1 ), long style = wxSTAY_ON_TOP|wxSTATIC_BORDER ); 
+        ~clProgressDlgBase();
+    
 };
 #endif // #if wxUSE_GUI
 #endif //__clprogressdlgbase__

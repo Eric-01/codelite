@@ -4,30 +4,30 @@
 
 class finfo  {
 
-	/**
-	 * @param options[optional]
-	 * @param arg[optional]
-	 */
-	public function finfo ($options, $arg) {}
+    /**
+     * @param options[optional]
+     * @param arg[optional]
+     */
+    public function finfo ($options, $arg) {}
 
-	/**
-	 * @param options
-	 */
-	public function set_flags ($options) {}
+    /**
+     * @param options
+     */
+    public function set_flags ($options) {}
 
-	/**
-	 * @param filename
-	 * @param options[optional]
-	 * @param context[optional]
-	 */
-	public function file ($filename, $options, $context) {}
+    /**
+     * @param filename
+     * @param options[optional]
+     * @param context[optional]
+     */
+    public function file ($filename, $options, $context) {}
 
-	/**
-	 * @param string
-	 * @param options[optional]
-	 * @param context[optional]
-	 */
-	public function buffer ($string, $options, $context) {}
+    /**
+     * @param string
+     * @param options[optional]
+     * @param context[optional]
+     */
+    public function buffer ($string, $options, $context) {}
 
 }
 
@@ -80,7 +80,7 @@ function finfo_buffer ($finfo, $string, $options, $context) {}
  * @param filename string <p>
  *       Path to the tested file.
  *      </p>
- * @return string the content type in MIME format, like 
+ * @return string the content type in MIME format, like
  *   text/plain or application/octet-stream.
  */
 function mime_content_type ($filename) {}
@@ -106,8 +106,8 @@ define ('FILEINFO_MIME', 1040);
 
 /**
  * Return the mime type.
- *    
- *    
+ *
+ *
  *     Available since PHP 5.3.0.
  * @link http://www.php.net/manual/en/fileinfo.constants.php
  */
@@ -115,8 +115,8 @@ define ('FILEINFO_MIME_TYPE', 16);
 
 /**
  * Return the mime encoding of the file.
- *    
- *    
+ *
+ *
  *     Available since PHP 5.3.0.
  * @link http://www.php.net/manual/en/fileinfo.constants.php
  */

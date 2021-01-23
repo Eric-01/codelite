@@ -36,13 +36,13 @@ public:
      * \param txt Text content
      * \param manager Pointer to parent diagram manager
      */
-	wxSFTextShape(const wxRealPoint& pos, const wxString& txt, wxSFDiagramManager* manager);
-	/*!
-	 * \brief Copy constructor.
-	 * \param obj Source objct
-	 */
-	wxSFTextShape(const wxSFTextShape& obj);
-	/*! \brief Destructor */
+    wxSFTextShape(const wxRealPoint& pos, const wxString& txt, wxSFDiagramManager* manager);
+    /*!
+     * \brief Copy constructor.
+     * \param obj Source objct
+     */
+    wxSFTextShape(const wxSFTextShape& obj);
+    /*! \brief Destructor */
     virtual ~wxSFTextShape();
 
     // public member data accessors
@@ -79,24 +79,24 @@ public:
 
     // public virtual functions
     /*!
-	 * \brief Scale the shape size by in both directions. The function can be overrided if necessary
+     * \brief Scale the shape size by in both directions. The function can be overrided if necessary
      * (new implementation should call default one ore scale shape's children manualy if neccesary).
      * \param x Horizontal scale factor
      * \param y Vertical scale factor
      * \param children TRUE if the shape's children shoould be scaled as well, otherwise the shape will be updated after scaling via Update() function.
      */
     virtual void Scale(double x, double y, bool children = sfWITHCHILDREN);
-	/*!
-	 * \brief Event handler called during dragging of the shape handle.
-	 * The function can be overrided if necessary.
-	 *
-	 * The function is called by the framework (by the shape canvas).
-	 * Default implementation does nothing.
-	 * \param handle Reference to dragged handle
-	 */
+    /*!
+     * \brief Event handler called during dragging of the shape handle.
+     * The function can be overrided if necessary.
+     *
+     * The function is called by the framework (by the shape canvas).
+     * Default implementation does nothing.
+     * \param handle Reference to dragged handle
+     */
     virtual void OnHandle(wxSFShapeHandle& handle);
-	/*! \brief Upate shape (align all child shapes an resize it to fit them) */
-	virtual void Update();
+    /*! \brief Upate shape (align all child shapes an resize it to fit them) */
+    virtual void Update();
 
     // public functions
     wxSize GetTextExtent();
@@ -110,29 +110,29 @@ protected:
     wxString m_sText;
 
     // protected virtual functions
-	/*!
-	 * \brief Draw the shape in the normal way. The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawNormal(wxDC& dc);
-	/*!
-	 * \brief Draw the shape in the hower mode (the mouse cursor is above the shape).
-	 * The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawHover(wxDC& dc);
-	/*!
-	 * \brief Draw the shape in the highlighted mode (another shape is dragged over this
-	 * shape and this shape will accept the dragged one if it will be dropped on it).
-	 * The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shape will be drawn to
-	 */
-	virtual void DrawHighlighted(wxDC& dc);
-	/*!
-	 * \brief Draw shadow under the shape. The function can be overrided if neccessary.
-	 * \param dc Reference to device context where the shadow will be drawn to
-	 */
-	virtual void DrawShadow(wxDC& dc);
+    /*!
+     * \brief Draw the shape in the normal way. The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawNormal(wxDC& dc);
+    /*!
+     * \brief Draw the shape in the hower mode (the mouse cursor is above the shape).
+     * The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawHover(wxDC& dc);
+    /*!
+     * \brief Draw the shape in the highlighted mode (another shape is dragged over this
+     * shape and this shape will accept the dragged one if it will be dropped on it).
+     * The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shape will be drawn to
+     */
+    virtual void DrawHighlighted(wxDC& dc);
+    /*!
+     * \brief Draw shadow under the shape. The function can be overrided if neccessary.
+     * \param dc Reference to device context where the shadow will be drawn to
+     */
+    virtual void DrawShadow(wxDC& dc);
 
     /*!
      * \brief Serialize shape's properties to the given XML node. The serialization
@@ -141,7 +141,7 @@ protected:
      * \param node Pointer to XML node where the shape's property nodes will be appended to
      * \sa xsSerializable::Serialize
      */
-	virtual wxXmlNode* Serialize(wxXmlNode* node);
+    virtual wxXmlNode* Serialize(wxXmlNode* node);
     /*!
      * \brief Deserialize shape's properties from the given XML node. The
      * routine is automatically called by the framework and should take care about deserialization
@@ -149,48 +149,48 @@ protected:
      * \param node Pointer to a source XML node containig the shape's property nodes
      * \sa xsSerializable::Deserialize
      */
-	virtual void Deserialize(wxXmlNode* node);
+    virtual void Deserialize(wxXmlNode* node);
 
-	/*!
+    /*!
      * \brief Event handler called during dragging of the left shape handle.
-	 * The function can be overrided if neccessary.
-	 * \param handle Reference to dragged shape handle
-	 */
-	virtual void OnLeftHandle(wxSFShapeHandle& handle);
-	/*!
+     * The function can be overrided if neccessary.
+     * \param handle Reference to dragged shape handle
+     */
+    virtual void OnLeftHandle(wxSFShapeHandle& handle);
+    /*!
      * \brief Event handler called during dragging of the top shape handle.
-	 * The function can be overrided if neccessary.
-	 * \param handle Reference to dragged shape handle
-	 */
-	virtual void OnTopHandle(wxSFShapeHandle& handle);
-	/*!
+     * The function can be overrided if neccessary.
+     * \param handle Reference to dragged shape handle
+     */
+    virtual void OnTopHandle(wxSFShapeHandle& handle);
+    /*!
      * \brief Event handler called during dragging of the right shape handle.
-	 * The function can be overrided if neccessary.
-	 * \param handle Reference to dragged shape handle
-	 */
-	virtual void OnRightHandle(wxSFShapeHandle& handle);
-	/*!
+     * The function can be overrided if neccessary.
+     * \param handle Reference to dragged shape handle
+     */
+    virtual void OnRightHandle(wxSFShapeHandle& handle);
+    /*!
      * \brief Event handler called during dragging of the bottom shape handle.
-	 * The function can be overrided if neccessary.
-	 * \param handle Reference to dragged shape handle
-	 */	
-	virtual void OnBottomHandle(wxSFShapeHandle& handle);
+     * The function can be overrided if neccessary.
+     * \param handle Reference to dragged shape handle
+     */
+    virtual void OnBottomHandle(wxSFShapeHandle& handle);
 
-	// protected functions
-	/*!
-	 * \brief Draw text shape.
-	 * \param dc Device context where the text shape will be drawn to
-	 */
-	void DrawTextContent(wxDC& dc);
+    // protected functions
+    /*!
+     * \brief Draw text shape.
+     * \param dc Device context where the text shape will be drawn to
+     */
+    void DrawTextContent(wxDC& dc);
 
 private:
 
-	// private functions
+    // private functions
 
-	 /*! \brief Initialize serializable properties. */
-	void MarkSerializableDataMembers();
+     /*! \brief Initialize serializable properties. */
+    void MarkSerializableDataMembers();
 
-	wxCoord m_nLineHeight;
+    wxCoord m_nLineHeight;
 };
 
 #endif //_WXSFTEXTSHAPE_H

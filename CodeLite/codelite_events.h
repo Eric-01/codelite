@@ -450,10 +450,10 @@ wxDECLARE_EXPORTED_EVENT(WXDLLIMPEXP_CL, wxEVT_CMD_RETAG_WORKSPACE_FULL, wxComma
 // and the plugin should NOT attempt to delete it
 // <code>
 // if(I_want_to_handle_this_event) {
-// 		wxArrayString *files = (wxArrayString *) event.GetClientData();
-// 		<fill the files* array ...>
+//     wxArrayString *files = (wxArrayString *) event.GetClientData();
+//     <fill the files* array ...>
 // } else {
-// 		event.Skip();
+//     event.Skip();
 // }
 // </code>
 wxDECLARE_EXPORTED_EVENT(WXDLLIMPEXP_CL, wxEVT_CMD_GET_WORKSPACE_FILES, wxCommandEvent);

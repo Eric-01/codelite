@@ -2,7 +2,7 @@
 #define _WXSFDEFS_H
 
 #ifdef USING_SOURCE_SF
-	#define WXDLLIMPEXP_SF
+    #define WXDLLIMPEXP_SF
     #define WXDLLIMPEXP_DATA_SF(type) type
 #elif defined( LIB_USINGDLL )
     #define WXDLLIMPEXP_SF

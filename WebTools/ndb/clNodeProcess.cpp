@@ -35,7 +35,7 @@ public:
     virtual ~UnixHelperThread() {}
 
     void Terminate() { Stop(); }
-    
+
     void Write(const wxString& command)
     {
         wxString b = command;
@@ -44,7 +44,7 @@ public:
         const char* data = b.mb_str(wxConvUTF8).data();
         write(m_fd, data, strlen(data));
     }
-    
+
     void* Entry()
     {
         wxString buffer;

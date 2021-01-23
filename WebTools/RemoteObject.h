@@ -45,7 +45,7 @@ public:
      */
     wxString ToString() const;
     bool IsEmpty() const { return m_type.IsEmpty(); }
-    
+
     // For display purposes
     wxString GetTextPreview() const;
     bool HasChildren() const;

@@ -4,25 +4,25 @@
 
 class ZRayExtension  {
 
-	public function ZRayExtension () {}
+    public function ZRayExtension () {}
 
-	public function traceFunction () {}
+    public function traceFunction () {}
 
-	public function untraceFunction () {}
+    public function untraceFunction () {}
 
-	public function hasTraceFunction () {}
+    public function hasTraceFunction () {}
 
-	public function traceFile () {}
+    public function traceFile () {}
 
-	public function setEnabledAfter () {}
+    public function setEnabledAfter () {}
 
-	public function setEnabled () {}
+    public function setEnabled () {}
 
-	public function isEnabled () {}
+    public function isEnabled () {}
 
-	public function getMetadata () {}
+    public function getMetadata () {}
 
-	public function setMetadata () {}
+    public function setMetadata () {}
 
 }
 

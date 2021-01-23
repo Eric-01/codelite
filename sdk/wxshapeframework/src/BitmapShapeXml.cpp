@@ -23,37 +23,37 @@
 
 wxXmlNode* wxSFBitmapShape::Serialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	if(node)
-	{
-		node = wxSFRectShape::Serialize(node);
-	}
+    if(node)
+    {
+        node = wxSFRectShape::Serialize(node);
+    }
 
-	return node;
+    return node;
 }
 
 void wxSFBitmapShape::Deserialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	wxSFRectShape::Deserialize(node);
+    wxSFRectShape::Deserialize(node);
 
-	wxRealPoint prevSize = m_nRectSize;
+    wxRealPoint prevSize = m_nRectSize;
 
     if(!m_sBitmapPath.IsEmpty())
     {
         CreateFromFile(m_sBitmapPath);
     }
 
-	if(m_fCanScale)
-	{
-		if(m_nRectSize != prevSize)
-		{
-			m_nRectSize = prevSize;
-			RescaleImage(prevSize);
-		}
-		else
-			Scale(1, 1);
-	}
+    if(m_fCanScale)
+    {
+        if(m_nRectSize != prevSize)
+        {
+            m_nRectSize = prevSize;
+            RescaleImage(prevSize);
+        }
+        else
+            Scale(1, 1);
+    }
 }

@@ -39,7 +39,7 @@ class clPrintout : public wxPrintout
     wxRect m_printRect;
     int m_minPage;
     int m_maxPage;
-    
+
 protected:
     bool PrintScaling(wxDC* dc);
 

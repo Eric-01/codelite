@@ -13,7 +13,7 @@ bool NodeJSPackageJSON::Load(const wxString& projectPath)
     if(!filename.FileExists()) {
         return false;
     }
-    
+
     JSON root(filename);
     if(!root.isOk()) return false;
 
@@ -31,7 +31,7 @@ bool NodeJSPackageJSON::Create(const wxString& projectPath)
     if(!filename.FileExists()) {
         return false;
     }
-    
+
     JSON root(filename);
     if(!root.isOk()) return false;
 
@@ -41,7 +41,7 @@ bool NodeJSPackageJSON::Create(const wxString& projectPath)
     m_script = root.toElement().namedObject("main").toString();
     // Convert the script into absolute path
     m_script.MakeAbsolute(filename.GetPath());
-    
+
     // Ensure that the folder .codelite exists and "move" the file
     // to that folder
     filename.AppendDir(".codelite");
@@ -53,21 +53,21 @@ bool NodeJSPackageJSON::Save(const wxString& projectPath)
 {
     wxFileName filename(projectPath, "package.json");
     filename.AppendDir(".codelite");
-    
+
     // Override the previous settings
     JSON root(cJSON_Object);
     JSONItem json = root.toElement();
-    
+
     json.addProperty("name", m_name);
     json.addProperty("version", m_version);
     json.addProperty("description", m_description);
-    
+
     if(!m_script.IsAbsolute()) {
         m_script.MakeAbsolute(filename.GetPath());
     }
     json.addProperty("main", m_script.GetFullPath());
     json.addProperty("args", m_args);
-    
+
     filename.Mkdir(wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
     root.save(filename);
     return true;

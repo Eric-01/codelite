@@ -74,11 +74,11 @@ void OTLResultSet::Close()
     //fixme
     /*
       otl_stream* pStatement = m_pResultSet->getStatement();
-     
+
        if (pStatement)
        {
          pStatement->closeResultSet(m_pResultSet);
-     
+
          if (m_bManageStatement)
          {
            OTL::occi::Connection* pDatabase = pStatement->getConnection();
@@ -335,7 +335,7 @@ int OTLResultSet::LookupField(const wxString& strField)
 }
 
 ResultSetMetaData* OTLResultSet::GetMetaData()
-{  
+{
   OTLResultSetMetaData* pMetaData =  new OTLResultSetMetaData(m_otldesc);
   LogMetaDataForCleanup(pMetaData);
   return pMetaData;

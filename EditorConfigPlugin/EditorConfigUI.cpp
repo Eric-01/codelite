@@ -22,33 +22,33 @@ EditorConfigSettingsDlgBase::EditorConfigSettingsDlgBase(wxWindow* parent, wxWin
         wxCE9B9InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* boxSizer2 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer2);
-    
+
     wxFlexGridSizer* flexGridSizer10 = new wxFlexGridSizer(0, 2, 0, 0);
     flexGridSizer10->SetFlexibleDirection( wxBOTH );
     flexGridSizer10->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-    
+
     boxSizer2->Add(flexGridSizer10, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_checkBoxEnable = new wxCheckBox(this, wxID_ANY, _("Enable .editorconfig support"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     m_checkBoxEnable->SetValue(false);
-    
+
     flexGridSizer10->Add(m_checkBoxEnable, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, WXC_FROM_DIP(5));
-    
+
     m_stdBtnSizer4 = new wxStdDialogButtonSizer();
-    
+
     boxSizer2->Add(m_stdBtnSizer4, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, WXC_FROM_DIP(5));
-    
+
     m_button6 = new wxButton(this, wxID_OK, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_button6->SetDefault();
     m_stdBtnSizer4->AddButton(m_button6);
-    
+
     m_button8 = new wxButton(this, wxID_CANCEL, wxT(""), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_stdBtnSizer4->AddButton(m_button8);
     m_stdBtnSizer4->Realize();
-    
+
     SetName(wxT("EditorConfigSettingsDlgBase"));
     SetSize(-1,-1);
     if (GetSizer()) {

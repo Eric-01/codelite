@@ -6,109 +6,109 @@ class __PHP_Incomplete_Class  {
 }
 
 class php_user_filter  {
-	public $filtername;
-	public $params;
+    public $filtername;
+    public $params;
 
 
-	/**
-	 * Called when applying the filter
-	 * @link http://www.php.net/manual/en/php-user-filter.filter.php
-	 * @param in resource <p>
-	 *      in is a resource pointing to a bucket brigade
-	 *      which contains one or more bucket objects containing data to be filtered.
-	 *     </p>
-	 * @param out resource <p>
-	 *      out is a resource pointing to a second bucket brigade
-	 *      into which your modified buckets should be placed.
-	 *     </p>
-	 * @param consumed int <p>
-	 *      consumed, which must always
-	 *      be declared by reference, should be incremented by the length of the data
-	 *      which your filter reads in and alters.  In most cases this means you will
-	 *      increment consumed by $bucket->datalen
-	 *      for each $bucket.
-	 *     </p>
-	 * @param closing bool <p>
-	 *      If the stream is in the process of closing
-	 *      (and therefore this is the last pass through the filterchain),
-	 *      the closing parameter will be set to true.
-	 *     </p>
-	 * @return int The filter method must return one of
-	 *   three values upon completion.
-	 *   
-	 *    
-	 *     
-	 *      <tr valign="top">
-	 *       <td>Return Value</td>
-	 *       <td>Meaning</td>
-	 *      </tr>
-	 *     
-	 *     
-	 *      <tr valign="top">
-	 *       <td>PSFS_PASS_ON</td>
-	 *       <td>
-	 *        Filter processed successfully with data available in the
-	 *        out bucket brigade.
-	 *       </td>
-	 *      </tr>
-	 *      <tr valign="top">
-	 *       <td>PSFS_FEED_ME</td>
-	 *       <td>
-	 *        Filter processed successfully, however no data was available to
-	 *        return. More data is required from the stream or prior filter.
-	 *       </td>
-	 *      </tr>
-	 *      <tr valign="top">
-	 *       <td>PSFS_ERR_FATAL (default)</td>
-	 *       <td>
-	 *        The filter experienced an unrecoverable error and cannot continue.
-	 *       </td>
-	 *      </tr>
-	 */
-	public function filter ($in, $out, &$consumed, $closing) {}
+    /**
+     * Called when applying the filter
+     * @link http://www.php.net/manual/en/php-user-filter.filter.php
+     * @param in resource <p>
+     *      in is a resource pointing to a bucket brigade
+     *      which contains one or more bucket objects containing data to be filtered.
+     *     </p>
+     * @param out resource <p>
+     *      out is a resource pointing to a second bucket brigade
+     *      into which your modified buckets should be placed.
+     *     </p>
+     * @param consumed int <p>
+     *      consumed, which must always
+     *      be declared by reference, should be incremented by the length of the data
+     *      which your filter reads in and alters.  In most cases this means you will
+     *      increment consumed by $bucket->datalen
+     *      for each $bucket.
+     *     </p>
+     * @param closing bool <p>
+     *      If the stream is in the process of closing
+     *      (and therefore this is the last pass through the filterchain),
+     *      the closing parameter will be set to true.
+     *     </p>
+     * @return int The filter method must return one of
+     *   three values upon completion.
+     *
+     *
+     *
+     *      <tr valign="top">
+     *       <td>Return Value</td>
+     *       <td>Meaning</td>
+     *      </tr>
+     *
+     *
+     *      <tr valign="top">
+     *       <td>PSFS_PASS_ON</td>
+     *       <td>
+     *        Filter processed successfully with data available in the
+     *        out bucket brigade.
+     *       </td>
+     *      </tr>
+     *      <tr valign="top">
+     *       <td>PSFS_FEED_ME</td>
+     *       <td>
+     *        Filter processed successfully, however no data was available to
+     *        return. More data is required from the stream or prior filter.
+     *       </td>
+     *      </tr>
+     *      <tr valign="top">
+     *       <td>PSFS_ERR_FATAL (default)</td>
+     *       <td>
+     *        The filter experienced an unrecoverable error and cannot continue.
+     *       </td>
+     *      </tr>
+     */
+    public function filter ($in, $out, &$consumed, $closing) {}
 
-	/**
-	 * Called when creating the filter
-	 * @link http://www.php.net/manual/en/php-user-filter.oncreate.php
-	 * @return bool Your implementation of
-	 *   this method should return false on failure, or true on success.
-	 */
-	public function onCreate () {}
+    /**
+     * Called when creating the filter
+     * @link http://www.php.net/manual/en/php-user-filter.oncreate.php
+     * @return bool Your implementation of
+     *   this method should return false on failure, or true on success.
+     */
+    public function onCreate () {}
 
-	/**
-	 * Called when closing the filter
-	 * @link http://www.php.net/manual/en/php-user-filter.onclose.php
-	 * @return void Return value is ignored.
-	 */
-	public function onClose () {}
+    /**
+     * Called when closing the filter
+     * @link http://www.php.net/manual/en/php-user-filter.onclose.php
+     * @return void Return value is ignored.
+     */
+    public function onClose () {}
 
 }
 
 class Directory  {
 
-	/**
-	 * Close directory handle
-	 * @link http://www.php.net/manual/en/directory.close.php
-	 * @param dir_handle resource[optional] 
-	 * @return void 
-	 */
-	public function close ($dir_handle = null) {}
+    /**
+     * Close directory handle
+     * @link http://www.php.net/manual/en/directory.close.php
+     * @param dir_handle resource[optional]
+     * @return void
+     */
+    public function close ($dir_handle = null) {}
 
-	/**
-	 * Rewind directory handle
-	 * @link http://www.php.net/manual/en/directory.rewind.php
-	 * @param dir_handle resource[optional] 
-	 * @return void 
-	 */
-	public function rewind ($dir_handle = null) {}
+    /**
+     * Rewind directory handle
+     * @link http://www.php.net/manual/en/directory.rewind.php
+     * @param dir_handle resource[optional]
+     * @return void
+     */
+    public function rewind ($dir_handle = null) {}
 
-	/**
-	 * Read entry from directory handle
-	 * @link http://www.php.net/manual/en/directory.read.php
-	 * @param dir_handle resource[optional] 
-	 * @return string 
-	 */
-	public function read ($dir_handle = null) {}
+    /**
+     * Read entry from directory handle
+     * @link http://www.php.net/manual/en/directory.read.php
+     * @param dir_handle resource[optional]
+     * @return string
+     */
+    public function read ($dir_handle = null) {}
 
 }
 
@@ -168,7 +168,7 @@ function sleep ($seconds) {}
  *       Halt time in micro seconds. A micro second is one millionth of a
  *       second.
  *      </p>
- * @return void 
+ * @return void
  */
 function usleep ($micro_seconds) {}
 
@@ -186,15 +186,15 @@ function usleep ($micro_seconds) {}
  *  <p>
  *   If the delay was interrupted by a signal, an associative array will be
  *   returned with the components:
- *   
- *    
- *     
+ *
+ *
+ *
  *      seconds - number of seconds remaining in
  *      the delay
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      nanoseconds - number of nanoseconds
  *      remaining in the delay
  */
@@ -233,14 +233,14 @@ function time_sleep_until ($timestamp) {}
  *    <p>
  *     <table>
  *      The following parameters are returned in the array
- *      
- *       
+ *
+ *
  *        <tr valign="top">
  *         <td>parameters</td>
  *         <td>Description</td>
  *        </tr>
- *       
- *       
+ *
+ *
  *        <tr valign="top">
  *         <td>"tm_sec"</td>
  *         <td>Seconds after the minute (0-61)</td>
@@ -278,8 +278,8 @@ function time_sleep_until ($timestamp) {}
  *         <td>the date part which was not
  *          recognized using the specified format</td>
  *        </tr>
- *       
- *      
+ *
+ *
  *     </table>
  */
 function strptime ($date, $format) {}
@@ -287,7 +287,7 @@ function strptime ($date, $format) {}
 /**
  * Flush system output buffer
  * @link http://www.php.net/manual/en/function.flush.php
- * @return void 
+ * @return void
  */
 function flush () {}
 
@@ -326,14 +326,14 @@ function wordwrap ($str, $width = null, $break = null, $cut = null) {}
  *       ENT_COMPAT | ENT_HTML401.
  *       <table>
  *        Available flags constants
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant Name</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ENT_COMPAT</td>
  *           <td>Will convert double-quotes and leave single-quotes alone.</td>
@@ -395,8 +395,8 @@ function wordwrap ($str, $width = null, $break = null, $cut = null) {}
  *            Handle code as HTML 5.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param encoding string[optional] &strings.parameter.encoding;
@@ -437,14 +437,14 @@ function htmlspecialchars ($string, $flags = null, $encoding = null, $double_enc
  *       ENT_COMPAT | ENT_HTML401.
  *       <table>
  *        Available flags constants
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant Name</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ENT_COMPAT</td>
  *           <td>Will convert double-quotes and leave single-quotes alone.</td>
@@ -506,8 +506,8 @@ function htmlspecialchars ($string, $flags = null, $encoding = null, $double_enc
  *            Handle code as HTML 5.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param encoding string[optional] &strings.parameter.encoding;
@@ -537,14 +537,14 @@ function htmlentities ($string, $flags = null, $encoding = null, $double_encode 
  *       which document type to use. The default is ENT_COMPAT | ENT_HTML401.
  *       <table>
  *        Available flags constants
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant Name</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ENT_COMPAT</td>
  *           <td>Will convert double-quotes and leave single-quotes alone.</td>
@@ -581,8 +581,8 @@ function htmlentities ($string, $flags = null, $encoding = null, $double_encode 
  *            Handle code as HTML 5.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param encoding string[optional] &strings.parameter.encoding;
@@ -602,14 +602,14 @@ function html_entity_decode ($string, $flags = null, $encoding = null) {}
  *       which document type to use. The default is ENT_COMPAT | ENT_HTML401.
  *       <table>
  *        Available flags constants
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant Name</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ENT_COMPAT</td>
  *           <td>Will convert double-quotes and leave single-quotes alone.</td>
@@ -646,8 +646,8 @@ function html_entity_decode ($string, $flags = null, $encoding = null) {}
  *            Handle code as HTML 5.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @return string the decoded string.
@@ -667,14 +667,14 @@ function htmlspecialchars_decode ($string, $flags = null) {}
  *       ENT_COMPAT | ENT_HTML401.
  *       <table>
  *        Available flags constants
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant Name</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ENT_COMPAT</td>
  *           <td>Table will contain entities for double-quotes, but not for single-quotes.</td>
@@ -703,8 +703,8 @@ function htmlspecialchars_decode ($string, $flags = null) {}
  *           <td>ENT_HTML5</td>
  *           <td>Table for HTML 5.</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param encoding string[optional] <p>
@@ -808,10 +808,10 @@ function iptcparse ($iptcblock) {}
  *       Path to the JPEG image.
  *      </p>
  * @param spool int[optional] <p>
- *       Spool flag. If the spool flag is over 2 then the JPEG will be 
+ *       Spool flag. If the spool flag is over 2 then the JPEG will be
  *       returned as a string.
  *      </p>
- * @return mixed If success and spool flag is lower than 2 then the JPEG will not be 
+ * @return mixed If success and spool flag is lower than 2 then the JPEG will not be
  *   returned as a string, false on errors.
  */
 function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
@@ -822,14 +822,14 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * @param filename string <p>
  *        This parameter specifies the file you wish to retrieve information
  *        about. It can reference a local file or (configuration permitting) a
- *        remote file using one of the supported streams. 
+ *        remote file using one of the supported streams.
  *      </p>
  * @param imageinfo array[optional] <p>
  *       This optional parameter allows you to extract some extended
  *       information from the image file. Currently, this will return the
  *       different JPG APP markers as an associative array.
- *       Some programs use these APP markers to embed text information in 
- *       images. A very common one is to embed 
+ *       Some programs use these APP markers to embed text information in
+ *       images. A very common one is to embed
  *       IPTC information in the APP13 marker.
  *       You can use the iptcparse function to parse the
  *       binary APP13 marker into something readable.
@@ -840,33 +840,33 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  *  <p>
  *   Index 0 and 1 contains respectively the width and the height of the image.
  *  </p>
- *  
+ *
  *   <p>
  *    Some formats may contain no image or may contain multiple images. In these
  *    cases, getimagesize might not be able to properly
  *    determine the image size. getimagesize will return
  *    zero for width and height in these cases.
  *   </p>
- *  
+ *
  *  <p>
- *   Index 2 is one of the IMAGETYPE_XXX constants indicating 
+ *   Index 2 is one of the IMAGETYPE_XXX constants indicating
  *   the type of the image.
  *  </p>
  *  <p>
- *   Index 3 is a text string with the correct 
+ *   Index 3 is a text string with the correct
  *   height="yyy" width="xxx" string that can be used
  *   directly in an IMG tag.
  *  </p>
  *  <p>
  *   mime is the correspondant MIME type of the image.
- *   This information can be used to deliver images with the correct HTTP 
+ *   This information can be used to deliver images with the correct HTTP
  *   Content-type header:
- *   
+ *
  *    getimagesize and MIME types
- *    
+ *
  * ]]>
- *    
- *   
+ *
+ *
  *  </p>
  *  <p>
  *   channels will be 3 for RGB pictures and 4 for CMYK
@@ -910,14 +910,14 @@ function getimagesizefromstring ($imagedata, array &$imageinfo = null) {}
  * @return string The returned values are as follows
  *   <table>
  *   Returned values Constants
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>imagetype</td>
  *       <td>Returned value</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>IMAGETYPE_GIF</td>
  *       <td>image/gif</td>
@@ -988,8 +988,8 @@ function getimagesizefromstring ($imagedata, array &$imageinfo = null) {}
  *       <td>IMAGETYPE_ICO</td>
  *       <td>image/vnd.microsoft.icon</td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function image_type_to_mime_type ($imagetype) {}
@@ -1020,15 +1020,15 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  *      <p>
  *       <table>
  *        phpinfo options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Name (constant)</td>
  *           <td>Value</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>INFO_GENERAL</td>
  *           <td>1</td>
@@ -1072,7 +1072,7 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  *           <td>INFO_VARIABLES</td>
  *           <td>32</td>
  *           <td>
- *            Shows all 
+ *            Shows all
  *            predefined variables from EGPCS (Environment, GET,
  *            POST, Cookie, Server).
  *           </td>
@@ -1091,8 +1091,8 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  *            Shows all of the above.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @return bool Returns true on success, false on failure.
@@ -1122,14 +1122,14 @@ function phpversion ($extension = null) {}
  *      <p>
  *       <table>
  *        Pre-defined phpcredits flags
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>name</td>
  *           <td>description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>CREDITS_ALL</td>
  *           <td>
@@ -1155,7 +1155,7 @@ function phpversion ($extension = null) {}
  *          <tr valign="top">
  *           <td>CREDITS_GENERAL</td>
  *           <td>
- *            General credits: Language design and concept, PHP authors 
+ *            General credits: Language design and concept, PHP authors
  *            and SAPI module.
  *           </td>
  *          </tr>
@@ -1175,8 +1175,8 @@ function phpversion ($extension = null) {}
  *            A list of the server API modules for PHP, and their authors
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @return bool Returns true on success, false on failure.
@@ -1189,14 +1189,14 @@ function phpcredits ($flag = null) {}
  * @return string the interface type, as a lowercase string.
  *  </p>
  *  <p>
- *   Although not exhaustive, the possible return values include 
- *   aolserver, apache, 
- *   apache2filter, apache2handler, 
- *   caudium, cgi (until PHP 5.3), 
+ *   Although not exhaustive, the possible return values include
+ *   aolserver, apache,
+ *   apache2filter, apache2handler,
+ *   caudium, cgi (until PHP 5.3),
  *   cgi-fcgi, cli, cli-server,
  *   continuity, embed,
- *   isapi, litespeed, 
- *   milter, nsapi, 
+ *   isapi, litespeed,
+ *   milter, nsapi,
  *   phttpd, pi3web, roxen,
  *   thttpd, tux, and webjames.
  */
@@ -1208,9 +1208,9 @@ function php_sapi_name () {}
  * @param mode string[optional] <p>
  *       mode is a single character that defines what
  *       information is returned:
- *       
- *        
- *         
+ *
+ *
+ *
  *          'a': This is the default. Contains all modes in
  *          the sequence "s n r v m".
  * @return string the description, as a string.
@@ -1323,7 +1323,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  *      </p>
  * @param length int[optional] <p>
  *       The length of the segment from subject
- *       to examine. 
+ *       to examine.
  *      </p>
  *      <p>
  *       If length is given and is non-negative,
@@ -1607,21 +1607,21 @@ function dirname ($path) {}
  *   dirname, basename,
  *   extension (if any), and filename.
  *  </p>
- *  
+ *
  *   <p>
  *    If the path has more than one extension,
  *    PATHINFO_EXTENSION returns only the last one and
  *    PATHINFO_FILENAME only strips the last one.
  *    (see first example below).
  *   </p>
- *  
- *  
+ *
+ *
  *   <p>
  *    If the path does not have an extension, no
  *    extension element will be returned
  *    (see second example below).
  *   </p>
- *  
+ *
  *  <p>
  *   If options is present, returns a
  *   string containing the requested element.
@@ -1730,9 +1730,9 @@ function str_shuffle ($str) {}
  * @param format int[optional] <p>
  *       Specify the return value of this function. The current supported values
  *       are:
- *       
- *        
- *         
+ *
+ *
+ *
  *          0 - returns the number of words found
  * @param charlist string[optional] <p>
  *       A list of additional characters which will be considered as 'word'
@@ -1833,7 +1833,7 @@ function strcoll ($str1, $str2) {}
  * @link http://www.php.net/manual/en/function.money-format.php
  * @param format string <p>
  *       The format specification consists of the following sequence:
- *       
+ *
  *        <p>a % character</p>
  * @param number float <p>
  *       The number to be formatted.
@@ -1870,12 +1870,12 @@ function money_format ($format, $number) {}
  *       start characters long, false will be returned.
  *      </p>
  *      <p>
- *       
+ *
  *        Using a negative start
- *        
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @param length int[optional] <p>
  *       If length is given and is positive, the string
@@ -1900,9 +1900,9 @@ function money_format ($format, $number) {}
  *       start until the end of the string will be
  *       returned.
  *      </p>
- *      
+ *
  *       Using a negative length
- *       
+ *
  * ]]>
  * @return string the extracted part of string; &return.falseforfailure;, or
  *   an empty string.
@@ -2014,7 +2014,7 @@ function ucwords ($str) {}
  *   If replace_pairs contains a key which
  *   is an empty string (""),
  *   false will be returned. If the str is not a scalar
- *   then it is not typecasted into a string, instead a warning is raised and 
+ *   then it is not typecasted into a string, instead a warning is raised and
  *   &null; is returned.
  */
 function strtr ($str, $from, $to) {}
@@ -2047,21 +2047,21 @@ function addslashes ($str) {}
  *       When you define a sequence of characters in the charlist argument
  *       make sure that you know what characters come between the
  *       characters that you set as the start and end of the range.
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *       Also, if the first character in a range has a higher ASCII value
  *       than the second character in the range, no range will be
  *       constructed.  Only the start, end and period characters will be
  *       escaped. Use the ord function to find the
  *       ASCII value for a character.
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  *      <p>
  *       Be careful if you choose to escape characters 0, a, b, f, n, r, t and
@@ -2138,7 +2138,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  *      </p>
  *      <p>
  *       If subject is an array, then the search and
- *       replace is performed with every entry of 
+ *       replace is performed with every entry of
  *       subject, and the return value is an array as
  *       well.
  *      </p>
@@ -2179,32 +2179,32 @@ function str_repeat ($input, $multiplier) {}
  *      </p>
  * @return mixed Depending on mode
  *   count_chars returns one of the following:
- *   
- *    
- *     
+ *
+ *
+ *
  *      0 - an array with the byte-value as key and the frequency of
  *      every byte as value.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      1 - same as 0 but only byte-values with a frequency greater
  *      than zero are listed.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      2 - same as 0 but only byte-values with a frequency equal to
  *      zero are listed.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      3 - a string containing all unique characters is returned.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      4 - a string containing all not used characters is returned.
  */
 function count_chars ($string, $mode = null) {}
@@ -2257,40 +2257,40 @@ function trim ($str, $character_mask = null) {}
  *   beginning of str.
  *   Without the second parameter,
  *   ltrim will strip these characters:
- *   
- *   
- *    
- *     
+ *
+ *
+ *
+ *
  *      " " (ASCII 32
  *      (0x20)), an ordinary space.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "\t" (ASCII 9
  *      (0x09)), a tab.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "\n" (ASCII 10
  *      (0x0A)), a new line (line feed).
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "\r" (ASCII 13
  *      (0x0D)), a carriage return.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "\0" (ASCII 0
  *      (0x00)), the NUL-byte.
- *     
- *    
- *    
- *      
+ *
+ *
+ *
+ *
  *      "\x0B" (ASCII 11
  *      (0x0B)), a vertical tab.
  */
@@ -2306,13 +2306,13 @@ function ltrim ($str, $character_mask = null) {}
  *       You can use the optional second parameter to specify tags which should
  *       not be stripped.
  *      </p>
- *      
+ *
  *       <p>
  *        HTML comments and PHP tags are also stripped. This is hardcoded and
  *        can not be changed with allowable_tags.
  *       </p>
- *      
- *      
+ *
+ *
  *       <p>
  *        This parameter should not contain whitespace.
  *        strip_tags sees a tag as a case-insensitive
@@ -2336,7 +2336,7 @@ function strip_tags ($str, $allowable_tags = null) {}
  * @param percent float[optional] <p>
  *       By passing a reference as third argument,
  *       similar_text will calculate the similarity in
- *       percent for you. 
+ *       percent for you.
  *      </p>
  * @return int the number of matching chars in both strings.
  */
@@ -2406,9 +2406,9 @@ function join ($glue, $pieces) {}
  * @param category int <p>
  *       category is a named constant specifying the
  *       category of the functions affected by the locale setting:
- *       
- *        
- *         
+ *
+ *
+ *
  *          LC_ALL for all of the below
  * @param locale string <p>
  *       If locale is &null; or the empty string
@@ -2427,7 +2427,7 @@ function join ($glue, $pieces) {}
  *       different names on different systems or for providing a fallback
  *       for a possibly not available locale.
  *      </p>
- * @param _ string[optional] 
+ * @param _ string[optional]
  * @return string the new current locale, or false if the locale functionality is
  *   not implemented on your platform, the specified locale does not exist or
  *   the category name is invalid.
@@ -2438,7 +2438,7 @@ function join ($glue, $pieces) {}
  *   and ISO 639.
  *   Different systems have different naming schemes for locales.
  *  </p>
- *  
+ *
  *   <p>
  *    The return value of setlocale depends
  *    on the system that PHP is running.  It returns exactly
@@ -2452,15 +2452,15 @@ function setlocale ($category, $locale, $_ = null) {}
  * @return array localeconv returns data based upon the current locale
  *   as set by setlocale.  The associative array that is
  *   returned contains the following fields:
- *   
- *    
- *     
+ *
+ *
+ *
  *      <tr valign="top">
  *       <td>Array element</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>decimal_point</td>
  *       <td>Decimal point character</td>
@@ -2537,33 +2537,33 @@ function setlocale ($category, $locale, $_ = null) {}
  *        value, false otherwise
  *       </td>
  *      </tr>
- *      
+ *
  *       <td>p_sign_posn</td>
  *       <td>
- *        
+ *
  *         0 - Parentheses surround the quantity and currency_symbol
  *         1 - The sign string precedes the quantity and currency_symbol
  *         2 - The sign string succeeds the quantity and currency_symbol
  *         3 - The sign string immediately precedes the currency_symbol
  *         4 - The sign string immediately succeeds the currency_symbol
- *        
+ *
  *       </td>
  *      </tr>
- *      
+ *
  *       <td>n_sign_posn</td>
  *       <td>
- *        
+ *
  *         0 - Parentheses surround the quantity and currency_symbol
  *         1 - The sign string precedes the quantity and currency_symbol
  *         2 - The sign string succeeds the quantity and currency_symbol
  *         3 - The sign string immediately precedes the currency_symbol
  *         4 - The sign string immediately succeeds the currency_symbol
- *        
+ *
  *       </td>
  *      </tr>
- *     
- *    
- *   
+ *
+ *
+ *
  *  </p>
  *  <p>
  *   The p_sign_posn, and n_sign_posn contain a string
@@ -2591,16 +2591,16 @@ function localeconv () {}
  *       locales.
  *       <table>
  *        nl_langinfo Constants
- *        
- *         
- *         
- *         
+ *
+ *
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           LC_TIME Category Constants</td>
  *          </tr>
@@ -2725,10 +2725,10 @@ function localeconv () {}
  *          </tr>
  *          <tr valign="top">
  *           <td>P_SIGN_POSN</td>
- *           
- *            
- *             
- *              
+ *
+ *
+ *
+ *
  *                Returns 0 if parentheses surround the quantity and CURRENCY_SYMBOL.
  * @return string the element as a string, or false if item
  *   is not valid.
@@ -2790,7 +2790,7 @@ function ord ($string) {}
  *       If the second parameter arr is present,
  *       variables are stored in this variable as array elements instead.
  *      </p>
- * @return void 
+ * @return void
  */
 function parse_str ($str, array &$arr = null) {}
 
@@ -2873,16 +2873,16 @@ function strchr ($haystack, $needle, $part) {}
  *       Each conversion specification consists of a percent sign
  *       (%), followed by one or more of these
  *       elements, in order:
- *       
- *        
- *         
+ *
+ *
+ *
  *          An optional sign specifier that forces a sign
  *          (- or +) to be used on a number. By default, only the - sign is used
  *          on a number if it's negative. This specifier forces positive numbers
  *          to have the + sign attached as well, and was added in PHP 4.3.0.
  * @param args mixed[optional] <p>
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return string a string produced according to the formatting string
  *   format.
  */
@@ -2897,7 +2897,7 @@ function sprintf ($format, $args = null, $_ = null) {}
  *      </p>
  * @param args mixed[optional] <p>
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return int the length of the outputted string.
  */
 function printf ($format, $args = null, $_ = null) {}
@@ -2935,12 +2935,12 @@ function vsprintf ($format, array $args) {}
  * @link http://www.php.net/manual/en/function.fprintf.php
  * @param handle resource &fs.file.pointer;
  * @param format string <p>
- *       See sprintf for a description of 
+ *       See sprintf for a description of
  *       format.
  *      </p>
  * @param args mixed[optional] <p>
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return int the length of the string written.
  */
 function fprintf ($handle, $format, $args = null, $_ = null) {}
@@ -2970,26 +2970,26 @@ function vfprintf ($handle, $format, array $args) {}
  *       The interpreted format for str, which is
  *       described in the documentation for sprintf with
  *       following differences:
- *       
- *        
+ *
+ *
  *         Function is not locale-aware.
- *        
- *        
+ *
+ *
  *         F, g, G and
  *         b are not supported.
- *        
- *        
+ *
+ *
  *         D stands for decimal number.
- *        
- *        
+ *
+ *
  *         i stands for integer with base detection.
- *        
- *        
+ *
+ *
  *         n stands for number of characters processed so far.
- *        
- *       
+ *
+ *
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return mixed If only two parameters were passed to this function, the values parsed will
  *   be returned as an array. Otherwise, if optional parameters are passed, the
  *   function will return the number of assigned values. The optional parameters
@@ -3007,10 +3007,10 @@ function sscanf ($str, $format, &$_ = null) {}
  * @link http://www.php.net/manual/en/function.fscanf.php
  * @param handle resource &fs.file.pointer;
  * @param format string <p>
- *       The specified format as described in the 
+ *       The specified format as described in the
  *       sprintf documentation.
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return mixed If only two parameters were passed to this function, the values parsed will be
  *   returned as an array. Otherwise, if optional parameters are passed, the
  *   function will return the number of assigned values. The optional
@@ -3042,48 +3042,48 @@ function fscanf ($handle, $format, &$_ = null) {}
  *   If the component parameter is omitted, an
  *   associative array is returned. At least one element will be
  *   present within the array. Potential keys within this array are:
- *   
- *    
- *     
+ *
+ *
+ *
  *      scheme - e.g. http
- *     
- *    
- *    
- *     
- *      host 
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
+ *      host
+ *
+ *
+ *
+ *
  *      port
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      user
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      pass
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      path
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      query - after the question mark ?
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      fragment - after the hashmark #
- *     
- *    
- *   
+ *
+ *
+ *
  *  </p>
  *  <p>
  *   If the component parameter is specified,
@@ -3135,7 +3135,7 @@ function urldecode ($str) {}
  *   protecting literal characters from being interpreted as special URL
  *   delimiters, and for protecting URLs from being mangled by transmission
  *   media with character conversions (like some email systems).
- *   
+ *
  *    <p>
  *     Prior to PHP 5.3.0, rawurlencode encoded tildes (~) as per
  *     RFC 1738.
@@ -3283,8 +3283,8 @@ function unlink ($filename, $context = null) {}
  *       return status of the executed command will be written to this
  *       variable.
  *      </p>
- * @return string The last line from the result of the command.  If you need to execute a 
- *   command and have all the data from the command passed directly back without 
+ * @return string The last line from the result of the command.  If you need to execute a
+ *   command and have all the data from the command passed directly back without
  *   any interference, use the passthru function.
  *  </p>
  *  <p>
@@ -3336,10 +3336,10 @@ function escapeshellarg ($arg) {}
  *       The command that will be executed.
  *      </p>
  * @param return_var int[optional] <p>
- *       If the return_var argument is present, the 
+ *       If the return_var argument is present, the
  *       return status of the Unix command will be placed here.
  *      </p>
- * @return void 
+ * @return void
  */
 function passthru ($command, &$return_var = null) {}
 
@@ -3352,7 +3352,7 @@ function passthru ($command, &$return_var = null) {}
  * @return string The output from the executed command or &null; if an error occurred or the
  *   command produces no output.
  *  </p>
- *  
+ *
  *   <p>
  *    This function can return &null; both when an error occurs or the program
  *    produces no output. It is not possible to detect execution failures using
@@ -3374,19 +3374,19 @@ function shell_exec ($cmd) {}
  *      </p>
  *      <p>
  *       Each element can be:
- *       
+ *
  *        An array describing the pipe to pass to the process. The first
  *         element is the descriptor type and the second element is an option for
  *         the given type. Valid types are pipe (the second
  *         element is either r to pass the read end of the pipe
  *         to the process, or w to pass the write end) and
  *         file (the second element is a filename).
- *        
- *        
+ *
+ *
  *         A stream resource representing a real file descriptor (e.g. opened file,
  *         a socket, STDIN).
- *        
- *       
+ *
+ *
  *      </p>
  *      <p>
  *       The file descriptor numbers are not limited to 0, 1 and 2 - you may
@@ -3414,16 +3414,16 @@ function shell_exec ($cmd) {}
  * @param other_options array[optional] <p>
  *       Allows you to specify additional options. Currently supported options
  *       include:
- *       
- *        
+ *
+ *
  *         suppress_errors (windows only): suppresses errors
  *         generated by this function when it's set to true
- *        
- *        
+ *
+ *
  *         bypass_shell (windows only): bypass
  *         cmd.exe shell when set to true
- *        
- *       
+ *
+ *
  *      </p>
  * @return resource a resource representing the process, which should be freed using
  *   proc_close when you are finished with it. On failure
@@ -3438,7 +3438,7 @@ function proc_open ($cmd, array $descriptorspec, array &$pipes, $cwd = null, arr
  *       The proc_open resource that will
  *       be closed.
  *      </p>
- * @return int the termination status of the process that was run. In case of 
+ * @return int the termination status of the process that was run. In case of
  *   an error then -1 is returned.
  */
 function proc_close ($process) {}
@@ -3471,12 +3471,12 @@ function proc_terminate ($process, $signal = null) {}
  *   on failure. The returned array contains the following elements:
  *  </p>
  *  <p>
- *  
- *   
- *    
+ *
+ *
+ *
  *     <tr valign="top"><td>element</td><td>type</td><td>description</td></tr>
- *    
- *    
+ *
+ *
  *     <tr valign="top">
  *      <td>command</td>
  *      <td>string</td>
@@ -3549,7 +3549,7 @@ function proc_get_status ($process) {}
  *       The increment value of the priority change.
  *      </p>
  * @return bool Returns true on success, false on failure.
- *   If an error occurs, like the user lacks permission to change the priority, 
+ *   If an error occurs, like the user lacks permission to change the priority,
  *   an error of level E_WARNING is also generated.
  */
 function proc_nice ($increment) {}
@@ -3570,7 +3570,7 @@ function rand ($min, $max) {}
  * @param seed int[optional] <p>
  *       Optional seed value
  *      </p>
- * @return void 
+ * @return void
  */
 function srand ($seed = null) {}
 
@@ -3598,7 +3598,7 @@ function mt_rand ($min, $max) {}
  * @param seed int[optional] <p>
  *       An optional seed value
  *      </p>
- * @return void 
+ * @return void
  */
 function mt_srand ($seed = null) {}
 
@@ -3726,7 +3726,7 @@ function base64_encode ($data) {}
  * @param password string <p>
  *      &password.parameter.password;
  *     </p>
- *      
+ *
  *       <p>
  *        Using the PASSWORD_BCRYPT for the
  *        algo parameter, will result
@@ -3759,22 +3759,22 @@ function password_hash ($password, $algo, array $options = null) {}
  * @param hash string <p>
  *      &password.parameter.hash;
  *     </p>
- * @return array an associative array with three elements: 
- *   
- *    
- *     
+ * @return array an associative array with three elements:
+ *
+ *
+ *
  *       algo, which will match a
  *       password algorithm constant
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      algoName, which has the human readable name of the
  *      algorithm
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      options, which includes the options
  *      provided when calling password_hash
  */
@@ -3854,7 +3854,7 @@ function abs ($number) {}
  * @return float value rounded up to the next highest
  *   integer.
  *   The return value of ceil is still of type
- *   float as the value range of float is 
+ *   float as the value range of float is
  *   usually bigger than that of integer.
  */
 function ceil ($value) {}
@@ -3867,7 +3867,7 @@ function ceil ($value) {}
  *      </p>
  * @return float value rounded to the next lowest integer.
  *   The return value of floor is still of type
- *   float because the value range of float is 
+ *   float because the value range of float is
  *   usually bigger than that of integer.
  */
 function floor ($value) {}
@@ -3883,15 +3883,15 @@ function floor ($value) {}
  *      </p>
  * @param mode int[optional] <p>
  *       Use one of the following constants to specify the mode in which rounding occurs.
- *       
- *        
- *         
+ *
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>&Description;</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>PHP_ROUND_HALF_UP</td>
  *           <td>
@@ -3917,12 +3917,12 @@ function floor ($value) {}
  *           <td>PHP_ROUND_HALF_ODD</td>
  *           <td>
  *            Round val to precision decimal places
- *            towards the next odd value.      
+ *            towards the next odd value.
  *           </td>
  *          </tr>
- *         
- *        
- *       
+ *
+ *
+ *
  *      </p>
  * @return float The rounded value
  */
@@ -3942,7 +3942,7 @@ function sin ($arg) {}
  * Cosine
  * @link http://www.php.net/manual/en/function.cos.php
  * @param arg float <p>
- *       An angle in radians 
+ *       An angle in radians
  *      </p>
  * @return float The cosine of arg
  */
@@ -3952,7 +3952,7 @@ function cos ($arg) {}
  * Tangent
  * @link http://www.php.net/manual/en/function.tan.php
  * @param arg float <p>
- *       The argument to process in radians 
+ *       The argument to process in radians
  *      </p>
  * @return float The tangent of arg
  */
@@ -4007,7 +4007,7 @@ function atanh ($arg) {}
  * @param x float <p>
  *       Divisor parameter
  *      </p>
- * @return float The arc tangent of y/x 
+ * @return float The arc tangent of y/x
  *   in radians.
  */
 function atan2 ($y, $x) {}
@@ -4157,10 +4157,10 @@ function exp ($arg) {}
  *       The value to calculate the logarithm for
  *      </p>
  * @param base float[optional] <p>
- *       The optional logarithmic base to use 
+ *       The optional logarithmic base to use
  *       (defaults to 'e' and so to the natural logarithm).
  *      </p>
- * @return float The logarithm of arg to 
+ * @return float The logarithm of arg to
  *   base, if given, or the
  *   natural logarithm.
  */
@@ -4204,7 +4204,7 @@ function hypot ($x, $y) {}
  * Converts the number in degrees to the radian equivalent
  * @link http://www.php.net/manual/en/function.deg2rad.php
  * @param number float <p>
- *       Angular value in degrees 
+ *       Angular value in degrees
  *      </p>
  * @return float The radian equivalent of number
  */
@@ -4258,18 +4258,18 @@ function octdec ($octal_string) {}
  *      </p>
  *      <table>
  *       Range of inputs on 32-bit machines
- *       
- *        
- *        
- *        
- *        
+ *
+ *
+ *
+ *
+ *
  *         <tr valign="top">
  *          <td>positive number</td>
  *          <td>negative number</td>
  *          <td>return value</td>
  *         </tr>
- *        
- *        
+ *
+ *
  *         <tr valign="top">
  *          <td>0</td>
  *          <td></td>
@@ -4316,23 +4316,23 @@ function octdec ($octal_string) {}
  *          <td>-1</td>
  *          <td>11111111111111111111111111111111 (32 1's)</td>
  *         </tr>
- *        
- *       
+ *
+ *
  *      </table>
  *      <table>
  *       Range of inputs on 64-bit machines
- *       
- *        
- *        
- *        
- *        
+ *
+ *
+ *
+ *
+ *
  *         <tr valign="top">
  *          <td>positive number</td>
  *          <td>negative number</td>
  *          <td>return value</td>
  *         </tr>
- *        
- *        
+ *
+ *
  *         <tr valign="top">
  *          <td>0</td>
  *          <td></td>
@@ -4379,8 +4379,8 @@ function octdec ($octal_string) {}
  *          <td>-1</td>
  *          <td>1111111111111111111111111111111111111111111111111111111111111111 (64 1's)</td>
  *         </tr>
- *        
- *       
+ *
+ *
  *      </table>
  * @return string Binary string representation of number
  */
@@ -4450,7 +4450,7 @@ function number_format ($number, $decimals = null) {}
  * @param y float <p>
  *       The divisor
  *      </p>
- * @return float The floating point remainder of 
+ * @return float The floating point remainder of
  *   x/y
  */
 function fmod ($x, $y) {}
@@ -4527,24 +4527,24 @@ function putenv ($setting) {}
  * @param options string Each character in this string will be used as option characters and
  *       matched against options passed to the script starting with a single
  *       hyphen (-).
- *      
- *      
+ *
+ *
  *       For example, an option string "x" recognizes an
  *       option -x.
- *      
- *      
+ *
+ *
  *       Only a-z, A-Z and 0-9 are allowed.
  * @param longopts array[optional] An array of options. Each element in this array will be used as option
  *       strings and matched against options passed to the script starting with
  *       two hyphens (--).
- *      
- *      
+ *
+ *
  *       For example, an longopts element "opt" recognizes an
  *       option --opt.
  * @return array This function will return an array of option / argument pairs or false on
  *   failure.
  *  </p>
- *  
+ *
  *   <p>
  *    The parsing of options will end at the first non-option found, anything
  *    that follows is discarded.
@@ -4568,9 +4568,9 @@ function sys_getloadavg () {}
  *       the return values section below.
  *      </p>
  * @return mixed By default, microtime returns a string in
- *   the form "msec sec", where sec is the number of seconds 
- *   since the Unix epoch (0:00:00 January 1,1970 GMT), and msec 
- *   measures microseconds that have elapsed since sec 
+ *   the form "msec sec", where sec is the number of seconds
+ *   since the Unix epoch (0:00:00 January 1,1970 GMT), and msec
+ *   measures microseconds that have elapsed since sec
  *   and is also expressed in seconds.
  *  </p>
  *  <p>
@@ -4592,24 +4592,24 @@ function microtime ($get_as_float = null) {}
  *  </p>
  *  <p>
  *   Array keys:
- *   
- *    
- *     
+ *
+ *
+ *
  *      "sec" - seconds since the Unix Epoch
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "usec" - microseconds
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "minuteswest" - minutes west of Greenwich
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "dsttime" - type of dst correction
  */
 function gettimeofday ($return_float = null) {}
@@ -4745,7 +4745,7 @@ function set_magic_quotes_runtime ($new_setting) {}
 /**
  * Gets the current configuration setting of magic_quotes_gpc
  * @link http://www.php.net/manual/en/function.get-magic-quotes-gpc.php
- * @return bool 0 if magic_quotes_gpc is off, 1 otherwise. 
+ * @return bool 0 if magic_quotes_gpc is off, 1 otherwise.
  *   Or always returns false as of PHP 5.4.0.
  */
 function get_magic_quotes_gpc () {}
@@ -4753,7 +4753,7 @@ function get_magic_quotes_gpc () {}
 /**
  * Gets the current active configuration setting of magic_quotes_runtime
  * @link http://www.php.net/manual/en/function.get-magic-quotes-runtime.php
- * @return bool 0 if magic_quotes_runtime is off, 1 otherwise. 
+ * @return bool 0 if magic_quotes_runtime is off, 1 otherwise.
  *   Or always returns false as of PHP 5.4.0.
  */
 function get_magic_quotes_runtime () {}
@@ -4765,14 +4765,14 @@ function get_magic_quotes_runtime () {}
  *       The error message that should be logged.
  *      </p>
  * @param message_type int[optional] <p>
- *       Says where the error should go. The possible message types are as 
+ *       Says where the error should go. The possible message types are as
  *       follows:
  *      </p>
  *      <p>
  *       <table>
  *        error_log log types
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>0</td>
  *           <td>
@@ -4801,7 +4801,7 @@ function get_magic_quotes_runtime () {}
  *           <td>3</td>
  *           <td>
  *            message is appended to the file
- *            destination. A newline is not automatically 
+ *            destination. A newline is not automatically
  *            added to the end of the message string.
  *           </td>
  *          </tr>
@@ -4812,18 +4812,18 @@ function get_magic_quotes_runtime () {}
  *           handler.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param destination string[optional] <p>
- *       The destination. Its meaning depends on the 
+ *       The destination. Its meaning depends on the
  *       message_type parameter as described above.
  *      </p>
  * @param extra_headers string[optional] <p>
  *       The extra headers. It's used when the message_type
  *       parameter is set to 1.
- *       This message type uses the same internal function as 
+ *       This message type uses the same internal function as
  *       mail does.
  *      </p>
  * @return bool Returns true on success, false on failure.
@@ -4849,21 +4849,21 @@ function error_get_last () {}
  * @param parameter mixed[optional] <p>
  *       Zero or more parameters to be passed to the callback.
  *      </p>
- *      
+ *
  *       <p>
  *        Note that the parameters for call_user_func are
  *        not passed by reference.
- *        
+ *
  *         call_user_func example and references
- *         
+ *
  * ]]>
- *         
+ *
  *         &example.outputs;
- *         
- *         
- *        
+ *
+ *
+ *
  *       </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return mixed the return value of the callback, or false on error.
  */
 function call_user_func ($callback, $parameter = null, $_ = null) {}
@@ -4891,9 +4891,9 @@ function call_user_func_array ($callback, array $param_arr) {}
  *       The object that method_name
  *       is being called on.
  *      </p>
- * @param parameter mixed[optional] 
- * @param _ mixed[optional] 
- * @return mixed 
+ * @param parameter mixed[optional]
+ * @param _ mixed[optional]
+ * @return mixed
  */
 function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
 
@@ -4910,7 +4910,7 @@ function call_user_method ($method_name, &$obj, $parameter = null, $_ = null) {}
  * @param params array <p>
  *       An array of parameters.
  *      </p>
- * @return mixed 
+ * @return mixed
  */
 function call_user_method_array ($method_name, &$obj, array $params) {}
 
@@ -4925,7 +4925,7 @@ function call_user_method_array ($method_name, &$obj, array $params) {}
  * @param parameter mixed[optional] <p>
  *       Zero or more parameters to be passed to the function.
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return mixed the function result, or false on error.
  */
 function forward_static_call ($function, $parameter = null, $_ = null) {}
@@ -4938,7 +4938,7 @@ function forward_static_call ($function, $parameter = null, $_ = null) {}
  *       with the name of the class, and the method, or a &string;, with a function
  *       name.
  *      </p>
- * @param parameters array 
+ * @param parameters array
  * @return mixed the function result, or false on error.
  */
 function forward_static_call_array ($function, array $parameters) {}
@@ -4950,24 +4950,24 @@ function forward_static_call_array ($function, array $parameters) {}
  *       The value to be serialized. serialize
  *       handles all types, except the resource-type.
  *       You can even serialize arrays that contain
- *       references to itself. Circular references inside the array/object you 
- *       are serializing will also be stored. Any other 
+ *       references to itself. Circular references inside the array/object you
+ *       are serializing will also be stored. Any other
  *       reference will be lost.
  *      </p>
  *      <p>
  *       When serializing objects, PHP will attempt to call the member function
- *       __sleep() prior to serialization. 
- *       This is to allow the object to do any last minute clean-up, etc. prior 
- *       to being serialized. Likewise, when the object is restored using 
+ *       __sleep() prior to serialization.
+ *       This is to allow the object to do any last minute clean-up, etc. prior
+ *       to being serialized. Likewise, when the object is restored using
  *       unserialize the __wakeup() member function is called.
  *      </p>
- *      
+ *
  *       <p>
  *       Object's private members have the class name prepended to the member
  *       name; protected members have a '*' prepended to the member name.
  *       These prepended values have null bytes on either side.
  *       </p>
- * @return string a string containing a byte-stream representation of 
+ * @return string a string containing a byte-stream representation of
  *   value that can be stored anywhere.
  *  </p>
  *  <p>
@@ -4985,24 +4985,24 @@ function serialize ($value) {}
  *       The serialized string.
  *      </p>
  *      <p>
- *       If the variable being unserialized is an object, after successfully 
+ *       If the variable being unserialized is an object, after successfully
  *       reconstructing the object PHP will automatically attempt to call the
  *       __wakeup() member
  *       function (if it exists).
  *      </p>
  *      <p>
- *       
+ *
  *        unserialize_callback_func directive
  *        <p>
  *         It's possible to set a callback-function which will be called,
  *         if an undefined class should be instantiated during unserializing.
  *         (to prevent getting an incomplete object "__PHP_Incomplete_Class".)
- *         Use your &php.ini;, ini_set or &htaccess; 
+ *         Use your &php.ini;, ini_set or &htaccess;
  *         to define 'unserialize_callback_func'.  Everytime an undefined class
  *         should be instantiated, it'll be called.  To disable this feature just
  *         empty this setting.
  *        </p>
- *       
+ *
  *      </p>
  * @return mixed The converted value is returned, and can be a boolean,
  *   integer, float, string,
@@ -5020,8 +5020,8 @@ function unserialize ($str) {}
  * @param expression mixed <p>
  *       The variable you want to dump.
  *      </p>
- * @param _ mixed[optional] 
- * @return void 
+ * @param _ mixed[optional]
+ * @return void
  */
 function var_dump ($expression, $_ = null) {}
 
@@ -5035,7 +5035,7 @@ function var_dump ($expression, $_ = null) {}
  *       If used and set to true, var_export will return
  *       the variable representation instead of outputting it.
  *      </p>
- * @return mixed the variable representation when the return 
+ * @return mixed the variable representation when the return
  *   parameter is used and evaluates to true. Otherwise, this function will
  *   return &null;.
  */
@@ -5047,8 +5047,8 @@ function var_export ($expression, $return = null) {}
  * @param variable mixed <p>
  *       The variable being evaluated.
  *      </p>
- * @param _ mixed[optional] 
- * @return void 
+ * @param _ mixed[optional]
+ * @return void
  */
 function debug_zval_dump ($variable, $_ = null) {}
 
@@ -5059,7 +5059,7 @@ function debug_zval_dump ($variable, $_ = null) {}
  *       The expression to be printed.
  *      </p>
  * @param return bool[optional] <p>
- *       If you would like to capture the output of print_r, 
+ *       If you would like to capture the output of print_r,
  *       use the return parameter.  When this parameter is set
  *       to true, print_r will return the information rather than print it.
  *      </p>
@@ -5112,8 +5112,8 @@ function memory_get_peak_usage ($real_usage = null) {}
  *       It is possible to pass parameters to the shutdown function by passing
  *       additional parameters.
  *      </p>
- * @param _ mixed[optional] 
- * @return void 
+ * @param _ mixed[optional]
+ * @return void
  */
 function register_shutdown_function ($callback, $parameter = null, $_ = null) {}
 
@@ -5126,7 +5126,7 @@ function register_shutdown_function ($callback, $parameter = null, $_ = null) {}
  *      </p>
  * @param arg mixed[optional] <p>
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return bool Returns true on success, false on failure.
  */
 function register_tick_function ($function, $arg = null, $_ = null) {}
@@ -5137,7 +5137,7 @@ function register_tick_function ($function, $arg = null, $_ = null) {}
  * @param function_name string <p>
  *       The function name, as a string.
  *      </p>
- * @return void 
+ * @return void
  */
 function unregister_tick_function ($function_name) {}
 
@@ -5190,7 +5190,7 @@ function highlight_string ($str, $return = null) {}
  * @return string The stripped source code will be returned on success, or an empty string
  *   on failure.
  *  </p>
- *  
+ *
  *   <p>
  *    This function works as described as of PHP 5.0.1. Before this it would
  *    only return an empty string. For more information on this bug and its
@@ -5239,7 +5239,7 @@ function ini_get ($varname) {}
  *   See the manual section
  *   for information on what access levels mean.
  *  </p>
- *  
+ *
  *   <p>
  *    It's possible for a directive to have multiple access levels, which is
  *    why access shows the appropriate bitmask values.
@@ -5277,7 +5277,7 @@ function ini_alter ($varname, $newvalue) {}
  * @param varname string <p>
  *       The configuration option name.
  *      </p>
- * @return void 
+ * @return void
  */
 function ini_restore ($varname) {}
 
@@ -5302,7 +5302,7 @@ function set_include_path ($new_include_path) {}
 /**
  * Restores the value of the include_path configuration option
  * @link http://www.php.net/manual/en/function.restore-include-path.php
- * @return void 
+ * @return void
  */
 function restore_include_path () {}
 
@@ -5329,14 +5329,14 @@ function restore_include_path () {}
  *       the end of the session (when the browser closes).
  *      </p>
  *      <p>
- *       
+ *
  *        <p>
  *         You may notice the expire parameter takes on a
  *         Unix timestamp, as opposed to the date format Wdy, DD-Mon-YYYY
  *         HH:MM:SS GMT, this is because PHP does this conversion
  *         internally.
  *        </p>
- *       
+ *
  *      </p>
  * @param path string[optional] <p>
  *       The path on the server in which the cookie will be available on.
@@ -5355,7 +5355,7 @@ function restore_include_path () {}
  *       Cookies available to a lower domain, such as
  *       'example.com' will be available to higher subdomains,
  *       such as 'www.example.com'.
- *       
+ *
  *       Older browsers still implementing the deprecated
  *       RFC 2109 may require a leading
  *       . to match all subdomains.
@@ -5387,13 +5387,13 @@ function setcookie ($name, $value = null, $expire = null, $path = null, $domain 
 /**
  * Send a cookie without urlencoding the cookie value
  * @link http://www.php.net/manual/en/function.setrawcookie.php
- * @param name string 
- * @param value string[optional] 
- * @param expire int[optional] 
- * @param path string[optional] 
- * @param domain string[optional] 
- * @param secure bool[optional] 
- * @param httponly bool[optional] 
+ * @param name string
+ * @param value string[optional]
+ * @param expire int[optional]
+ * @param path string[optional]
+ * @param domain string[optional]
+ * @param secure bool[optional]
+ * @param httponly bool[optional]
  * @return bool Returns true on success, false on failure.
  */
 function setrawcookie ($name, $value = null, $expire = null, $path = null, $domain = null, $secure = null, $httponly = null) {}
@@ -5414,11 +5414,11 @@ function setrawcookie ($name, $value = null, $expire = null, $path = null, $doma
  *       make sure that your script generates the proper status code.
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  *      <p>
  *       The second special case is the "Location:" header.  Not only does
@@ -5428,11 +5428,11 @@ function setrawcookie ($name, $value = null, $expire = null, $path = null, $doma
  *       a 3xx status code has already been set.
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @param replace bool[optional] <p>
  *       The optional replace parameter indicates
@@ -5442,18 +5442,18 @@ function setrawcookie ($name, $value = null, $expire = null, $path = null, $doma
  *       multiple headers of the same type.  For example:
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @param http_response_code int[optional] <p>
- *       Forces the HTTP response code to the specified value. Note that this 
- *       parameter only has an effect if the string is 
+ *       Forces the HTTP response code to the specified value. Note that this
+ *       parameter only has an effect if the string is
  *       not empty.
  *      </p>
- * @return void 
+ * @return void
  */
 function header ($string, $replace = null, $http_response_code = null) {}
 
@@ -5463,10 +5463,10 @@ function header ($string, $replace = null, $http_response_code = null) {}
  * @param name string[optional] <p>
  *       The header name to be removed.
  *      </p>
- *      
- *       
+ *
+ *
  *        This parameter is case-insensitive.
- * @return void 
+ * @return void
  */
 function header_remove ($name = null) {}
 
@@ -5475,7 +5475,7 @@ function header_remove ($name = null) {}
  * @link http://www.php.net/manual/en/function.headers-sent.php
  * @param file string[optional] <p>
  *       If the optional file and
- *       line parameters are set, 
+ *       line parameters are set,
  *       headers_sent will put the PHP source file name
  *       and line number where output started in the file
  *       and line variables.
@@ -5502,11 +5502,11 @@ function headers_list () {}
  *       The optional response_code will set the response code.
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @return int The current response code. By default the return value is int(200).
  */
@@ -5550,11 +5550,11 @@ function ignore_user_abort ($value = null) {}
  *       By setting the process_sections
  *       parameter to true, you get a multidimensional array, with
  *       the section names and settings included. The default
- *       for process_sections is false      
+ *       for process_sections is false
  *      </p>
  * @param scanner_mode int[optional] <p>
- *       Can either be INI_SCANNER_NORMAL (default) or 
- *       INI_SCANNER_RAW. If INI_SCANNER_RAW 
+ *       Can either be INI_SCANNER_NORMAL (default) or
+ *       INI_SCANNER_RAW. If INI_SCANNER_RAW
  *       is supplied, then option values will not be parsed.
  *      </p>
  * @return array The settings are returned as an associative array on success,
@@ -5572,11 +5572,11 @@ function parse_ini_file ($filename, $process_sections = null, $scanner_mode = nu
  *       By setting the process_sections
  *       parameter to true, you get a multidimensional array, with
  *       the section names and settings included. The default
- *       for process_sections is false      
+ *       for process_sections is false
  *      </p>
  * @param scanner_mode int[optional] <p>
- *       Can either be INI_SCANNER_NORMAL (default) or 
- *       INI_SCANNER_RAW. If INI_SCANNER_RAW 
+ *       Can either be INI_SCANNER_NORMAL (default) or
+ *       INI_SCANNER_RAW. If INI_SCANNER_RAW
  *       is supplied, then option values will not be parsed.
  *      </p>
  * @return array The settings are returned as an associative array on success,
@@ -5656,7 +5656,7 @@ function gethostbynamel ($hostname) {}
 /**
  * Gets the host name
  * @link http://www.php.net/manual/en/function.gethostname.php
- * @return string a string with the hostname on success, otherwise false is 
+ * @return string a string with the hostname on success, otherwise false is
  *   returned.
  */
 function gethostname () {}
@@ -5702,7 +5702,7 @@ function dns_get_mx ($hostname, &$mxhosts, &$weight) {}
  *      </p>
  * @param mxhosts array <p>
  *       A list of the MX records found is placed into the array
- *       mxhosts. 
+ *       mxhosts.
  *      </p>
  * @param weight array[optional] <p>
  *       If the weight array is given, it will be filled
@@ -5723,7 +5723,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *       gethostbyaddr is more suitable for
  *       the majority of reverse lookups.
  *      </p>
- *      
+ *
  *       <p>
  *        Per DNS standards, email addresses are given in user.host format (for
  *        example: hostmaster.example.com as opposed to hostmaster@example.com),
@@ -5732,7 +5732,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *       </p>
  * @param type int[optional] <p>
  *       By default, dns_get_record will search for any
- *       resource records associated with hostname. 
+ *       resource records associated with hostname.
  *       To limit the query, specify the optional type
  *       parameter. May be any one of the following:
  *       DNS_A, DNS_CNAME,
@@ -5743,7 +5743,7 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *       DNS_NAPTR, DNS_A6,
  *       DNS_ALL or DNS_ANY.
  *      </p>
- *      
+ *
  *       <p>
  *        Because of eccentricities in the performance of libresolv
  *        between platforms, DNS_ANY will not
@@ -5767,14 +5767,14 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *   at minimum the following keys:
  *   <table>
  *    Basic DNS attributes
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Attribute</td>
  *       <td>Meaning</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>host</td>
  *       <td>
@@ -5803,21 +5803,21 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *        length of time has passed since the authoritative name server was queried.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  *  </p>
  *  <p>
  *   <table>
  *    Other keys in associative arrays dependant on 'type'
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Type</td>
  *       <td>Extra Columns</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>A</td>
  *       <td>
@@ -5931,8 +5931,8 @@ function getmxrr ($hostname, array &$mxhosts, array &$weight = null) {}
  *        RFC 2915.
  *       </td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  */
 function dns_get_record ($hostname, $type = null, array &$authns = null, array &$addtl = null, &$raw = null) {}
@@ -5946,29 +5946,29 @@ function dns_get_record ($hostname, $type = null, array &$authns = null, array &
  * @param base int[optional] <p>
  *       The base for the conversion
  *      </p>
- *      
+ *
  *       <p>
  *        If base is 0, the base used is determined
  *        by the format of var:
- *        
- *         
- *          
+ *
+ *
+ *
  *           if string includes a "0x" (or "0X") prefix, the base is taken
  *           as 16 (hex); otherwise,
  * @return int The integer value of var on success, or 0 on
  *   failure. Empty arrays return 0, non-empty arrays return 1.
  *  </p>
  *  <p>
- *   The maximum value depends on the system. 32 bit systems have a 
- *   maximum signed integer range of -2147483648 to 2147483647. So for example 
- *   on such a system, intval('1000000000000') will return 
- *   2147483647. The maximum signed integer value for 64 bit systems is 
+ *   The maximum value depends on the system. 32 bit systems have a
+ *   maximum signed integer range of -2147483648 to 2147483647. So for example
+ *   on such a system, intval('1000000000000') will return
+ *   2147483647. The maximum signed integer value for 64 bit systems is
  *   9223372036854775807.
  *  </p>
  *  <p>
- *   Strings will most likely return 0 although this depends on the 
- *   leftmost characters of the string. The common rules of 
- *   integer casting 
+ *   Strings will most likely return 0 although this depends on the
+ *   leftmost characters of the string. The common rules of
+ *   integer casting
  *   apply.
  */
 function intval ($var, $base = null) {}
@@ -5985,9 +5985,9 @@ function intval ($var, $base = null) {}
  *   arrays return 1.
  *  </p>
  *  <p>
- *   Strings will most likely return 0 although this depends on the 
- *   leftmost characters of the string. The common rules of 
- *   float casting 
+ *   Strings will most likely return 0 although this depends on the
+ *   leftmost characters of the string. The common rules of
+ *   float casting
  *   apply.
  */
 function floatval ($var) {}
@@ -6033,51 +6033,51 @@ function boolval ($var) {}
  *       The variable being type checked.
  *      </p>
  * @return string Possible values for the returned string are:
- *   
- *    
- *     
+ *
+ *
+ *
  *      "boolean"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "integer"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "double" (for historical reasons "double" is
  *      returned in case of a float, and not simply
  *      "float")
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "string"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "array"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "object"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "resource"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "NULL"
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "unknown type"
  */
 function gettype ($var) {}
@@ -6090,9 +6090,9 @@ function gettype ($var) {}
  *      </p>
  * @param type string <p>
  *       Possibles values of type are:
- *       
- *        
- *         
+ *
+ *
+ *
  *          "boolean" (or, since PHP 4.2.0, "bool")
  * @return bool Returns true on success, false on failure.
  */
@@ -6256,7 +6256,7 @@ function is_scalar ($var) {}
  *       that someClass::SomeMethod() is a callable static method, this is not
  *       the case.
  *      </p>
- * @return bool true if name is callable, false 
+ * @return bool true if name is callable, false
  *   otherwise.
  */
 function is_callable ($name, $syntax_only = null, &$callable_name = null) {}
@@ -6268,7 +6268,7 @@ function is_callable ($name, $syntax_only = null, &$callable_name = null) {}
  *       The file pointer must be valid, and must have been returned by a
  *       successful call to popen.
  *      </p>
- * @return int the termination status of the process that was run. In case of 
+ * @return int the termination status of the process that was run. In case of
  *   an error then -1 is returned.
  */
 function pclose ($handle) {}
@@ -6388,7 +6388,7 @@ function fgetc ($handle) {}
  *       (whichever comes first). If no length is specified, it will keep
  *       reading from the stream until it reaches the end of the line.
  *      </p>
- *      
+ *
  *       <p>
  *        Until PHP 4.3.0, omitting it would assume 1024 as the line length.
  *        If the majority of the lines in the file are all larger than 8KB,
@@ -6396,7 +6396,7 @@ function fgetc ($handle) {}
  *        line length.
  *       </p>
  * @return string a string of up to length - 1 bytes read from
- *   the file pointed to by handle. If there is no more data 
+ *   the file pointed to by handle. If there is no more data
  *   to read in the file pointer, then false is returned.
  *  </p>
  *  <p>
@@ -6463,7 +6463,7 @@ function fread ($handle, $length) {}
  *       enabled. If it is switched off, PHP will emit a warning and
  *       the fopen call will fail.
  *      </p>
- *      
+ *
  *       <p>
  *        The list of supported protocols can be found in . Some protocols (also referred to as
  *        wrappers) support context
@@ -6472,32 +6472,32 @@ function fread ($handle, $length) {}
  *        &php.ini; value user_agent used by the
  *        http wrapper).
  *       </p>
- *      
+ *
  *      <p>
  *       On the Windows platform, be careful to escape any backslashes
  *       used in the path to the file, or use forward slashes.
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @param mode string <p>
  *       The mode parameter specifies the type of access
  *       you require to the stream.  It may be any of the following:
  *       <table>
- *        
+ *
  *         A list of possible modes for fopen
  *         using mode
- *        
- *        
- *         
+ *
+ *
+ *
  *          <tr valign="top">
  *           <td>mode</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>'r'</td>
  *           <td>
@@ -6552,7 +6552,7 @@ function fread ($handle, $length) {}
  *            generating an error of level E_WARNING.  If
  *            the file does not exist, attempt to create it.  This is equivalent
  *            to specifying O_EXCL|O_CREAT flags for the
- *            underlying open(2) system call. 
+ *            underlying open(2) system call.
  *           </td>
  *          </tr>
  *          <tr valign="top">
@@ -6585,11 +6585,11 @@ function fread ($handle, $length) {}
  *            behavior as 'c'.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
- *      
+ *
  *       <p>
  *        Different operating system families have different line-ending
  *        conventions.  When you write a text file and want to insert a line
@@ -6627,14 +6627,14 @@ function fread ($handle, $length) {}
  *        may experience strange problems with your data, including broken image
  *        files and strange problems with \r\n characters.
  *       </p>
- *      
- *      
+ *
+ *
  *       <p>
  *        For portability, it is strongly recommended that you always
  *        use the 'b' flag when opening files with fopen.
  *       </p>
- *      
- *      
+ *
+ *
  *       <p>
  *        Again, for portability, it is also strongly recommended that
  *        you re-write code that uses or relies upon the 't'
@@ -6668,14 +6668,14 @@ function fpassthru ($handle) {}
  * @param handle resource <p>
  *       The file pointer.
  *      </p>
- *      
+ *
  *       <p>
  *        The handle must be open for writing.
  *       </p>
  * @param size int <p>
  *       The size to truncate to.
  *      </p>
- *      
+ *
  *       <p>
  *        If size is larger than the file then the file
  *        is extended with null bytes.
@@ -6712,11 +6712,11 @@ function fstat ($handle) {}
  *      </p>
  * @param whence int[optional] <p>
  *       whence values are:
- *       
+ *
  *        SEEK_SET - Set position equal to offset bytes.
  *        SEEK_CUR - Set position to current location plus offset.
  *        SEEK_END - Set position to end-of-file plus offset.
- *       
+ *
  *      </p>
  * @return int Upon success, returns 0; otherwise, returns -1.
  */
@@ -6766,7 +6766,7 @@ function fflush ($handle) {}
  *       configuration option will be ignored and no slashes will be
  *       stripped from string.
  *      </p>
- * @return int 
+ * @return int
  */
 function fwrite ($handle, $string, $length = null) {}
 
@@ -6790,11 +6790,11 @@ function fputs ($fp, $str, $length) {}
  *       access. For more information on modes, read the details
  *       on the chmod page.
  *      </p>
- *      
+ *
  *       <p>
  *        mode is ignored on Windows.
  *       </p>
- *      
+ *
  *      <p>
  *       Note that you probably want to specify the mode as an octal number,
  *       which means it should have a leading zero. The mode is also modified
@@ -6802,7 +6802,7 @@ function fputs ($fp, $str, $length) {}
  *       umask.
  *      </p>
  * @param recursive bool[optional] <p>
- *       Allows the creation of nested directories specified in the 
+ *       Allows the creation of nested directories specified in the
  *       pathname.
  *      </p>
  * @param context resource[optional] &note.context-support;
@@ -6815,7 +6815,7 @@ function mkdir ($pathname, $mode = null, $recursive = null, $context = null) {}
  * @link http://www.php.net/manual/en/function.rename.php
  * @param oldname string <p>
  *      </p>
- *      
+ *
  *       <p>
  *        The old name. The wrapper used in oldname
  *        must match the wrapper used in
@@ -6840,12 +6840,12 @@ function rename ($oldname, $newname, $context = null) {}
  *       copy operation may fail if the wrapper does not support overwriting of
  *       existing files.
  *      </p>
- *      
+ *
  *       <p>
  *        If the destination file already exists, it will be overwritten.
  *       </p>
  * @param context resource[optional] <p>
- *       A valid context resource created with 
+ *       A valid context resource created with
  *       stream_context_create.
  *      </p>
  * @return bool Returns true on success, false on failure.
@@ -6861,8 +6861,8 @@ function copy ($source, $dest, $context = null) {}
  * @param prefix string <p>
  *       The prefix of the generated temporary filename.
  *      </p>
- *      
- *       
+ *
+ *
  *        Windows uses only the first three characters of prefix.
  * @return string the new temporary filename (with path), or false on
  *   failure.
@@ -6887,16 +6887,16 @@ function tmpfile () {}
  * @param flags int[optional] <p>
  *       The optional parameter flags can be one, or
  *       more, of the following constants:
- *       
- *        
- *         
+ *
+ *
+ *
  *          FILE_USE_INCLUDE_PATH
- *         
- *         
- *          
+ *
+ *
+ *
  *           Search for the file in the include_path.
  * @param context resource[optional] <p>
- *       A context resource created with the 
+ *       A context resource created with the
  *       stream_context_create function.
  *      </p>
  *      <p>
@@ -6906,7 +6906,7 @@ function tmpfile () {}
  *   line in the file, with the newline still attached. Upon failure,
  *   file returns false.
  *  </p>
- *  
+ *
  *   <p>
  *    Each line in the resulting array will include the line ending, unless
  *    FILE_IGNORE_NEW_LINES is used, so you still need to
@@ -6927,7 +6927,7 @@ function file ($filename, $flags = null, $context = null) {}
  *        search.
  *       </p>
  * @param context resource[optional] <p>
- *       A valid context resource created with 
+ *       A valid context resource created with
  *       stream_context_create. If you don't need to use a
  *       custom context, you can skip this parameter by &null;.
  *      </p>
@@ -6941,7 +6941,7 @@ function file ($filename, $flags = null, $context = null) {}
  *      </p>
  * @param maxlen int[optional] <p>
  *       Maximum length of data read. The default is to read until end
- *       of file is reached. Note that this parameter is applied to the 
+ *       of file is reached. Note that this parameter is applied to the
  *       stream processed by the filters.
  *      </p>
  * @return string The function returns the read data &return.falseforfailure;.
@@ -6969,21 +6969,21 @@ function file_get_contents ($filename, $use_include_path = null, $context = null
  *       file_put_contents($filename, implode('', $array)).
  *      </p>
  * @param flags int[optional] <p>
- *       The value of flags can be any combination of 
+ *       The value of flags can be any combination of
  *       the following flags, joined with the binary OR (|)
  *       operator.
  *      </p>
  *      <p>
  *       <table>
  *        Available flags
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Flag</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>
  *            FILE_USE_INCLUDE_PATH
@@ -6999,7 +6999,7 @@ function file_get_contents ($filename, $use_include_path = null, $context = null
  *            FILE_APPEND
  *           </td>
  *           <td>
- *            If file filename already exists, append 
+ *            If file filename already exists, append
  *            the data to the file instead of overwriting it.
  *           </td>
  *          </tr>
@@ -7008,16 +7008,16 @@ function file_get_contents ($filename, $use_include_path = null, $context = null
  *            LOCK_EX
  *           </td>
  *           <td>
- *            Acquire an exclusive lock on the file while proceeding to the 
+ *            Acquire an exclusive lock on the file while proceeding to the
  *            writing.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param context resource[optional] <p>
- *       A valid context resource created with 
+ *       A valid context resource created with
  *       stream_context_create.
  *      </p>
  * @return int This function returns the number of bytes that were written to the file, or
@@ -7044,15 +7044,15 @@ function file_put_contents ($filename, $data, $flags = null, $context = null) {}
  *       The streams listed in the except array will be
  *       watched for high priority exceptional ("out-of-band") data arriving.
  *      </p>
- *      
+ *
  *       <p>
  *        When stream_select returns, the arrays
  *        read, write and
  *        except are modified to indicate which stream
  *        resource(s) actually changed status.
  *       </p>
- *      
- *      
+ *
+ *
  *       You do not need to pass every array to
  *       stream_select. You can leave it out and use an
  *       empty array or &null; instead. Also do not forget that those arrays are
@@ -7075,7 +7075,7 @@ function file_put_contents ($filename, $data, $flags = null, $context = null) {}
  *       can block indefinitely, returning only when an event on one of the
  *       watched streams occurs (or if a signal interrupts the system call).
  *      </p>
- *      
+ *
  *       <p>
  *        Using a timeout value of 0 allows you to
  *        instantaneously poll the status of the streams, however, it is NOT a
@@ -7133,7 +7133,7 @@ function stream_context_create (array $options = null, array $params = null) {}
  * @param params array <p>
  *       An array of parameters to set.
  *      </p>
- *      
+ *
  *       <p>
  *        params should be an associative array of the structure:
  *        $params['paramname'] = "paramvalue";.
@@ -7159,9 +7159,9 @@ function stream_context_get_params ($stream_or_context) {}
  * @param stream_or_context resource <p>
  *       The stream or context resource to apply the options to.
  *      </p>
- * @param wrapper string 
- * @param option string 
- * @param value mixed 
+ * @param wrapper string
+ * @param option string
+ * @param value mixed
  * @return bool Returns true on success, false on failure.
  */
 function stream_context_set_option ($stream_or_context, $wrapper, $option, $value) {}
@@ -7182,8 +7182,8 @@ function stream_context_get_options ($stream_or_context) {}
  * @param options array[optional] options must be an associative
  *       array of associative arrays in the format
  *       $arr['wrapper']['option'] = $value.
- *      
- *      
+ *
+ *
  *       <p>
  *        As of PHP 5.3.0, the stream_context_set_default function
  *        can be used to set the default context.
@@ -7198,7 +7198,7 @@ function stream_context_get_default (array $options = null) {}
  * @param options array <p>
  *       The options to set for the default context.
  *      </p>
- *      
+ *
  *       <p>
  *        options must be an associative
  *        array of associative arrays in the format
@@ -7266,7 +7266,7 @@ function stream_filter_prepend ($stream, $filtername, $read_write = null, $param
  *       read_write parameter to override this behavior.
  *      </p>
  * @param params mixed[optional] <p>
- *       This filter will be added with the specified 
+ *       This filter will be added with the specified
  *       params to the end of
  *       the list and will therefore be called last during stream operations.
  *       To add a filter to the beginning of the list, use
@@ -7302,20 +7302,20 @@ function stream_filter_remove ($stream_filter) {}
  * @param timeout float[optional] <p>
  *       Number of seconds until the connect() system call
  *       should timeout.
- *       
- *        
+ *
+ *
  *         This parameter only applies when not making asynchronous
  *         connection attempts.
- *        
- *       
- *       
+ *
+ *
+ *
  *        <p>
  *         To set a timeout for reading/writing data over the socket, use the
  *         stream_set_timeout, as the
  *         timeout only applies while making connecting
  *         the socket.
  *        </p>
- *       
+ *
  *      </p>
  * @param flags int[optional] <p>
  *       Bitmask field which may be set to any combination of connection flags.
@@ -7344,7 +7344,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  *      </p>
  *      <p>
  *       For Internet Domain sockets (AF_INET) such as TCP and UDP, the
- *       target portion of the 
+ *       target portion of the
  *       remote_socket parameter should consist of a
  *       hostname or IP address followed by a colon and a port number.  For
  *       Unix domain sockets, the target portion should
@@ -7361,10 +7361,10 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  *       arguments are present they will be set to indicate the actual system
  *       level error that occurred in the system-level socket(),
  *       bind(), and listen() calls. If
- *       the value returned in errno is 
+ *       the value returned in errno is
  *       0 and the function returned false, it is an
  *       indication that the error occurred before the bind()
- *       call. This is most likely due to a problem initializing the socket. 
+ *       call. This is most likely due to a problem initializing the socket.
  *       Note that the errno and
  *       errstr arguments will always be passed by reference.
  *      </p>
@@ -7375,7 +7375,7 @@ function stream_socket_client ($remote_socket, &$errno = null, &$errstr = null, 
  *       A bitmask field which may be set to any combination of socket creation
  *       flags.
  *      </p>
- *      
+ *
  *       <p>
  *        For UDP sockets, you must use STREAM_SERVER_BIND as
  *        the flags parameter.
@@ -7400,7 +7400,7 @@ function stream_socket_server ($local_socket, &$errno = null, &$errstr = null, $
  *       Will be set to the name (address) of the client which connected, if
  *       included and available from the selected transport.
  *      </p>
- *      
+ *
  *       <p>
  *        Can also be determined later using
  *        stream_socket_get_name.
@@ -7437,8 +7437,8 @@ function stream_socket_get_name ($handle, $want_peer) {}
  *       of the following:
  *       <table>
  *        Possible values for flags
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>STREAM_OOB</td>
  *           <td>
@@ -7454,8 +7454,8 @@ function stream_socket_get_name ($handle, $want_peer) {}
  *            the same data.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param address string[optional] <p>
@@ -7480,16 +7480,16 @@ function stream_socket_recvfrom ($socket, $length, $flags = null, &$address = nu
  *       of the following:
  *       <table>
  *        possible values for flags
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>STREAM_OOB</td>
  *           <td>
  *            Process OOB (out-of-band) data.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param address string[optional] <p>
@@ -7515,7 +7515,7 @@ function stream_socket_sendto ($socket, $data, $flags = null, $address = null) {
  * @param crypto_type int[optional] <p>
  *       Setup encryption on the stream.
  *       Valid methods are
- *       
+ *
  *        STREAM_CRYPTO_METHOD_SSLv2_CLIENT
  * @param session_stream resource[optional] <p>
  *       Seed the stream with settings from session_stream.
@@ -7565,7 +7565,7 @@ function stream_socket_shutdown ($stream, $how) {}
  *       STREAM_IPPROTO_IP,
  *       STREAM_IPPROTO_RAW,
  *       STREAM_IPPROTO_TCP or
- *       STREAM_IPPROTO_UDP       
+ *       STREAM_IPPROTO_UDP
  *      </p>
  * @return array an array with the two socket resources on success, or
  *   false on failure.
@@ -7645,13 +7645,13 @@ function stream_supports_lock ($stream) {}
  *      </p>
  * @return array an indexed array containing the fields read.
  *  </p>
- *  
+ *
  *   <p>
  *    A blank line in a CSV file will be returned as an array
  *    comprising a single null field, and will not be treated
  *    as an error.
  *   </p>
- *  
+ *
  *  &note.line-endings;
  *  <p>
  *   fgetcsv returns &null; if an invalid
@@ -7685,9 +7685,9 @@ function fputcsv ($handle, array $fields, $delimiter = null, $enclosure = null) 
  * @param handle resource &fs.file.pointer;
  * @param operation int <p>
  *       operation is one of the following:
- *       
- *        
- *         
+ *
+ *
+ *
  *          LOCK_SH to acquire a shared lock (reader).
  * @param wouldblock int[optional] <p>
  *       The optional third argument is set to 1 if the lock would block
@@ -7705,12 +7705,12 @@ function flock ($handle, $operation, &$wouldblock = null) {}
  *       URL.
  *      </p>
  *      <p>
- *       
+ *
  *        What get_meta_tags parses
- *        
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *       (pay attention to line endings - PHP uses a native function to
  *       parse the input, so a Mac file won't work on Unix).
  *      </p>
@@ -7725,7 +7725,7 @@ function flock ($handle, $operation, &$wouldblock = null) {}
  *  <p>
  *   The value of the name property becomes the key, the value of the content
  *   property becomes the value of the returned array, so you can easily use
- *   standard array functions to traverse it or access single values. 
+ *   standard array functions to traverse it or access single values.
  *   Special characters in the value of the name property are substituted with
  *   '_', the rest is converted to lower case.  If two meta tags have the same
  *   name, only the last one is returned.
@@ -7835,21 +7835,21 @@ function socket_set_blocking ($socket, $mode) {}
  *      </p>
  * @return array The result array contains the following items:
  *  </p>
- *  
- *   
+ *
+ *
  *    <p>
  *     timed_out (bool) - true if the stream
  *     timed out while waiting for data on the last call to
  *     fread or fgets.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     blocked (bool) - true if the stream is
  *     in blocking IO mode. See stream_set_blocking.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     eof (bool) - true if the stream has reached
  *     end-of-file.  Note that for socket streams this member can be true
@@ -7857,52 +7857,52 @@ function socket_set_blocking ($socket, $mode) {}
  *     determine if there is more data to be read, use
  *     feof instead of reading this item.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     unread_bytes (int) - the number of bytes
  *     currently contained in the PHP's own internal buffer.
  *    </p>
- *    
- *     
+ *
+ *
  *      You shouldn't use this value in a script.
- *     
- *    
- *   
- *   
+ *
+ *
+ *
+ *
  *    <p>
  *     stream_type (string) - a label describing
  *     the underlying implementation of the stream.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     wrapper_type (string) - a label describing
  *     the protocol wrapper implementation layered over the stream.
  *     See  for more information about wrappers.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     wrapper_data (mixed) - wrapper specific
  *     data attached to this stream.  See  for
  *     more information about wrappers and their wrapper data.
  *    </p>
- *   
- *   
- *   
+ *
+ *
+ *
  *    <p>
  *     mode (string) - the type of access required for
  *     this stream (see Table 1 of the fopen() reference)
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     seekable (bool) - whether the current stream can
  *     be seeked.
  *    </p>
- *   
- *   
+ *
+ *
  *    <p>
  *     uri (string) - the URI/filename associated with this
  *     stream.
@@ -8024,7 +8024,7 @@ function stream_is_local ($stream_or_url) {}
  *      </p>
  * @param format int[optional] <p>
  *       If the optional format parameter is set to non-zero,
- *       get_headers parses the response and sets the 
+ *       get_headers parses the response and sets the
  *       array's keys.
  *      </p>
  * @return array an indexed or associative array with the headers, or false on
@@ -8069,21 +8069,21 @@ function socket_get_status ($fp) {}
  * @link http://www.php.net/manual/en/function.realpath.php
  * @param path string <p>
  *       The path being checked.
- *       
+ *
  *        <p>
  *         Whilst a path must be supplied, the value can be blank or &null;
  *         In these cases, the value is interpreted as the current directory.
  *        </p>
- *       
+ *
  *      </p>
- * @return string the canonicalized absolute pathname on success. The resulting path 
+ * @return string the canonicalized absolute pathname on success. The resulting path
  *   will have no symbolic link, '/./' or '/../' components.
  *  </p>
  *  <p>
  *   realpath returns false on failure, e.g. if
  *   the file does not exist.
  *  </p>
- *  
+ *
  *   <p>
  *    The running script must have executable permissions on all directories in
  *    the hierarchy, otherwise realpath will return
@@ -8110,21 +8110,21 @@ function realpath ($path) {}
  *       non-programming users.
  *      </p>
  * @param flags int[optional] <p>
- *       The value of flags can be any combination of 
+ *       The value of flags can be any combination of
  *       the following flags, joined with the
  *       binary OR (|) operator.
  *       <table>
- *        
+ *
  *         A list of possible flags for fnmatch
- *        
- *        
- *         
+ *
+ *
+ *
  *          <tr valign="top">
  *           <td>Flag</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>FNM_NOESCAPE</td>
  *           <td>
@@ -8149,8 +8149,8 @@ function realpath ($path) {}
  *            Caseless match. Part of the GNU extension.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @return bool true if there is a match, false otherwise.
@@ -8179,7 +8179,7 @@ function fnmatch ($pattern, $string, $flags = null) {}
  *      <p>
  *       If the value returned in errno is
  *       0 and the function returned false, it is an
- *       indication that the error occurred before the 
+ *       indication that the error occurred before the
  *       connect() call. This is most likely due to a
  *       problem initializing the socket.
  *      </p>
@@ -8189,10 +8189,10 @@ function fnmatch ($pattern, $string, $flags = null) {}
  * @param timeout float[optional] <p>
  *       The connection timeout, in seconds.
  *      </p>
- *      
+ *
  *       <p>
  *        If you need to set a timeout for reading/writing data over the
- *        socket, use stream_set_timeout, as the 
+ *        socket, use stream_set_timeout, as the
  *        timeout parameter to
  *        fsockopen only applies while connecting the
  *        socket.
@@ -8208,12 +8208,12 @@ function fsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $t
 /**
  * Open persistent Internet or Unix domain socket connection
  * @link http://www.php.net/manual/en/function.pfsockopen.php
- * @param hostname string 
- * @param port int[optional] 
- * @param errno int[optional] 
- * @param errstr string[optional] 
- * @param timeout float[optional] 
- * @return resource 
+ * @param hostname string
+ * @param port int[optional]
+ * @param errno int[optional]
+ * @param errstr string[optional]
+ * @param timeout float[optional]
+ * @return resource
  */
 function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $timeout = null) {}
 
@@ -8234,14 +8234,14 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  *       Currently implemented formats are:
  *       <table>
  *        pack format characters
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Code</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>a</td>
  *           <td>NUL-padded string</td>
@@ -8323,13 +8323,13 @@ function pfsockopen ($hostname, $port = null, &$errno = null, &$errstr = null, $
  *           <td>@</td>
  *           <td>NUL-fill to absolute position</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param args mixed[optional] <p>
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return string a binary string containing data.
  */
 function pack ($format, $args = null, $_ = null) {}
@@ -8383,7 +8383,7 @@ function get_browser ($user_agent = null, $return_array = null) {}
  * @param str string <p>
  *       The string to be hashed.
  *      </p>
- *      
+ *
  *       <p>
  *        Using the CRYPT_BLOWFISH algorithm, will result
  *        in the str parameter being truncated to a
@@ -8406,18 +8406,18 @@ function crypt ($str, $salt = null) {}
  *       The directory path that is to be opened
  *      </p>
  * @param context resource[optional] <p>
- *       For a description of the context parameter, 
+ *       For a description of the context parameter,
  *       refer to the streams section of
  *       the manual.
  *      </p>
  * @return resource a directory handle resource on success, or
  *   false on failure.
- *  </p> 
+ *  </p>
  *  <p>
  *   If path is not a valid directory or the
  *   directory can not be opened due to permission restrictions or
  *   filesystem errors, opendir returns false and
- *   generates a PHP error of level 
+ *   generates a PHP error of level
  *   E_WARNING.  You can suppress the error output of
  *   opendir by prepending
  *   '@' to the
@@ -8430,11 +8430,11 @@ function opendir ($path, $context = null) {}
  * @link http://www.php.net/manual/en/function.closedir.php
  * @param dir_handle resource[optional] <p>
  *       The directory handle resource previously opened
- *       with opendir. If the directory handle is 
- *       not specified, the last link opened by opendir 
+ *       with opendir. If the directory handle is
+ *       not specified, the last link opened by opendir
  *       is assumed.
  *      </p>
- * @return void 
+ * @return void
  */
 function closedir ($dir_handle = null) {}
 
@@ -8453,7 +8453,7 @@ function chdir ($directory) {}
  * @link http://www.php.net/manual/en/function.getcwd.php
  * @return string the current working directory on success, or false on
  *   failure.
- *  </p> 
+ *  </p>
  *  <p>
  *   On some Unix variants, getcwd will return
  *   false if any one of the parent directories does not have the
@@ -8468,11 +8468,11 @@ function getcwd () {}
  * @link http://www.php.net/manual/en/function.rewinddir.php
  * @param dir_handle resource[optional] <p>
  *       The directory handle resource previously opened
- *       with opendir. If the directory handle is 
- *       not specified, the last link opened by opendir 
+ *       with opendir. If the directory handle is
+ *       not specified, the last link opened by opendir
  *       is assumed.
  *      </p>
- * @return void 
+ * @return void
  */
 function rewinddir ($dir_handle = null) {}
 
@@ -8481,8 +8481,8 @@ function rewinddir ($dir_handle = null) {}
  * @link http://www.php.net/manual/en/function.readdir.php
  * @param dir_handle resource[optional] <p>
  *       The directory handle resource previously opened
- *       with opendir. If the directory handle is 
- *       not specified, the last link opened by opendir 
+ *       with opendir. If the directory handle is
+ *       not specified, the last link opened by opendir
  *       is assumed.
  *      </p>
  * @return string the entry name on success&return.falseforfailure;.
@@ -8517,13 +8517,13 @@ function dir ($directory, $context = null) {}
  *       SCANDIR_SORT_NONE then the result is unsorted.
  *      </p>
  * @param context resource[optional] <p>
- *       For a description of the context parameter, 
+ *       For a description of the context parameter,
  *       refer to the streams section of
  *       the manual.
  *      </p>
- * @return array an array of filenames on success, or false on 
- *   failure. If directory is not a directory, then 
- *   boolean false is returned, and an error of level 
+ * @return array an array of filenames on success, or false on
+ *   failure. If directory is not a directory, then
+ *   boolean false is returned, and an error of level
  *   E_WARNING is generated.
  */
 function scandir ($directory, $sorting_order = null, $context = null) {}
@@ -8536,14 +8536,14 @@ function scandir ($directory, $sorting_order = null, $context = null) {}
  *      </p>
  * @param flags int[optional] <p>
  *       Valid flags:
- *       
- *        
- *         
+ *
+ *
+ *
  *          GLOB_MARK - Adds a slash to each directory returned
  * @return array an array containing the matched files/directories, an empty array
  *   if no file matched or false on error.
  *  </p>
- *  
+ *
  *   <p>
  *    On some systems it is impossible to distinguish between empty match and an
  *    error.
@@ -8683,20 +8683,20 @@ function filetype ($filename) {}
  * @return bool true if the file or directory specified by
  *   filename exists; false otherwise.
  *  </p>
- *  
+ *
  *   <p>
  *    This function will return false for symlinks pointing to non-existing
  *    files.
  *   </p>
- *  
- *  
+ *
+ *
  *   <p>
  *    This function returns false for files inaccessible due to safe mode restrictions. However these
  *    files still can be included if
  *    they are located in safe_mode_include_dir.
  *   </p>
- *  
- *  
+ *
+ *
  *   <p>
  *    The check is done using the real UID/GID instead of the effective one.
  */
@@ -8759,7 +8759,7 @@ function is_file ($filename) {}
  * @param filename string <p>
  *       Path to the file. If filename is a relative
  *       filename, it will be checked relative to the current working
- *       directory. If filename is a symbolic or hard link 
+ *       directory. If filename is a symbolic or hard link
  *       then the link will be resolved and checked. If you have enabled &safemode;,
  *       or open_basedir further
  *       restrictions may apply.
@@ -8789,15 +8789,15 @@ function is_link ($filename) {}
  * @return array <table>
  *    stat and fstat result
  *     format
- *    
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>Numeric</td>
  *       <td>Associative</td>
  *       <td>Description</td>
  *      </tr>
- *     
- *     
+ *
+ *
  *      <tr valign="top">
  *       <td>0</td>
  *       <td>dev</td>
@@ -8863,8 +8863,8 @@ function is_link ($filename) {}
  *       <td>blocks</td>
  *       <td>number of 512-byte blocks allocated **</td>
  *      </tr>
- *     
- *    
+ *
+ *
  *   </table>
  *   * On Windows this will always be 0.
  *  </p>
@@ -8953,15 +8953,15 @@ function lchgrp ($filename, $group) {}
  * @param mode int <p>
  *       Note that mode is not automatically
  *       assumed to be an octal value, so to ensure the expected operation,
- *       you need to prefix mode with a zero (0). 
+ *       you need to prefix mode with a zero (0).
  *       Strings such as "g+w" will not work properly.
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  *      <p>
  *       The mode parameter consists of three octal
@@ -8987,11 +8987,11 @@ function chmod ($filename, $mode) {}
  *       The name of the file being touched.
  *      </p>
  * @param time int[optional] <p>
- *       The touch time. If time is not supplied, 
+ *       The touch time. If time is not supplied,
  *       the current system time is used.
  *      </p>
  * @param atime int[optional] <p>
- *       If present, the access time of the given filename is set to 
+ *       If present, the access time of the given filename is set to
  *       the value of atime. Otherwise, it is set to
  *       the value passed to the time parameter.
  *       If neither are present, the current system time is used.
@@ -9010,7 +9010,7 @@ function touch ($filename, $time = null, $atime = null) {}
  *       Clear the realpath and the stat cache for a specific filename only; only
  *       used if clear_realpath_cache is true.
  *      </p>
- * @return void 
+ * @return void
  */
 function clearstatcache ($clear_realpath_cache = null, $filename = null) {}
 
@@ -9031,7 +9031,7 @@ function disk_total_space ($directory) {}
  * @param directory string <p>
  *       A directory of the filesystem or disk partition.
  *      </p>
- *      
+ *
  *       <p>
  *        Given a file name instead of a directory, the behaviour of the
  *        function is unspecified and may differ between operating systems and
@@ -9074,17 +9074,17 @@ function realpath_cache_get () {}
  *      <p>
  *       The formatting of this string must comply with
  *       RFC 2822. Some examples are:
- *       
+ *
  *        user@example.com
  *        user@example.com, anotheruser@example.com
- *        User 
- *        User , Another User 
- *       
+ *        User
+ *        User , Another User
+ *
  *      </p>
  * @param subject string <p>
  *       Subject of the email to be sent.
  *      </p>
- *      
+ *
  *       <p>
  *        Subject must satisfy RFC 2047.
  *       </p>
@@ -9095,14 +9095,14 @@ function realpath_cache_get () {}
  *       Each line should be separated with a CRLF (\r\n). Lines should not be
  *       larger than 70 characters.
  *      </p>
- *      
+ *
  *       <p>
  *        (Windows only) When PHP is talking to a SMTP server directly, if a full
  *        stop is found on the start of a line, it is removed. To counter-act this,
  *        replace these occurrences with a double dot.
- *        
+ *
  * ]]>
- *        
+ *
  *       </p>
  * @param additional_headers string[optional] <p>
  *       String to be inserted at the end of the email header.
@@ -9111,9 +9111,9 @@ function realpath_cache_get () {}
  *       This is typically used to add extra headers (From, Cc, and Bcc).
  *       Multiple extra headers should be separated with a CRLF (\r\n).
  *       If outside data are used to compose this header, the data should be sanitized
- *       so that no unwanted headers could be injected. 
+ *       so that no unwanted headers could be injected.
  *      </p>
- *      
+ *
  *       <p>
  *        When sending mail, the mail must contain
  *        a From header. This can be set with the
@@ -9127,8 +9127,8 @@ function realpath_cache_get () {}
  *        The From header sets also
  *        Return-Path under Windows.
  *       </p>
- *      
- *      
+ *
+ *
  *       <p>
  *        If messages are not received, try using a LF (\n) only.
  *        Some Unix mail transfer agents (most notably
@@ -9154,10 +9154,10 @@ function realpath_cache_get () {}
  *      </p>
  *      <p>
  *       Since escapeshellcmd is applied automatically, some characters
- *       that are allowed as email addresses by internet RFCs cannot be used. 
+ *       that are allowed as email addresses by internet RFCs cannot be used.
  *       mail can not allow such characters, so in programs where the use of
  *       such characters is required, alternative means of sending emails (such as using a framework
- *       or a library) is recommended. 
+ *       or a library) is recommended.
  *      </p>
  *      <p>
  *       The user that the webserver runs as should be added as a trusted user to the
@@ -9187,21 +9187,21 @@ function ezmlm_hash ($addr) {}
  * Open connection to system logger
  * @link http://www.php.net/manual/en/function.openlog.php
  * @param ident string <p>
- *       The string ident is added to each message. 
+ *       The string ident is added to each message.
  *      </p>
  * @param option int <p>
  *       The option argument is used to indicate
  *       what logging options will be used when generating a log message.
  *       <table>
  *        openlog Options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>LOG_CONS</td>
  *           <td>
@@ -9230,8 +9230,8 @@ function ezmlm_hash ($addr) {}
  *           <td>LOG_PID</td>
  *           <td>include PID with each message</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *       You can use one or more of this options. When using multiple options
  *       you need to OR them, i.e. to open the connection
@@ -9245,18 +9245,18 @@ function ezmlm_hash ($addr) {}
  *       different facilities will be handled.
  *       <table>
  *        openlog Facilities
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>LOG_AUTH</td>
  *           <td>
- *            security/authorization messages (use 
+ *            security/authorization messages (use
  *            LOG_AUTHPRIV instead
  *            in systems where that constant is defined)
  *           </td>
@@ -9305,11 +9305,11 @@ function ezmlm_hash ($addr) {}
  *           <td>LOG_UUCP</td>
  *           <td>UUCP subsystem</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
- *      
+ *
  *       <p>
  *        LOG_USER is the only valid log type under Windows
  *        operating systems
@@ -9326,14 +9326,14 @@ function openlog ($ident, $option, $facility) {}
  *       the level. Possible values are:
  *       <table>
  *        syslog Priorities (in descending order)
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>LOG_EMERG</td>
  *           <td>system is unusable</td>
@@ -9366,8 +9366,8 @@ function openlog ($ident, $option, $facility) {}
  *           <td>LOG_DEBUG</td>
  *           <td>debug-level message</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param message string <p>
@@ -9401,7 +9401,7 @@ function lcg_value () {}
  *       The input string.
  *      </p>
  * @param phonemes int[optional] <p>
- *       This parameter restricts the returned metaphone key to 
+ *       This parameter restricts the returned metaphone key to
  *       phonemes characters in length.
  *       The default value of 0 means no restriction.
  *      </p>
@@ -9428,16 +9428,16 @@ function metaphone ($str, $phonemes = null) {}
  *       This is the callback signature:
  *      </p>
  *      <p>
- *       
+ *
  *        stringhandler
  *        stringbuffer
  *        intphase
- *       
- *       
- *        
+ *
+ *
+ *
  *         buffer
- *         
- *          
+ *
+ *
  *           Contents of the output buffer.
  * @param chunk_size int[optional] <p>
  *       If the optional parameter chunk_size is passed, the
@@ -9462,15 +9462,15 @@ function metaphone ($str, $phonemes = null) {}
  *      </p>
  *      <p>
  *       Each flag controls access to a set of functions, as described below:
- *       
- *        
- *         
+ *
+ *
+ *
  *          <tr valign="top">
  *           <td>Constant</td>
  *           <td>Functions</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>PHP_OUTPUT_HANDLER_CLEANABLE</td>
  *           <td>
@@ -9495,9 +9495,9 @@ function metaphone ($str, $phonemes = null) {}
  *            ob_get_flush.
  *           </td>
  *          </tr>
- *         
- *        
- *       
+ *
+ *
+ *
  *      </p>
  * @return bool Returns true on success, false on failure.
  */
@@ -9506,14 +9506,14 @@ function ob_start ($output_callback = null, $chunk_size = null, $flags = null) {
 /**
  * Flush (send) the output buffer
  * @link http://www.php.net/manual/en/function.ob-flush.php
- * @return void 
+ * @return void
  */
 function ob_flush () {}
 
 /**
  * Clean (erase) the output buffer
  * @link http://www.php.net/manual/en/function.ob-clean.php
- * @return void 
+ * @return void
  */
 function ob_clean () {}
 
@@ -9576,8 +9576,8 @@ function ob_get_level () {}
  * @return array If called without the full_status parameter
  *   or with full_status = false a simple array
  *   with the following elements is returned:
- *   
- *    
+ *
+ *
  * 2
  *    [type] => 0
  *    [status] => 0
@@ -9585,9 +9585,9 @@ function ob_get_level () {}
  *    [del] => 1
  * )
  * ]]>
- *    
- *   
- *   
+ *
+ *
+ *
  *    Simple ob_get_status results
  *    KeyValue
  *    levelOutput nesting level
@@ -9595,7 +9595,7 @@ function ob_get_level () {}
  *    statusOne of PHP_OUTPUT_HANDLER_START (0), PHP_OUTPUT_HANDLER_CONT (1) or PHP_OUTPUT_HANDLER_END (2)
  *    nameName of active output handler or ' default output handler' if none is set
  *    delErase-flag as set by ob_start
- *   
+ *
  *  </p>
  *  <p>
  *   If called with full_status = true an array
@@ -9603,8 +9603,8 @@ function ob_get_level () {}
  *   The output level is used as key of the top level array and each array
  *   element itself is another array holding status information
  *   on one active output level.
- *   
- *    
+ *
+ *
  * Array
  *        (
  *            [chunk_size] => 0
@@ -9628,12 +9628,12 @@ function ob_get_level () {}
  *        )
  * )
  * ]]>
- *    
- *   
+ *
+ *
  *  </p>
  *  <p>
  *   The full output contains these additional elements:
- *   
+ *
  *    Full ob_get_status results
  *    KeyValue
  *    chunk_sizeChunk size as set by ob_start
@@ -9656,7 +9656,7 @@ function ob_get_contents () {}
  * @param flag int[optional] <p>
  *       true to turn implicit flushing on, false otherwise.
  *      </p>
- * @return void 
+ * @return void
  */
 function ob_implicit_flush ($flag = null) {}
 
@@ -9763,8 +9763,8 @@ function arsort (array &$array, $sort_flags = null) {}
  *      </p>
  *      <p>
  *       Sorting type flags:
- *       
- *        
+ *
+ *
  *         SORT_REGULAR - compare items normally
  *         (don't change types)
  * @return bool Returns true on success, false on failure.
@@ -9796,7 +9796,7 @@ function rsort (array &$array, $sort_flags = null) {}
  *       &return.callbacksort;
  *      </p>
  *      &callback.cmp;
- *      
+ *
  *       <p>
  *        Returning non-integer values from the comparison
  *        function, such as float, will result in an internal cast to
@@ -9857,7 +9857,7 @@ function shuffle (array &$array) {}
  *       The array parameter's value being the first, and
  *       the key/index second.
  *      </p>
- *      
+ *
  *       <p>
  *        If callback needs to be working with the
  *        actual values of the array, specify the first parameter of
@@ -9866,20 +9866,20 @@ function shuffle (array &$array) {}
  *        any changes made to those elements will be made in the
  *        original array itself.
  *       </p>
- *      
- *      
+ *
+ *
  *        <p>
  *          Many internal functions (for example strtolower)
  *          will throw a warning if more than the expected number of argument
  *          are passed in and are not usable directly as a
  *          callback.
  *        </p>
- *      
+ *
  *      <p>
  *       Only the values of the array may potentially be
  *       changed; its structure cannot be altered, i.e., the programmer cannot
  *       add, unset or reorder elements. If the callback does not respect this
- *       requirement, the behavior of this function is undefined, and      
+ *       requirement, the behavior of this function is undefined, and
  *       unpredictable.
  *      </p>
  * @param userdata mixed[optional] <p>
@@ -9902,7 +9902,7 @@ function array_walk (array &$array, $callback, $userdata = null) {}
  *       The array parameter's value being the first, and
  *       the key/index second.
  *      </p>
- *      
+ *
  *       <p>
  *        If callback needs to be working with the
  *        actual values of the array, specify the first parameter of
@@ -9932,7 +9932,7 @@ function array_walk_recursive (array &$array, $callback, $userdata = null) {}
  *       will recursively count the array.  This is particularly useful for
  *       counting all the elements of a multidimensional array.
  *      </p>
- *      
+ *
  *       <p>
  *        count can detect recursion to avoid an infinite
  *        loop, but will emit an E_WARNING every time it
@@ -9946,7 +9946,7 @@ function array_walk_recursive (array &$array, $callback, $userdata = null) {}
  *   There is one exception, if array_or_countable is &null;,
  *   0 will be returned.
  *  </p>
- *  
+ *
  *   <p>
  *    count may return 0 for a variable that isn't set,
  *    but it may also return 0 for a variable that has been initialized with an
@@ -10010,7 +10010,7 @@ function reset (array &$array) {}
  * @return mixed The current function simply returns the
  *   value of the array element that's currently being pointed to by the
  *   internal pointer.  It does not move the pointer in any way.  If the
- *   internal pointer points beyond the end of the elements list or the array is 
+ *   internal pointer points beyond the end of the elements list or the array is
  *   empty, current returns false.
  */
 function current (array &$array) {}
@@ -10024,7 +10024,7 @@ function current (array &$array) {}
  * @return mixed The key function simply returns the
  *   key of the array element that's currently being pointed to by the
  *   internal pointer.  It does not move the pointer in any way.  If the
- *   internal pointer points beyond the end of the elements list or the array is 
+ *   internal pointer points beyond the end of the elements list or the array is
  *   empty, key returns &null;.
  */
 function key (array &$array) {}
@@ -10059,7 +10059,7 @@ function max (array $values) {}
  * @param needle mixed <p>
  *       The searched value.
  *      </p>
- *      
+ *
  *       <p>
  *        If needle is a string, the comparison is done
  *        in a case-sensitive manner.
@@ -10084,7 +10084,7 @@ function in_array ($needle, array $haystack, $strict = null) {}
  * @param needle mixed <p>
  *       The searched value.
  *      </p>
- *      
+ *
  *       <p>
  *        If needle is a string, the comparison is done
  *        in a case-sensitive manner.
@@ -10128,11 +10128,11 @@ function array_search ($needle, array $haystack, $strict = null) {}
  *       The way invalid/numeric keys and collisions are treated is determined
  *       by the extraction flags. It can be one of the
  *       following values:
- *       
- *        
+ *
+ *
  *         EXTR_OVERWRITE
- *         
- *          
+ *
+ *
  *           If there is a collision, overwrite the existing variable.
  * @param prefix string[optional] Only overwrite the variable if it already exists in the
  *           current symbol table, otherwise do nothing.  This is useful
@@ -10154,7 +10154,7 @@ function extract (array &$array, $flags = null, $prefix = null) {}
  *       arrays of variable names inside it; compact
  *       handles it recursively.
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return array the output array with all the variables added to it.
  */
 function compact ($varname1, $_ = null) {}
@@ -10166,10 +10166,10 @@ function compact ($varname1, $_ = null) {}
  *       The first index of the returned array.
  *      </p>
  *      <p>
- *       If start_index is negative, 
- *       the first index of the returned array will be 
- *       start_index and the following 
- *       indices will start from zero 
+ *       If start_index is negative,
+ *       the first index of the returned array will be
+ *       start_index and the following
+ *       indices will start from zero
  *       (see example).
  *      </p>
  * @param num int <p>
@@ -10238,11 +10238,11 @@ function range ($start, $end, $step = null) {}
  *      </p>
  *      <p>
  *       Sorting type flags:
- *       
- *        
+ *
+ *
  *         SORT_REGULAR - compare items normally
  *         (don't change types)
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return bool Returns true on success, false on failure.
  */
 function array_multisort (array &$array1, $array1_sort_order = null, $array1_sort_flags = null, $_ = null) {}
@@ -10256,7 +10256,7 @@ function array_multisort (array &$array1, $array1_sort_order = null, $array1_sor
  * @param value1 mixed <p>
  *       The first value to push onto the end of the array.
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return int the new number of elements in the array.
  */
 function array_push (array &$array, $value1, $_ = null) {}
@@ -10293,7 +10293,7 @@ function array_shift (array &$array) {}
  * @param value1 mixed <p>
  *       First value to prepend.
  *      </p>
- * @param _ mixed[optional] 
+ * @param _ mixed[optional]
  * @return int the new number of elements in the array.
  */
 function array_unshift (array &$array, $value1, $_ = null) {}
@@ -10382,7 +10382,7 @@ function array_slice (array $array, $offset, $length = null, $preserve_keys = nu
  * @param array1 array <p>
  *       Initial array to merge.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array the resulting array.
  */
 function array_merge (array $array1, array $_ = null) {}
@@ -10393,7 +10393,7 @@ function array_merge (array $array1, array $_ = null) {}
  * @param array1 array <p>
  *       Initial array to merge.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array An array of values resulted from merging the arguments together.
  */
 function array_merge_recursive (array $array1, array $_ = null) {}
@@ -10407,7 +10407,7 @@ function array_merge_recursive (array $array1, array $_ = null) {}
  * @param array2 array <p>
  *       The array from which elements will be extracted.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array, or &null; if an error occurs.
  */
 function array_replace (array $array1, array $array2, array $_ = null) {}
@@ -10421,7 +10421,7 @@ function array_replace (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       The array from which elements will be extracted.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array, or &null; if an error occurs.
  */
 function array_replace_recursive (array $array1, array $array2, array $_ = null) {}
@@ -10492,7 +10492,7 @@ function array_column (array $array, $column_key, $index_key = null) {}
  *       The input array.
  *      </p>
  * @param preserve_keys bool[optional] <p>
- *       If set to true numeric keys are preserved. 
+ *       If set to true numeric keys are preserved.
  *       Non-numeric keys are not affected by this setting and will always be preserved.
  *      </p>
  * @return array the reversed array.
@@ -10508,14 +10508,14 @@ function array_reverse (array $array, $preserve_keys = null) {}
  * @param callback callable mixedcallback
  *       mixedcarry
  *       mixeditem
- *      
- *      
- *       
+ *
+ *
+ *
  *        carry
- *        
+ *
  *         <p>
  *          Holds the return value of the previous iteration; in the case of the
- *          first iteration it instead holds the value of 
+ *          first iteration it instead holds the value of
  *          initial.
  *         </p>
  * @param initial mixed[optional] <p>
@@ -10545,9 +10545,9 @@ function array_reduce (array $array, $callback, $initial = null) {}
  *       size.
  *      </p>
  * @return array a copy of the array padded to size specified
- *   by size with value 
- *   value. If size is 
- *   positive then the array is padded on the right, if it's negative then 
+ *   by size with value
+ *   value. If size is
+ *   positive then the array is padded on the right, if it's negative then
  *   on the left. If the absolute value of size is less
  *   than or equal to the length of the array then no
  *   padding takes place.
@@ -10609,8 +10609,8 @@ function array_rand (array $array, $num = null) {}
  *      </p>
  *      <p>
  *       Sorting type flags:
- *       
- *        
+ *
+ *
  *         SORT_REGULAR - compare items normally
  *         (don't change types)
  * @return array the filtered array.
@@ -10626,8 +10626,8 @@ function array_unique (array $array, $sort_flags = null) {}
  * @param array2 array <p>
  *       An array to compare values against.
  *      </p>
- * @param _ array[optional] 
- * @return array an array containing all of the values in 
+ * @param _ array[optional]
+ * @return array an array containing all of the values in
  *   array1 whose values exist in all of the parameters.
  */
 function array_intersect (array $array1, array $array2, array $_ = null) {}
@@ -10641,8 +10641,8 @@ function array_intersect (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       An array to compare keys against.
  *      </p>
- * @param _ array[optional] 
- * @return array an associative array containing all the entries of 
+ * @param _ array[optional]
+ * @return array an associative array containing all the entries of
  *   array1 which have keys that are present in all
  *   arguments.
  */
@@ -10657,7 +10657,7 @@ function array_intersect_key (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       First array to compare keys against.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param key_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10676,7 +10676,7 @@ function array_intersect_ukey (array $array1, array $array2, array $_ = null, $k
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10695,8 +10695,8 @@ function array_uintersect (array $array1, array $array2, array $_ = null, $value
  * @param array2 array <p>
  *       An array to compare values against.
  *      </p>
- * @param _ array[optional] 
- * @return array an associative array containing all the values in 
+ * @param _ array[optional]
+ * @return array an associative array containing all the values in
  *   array1 that are present in all of the arguments.
  */
 function array_intersect_assoc (array $array1, array $array2, array $_ = null) {}
@@ -10710,7 +10710,7 @@ function array_intersect_assoc (array $array1, array $array2, array $_ = null) {
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10729,7 +10729,7 @@ function array_uintersect_assoc (array $array1, array $array2, array $_ = null, 
  * @param array2 array <p>
  *       First array to compare keys against.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param key_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10748,7 +10748,7 @@ function array_intersect_uassoc (array $array1, array $array2, array $_ = null, 
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10770,7 +10770,7 @@ function array_uintersect_uassoc (array $array1, array $array2, array $_ = null,
  * @param array2 array <p>
  *       An array to compare against
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array containing all the entries from
  *   array1 that are not present in any of the other arrays.
  */
@@ -10785,7 +10785,7 @@ function array_diff (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       An array to compare against
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array containing all the entries from
  *   array1 whose keys are not present in any of the
  *   other arrays.
@@ -10801,7 +10801,7 @@ function array_diff_key (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       An array to compare against
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param key_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10820,7 +10820,7 @@ function array_diff_ukey (array $array1, array $array2, array $_ = null, $key_co
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       The callback comparison function.
  *      </p>
@@ -10842,7 +10842,7 @@ function array_udiff (array $array1, array $array2, array $_ = null, $value_comp
  * @param array2 array <p>
  *       An array to compare against
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array containing all the values from
  *   array1 that are not present in any of the other arrays.
  */
@@ -10857,7 +10857,7 @@ function array_diff_assoc (array $array1, array $array2, array $_ = null) {}
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10883,7 +10883,7 @@ function array_udiff_assoc (array $array1, array $array2, array $_ = null, $valu
  * @param array2 array <p>
  *       An array to compare against
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param key_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10902,7 +10902,7 @@ function array_diff_uassoc (array $array1, array $array2, array $_ = null, $key_
  * @param array2 array <p>
  *       The second array.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @param value_compare_func callable <p>
  *       &return.callbacksort;
  *      </p>
@@ -10956,8 +10956,8 @@ function array_product (array $array) {}
  *      </p>
  * @param flag int[optional] <p>
  *       Flag determining what arguments are sent to callback:
- *       
- *        
+ *
+ *
  *         ARRAY_FILTER_USE_KEY - pass key as the only argument
  *         to callback instead of the value
  * @return array the filtered array.
@@ -10973,7 +10973,7 @@ function array_filter (array $array, $callback = null, $flag = null) {}
  * @param array1 array <p>
  *       An array to run through the callback function.
  *      </p>
- * @param _ array[optional] 
+ * @param _ array[optional]
  * @return array an array containing all the elements of array1
  *   after applying the callback function to each one.
  */
@@ -11068,16 +11068,16 @@ function assert ($assertion, $description = null) {}
  * @param what int <p>
  *       <table>
  *        Assert Options
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Option</td>
  *           <td>INI Setting</td>
  *           <td>Default value</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>ASSERT_ACTIVE</td>
  *           <td>assert.active</td>
@@ -11111,8 +11111,8 @@ function assert ($assertion, $description = null) {}
  *           <td)<&null;)</td>
  *           <td>Callback to call on failed assertions</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param value mixed[optional] <p>
@@ -11137,15 +11137,15 @@ function assert_options ($what, $value = null) {}
  *       are: =, ge,
  *       ==, =, eq,
  *       !=, , ne
- *       respectively. 
+ *       respectively.
  *      </p>
  *      <p>
  *       This parameter is case-sensitive, values should be lowercase.
  *      </p>
  * @return mixed By default, version_compare returns
- *   -1 if the first version is lower than the second, 
+ *   -1 if the first version is lower than the second,
  *   0 if they are equal, and
- *   1 if the second is lower. 
+ *   1 if the second is lower.
  *  </p>
  *  <p>
  *   When using the optional operator argument, the
@@ -11213,8 +11213,8 @@ function stream_filter_register ($filtername, $classname) {}
 /**
  * Return a bucket object from the brigade for operating on
  * @link http://www.php.net/manual/en/function.stream-bucket-make-writeable.php
- * @param brigade resource 
- * @return object 
+ * @param brigade resource
+ * @return object
  */
 function stream_bucket_make_writeable ($brigade) {}
 
@@ -11228,25 +11228,25 @@ function stream_bucket_make_writeable ($brigade) {}
  * @param bucket resource <p>
  *      A bucket object.
  *     </p>
- * @return void 
+ * @return void
  */
 function stream_bucket_prepend ($brigade, $bucket) {}
 
 /**
  * Append bucket to brigade
  * @link http://www.php.net/manual/en/function.stream-bucket-append.php
- * @param brigade resource 
- * @param bucket resource 
- * @return void 
+ * @param brigade resource
+ * @param bucket resource
+ * @return void
  */
 function stream_bucket_append ($brigade, $bucket) {}
 
 /**
  * Create a new bucket for use on the current stream
  * @link http://www.php.net/manual/en/function.stream-bucket-new.php
- * @param stream resource 
- * @param buffer string 
- * @return object 
+ * @param stream resource
+ * @param buffer string
+ * @return object
  */
 function stream_bucket_new ($stream, $buffer) {}
 
@@ -11284,7 +11284,7 @@ function sys_get_temp_dir () {}
  *       This parameter is only the filename of the
  *       extension to load which also depends on your platform. For example,
  *       the sockets extension (if compiled
- *       as a shared module, not the default!) would be called 
+ *       as a shared module, not the default!) would be called
  *       sockets.so on Unix platforms whereas it is called
  *       php_sockets.dll on the Windows platform.
  *      </p>
@@ -11294,15 +11294,15 @@ function sys_get_temp_dir () {}
  *      </p>
  *      <p>
  *       Windows - If not explicitly set in the &php.ini;, the extension is
- *       loaded from C:\php4\extensions\ (PHP 4) or 
+ *       loaded from C:\php4\extensions\ (PHP 4) or
  *       C:\php5\ (PHP 5) by default.
  *      </p>
  *      <p>
  *       Unix - If not explicitly set in the &php.ini;, the default extension
  *       directory depends on
- *       
- *        
- *         
+ *
+ *
+ *
  *          whether PHP has been built with --enable-debug
  *          or not
  * @return bool Returns true on success, false on failure. If the functionality of loading modules is not available
@@ -11433,7 +11433,7 @@ define ('INFO_MODULES', 8);
 define ('INFO_ENVIRONMENT', 16);
 
 /**
- * Shows all 
+ * Shows all
  *      predefined variables from EGPCS (Environment, GET,
  *      POST, Cookie, Server).
  * @link http://www.php.net/manual/en/info.constants.php
@@ -11651,7 +11651,7 @@ define ('STREAM_FILTER_READ', 1);
 define ('STREAM_FILTER_WRITE', 2);
 
 /**
- * This constant is equivalent to 
+ * This constant is equivalent to
  *       STREAM_FILTER_READ | STREAM_FILTER_WRITE
  * @link http://www.php.net/manual/en/stream.constants.php
  */
@@ -11846,12 +11846,12 @@ define ('FILE_NO_DEFAULT_CONTEXT', 16);
 /**
  * <p>
  *     Text mode (since PHP 5.2.7).
- *     
+ *
  *      <p>
- *       This constant has no effect, and is only available for 
+ *       This constant has no effect, and is only available for
  *       forward compatibility.
  *      </p>
- *     
+ *
  *    </p>
  * @link http://www.php.net/manual/en/filesystem.constants.php
  */
@@ -11860,12 +11860,12 @@ define ('FILE_TEXT', 0);
 /**
  * <p>
  *     Binary mode (since PHP 5.2.7).
- *     
+ *
  *      <p>
- *       This constant has no effect, and is only available for 
+ *       This constant has no effect, and is only available for
  *       forward compatibility.
  *      </p>
- *     
+ *
  *    </p>
  * @link http://www.php.net/manual/en/filesystem.constants.php
  */
@@ -11952,9 +11952,9 @@ define ('PSFS_FLAG_FLUSH_CLOSE', 2);
  *     <p>
  *      Values for this constant:
  *     </p>
- *     
- *      
- *       
+ *
+ *
+ *
  *        PHP 5.5.0 - PASSWORD_BCRYPT
  * @link http://www.php.net/manual/en/password.constants.php
  */
@@ -11966,14 +11966,14 @@ define ('PASSWORD_DEFAULT', 1);
  *      hashes using the CRYPT_BLOWFISH algorithm.
  *     </p>
  *     <p>
- *      This will always result in a hash using the "$2y$" crypt format, 
+ *      This will always result in a hash using the "$2y$" crypt format,
  *      which is always 60 characters wide.
  *     </p>
  *     <p>
  *      Supported Options:
  *     </p>
- *     
- *      
+ *
+ *
  *       <p>
  *        salt - to manually provide a salt to use when hashing the password.
  *        Note that this will override and prevent a salt from being automatically generated.
@@ -12351,7 +12351,7 @@ define ('STREAM_IGNORE_URL', 2);
 
 /**
  * Flag indicating if the wrapper
- *       is responsible for raising errors using trigger_error 
+ *       is responsible for raising errors using trigger_error
  *       during opening of the stream.  If this flag is not set, you
  *       should not raise any errors.
  * @link http://www.php.net/manual/en/stream.constants.php
@@ -12368,9 +12368,9 @@ define ('STREAM_REPORT_ERRORS', 8);
  *       Please note that this flag is not useful when you want to seek the
  *       stream and write to it, because the stream you are accessing might
  *       not be bound to the actual resource you requested.
- *      
- *      
- *       
+ *
+ *
+ *
  *        If the requested resource is network based, this flag will cause the
  *        opener to block until the whole contents have been downloaded.
  * @link http://www.php.net/manual/en/internals2.ze1.streams.constants.php
@@ -12389,14 +12389,14 @@ define ('STREAM_BUFFER_LINE', 1);
 define ('STREAM_BUFFER_FULL', 2);
 
 /**
- * Stream casting, when stream_cast is called 
+ * Stream casting, when stream_cast is called
  *       otherwise (see above).
  * @link http://www.php.net/manual/en/stream.constants.php
  */
 define ('STREAM_CAST_AS_STREAM', 0);
 
 /**
- * Stream casting, for when stream_select is 
+ * Stream casting, for when stream_select is
  *       calling stream_cast.
  * @link http://www.php.net/manual/en/stream.constants.php
  */

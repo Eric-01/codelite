@@ -1764,7 +1764,7 @@ void TemplateHelper::SetTemplateInstantiation(const wxArrayString& templInstanti
 
 wxString TemplateHelper::Substitute(const wxString& name)
 {
-    //	for(size_t i=0; i<templateInstantiationVector.size(); i++) {
+    // for(size_t i=0; i<templateInstantiationVector.size(); i++) {
     int count = static_cast<int>(templateInstantiationVector.size());
     for(int i = count - 1; i >= 0; i--) {
         int where = templateDeclaration.Index(name);

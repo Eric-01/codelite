@@ -38,7 +38,7 @@ public:
   static bool classof(const Expression *E) {
     return E->getKind() == eKindUserExpression;
   }
-  
+
   enum { kDefaultTimeout = 500000u };
 
   /// Constructor

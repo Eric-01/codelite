@@ -36,7 +36,7 @@ public:
     virtual ~PHPEntityKeyword();
     void FromJSON(const JSONItem& json);
     JSONItem ToJSON() const;
-    
+
 public:
     virtual wxString FormatPhpDoc(const CommentConfigData& data) const;
     virtual void FromResultSet(wxSQLite3ResultSet& res);

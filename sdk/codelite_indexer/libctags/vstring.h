@@ -41,9 +41,9 @@
 #endif
 #ifdef VSTRING_PUTC_MACRO
 #define vStringPut(s,c) \
-	(void)(((s)->length == (s)->size ? vStringAutoResize (s) : 0), \
-	((s)->buffer [(s)->length++] = (c)), \
-	((c) == '\0' ? (s)->length-- : 0))
+    (void)(((s)->length == (s)->size ? vStringAutoResize (s) : 0), \
+    ((s)->buffer [(s)->length++] = (c)), \
+    ((c) == '\0' ? (s)->length-- : 0))
 #endif
 
 /*
@@ -51,9 +51,9 @@
 */
 
 typedef struct sVString {
-	size_t  length;  /* size of buffer used */
-	size_t  size;    /* allocated size of buffer */
-	char   *buffer;  /* location of buffer */
+    size_t  length;  /* size of buffer used */
+    size_t  size;    /* allocated size of buffer */
+    char   *buffer;  /* location of buffer */
 } vString;
 
 /*

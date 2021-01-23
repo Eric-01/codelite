@@ -31,7 +31,7 @@
 #include <wx/filename.h>
 #include "cl_standard_paths.h"
 
-class WXDLLIMPEXP_SDK clKeyboardBindingConfig 
+class WXDLLIMPEXP_SDK clKeyboardBindingConfig
 {
     MenuItemDataMap_t m_bindings;
 public:
@@ -40,13 +40,13 @@ public:
 
     clKeyboardBindingConfig& Load();
     clKeyboardBindingConfig& Save();
-    
+
     bool Exists() const {
         wxFileName fn(clStandardPaths::Get().GetUserDataDir(), "keybindings.conf");
         fn.AppendDir("config");
         return fn.Exists();
     }
-    
+
     clKeyboardBindingConfig& SetBindings(const MenuItemDataMap_t& menus, const MenuItemDataMap_t& globals)
     {
         this->m_bindings = menus;

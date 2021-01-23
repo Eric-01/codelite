@@ -32,7 +32,7 @@ class WorkspaceSvnSettings : public clConfigItem
 {
     wxString m_repoPath;
     wxFileName m_workspaceFileName;
-    
+
 public:
     WorkspaceSvnSettings(const wxFileName& fn);
     WorkspaceSvnSettings();

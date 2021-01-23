@@ -2,5 +2,5 @@
 
 void MyLibraryMethod
 {
-	wxPrintf(wxT("Hello!\n"));
+    wxPrintf(wxT("Hello!\n"));
 }

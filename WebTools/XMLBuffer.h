@@ -38,7 +38,7 @@ public:
         wxString tag;
         int line;
         bool isEmptyTag;
-        
+
         Scope()
             : line(wxNOT_FOUND)
             , isEmptyTag(false)

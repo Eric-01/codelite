@@ -46,7 +46,7 @@ public:
 
   // dtor
   virtual ~MysqlPreparedStatementParameter();
-  
+
   MYSQL_BIND* GetMysqlBind() { return m_pBind; }
   MysqlBindData* GetBindData() { return &m_Data; }
 

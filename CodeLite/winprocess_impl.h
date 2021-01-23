@@ -80,7 +80,7 @@ public:
     virtual void Terminate();
     virtual void Detach();
     virtual void Signal(wxSignal sig);
-    
+
 private:
     // Creating process related handles
     HANDLE hChildStdinRd, hChildStdinWr, hChildStdinWrDup, hChildStdoutRd, hChildStdoutWr, hChildStdoutRdDup,

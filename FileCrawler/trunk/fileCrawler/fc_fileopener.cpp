@@ -68,19 +68,19 @@ FILE* fcFileOpener::OpenFile(const wxString& include_path, wxString &filepath)
     }
 
     FILE *fp (NULL);
-    
+
     // first try to cwd
     fp = try_open(_cwd, mod_path, filepath);
     if ( fp ) {
         return fp;
     }
-    
+
     // Now try the search directories
     for (size_t i=0; i<_searchPath.size(); ++i) {
         fp = try_open(_searchPath.at(i), mod_path, filepath);
         if ( fp ) return fp;
     }
-    
+
     _scannedfiles.insert( mod_path );
     filepath.Clear();
     return NULL;
@@ -90,7 +90,7 @@ FILE* fcFileOpener::try_open(const wxString &path, const wxString &name, wxStrin
 {
     wxString fullpath ( path + FC_PATH_SEP + name );
     wxFileName fn(fullpath);
-    
+
     fullpath = fn.GetFullPath();
     FILE *fp = wxFopen(fullpath, "rb");
     if ( fp ) {
@@ -137,13 +137,13 @@ BufferState fcFileOpener::PopBufferState()
     if ( _states.empty() ) {
         return NULL;
     }
-    
+
     fcState curstate = _states.back();
     BufferState state = curstate.buffer;
-    
+
     // update the current directory
     _cwd = wxFileName(curstate.filename).GetPath();
-    
+
     _states.pop_back();
     decDepth();
     return state;
@@ -155,7 +155,7 @@ void fcFileOpener::PushBufferState(BufferState buffer, const wxString &filename)
     curstate.buffer = buffer;
     curstate.filename = filename;
     _states.push_back( curstate );
-    
+
     // update the current directory
     _cwd = wxFileName(curstate.filename).GetPath();
     incDepth();

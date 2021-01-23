@@ -30,7 +30,7 @@ public:
   virtual int GetColumnSize(int i);
   virtual wxString GetColumnName(int i);
   virtual int GetColumnCount();
-  
+
 private:
   OdbcInterface* m_pInterface;
   SQLHSTMT m_pOdbcStatement;

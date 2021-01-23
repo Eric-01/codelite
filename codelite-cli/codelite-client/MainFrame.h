@@ -8,11 +8,11 @@ class MainFrame : public MainFrameBaseClass
 {
     clSocketClientAsync* m_socket;
     bool m_connected;
-    
+
 protected:
     void LogMessage(const wxString& message);
     bool IsConnected() const { return m_connected; }
-    
+
 public:
     MainFrame(wxWindow* parent);
     virtual ~MainFrame();

@@ -787,7 +787,7 @@ TEST_FUNC(test_function_phpdoc)
 
     PHPEntityBase::List_t matches;
     expr.Suggest(resolved, lookup, matches);
-    
+
     CHECK_SIZE(matches.size(), 2);
     return true;
 }
@@ -815,10 +815,10 @@ TEST_FUNC(test_wrong_goto_interface)
     PHPExpression expr(sourceFile.GetText());
     PHPEntityBase::Ptr_t resolved = expr.Resolve(lookup, sourceFile.GetFilename().GetFullPath());
     CHECK_BOOL(resolved);
-    
+
     PHPEntityBase::List_t matches;
     expr.Suggest(resolved, lookup, matches);
-    
+
     return true;
 }
 
@@ -832,7 +832,7 @@ TEST_FUNC(test_function_arg_type_hint_and_php_doc)
     PHPExpression expr(sourceFile.GetText());
     PHPEntityBase::Ptr_t resolved = expr.Resolve(lookup, sourceFile.GetFilename().GetFullPath());
     CHECK_BOOL(resolved);
-    
+
     CHECK_STRING(resolved->GetFullName().ToUTF8(), "\\test_function_arg_type_hint_and_php_doc");
     return true;
 }

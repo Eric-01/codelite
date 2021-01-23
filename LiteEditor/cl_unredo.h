@@ -75,7 +75,7 @@ public:
     void StartNewTextCommand(CLC_types type, const wxString& text = "");
 
     void AppendToTextCommand(const wxString& text, int position);
-    
+
     virtual void ProcessOpenCommand();
 
     clEditor* GetParent() const {

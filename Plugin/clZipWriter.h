@@ -46,19 +46,19 @@ public:
      * @brief add file to the zip
      */
     void Add(const wxFileName& file);
-    
+
     /**
      * @brief add a directory to the archive
      * @param path directory path
      * @param pattern files to add mask
      */
     void AddDirectory(const wxString& path, const wxString &pattern);
-    
+
     /**
      * @brief return the zip filename
      */
     const wxFileName& GetFilename() const { return m_filename; }
-    
+
     /**
      * @brief close the zip
      */

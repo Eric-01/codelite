@@ -37,12 +37,12 @@ public:
         kDefault,
         kDark
     };
-    
+
 public:
     clNotebookTheme(){}
-    
+
     static clNotebookTheme GetTheme(clNotebookTheme::eNotebookTheme theme);
-    
+
     void SetActiveTabBgColour(const wxColour& activeTabBgColour) { this->m_activeTabBgColour = activeTabBgColour; }
     void SetActiveTabPenColour(const wxColour& activeTabPenColour) { this->m_activeTabPenColour = activeTabPenColour; }
     void SetActiveTabTextColour(const wxColour& activeTabTextColour)

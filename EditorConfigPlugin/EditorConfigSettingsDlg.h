@@ -7,7 +7,7 @@ class EditorConfigSettingsDlg : public EditorConfigSettingsDlgBase
 public:
     EditorConfigSettingsDlg(wxWindow* parent);
     virtual ~EditorConfigSettingsDlg();
-    
+
     bool IsPluginEnabled() const { return m_checkBoxEnable->IsChecked(); }
 };
 #endif // EDITORCONFIGSETTINGSDLG_H

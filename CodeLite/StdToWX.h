@@ -37,19 +37,19 @@ public:
      * @brief remove from str string from offset 'from' with len
      */
     static void Remove(std::string& str, size_t from, size_t len);
-    
+
     /**
      * @brief return true if str starts with what
      */
     static bool StartsWith(const std::string& str, const std::string& what);
-    
+
     /**
      * @brief return true if str ends with what
      */
     static bool EndsWith(const std::string& str, const std::string& what);
-    
+
     /**
-     * @brief 
+     * @brief
      */
     static void Trim(std::string& str, bool fromRight = true);
 

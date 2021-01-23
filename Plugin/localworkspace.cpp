@@ -263,9 +263,9 @@ void LocalWorkspace::GetOptions(OptionsConfigPtr options, const wxString& projec
 bool LocalWorkspace::SetWorkspaceOptions(LocalOptionsConfigPtr opts)
 {
     // Stored as:
-    //	<Workspace>
-    //		<LocalWorkspaceOptions something="on" something_else="off"/>
-    //	</Workspace>
+    //  <Workspace>
+    //      <LocalWorkspaceOptions something="on" something_else="off"/>
+    //  </Workspace>
 
     if(!SanityCheck()) {
         return false;
@@ -283,9 +283,9 @@ bool LocalWorkspace::SetWorkspaceOptions(LocalOptionsConfigPtr opts)
 bool LocalWorkspace::SetProjectOptions(LocalOptionsConfigPtr opts, const wxString& projectname)
 {
     // Stored as:
-    //	<Project Name="foo">
-    //		<Options something="on" something_else="off"/>
-    //	</Project>
+    //  <Project Name="foo">
+    //      <Options something="on" something_else="off"/>
+    //  </Project>
 
     if(!SanityCheck()) {
         return false;

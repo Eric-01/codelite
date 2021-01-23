@@ -49,11 +49,11 @@ public:
 private:
   bool IsNull(XSQLVAR* pVar);
   void SetDateTimeFromTm(wxDateTime& dateReturn, struct tm& timeInTm);
-  
+
   void AllocateFieldSpace();
   void FreeFieldSpace();
   void PopulateFieldLookupMap();
-  
+
   void InterpretErrorCodes();
 
   StringToIntMap m_FieldLookupMap;

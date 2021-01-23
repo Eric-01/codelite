@@ -45,7 +45,7 @@ NewCompilerDlg::NewCompilerDlg(wxWindow* parent)
 
 NewCompilerDlg::~NewCompilerDlg()
 {
-    
+
 }
 
 void NewCompilerDlg::OnOkUI(wxUpdateUIEvent& event)

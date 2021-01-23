@@ -35,7 +35,7 @@ Name: "wxWidgets"; Description: "wxWidgets, Cross-Platform GUI Library (v3.0.2)"
 Source: "..\Runtime\wxWidgets-3.0.2\*"; DestDir: "{app}"; Flags: recursesubdirs ignoreversion ; Components: wxWidgets
 Source: "..\sdk\wxconfig\wx-config.exe"; DestDir: "{app}\lib\gcc_dll"; Flags: ignoreversion; Components: wxWidgets
 
-[Icons] 
+[Icons]
 Name: "{group}\{cm:UninstallProgram, wxWidgets}"; Filename: "{uninstallexe}"
 
 [Registry]
@@ -44,13 +44,13 @@ Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"WXWIN"; ValueDat
 Root: HKCU; Subkey: "Environment"; ValueType:string; ValueName:"WXCFG"; ValueData: "gcc_dll\mswu"; Flags: preservestringtype
 
 [code]
-const 
-    ModPathName = 'modifypath'; 
-    ModPathType = 'user'; 
+const
+    ModPathName = 'modifypath';
+    ModPathType = 'user';
 
-function ModPathDir(): TArrayOfString; 
-begin 
-    setArrayLength(Result, 1) 
-    Result[0] := ExpandConstant('{app}\lib\gcc_dll'); 
-end; 
+function ModPathDir(): TArrayOfString;
+begin
+    setArrayLength(Result, 1)
+    Result[0] := ExpandConstant('{app}\lib\gcc_dll');
+end;
 #include "modpath.iss"

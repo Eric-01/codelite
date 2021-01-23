@@ -131,17 +131,17 @@ enum eLLDBStopReason {
 enum class eLLDBFormat {
     kFormatInvalid = -1,
     kFormatDefault,
-    kFormatDecimal,       
-    kFormatHex,           
-    kFormatOctal,         
-    kFormatBinary,        
-    kFormatFloat,         
-    kFormatComplex,       
-    kFormatBoolean,       
-    kFormatBytes,         
+    kFormatDecimal,
+    kFormatHex,
+    kFormatOctal,
+    kFormatBinary,
+    kFormatFloat,
+    kFormatComplex,
+    kFormatBoolean,
+    kFormatBytes,
     kFormatBytesWithASCII,
-    kFormatCString,       
-    kFormatPointer,       
+    kFormatCString,
+    kFormatPointer,
 };
 
 #endif

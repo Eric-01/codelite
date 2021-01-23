@@ -217,7 +217,7 @@ public:
   ///
   /// \return
   ///     \b true if the file path is case sensitive (POSIX), false
-  ///		if case insensitive (Windows).
+  ///        if case insensitive (Windows).
   bool IsCaseSensitive() const { return m_style != Style::windows; }
 
   /// Dump this object to a Stream.

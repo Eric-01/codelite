@@ -18,33 +18,33 @@ class eThread;
  */
 class eThreadImpl
 {
-	HANDLE m_stopEvent;
-	HANDLE m_handle;
+    HANDLE m_stopEvent;
+    HANDLE m_handle;
 
-	eThreadId m_tid;
+    eThreadId m_tid;
 
 public:
-	eThreadImpl();
+    eThreadImpl();
 
-	virtual ~eThreadImpl();
+    virtual ~eThreadImpl();
 
-	/**
-	 * \brief user calls this function to start the thread execution
-	 */
-	void run(eThread *thread);
+    /**
+     * \brief user calls this function to start the thread execution
+     */
+    void run(eThread *thread);
 
-	// test the internal flag to see if a 'stop' request has been
-	// requested by caller
-	bool testDestroy();
+    // test the internal flag to see if a 'stop' request has been
+    // requested by caller
+    bool testDestroy();
 
-	// notify the running thread to termiante. note that this does not mean that the
-	// thread terminates instantly
-	void requestStop();
+    // notify the running thread to termiante. note that this does not mean that the
+    // thread terminates instantly
+    void requestStop();
 
-	// wait for thread to terminate (wait for timeout milliseconds
-	void wait(long timeout);
+    // wait for thread to terminate (wait for timeout milliseconds
+    void wait(long timeout);
 
-	eThreadId getThreadId() {return m_tid;}
+    eThreadId getThreadId() {return m_tid;}
 };
 
 #endif // __ethread_win_h__

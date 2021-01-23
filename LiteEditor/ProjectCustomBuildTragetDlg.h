@@ -47,9 +47,9 @@ public:
     wxString GetTargetCommand() const {
         return m_textCtrlCommand->GetValue();
     }
-    
+
     static bool IsPredefinedTarget(const wxString& name);
-    
+
 protected:
     virtual void OnEditTargetNameUI(wxUpdateUIEvent& event);
 };

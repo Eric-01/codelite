@@ -56,7 +56,7 @@ public:
 
     UnixProcess(wxEvtHandler* owner, const wxArrayString& args);
     ~UnixProcess();
-    
+
     // wait for process termination
     int Wait();
 
@@ -65,7 +65,7 @@ public:
 
     // stop the running process
     void Stop();
-    
+
     /**
      * @brief stop sending events from the process
      */

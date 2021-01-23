@@ -115,7 +115,7 @@ protected:
     void DoOpenDiff(const wxDataViewItem& item);
     void StopChecksumThread();
     bool CanUp() const;
-    
+
 protected:
     virtual void OnClose(wxCommandEvent& event);
     virtual void OnNewCmparison(wxCommandEvent& event);

@@ -33,7 +33,7 @@ class NewVirtualFolderDlg : public NewVirtualFolderDlgBase
     wxString m_basePath;
 protected:
     void DoUpdatePath();
-    
+
 public:
     NewVirtualFolderDlg(wxWindow* parent, const wxString& currentVD);
     virtual ~NewVirtualFolderDlg();

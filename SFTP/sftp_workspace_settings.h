@@ -52,13 +52,13 @@ public:
     const wxString& GetRemoteWorkspacePath() const {
         return m_remoteWorkspacePath;
     }
-    
+
     void Clear();
-    
+
     bool IsOk() const {
         return !m_account.IsEmpty() && !m_remoteWorkspacePath.IsEmpty();
     }
-    
+
 public:
     virtual void FromJSON(const JSONItem& json);
     virtual JSONItem ToJSON() const;

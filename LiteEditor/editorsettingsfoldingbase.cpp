@@ -22,59 +22,59 @@ EditorSettingsFoldingBase::EditorSettingsFoldingBase(wxWindow* parent, wxWindowI
         wxCE476InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(mainSizer);
-    
+
     m_displayMargin = new wxCheckBox(this, wxID_ANY, _("Display Folding Margin"), wxDefaultPosition, wxSize(-1, -1), 0);
     m_displayMargin->SetValue(true);
-    
+
     mainSizer->Add(m_displayMargin, 0, wxALL|wxEXPAND, 5);
-    
+
     wxStaticBoxSizer* sbSizer1 = new wxStaticBoxSizer( new wxStaticBox(this, wxID_ANY, wxT("")), wxVERTICAL);
-    
+
     mainSizer->Add(sbSizer1, 0, wxLEFT|wxRIGHT|wxBOTTOM|wxEXPAND, 5);
-    
+
     wxArrayString m_foldStyleArr;
     m_foldStyle = new wxChoice(this, wxID_ANY, wxDefaultPosition, wxSize(-1, -1), m_foldStyleArr, 0);
     m_foldStyle->SetToolTip(_("Select the folding style"));
-    
+
     sbSizer1->Add(m_foldStyle, 0, wxALL|wxEXPAND, 5);
-    
+
     wxFlexGridSizer* fgSizer1 = new wxFlexGridSizer(0, 2, 0, 0);
     fgSizer1->SetFlexibleDirection( wxBOTH );
     fgSizer1->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     fgSizer1->AddGrowableCol(0);
     fgSizer1->AddGrowableCol(1);
-    
+
     sbSizer1->Add(fgSizer1, 0, wxLEFT|wxRIGHT|wxEXPAND, 5);
-    
+
     m_underlineFolded = new wxCheckBox(this, wxID_ANY, _("Underline Folded Line"), wxDefaultPosition, wxSize(-1, -1), 0);
     m_underlineFolded->SetValue(true);
-    
+
     fgSizer1->Add(m_underlineFolded, 0, wxALL|wxEXPAND, 5);
-    
+
     m_foldElse = new wxCheckBox(this, wxID_ANY, _("Fold At Else"), wxDefaultPosition, wxSize(-1, -1), 0);
     m_foldElse->SetValue(false);
-    
+
     fgSizer1->Add(m_foldElse, 0, wxALL|wxEXPAND, 5);
-    
+
     m_foldPreprocessors = new wxCheckBox(this, wxID_ANY, _("Fold Preprocessors"), wxDefaultPosition, wxSize(-1, -1), 0);
     m_foldPreprocessors->SetValue(false);
-    
+
     fgSizer1->Add(m_foldPreprocessors, 0, wxALL|wxEXPAND, 5);
-    
+
     m_foldCompact = new wxCheckBox(this, wxID_ANY, _("Fold Compact"), wxDefaultPosition, wxSize(-1, -1), 0);
     m_foldCompact->SetValue(false);
-    
+
     fgSizer1->Add(m_foldCompact, 0, wxALL|wxEXPAND, 5);
-    
+
     m_checkBoxHighlightFolding = new wxCheckBox(this, wxID_ANY, _("Highlight Active Fold Block"), wxDefaultPosition, wxSize(-1,-1), 0);
     m_checkBoxHighlightFolding->SetValue(false);
     m_checkBoxHighlightFolding->SetToolTip(_("Allows enabling/disabling the highlight folding block when it is selected. (i.e. block that contains the caret)"));
-    
+
     fgSizer1->Add(m_checkBoxHighlightFolding, 0, wxALL, 5);
-    
+
     SetName(wxT("EditorSettingsFoldingBase"));
     SetSizeHints(-1,-1);
     if ( GetSizer() ) {
@@ -88,7 +88,7 @@ EditorSettingsFoldingBase::EditorSettingsFoldingBase(wxWindow* parent, wxWindowI
     m_foldPreprocessors->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
     m_foldCompact->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
     m_checkBoxHighlightFolding->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
-    
+
 }
 
 EditorSettingsFoldingBase::~EditorSettingsFoldingBase()
@@ -99,5 +99,5 @@ EditorSettingsFoldingBase::~EditorSettingsFoldingBase()
     m_foldPreprocessors->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
     m_foldCompact->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
     m_checkBoxHighlightFolding->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(EditorSettingsFoldingBase::OnFoldingMarginUI), NULL, this);
-    
+
 }

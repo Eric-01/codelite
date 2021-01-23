@@ -50,8 +50,8 @@
 #if BUILD_MPW_TOOL
 
 /*
-	The following defines are collected from various header files from some
-	Linux distribution
+    The following defines are collected from various header files from some
+    Linux distribution
 */
 
 typedef unsigned long  mode_t;
@@ -78,19 +78,19 @@ typedef unsigned long  gid_t;
 #define	S_ISREG(mode)  S_ISTYPE((mode), S_IFREG)
 
 struct stat {
-	dev_t              st_dev;      /* Device.  */
-	unsigned short int __pad1;
-	ino_t              st_ino;      /* File serial number.	*/
-	mode_t             st_mode;     /* File mode.  */
-	nlink_t            st_nlink;    /* Link count.  */
-	uid_t              st_uid;      /* User ID of the file's owner.	*/
-	gid_t              st_gid;      /* Group ID of the file's group.*/
-	off_t              st_size;     /* Size of file, in bytes.  */
-	unsigned long int  st_blksize;  /* Optimal block size for I/O.  */
-	long               st_blocks;   /* Number 512-byte blocks allocated. */
-	time_t             st_atime;    /* Time of last access.  */
-	time_t             st_mtime;    /* Time of last modification.  */
-	time_t             st_ctime;    /* Time of last status change.  */
+    dev_t              st_dev;      /* Device.  */
+    unsigned short int __pad1;
+    ino_t              st_ino;      /* File serial number.	*/
+    mode_t             st_mode;     /* File mode.  */
+    nlink_t            st_nlink;    /* Link count.  */
+    uid_t              st_uid;      /* User ID of the file's owner.	*/
+    gid_t              st_gid;      /* Group ID of the file's group.*/
+    off_t              st_size;     /* Size of file, in bytes.  */
+    unsigned long int  st_blksize;  /* Optimal block size for I/O.  */
+    long               st_blocks;   /* Number 512-byte blocks allocated. */
+    time_t             st_atime;    /* Time of last access.  */
+    time_t             st_mtime;    /* Time of last modification.  */
+    time_t             st_ctime;    /* Time of last status change.  */
 };
 
 int fstat(int fildes, struct stat *buf);
@@ -105,18 +105,18 @@ int fstat(int fildes, struct stat *buf);
 #endif
 
 /*
-	Our own stat, accepts unix like paths.
+    Our own stat, accepts unix like paths.
 */
 int mstat(const char *path, struct stat *buf);
 
 struct dirent {
-	char d_name[64];
+    char d_name[64];
 };
 
 typedef struct {
-	FSSpec file;
-	int index;
-	struct dirent ent;
+    FSSpec file;
+    int index;
+    struct dirent ent;
 } DIR;
 
 extern DIR* opendir(const char *dirname);
@@ -126,13 +126,13 @@ extern void rewinddir(DIR* dirp);
 extern char* getcwd(char*, int);
 
 /*
-	Our own fopen, accepts unix like paths.
+    Our own fopen, accepts unix like paths.
 */
 extern FILE* mfopen(const char* file, const char* mode);
 
 /*
-	Dirty, define the standard functions fopen, stat and lstat to map to our
-	own routines.
+    Dirty, define the standard functions fopen, stat and lstat to map to our
+    own routines.
 */
 #define fopen       mfopen
 #define stat(a,b)   mstat(a,b)

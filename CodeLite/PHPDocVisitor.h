@@ -36,7 +36,7 @@ class WXDLLIMPEXP_CL PHPDocVisitor : public PHPEntityVisitor
 {
     std::map<int, phpLexerToken> m_comments;
     PHPSourceFile& m_sourceFile;
-    
+
 public:
     PHPDocVisitor(PHPSourceFile& sourceFile, const std::vector<phpLexerToken>& comments);
     virtual ~PHPDocVisitor();

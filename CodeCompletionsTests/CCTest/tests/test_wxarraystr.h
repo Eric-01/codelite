@@ -3,5 +3,5 @@
 
 void foo()
 {
-	wxArrayString myArr;
-	myArr[0]->
+    wxArrayString myArr;
+    myArr[0]->

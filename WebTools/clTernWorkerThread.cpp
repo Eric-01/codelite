@@ -34,10 +34,10 @@ void clTernWorkerThread::ProcessRequest(ThreadRequest* request)
     clTernWorkerThread::Request* r = dynamic_cast<clTernWorkerThread::Request*>(request);
     clSocketClient* client = new clSocketClient();
     clSocketBase::Ptr_t p(client);
-    
+
     // Make sure that the jsonReuqest is destroyed
     MallocDeleter deleter(r->jsonRequest);
-    
+
     bool wouldBlock;
     try {
         if(!client->ConnectRemote("127.0.0.1", m_port, wouldBlock)) {
@@ -64,9 +64,9 @@ void clTernWorkerThread::ProcessRequest(ThreadRequest* request)
 
         std::string strBuffer = ss.str();
         buffer.AppendData(strBuffer.c_str(), strBuffer.length());
-        
+
         CL_DEBUG("[WebTools] %s", strBuffer.c_str());
-        
+
         client->Send(buffer);
         wxMemoryBuffer output;
         client->Read(output, 5);

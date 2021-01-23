@@ -131,7 +131,7 @@ protected:
     void DrawPanelBorder(wxDC& dc, const wxRect& rect, wxPen& primary_colour,
         wxPen& secondary_colour);
 
-	void DrawButtonBarButtonForeground(
+    void DrawButtonBarButtonForeground(
                         wxDC& dc,
                         const wxRect& rect,
                         wxRibbonButtonKind kind,

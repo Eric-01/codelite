@@ -53,7 +53,7 @@ protected:
     void OnOpenFile(clCommandEvent& e);
     void OnWxFBTerminated(clProcessEvent& e);
     void OnShowFileContextMenu(clContextMenuEvent &event);
-    
+
     wxMenu* CreatePopupMenu();
     void DoCreateWxFormBuilderProject(const wxFBItemInfo& data);
     void DoLaunchWxFB(const wxString& file);

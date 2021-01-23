@@ -6,7 +6,7 @@ PHPXDebugSetupWizard::PHPXDebugSetupWizard(wxWindow* parent)
 {
     PHPConfigurationData conf;
     conf.Load();
-    
+
     m_textCtrlIP->ChangeValue(conf.GetXdebugHost());
     m_textCtrlKey->ChangeValue(conf.GetXdebugIdeKey());
     m_textCtrlPort->ChangeValue(wxString() << conf.GetXdebugPort());

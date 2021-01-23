@@ -26,10 +26,10 @@ public:
 
   // dtor
   virtual ~PostgresResultSet();
-  
+
   virtual bool Next();
   virtual void Close();
-  
+
   virtual int LookupField(const wxString& strField);
 
   // get field
@@ -46,7 +46,7 @@ public:
   virtual ResultSetMetaData* GetMetaData();
 
 private:
-  PostgresInterface* m_pInterface; 
+  PostgresInterface* m_pInterface;
   PGresult* m_pResult;
 
   StringToIntMap m_FieldLookupMap;

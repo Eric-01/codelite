@@ -31,12 +31,12 @@
 
 class OutlineSettings
 {
-    
+
 public:
     OutlineSettings();
     virtual ~OutlineSettings();
 
-    
+
     void Load();
     void Save();
 };

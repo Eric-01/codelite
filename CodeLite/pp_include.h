@@ -44,7 +44,7 @@
 /**
  * @brief the main interface to the PP API.
  * @param filePath
- * @return 
+ * @return
  */
 extern WXDLLIMPEXP_CL int PPScan      ( const wxString &filePath, bool forCC );
 /**

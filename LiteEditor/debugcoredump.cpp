@@ -51,7 +51,7 @@ DebugCoreDumpDlg::DebugCoreDumpDlg(wxWindow* parent)
     SetMaxSize(wxSize(width * 2 / 3, -1));
     GetSizer()->Layout();
     GetSizer()->Fit(this);
-    
+
     SetName("DebugCoreDumpDlg");
     WindowAttrManager::Load(this);
 

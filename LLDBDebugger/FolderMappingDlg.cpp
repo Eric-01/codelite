@@ -31,7 +31,7 @@ FolderMappingDlg::FolderMappingDlg(wxWindow* parent)
 {
     LLDBSettings settings;
     settings.Load();
-    
+
     m_dirPickerLocal->SetPath( settings.GetLastLocalFolder() );
     m_textCtrlRemote->ChangeValue( settings.GetLastRemoteFolder() );
 }

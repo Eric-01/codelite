@@ -23,40 +23,40 @@ WordCompletionSettingsBaseDlg::WordCompletionSettingsBaseDlg(wxWindow* parent, w
         wxC69AFInitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* boxSizer2 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(boxSizer2);
-    
+
     wxArrayString m_pgMgrArr;
     wxUnusedVar(m_pgMgrArr);
     wxArrayInt m_pgMgrIntArr;
     wxUnusedVar(m_pgMgrIntArr);
     m_pgMgr = new wxPropertyGridManager(this, wxID_ANY, wxDefaultPosition, wxSize(300,300), wxPG_DESCRIPTION|wxPG_SPLITTER_AUTO_CENTER|wxPG_BOLD_MODIFIED);
-    
+
     boxSizer2->Add(m_pgMgr, 1, wxALL|wxEXPAND, 5);
-    
+
     m_pgPropEnabled = m_pgMgr->Append(  new wxBoolProperty( _("Enabled"), wxPG_LABEL, 1) );
     m_pgPropEnabled->SetHelpString(_("Enable Word Completion plugin?"));
-    
+
     m_pgMgrArr.Clear();
     m_pgMgrIntArr.Clear();
     m_pgMgrArr.Add(_("Starts With"));
     m_pgMgrArr.Add(_("Contains"));
     m_pgPropComparisonMethod = m_pgMgr->Append(  new wxEnumProperty( _("Comparison Method"), wxPG_LABEL, m_pgMgrArr, m_pgMgrIntArr, 0) );
     m_pgPropComparisonMethod->SetHelpString(_("Select the word completion comparison method:\n\"Starts With\" - suggest all words that starts with the partial word that the user typed\n\"Contains\" - suggest all words that contains the partial word that the user typed"));
-    
+
     m_stdBtnSizer4 = new wxStdDialogButtonSizer();
-    
+
     boxSizer2->Add(m_stdBtnSizer4, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5);
-    
+
     m_button6 = new wxButton(this, wxID_OK, wxT(""), wxDefaultPosition, wxSize(-1, -1), 0);
     m_button6->SetDefault();
     m_stdBtnSizer4->AddButton(m_button6);
-    
+
     m_button8 = new wxButton(this, wxID_CANCEL, wxT(""), wxDefaultPosition, wxSize(-1, -1), 0);
     m_stdBtnSizer4->AddButton(m_button8);
     m_stdBtnSizer4->Realize();
-    
+
     SetName(wxT("WordCompletionSettingsBaseDlg"));
     SetMinSize( wxSize(300,300) );
     SetSizeHints(-1,-1);
@@ -75,7 +75,7 @@ WordCompletionSettingsBaseDlg::WordCompletionSettingsBaseDlg(wxWindow* parent, w
     m_pgMgr->Connect(wxEVT_PG_CHANGED, wxPropertyGridEventHandler(WordCompletionSettingsBaseDlg::OnValueChanged), NULL, this);
     m_button6->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(WordCompletionSettingsBaseDlg::OnOk), NULL, this);
     m_button6->Connect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(WordCompletionSettingsBaseDlg::OnOkUI), NULL, this);
-    
+
 }
 
 WordCompletionSettingsBaseDlg::~WordCompletionSettingsBaseDlg()
@@ -83,7 +83,7 @@ WordCompletionSettingsBaseDlg::~WordCompletionSettingsBaseDlg()
     m_pgMgr->Disconnect(wxEVT_PG_CHANGED, wxPropertyGridEventHandler(WordCompletionSettingsBaseDlg::OnValueChanged), NULL, this);
     m_button6->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(WordCompletionSettingsBaseDlg::OnOk), NULL, this);
     m_button6->Disconnect(wxEVT_UPDATE_UI, wxUpdateUIEventHandler(WordCompletionSettingsBaseDlg::OnOkUI), NULL, this);
-    
+
 }
 
 WordCompletionImages::WordCompletionImages()
@@ -95,7 +95,7 @@ WordCompletionImages::WordCompletionImages()
         wxC69AFInitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     {
         wxBitmap bmp;
         wxIcon icn;
@@ -104,7 +104,7 @@ WordCompletionImages::WordCompletionImages()
         this->Add( icn );
         m_bitmaps.insert( std::make_pair(wxT("m_bmpWord"), bmp ) );
     }
-    
+
 }
 
 WordCompletionImages::~WordCompletionImages()

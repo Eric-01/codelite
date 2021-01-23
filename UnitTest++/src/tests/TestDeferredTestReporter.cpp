@@ -8,7 +8,7 @@ namespace UnitTest
 
 struct MockDeferredTestReporter : public DeferredTestReporter
 {
-    virtual void ReportSummary(int, int, int, float) 
+    virtual void ReportSummary(int, int, int, float)
     {
     }
 };
@@ -91,7 +91,7 @@ TEST_FIXTURE(DeferredTestReporterFixture, DeferredTestReporterTakesCopyOfFailure
     char failureMessage[128];
     char const* goodStr = "Real failure message";
     char const* badStr = "Bogus failure message";
-    
+
     std::strcpy(failureMessage, goodStr);
     reporter.ReportFailure(details, failureMessage);
     std::strcpy(failureMessage, badStr);

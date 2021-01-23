@@ -529,7 +529,7 @@ void BuilderNMake::GenerateMakefile(ProjectPtr proj, const wxString& confToBuild
     // Load the current project files
     m_allFiles.clear();
     proj->GetFilesAsVector(m_allFiles);
-    
+
     // generate the selected configuration for this project
     // wxTextOutputStream text(output);
     wxString text;
@@ -770,7 +770,7 @@ void BuilderNMake::CreateFileTargets(ProjectPtr proj, const wxString& confToBuil
         !cmp->GetSwitch(wxT("PreprocessOnly")).IsEmpty() && !cmp->GetPreprocessSuffix().IsEmpty();
 
     std::vector<wxFileName> abs_files, rel_paths;
-    
+
     abs_files.reserve(m_allFiles.size());
     rel_paths.reserve(m_allFiles.size());
 

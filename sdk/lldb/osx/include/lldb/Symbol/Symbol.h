@@ -165,9 +165,9 @@ public:
   bool IsTrampoline() const;
 
   bool IsIndirect() const;
-  
+
   bool IsWeak() const { return m_is_weak; }
-  
+
   void SetIsWeak (bool b) { m_is_weak = b; }
 
   bool GetByteSizeIsValid() const { return m_size_is_valid; }

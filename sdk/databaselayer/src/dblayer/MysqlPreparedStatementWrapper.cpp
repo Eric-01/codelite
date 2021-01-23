@@ -134,7 +134,7 @@ DatabaseResultSet* MysqlPreparedStatementWrapper::RunQueryWithResults()
     }
   }
   wxDELETEA(pBoundParameters);;
-  
+
   return pResultSet;
 }
 

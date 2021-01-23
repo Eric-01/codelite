@@ -1101,9 +1101,9 @@ public:
   // right even if you have not calculated this yourself, or if it disagrees
   // with what you might have calculated.
   virtual lldb::StopInfoSP GetPrivateStopInfo();
-  
+
   // Calculate the stop info that will be shown to lldb clients.  For instance,
-  // a "step out" is implemented by running to a breakpoint on the function 
+  // a "step out" is implemented by running to a breakpoint on the function
   // return PC, so the process plugin initially sets the stop info to a
   // StopInfoBreakpoint. But once we've run the ShouldStop machinery, we
   // discover that there's a completed ThreadPlanStepOut, and that's really

@@ -25,7 +25,7 @@ void XDebugBreakpointCmdHandler::Process(const wxXmlNode* response)
         breakpointId.ToCLong( &bpid );
         m_breakpoint.SetBreakpointId( bpid );
         CL_DEBUG("CodeLite >>> Breakpoint applied successfully. Breakpoint ID: %ld", bpid);
-        
+
         // Refresh the view
         XDebugEvent e(wxEVT_XDEBUG_BREAKPOINTS_UPDATED);
         EventNotifier::Get()->AddPendingEvent( e );

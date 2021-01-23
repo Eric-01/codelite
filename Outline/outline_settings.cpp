@@ -40,7 +40,7 @@ void OutlineSettings::Load()
 /*    wxFileName fn(clStandardPaths::Get().GetUserDataDir() + wxFileName::GetPathSeparator() + wxT("config"), wxT("outline.conf"));
     JSON json(fn);
     if( json.isOk() ) {
-        
+
     }*/
 }
 
@@ -48,6 +48,6 @@ void OutlineSettings::Save()
 {
 /*    wxFileName fn(clStandardPaths::Get().GetUserDataDir() + wxFileName::GetPathSeparator() + wxT("config"), wxT("outline.conf"));
     JSON json(cJSON_Object);
-   
+
     json.save(fn);*/
 }

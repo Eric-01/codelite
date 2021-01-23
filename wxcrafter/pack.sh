@@ -3,8 +3,8 @@ PWD=`pwd`
 base_name=`basename $PWD`
 echo $base_name
 if [ "$base_name" != "wxcrafter" ] ; then
-	echo "You must run this script from within wxcrafter folder"
-	exit 1
+    echo "You must run this script from within wxcrafter folder"
+    exit 1
 fi
 
 ## Update codelite sources
@@ -14,7 +14,7 @@ echo "[codelite] git pull"
 git pull --rebase
 
 ## Update wxC sources
-cd wxcrafter 
+cd wxcrafter
 echo `pwd`
 echo "[wxcrafter] git pull"
 git pull --rebase
@@ -23,7 +23,7 @@ git pull --rebase
 mkdir -p ../build-release-app
 cd ../build-release-app
 echo `pwd`
-cmake -DCMAKE_BUILD_TYPE=Release -DWXC_APP=1 -DCOPY_WX_LIBS=1 .. -DNO_CORE_PLUGINS=1 -DSDK_ONLY=1 
+cmake -DCMAKE_BUILD_TYPE=Release -DWXC_APP=1 -DCOPY_WX_LIBS=1 .. -DNO_CORE_PLUGINS=1 -DSDK_ONLY=1
 echo "Building..."
 make -j4 && make package
 

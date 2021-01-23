@@ -28,7 +28,7 @@ LocalsView::LocalsView(wxWindow* parent)
     EventNotifier::Get()->Bind(wxEVT_XDEBUG_SESSION_ENDED, &LocalsView::OnXDebugSessionEnded, this);
     EventNotifier::Get()->Bind(wxEVT_XDEBUG_SESSION_STARTED, &LocalsView::OnXDebugSessionStarted, this);
     EventNotifier::Get()->Bind(wxEVT_XDEBUG_PROPERTY_GET, &LocalsView::OnProperytGet, this);
-    
+
     ClearView();
     m_tree->AddHeader(_("Name"));
     m_tree->AddHeader(_("Type"));

@@ -14,7 +14,7 @@ echo "[codelite] git pull"
 git pull --rebase
 
 ## Update wxC sources
-cd wxcrafter 
+cd wxcrafter
 echo `pwd`
 echo "[wxcrafter] git pull"
 git pull --rebase
@@ -33,10 +33,10 @@ cd ../build-release-app
 echo `pwd`
 cmake -DCMAKE_BUILD_TYPE=Release -DWXC_APP=1 -DCOPY_WX_LIBS=1 .. -DNO_CORE_PLUGINS=1 -DSDK_ONLY=1 -DWITH_PCH=1
 echo "Building..."
-make -j4 
+make -j4
 
     cd pack && ./make_wxc_bundle.sh
     rm -f wxcrafter.app.tar.gz
-    tar cvfz wxcrafter.app.tar.gz wxcrafter.app/ 
+    tar cvfz wxcrafter.app.tar.gz wxcrafter.app/
 
 scp wxcrafter.app.tar.gz root@codelite.org:/var/www/html/downloads/wxCrafter/wip

@@ -21,48 +21,48 @@
 class WXDLLIMPEXP_SF wxSFOpenArrow : public wxSFArrowBase
 {
 public:
-	XS_DECLARE_CLONABLE_CLASS(wxSFOpenArrow);
+    XS_DECLARE_CLONABLE_CLASS(wxSFOpenArrow);
 
     /*! \brief Default constructor. */
-	wxSFOpenArrow(void);
-	/*!
+    wxSFOpenArrow(void);
+    /*!
      * \brief User constructor.
-	 * \param parent"> Pointer to the parent shape
-	 */
-	wxSFOpenArrow(wxSFShapeBase* parent);
-	/*!
+     * \param parent"> Pointer to the parent shape
+     */
+    wxSFOpenArrow(wxSFShapeBase* parent);
+    /*!
      * \brief Copy constructor.
-	 * \param obj Reference to the source object
-	 */
-	wxSFOpenArrow(const wxSFOpenArrow& obj);
-	/*! \brief Destructor. */
-	virtual ~wxSFOpenArrow(void);
-	
-	// public member data accessors
-	/**
-	 * \brief Set a pen used for drawing of the arrow.
-	 * \param pen Reference to the pen
-	 */
-	void SetArrowPen(const wxPen& pen) {m_Pen = pen;}
-	/**
-	 * \brief Get current pen used for drawing of the arrow.
-	 * \return Constant reference to current pen
-	 */
-	const wxPen& GetArrowPen() const {return m_Pen;}
+     * \param obj Reference to the source object
+     */
+    wxSFOpenArrow(const wxSFOpenArrow& obj);
+    /*! \brief Destructor. */
+    virtual ~wxSFOpenArrow(void);
 
-	// public virtual functions
-	/*!
+    // public member data accessors
+    /**
+     * \brief Set a pen used for drawing of the arrow.
+     * \param pen Reference to the pen
+     */
+    void SetArrowPen(const wxPen& pen) {m_Pen = pen;}
+    /**
+     * \brief Get current pen used for drawing of the arrow.
+     * \return Constant reference to current pen
+     */
+    const wxPen& GetArrowPen() const {return m_Pen;}
+
+    // public virtual functions
+    /*!
      * \brief Draw arrow shape at the end of a virtual line.
-	 * \param from Start of the virtual line
-	 * \param to End of the virtual line
-	 * \param dc Device context for drawing
-	 */
-	virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
-	
-protected: 
-	// protected data members
-	/*! \brief Arrow pen */
-	wxPen m_Pen;
+     * \param from Start of the virtual line
+     * \param to End of the virtual line
+     * \param dc Device context for drawing
+     */
+    virtual void Draw(const wxRealPoint& from, const wxRealPoint& to, wxDC& dc);
+
+protected:
+    // protected data members
+    /*! \brief Arrow pen */
+    wxPen m_Pen;
 };
 
 #endif //_WXSFOPENARROW_H

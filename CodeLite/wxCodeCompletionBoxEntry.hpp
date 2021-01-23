@@ -134,7 +134,7 @@ public:
 
     void SetSignature(const wxString& signature) { this->m_signature = signature; }
     const wxString& GetSignature() const { return m_signature; }
-    
+
     void SetTriggerInclude(bool isTriggerInclude) { EnableFlag(isTriggerInclude, kTriggerInclude); }
     bool IsTriggerInclude() const { return HasFlag(kTriggerInclude); }
 

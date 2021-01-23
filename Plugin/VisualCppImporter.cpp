@@ -85,7 +85,7 @@ void VisualCppImporter::GenerateFromVC6(GenericWorkspacePtr genericWorkspace)
             // Fix the paths to match linux style
             ConvertToLinuxStyle(genericProjectData["projectFile"]);
             ConvertToLinuxStyle(genericProjectData["projectFullPath"]);
-            
+
             wxString deps = wxT("");
             while(!fis.Eof()) {
                 line = tis.ReadLine();

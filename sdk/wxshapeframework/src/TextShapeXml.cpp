@@ -23,23 +23,23 @@
 
 wxXmlNode * wxSFTextShape::Serialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	if(node)
-	{
-		node = wxSFShapeBase::Serialize(node);
-	}
+    if(node)
+    {
+        node = wxSFShapeBase::Serialize(node);
+    }
 
-	return node;
+    return node;
 }
 
 void wxSFTextShape::Deserialize(wxXmlNode* node)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	wxSFShapeBase::Deserialize(node);
+    wxSFShapeBase::Deserialize(node);
 
-	UpdateRectSize();
+    UpdateRectSize();
 }
 
 

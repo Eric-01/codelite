@@ -187,7 +187,7 @@ bool FirebirdDatabaseLayer::Open()
 
   // Firebird accepts all the other ISO_8859 encoding names but ISO-8859-1 needs a little tweaking to be recognized
   //wxString encodingName = wxLocale::GetSystemEncodingName();
-  
+
   //wxCharBuffer systemEncoding;
   //if (encodingName == wxT("ISO-8859-1"))
   // systemEncoding = "ISO8859_1";
@@ -197,16 +197,16 @@ bool FirebirdDatabaseLayer::Open()
 
   wxCSConv conv(_("UTF-8"));
   SetEncoding(&conv);
-  
+
   //char* pDpb = new char(512);
   char* pDpb;
   short nDpbLength = 0;
   wxCharBuffer userCharBuffer = ConvertToUnicodeStream(m_strUser);
   wxCharBuffer passwordCharBuffer = ConvertToUnicodeStream(m_strPassword);
   wxCharBuffer roleCharBuffer = ConvertToUnicodeStream(m_strRole);
-  
+
   pDpb = (char*)0;
-  
+
   if (m_strRole == wxEmptyString)
   {
 #ifdef wxUSE_UNICODE
@@ -229,14 +229,14 @@ bool FirebirdDatabaseLayer::Open()
         isc_dpb_sql_role_name, (const char*)roleCharBuffer, NULL);
 #endif
   }
-    
+
   // Combine the server and databsae path strings to pass into the isc_attach_databse function
   wxString strDatabaseUrl;
   if (m_strServer.IsEmpty())
     strDatabaseUrl = m_strDatabase; // Embedded database, just supply the file name
   else
     strDatabaseUrl = m_strServer + _(":") + m_strDatabase;
- 
+
   m_pDatabase = NULL;
   m_pTransaction = NULL;
 
@@ -255,7 +255,7 @@ bool FirebirdDatabaseLayer::Open()
   return true;
 }
 
-// close database  
+// close database
 bool FirebirdDatabaseLayer::Close()
 {
   CloseResultSets();
@@ -379,7 +379,7 @@ int FirebirdDatabaseLayer::RunQuery(const wxString& strQuery, bool bParseQuery)
     if (QueryArray.size() > 0)
     {
       bool bQuickieTransaction = false;
-    
+
       if (m_pTransaction == NULL)
       {
         // If there's no transaction is progress, run this as a quick one-timer transaction
@@ -448,13 +448,13 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
   {
     wxCharBuffer sqlDebugBuffer = ConvertToUnicodeStream(strQuery);
     //wxLogDebug(_("Running query: \"%s\""), (const char*)sqlDebugBuffer);
-    
+
     wxArrayString QueryArray = ParseQueries(strQuery);
 
     if (QueryArray.size() > 0)
     {
       bool bQuickieTransaction = false;
-    
+
       if (m_pTransaction == NULL)
       {
         // If there's no transaction is progress, run this as a quick one-timer transaction
@@ -473,7 +473,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
             return NULL;
           }
         }
-      
+
         // Assume that only the last statement in the array returns the result set
         for (unsigned int i=0; i<QueryArray.size()-1; i++)
         {
@@ -484,7 +484,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
             return NULL;
           }
         }
-      
+
         // Now commit all the previous queries before calling the query that returns a result set
         if (bQuickieTransaction)
         {
@@ -496,7 +496,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
           }
         }
       } // End check if there are more than one query in the array
-      
+
       isc_tr_handle pQueryTransaction = NULL;
       bool bManageTransaction = false;
       if (bQuickieTransaction)
@@ -515,7 +515,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
       {
         pQueryTransaction = m_pTransaction;
       }
-      
+
       isc_stmt_handle pStatement = NULL;
       isc_db_handle pDatabase = (isc_db_handle)m_pDatabase;
       int nReturn = m_pInterface->GetIscDsqlAllocateStatement()(*(ISC_STATUS_ARRAY*)m_pStatus, &pDatabase, &pStatement);
@@ -531,7 +531,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
         ThrowDatabaseException();
         return NULL;
       }
-      
+
       wxCharBuffer sqlBuffer = ConvertToUnicodeStream(QueryArray[QueryArray.size()-1]);
       nReturn = m_pInterface->GetIscDsqlPrepare()(*(ISC_STATUS_ARRAY*)m_pStatus, &pQueryTransaction, &pStatement, 0, (char*)(const char*)sqlBuffer, SQL_DIALECT_CURRENT, NULL);
       if (nReturn != 0)
@@ -596,7 +596,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
       {
         SetErrorCode(pResultSet->GetErrorCode());
         SetErrorMessage(pResultSet->GetErrorMessage());
-    
+
         // Manually try to rollback the transaction rather than calling the member RollBack function
         //  so that we can ignore the error messages
         m_pInterface->GetIscRollbackTransaction()(*(ISC_STATUS_ARRAY*)m_pStatus, &pQueryTransaction);
@@ -617,7 +617,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
 
         ThrowDatabaseException();
       }
-  
+
       // Now execute the SQL
       nReturn = m_pInterface->GetIscDsqlExecute()(*(ISC_STATUS_ARRAY*)m_pStatus, &pQueryTransaction, &pStatement, SQL_DIALECT_CURRENT, NULL);
       if (nReturn != 0)
@@ -641,11 +641,11 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
         {
         }
 #endif
-    
+
         ThrowDatabaseException();
         return NULL;
       }
-      
+
 //--------------------------------------------------------------
 
       LogResultSetForCleanup(pResultSet);
@@ -664,7 +664,7 @@ DatabaseResultSet* FirebirdDatabaseLayer::RunQueryWithResults(const wxString& st
 PreparedStatement* FirebirdDatabaseLayer::PrepareStatement(const wxString& strQuery)
 {
   ResetErrorCodes();
-  
+
   FirebirdPreparedStatement* pStatement = FirebirdPreparedStatement::CreateStatement(m_pInterface, m_pDatabase, m_pTransaction, strQuery, GetEncoding());
   if (pStatement && (pStatement->GetErrorCode() != DATABASE_LAYER_OK))
   {

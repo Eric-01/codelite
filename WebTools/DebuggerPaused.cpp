@@ -24,7 +24,7 @@ void DebuggerPaused::Process(clWebSocketClient& socket, const JSONItem& json)
         f->FromJSON(frame);
         V.push_back(f);
     }
-    
+
     wxString extraMessage;
     if(json.hasNamedObject("data")) {
         JSONItem data = json.namedObject("data");

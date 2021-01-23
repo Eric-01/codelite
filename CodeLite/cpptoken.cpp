@@ -172,7 +172,7 @@ bool CppTokensMap::contains(const wxString& name)
 void CppTokensMap::findTokens(const wxString& name, std::vector<CppToken>& tokens)
 {
     std::unordered_map<wxString, std::vector<CppToken>*>::iterator iter = m_tokens.find(name);
-    //	std::vector<CppToken> *tokensList(NULL);
+    // std::vector<CppToken> *tokensList(NULL);
     if(iter != m_tokens.end()) { tokens = *(iter->second); }
 }
 void CppTokensMap::clear()

@@ -37,7 +37,7 @@ public:
   virtual bool Next() = 0;
   /// Close the result set (call DatabaseLayer::CloseResultSet() instead on the result set)
   virtual void Close() = 0;
-  
+
   virtual int LookupField(const wxString& strField) = 0;
 
   // get field
@@ -57,7 +57,7 @@ public:
   virtual double GetResultDouble(int nField) = 0;
   /// Check if a field in the current result set record is NULL
   virtual bool IsFieldNull(int nField) = 0;
-  
+
   /// Retrieve an integer from the result set by the result set column name
   virtual int GetResultInt(const wxString& strField);
   /// Retrieve a wxString from the result set by the result set column name
@@ -86,7 +86,7 @@ protected:
   void CloseMetaData();
   /// Add meta data object pointer to the list for "garbage collection"
   void LogMetaDataForCleanup(ResultSetMetaData* pMetaData) { m_MetaData.insert(pMetaData); }
-  
+
 private:
   MetaDataHashSet m_MetaData;
 };

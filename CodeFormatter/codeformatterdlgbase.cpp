@@ -22,10 +22,10 @@ CodeFormatterBaseDlg::CodeFormatterBaseDlg(wxWindow* parent,
     : wxDialog(parent, id, title, pos, size, style)
 {
     if(!bBitmapLoaded) {
-	// We need to initialise the default bitmap handler
-	wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
-	wxCrafterGgLOZbInitBitmapResources();
-	bBitmapLoaded = true;
+    // We need to initialise the default bitmap handler
+    wxXmlResource::Get()->AddHandler(new wxBitmapXmlHandler);
+    wxCrafterGgLOZbInitBitmapResources();
+    bBitmapLoaded = true;
     }
 
     wxBoxSizer* bSizerMain = new wxBoxSizer(wxVERTICAL);
@@ -940,43 +940,43 @@ CodeFormatterBaseDlg::CodeFormatterBaseDlg(wxWindow* parent,
 
 #if wxVERSION_NUMBER >= 2900
     if(!wxPersistenceManager::Get().Find(m_notebook)) {
-	wxPersistenceManager::Get().RegisterAndRestore(m_notebook);
+    wxPersistenceManager::Get().RegisterAndRestore(m_notebook);
     } else {
-	wxPersistenceManager::Get().Restore(m_notebook);
+    wxPersistenceManager::Get().Restore(m_notebook);
     }
 #endif
 
 #if wxVERSION_NUMBER >= 2900
     if(!wxPersistenceManager::Get().Find(m_notebookCxx)) {
-	wxPersistenceManager::Get().RegisterAndRestore(m_notebookCxx);
+    wxPersistenceManager::Get().RegisterAndRestore(m_notebookCxx);
     } else {
-	wxPersistenceManager::Get().Restore(m_notebookCxx);
+    wxPersistenceManager::Get().Restore(m_notebookCxx);
     }
 #endif
 
 #if wxVERSION_NUMBER >= 2900
     if(!wxPersistenceManager::Get().Find(m_notebookPhp)) {
-	wxPersistenceManager::Get().RegisterAndRestore(m_notebookPhp);
+    wxPersistenceManager::Get().RegisterAndRestore(m_notebookPhp);
     } else {
-	wxPersistenceManager::Get().Restore(m_notebookPhp);
+    wxPersistenceManager::Get().Restore(m_notebookPhp);
     }
 #endif
 
     SetName(wxT("CodeFormatterBaseDlg"));
     SetSize(wxDLG_UNIT(this, wxSize(-1, -1)));
     if(GetSizer()) {
-	GetSizer()->Fit(this);
+    GetSizer()->Fit(this);
     }
     if(GetParent()) {
-	CentreOnParent(wxBOTH);
+    CentreOnParent(wxBOTH);
     } else {
-	CentreOnScreen(wxBOTH);
+    CentreOnScreen(wxBOTH);
     }
 #if wxVERSION_NUMBER >= 2900
     if(!wxPersistenceManager::Get().Find(this)) {
-	wxPersistenceManager::Get().RegisterAndRestore(this);
+    wxPersistenceManager::Get().RegisterAndRestore(this);
     } else {
-	wxPersistenceManager::Get().Restore(this);
+    wxPersistenceManager::Get().Restore(this);
     }
 #endif
     // Connect events

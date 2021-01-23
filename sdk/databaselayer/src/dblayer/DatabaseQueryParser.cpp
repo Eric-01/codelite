@@ -19,7 +19,7 @@ wxArrayString ParseQueries(const wxString& strQuery)
         if(!bInSQuote || strQuery.SubString(i - 1, i - 1) != _T("\\")) {
             bInSQuote = !bInSQuote;
         }
-            
+
     }
     else if (!bInSQuote && strQuery.SubString(i, i) == _T("\"")) {
         if(!bInDQuote || strQuery.SubString(i - 1, i - 1) != _T("\\")) {

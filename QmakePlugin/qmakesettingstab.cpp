@@ -41,7 +41,7 @@ void QmakeSettingsTab::Load(QmakeConf* conf)
     if ( conf ) {
         wxString qmakePath(conf->Read(m_name + wxT("/qmake")));
         m_filePickerQmakeExec->SetFileName( wxFileName(qmakePath) );
-        
+
         m_comboBoxQmakespec->Append( GetSpecList(conf->Read(m_name + wxT("/qmake")) ) );
         m_comboBoxQmakespec->SetValue(conf->Read(m_name + wxT("/qmakespec")));
         m_textCtrlQtdir->SetValue(conf->Read(m_name + wxT("/qtdir")));

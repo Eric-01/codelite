@@ -36,7 +36,7 @@
 #include "gitui.h"
 #include <map>
 #include "clEditorEditEventsHandler.h"
-#include <wx/tokenzr.h> 
+#include <wx/tokenzr.h>
 #include "macros.h"
 
 class GitPlugin;

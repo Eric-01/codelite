@@ -122,20 +122,20 @@ class EditorDeltasHolder
 
     // When there's a 'GoTo next/previous FindInFiles' call, any relevant position changes need to be used. There are 4
     // possibilities:
-    // 		1)	If there are no changes, FiF matches should 'just work'
-    // 		2)	The common non-trivial situation is for there to be +ve position changes subsequent to the
+    //      1)  If there are no changes, FiF matches should 'just work'
+    //      2)  The common non-trivial situation is for there to be +ve position changes subsequent to the
     // file's
     // saved
     // status at the last FindInFiles call
-    // 			However, see below...
-    // 		3)	Occasionally there will have been -ve position changes (i.e. undos), or undos followed by
+    //          However, see below...
+    //      3)  Occasionally there will have been -ve position changes (i.e. undos), or undos followed by
     // different
     // alterations.
-    //			If there hasn't been a second FiF call, that won't matter.
-    //		4)  If there *has* been a second FiF call, followed by more alterations, it *will* matter; especially if
+    //          If there hasn't been a second FiF call, that won't matter.
+    //      4)  If there *has* been a second FiF call, followed by more alterations, it *will* matter; especially if
     // there
     // have been undos, then different alterations.
-    //			In that case we need to use both the original changes and the replacement ones.
+    //          In that case we need to use both the original changes and the replacement ones.
     // As there's no easy way to tell the difference between 2) 3) and 4) (and the cost is nil for 1) anyway) treat all
     // cases as though they may be 4) instances.
     // That means combining m_changesForCurrentMatches (reversed and with lengths negated) and m_changes. See

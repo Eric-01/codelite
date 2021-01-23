@@ -110,7 +110,7 @@ public:
     bool ChangeLanguage(const wxString& language);
     /// check spelling for one word. Return true if the word was found.
     bool CheckWord(const wxString& word) const;
-	/// is a word in the tags database?
+    /// is a word in the tags database?
     bool IsTag(const wxString& word) const;
     /// returns an array with suggestions for the misspelled word.
     wxArrayString GetSuggestions(const wxString& misspelled);

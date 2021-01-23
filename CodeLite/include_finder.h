@@ -32,10 +32,10 @@
 
 class WXDLLIMPEXP_CL IncludeStatement {
 public:
-	std::string file;
-	int         line;
-	std::string includedFrom;
-	std::string pattern;
+    std::string file;
+    int         line;
+    std::string includedFrom;
+    std::string pattern;
 };
 
 extern WXDLLIMPEXP_CL int IncludeFinder( const char* filePath, std::vector<IncludeStatement> &includes );

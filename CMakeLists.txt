@@ -486,7 +486,7 @@ if ( MAKE_DEB )
         message("-- CPACK_DEBIAN_PACKAGE_ARCHITECTURE amd64")
         set(CPACK_DEBIAN_PACKAGE_ARCHITECTURE "amd64")
     endif ()
-    
+
     if (GTK_VERSION EQUAL 3)
         set(LIBGTK "libgtk-3-dev")
         set(GTKNAME "gtk3")
@@ -647,7 +647,7 @@ if(NOT NO_CORE_PLUGINS)
     add_subdirectory(codelite_vim)
     add_subdirectory(Docker)
     add_subdirectory(LanguageServer)
-    
+
     if (WITH_SFTP)
         add_subdirectory(SFTP)
     endif(WITH_SFTP)

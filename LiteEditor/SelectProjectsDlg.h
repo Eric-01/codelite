@@ -33,7 +33,7 @@ public:
     SelectProjectsDlg(wxWindow* parent);
     virtual ~SelectProjectsDlg();
     wxArrayString GetProjects() const;
-    
+
 protected:
     virtual void OnSelectAll(wxCommandEvent& event);
     virtual void OnUnSelectAll(wxCommandEvent& event);

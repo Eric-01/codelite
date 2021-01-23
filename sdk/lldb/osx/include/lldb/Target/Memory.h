@@ -62,7 +62,7 @@ private:
   DISALLOW_COPY_AND_ASSIGN(MemoryCache);
 };
 
-    
+
 
 class AllocatedBlock {
 public:

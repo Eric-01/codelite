@@ -66,7 +66,7 @@ public:
 #else
   typedef boost::coroutines::coroutine<void()> callee_type;
 #endif
-  
+
   /// The coroutine caller type, used by the implementation.
   /**
    * When using Boost.Coroutine v1, this type is:

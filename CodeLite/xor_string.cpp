@@ -81,7 +81,7 @@ wxString XORString::XOR(const wxString& str, const wxChar KEY) const
 {
     wxString output;
     for(size_t i=0; i<str.length(); ++i) {
-        
+
         wxChar ch = str[i];
         wxChar x = (ch ^ KEY);
         output << x;

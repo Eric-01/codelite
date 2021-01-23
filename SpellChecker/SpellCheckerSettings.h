@@ -96,7 +96,7 @@ public:
     }
     void            SetCaseSensitiveUserDictionary( const bool& caseSensitiveUserDictionary ) {
         this->m_caseSensitiveUserDictionary = caseSensitiveUserDictionary;
-	}
+    }
     void            SetIgnoreSymbolsInTagsDatabase( const bool& ignoreSymbolsInTagsDatabase ) {
         this->m_ignoreSymbolsInTagsDatabase = ignoreSymbolsInTagsDatabase;
     }
@@ -118,7 +118,7 @@ public:
     }
     bool GetCaseSensitiveUserDictionary() const {
         return m_caseSensitiveUserDictionary;
-	}
+    }
     bool GetIgnoreSymbolsInTagsDatabase() const {
         return m_ignoreSymbolsInTagsDatabase;
     }

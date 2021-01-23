@@ -85,7 +85,7 @@ public:
     void SetBlame(const wxString& blame, const wxString& args);
     void OnRevListOutput(const wxString& output, const wxString& Arguments);
     void Show();
-    
+
 protected:
     virtual void OnExtraArgsTextEnter(wxCommandEvent& event);
     virtual void OnRefreshBlame(wxCommandEvent& event);
@@ -105,7 +105,7 @@ protected:
     void OnProcessTerminated(clProcessEvent& event);
     void OnProcessOutput(clProcessEvent& event);
     void OnChangeFile(wxCommandEvent& event);
-    
+
     void DoCloseDialog();
 
     GitPlugin* m_plugin;

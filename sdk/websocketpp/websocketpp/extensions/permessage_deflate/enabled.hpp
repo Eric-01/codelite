@@ -403,7 +403,7 @@ public:
      * NOTE: The permessage-deflate spec specifies that a value of 8 is allowed.
      * Prior to version 0.8.0 a value of 8 was also allowed by this library.
      * zlib, the deflate compression library that WebSocket++ uses has always
-     * silently adjusted a value of 8 to 9. In recent versions of zlib (1.2.9 
+     * silently adjusted a value of 8 to 9. In recent versions of zlib (1.2.9
      * and greater) a value of 8 is now explicitly rejected. WebSocket++ 0.8.0
      * continues to perform the 8->9 conversion for backwards compatibility
      * purposes but this should be considered deprecated functionality.
@@ -448,7 +448,7 @@ public:
      * NOTE: The permessage-deflate spec specifies that a value of 8 is allowed.
      * Prior to version 0.8.0 a value of 8 was also allowed by this library.
      * zlib, the deflate compression library that WebSocket++ uses has always
-     * silently adjusted a value of 8 to 9. In recent versions of zlib (1.2.9 
+     * silently adjusted a value of 8 to 9. In recent versions of zlib (1.2.9
      * and greater) a value of 8 is now explicitly rejected. WebSocket++ 0.8.0
      * continues to perform the 8->9 conversion for backwards compatibility
      * purposes but this should be considered deprecated functionality.

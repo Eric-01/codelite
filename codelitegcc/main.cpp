@@ -93,7 +93,7 @@ int main(int argc, char **argv)
         // Wrap all arguments with spaces with double quotes
         std::string arg = argv[i];
         std::string file_name;
-        
+
         if ( is_source_file( arg, file_name ) ) {
             file_names.push_back( file_name );
         }

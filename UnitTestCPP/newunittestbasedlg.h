@@ -56,26 +56,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 class NewUnitTestBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText30;
-		wxTextCtrl* m_textCtrlTestName;
-		wxStaticText* m_staticText32;
-		wxTextCtrl* m_textCtrlFixtureName;
-		wxStaticText* m_staticText4;
-		wxTextCtrl* m_textCtrlOutputFile;
-		wxStaticText* m_staticText3;
-		wxChoice* m_choiceProjects;
-		wxStaticLine* m_staticline2;
-		wxButton* m_button24;
-		wxButton* m_button23;
-	
-	public:
-		
-		NewUnitTestBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("New Unit Test"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
-		~NewUnitTestBaseDlg();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText30;
+        wxTextCtrl* m_textCtrlTestName;
+        wxStaticText* m_staticText32;
+        wxTextCtrl* m_textCtrlFixtureName;
+        wxStaticText* m_staticText4;
+        wxTextCtrl* m_textCtrlOutputFile;
+        wxStaticText* m_staticText3;
+        wxChoice* m_choiceProjects;
+        wxStaticLine* m_staticline2;
+        wxButton* m_button24;
+        wxButton* m_button23;
+    
+    public:
+        
+        NewUnitTestBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("New Unit Test"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+        ~NewUnitTestBaseDlg();
+    
 };
 
 #endif //__newunittestbasedlg__

@@ -23,7 +23,7 @@
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
-//	Copyright: 2013 Brandon Captain
+//  Copyright: 2013 Brandon Captain
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -44,12 +44,12 @@ class ZoomText : public wxStyledTextCtrl
     wxString m_classes;
     wxString m_locals;
     wxTimer* m_timer;
-    
+
 protected:
     void OnThemeChanged(wxCommandEvent& e);
     void OnTimer(wxTimerEvent& event);
     void DoClear();
-    
+
 public:
     ZoomText(wxWindow* parent,
              wxWindowID id = wxID_ANY,
@@ -62,7 +62,7 @@ public:
     void OnSettingsChanged(wxCommandEvent& e);
     void UpdateText(IEditor* editor);
     void HighlightLines(int start, int end);
-    
+
     void Startup();
 };
 

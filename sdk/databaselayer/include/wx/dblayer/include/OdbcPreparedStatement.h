@@ -37,7 +37,7 @@ public:
     virtual ~OdbcPreparedStatement();
 
     virtual void Close();
-      
+
     void AddPreparedStatement(SQLHSTMT pStatement);
 
     // get field
@@ -65,7 +65,7 @@ private:
 
 
     int FindStatementAndAdjustPositionIndex(int* pPosition);
- 
+
     bool m_bOneTimeStatement; // Flag to indicate that statement ownership should be handed off to any generated OdbcResultSets
     SQLHENV m_sqlEnvHandle;
     SQLHDBC m_sqlHDBC;

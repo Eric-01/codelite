@@ -44,7 +44,7 @@ void LLDBReply::FromJSON(const JSONItem& json)
     m_expression = json.namedObject("m_expression").toString();
     m_debugSessionType = json.namedObject("m_debugSessionType").toInt(kDebugSessionTypeNormal);
     m_text = json.namedObject("m_text").toString();
-    
+
     m_breakpoints.clear();
     JSONItem arr = json.namedObject("m_breakpoints");
     for(int i = 0; i < arr.arraySize(); ++i) {

@@ -34,9 +34,9 @@ public:
     FolderMappingDlg(wxWindow* parent);
     virtual ~FolderMappingDlg();
     LLDBPivot GetPivot() const;
-    
+
 protected:
     virtual void OnOKUI(wxUpdateUIEvent& event);
-    
+
 };
 #endif // FOLDERMAPPINGDLG_H

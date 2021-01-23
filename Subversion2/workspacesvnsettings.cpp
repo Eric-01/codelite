@@ -79,7 +79,7 @@ wxFileName WorkspaceSvnSettings::GetLocalConfigFile() const
         wxFileName fn(clStandardPaths::Get().GetUserDataDir(), "subversion.conf");
         fn.AppendDir("config");
         return fn;
-        
+
     }
 }
 

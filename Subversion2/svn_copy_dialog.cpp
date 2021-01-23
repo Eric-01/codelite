@@ -29,32 +29,32 @@
 SvnCopyDialog::SvnCopyDialog( wxWindow* parent )
 : SvnCopyDialogBase( parent )
 {
-	m_textCtrlTargetURL->SetFocus();
-	m_textCtrlTargetURL->SelectAll();
-	m_textCtrlTargetURL->SetInsertionPointEnd();
+    m_textCtrlTargetURL->SetFocus();
+    m_textCtrlTargetURL->SelectAll();
+    m_textCtrlTargetURL->SetInsertionPointEnd();
 }
 
 void SvnCopyDialog::SetSourceURL(const wxString& url)
 {
-	m_textCtrlSourceURL->SetValue(url);
+    m_textCtrlSourceURL->SetValue(url);
 }
 
 void SvnCopyDialog::SetTargetURL(const wxString& url)
 {
-	m_textCtrlTargetURL->SetValue(url);
+    m_textCtrlTargetURL->SetValue(url);
 }
 
 wxString SvnCopyDialog::GetMessage()
 {
-	return SvnCommitDialog::NormalizeMessage(m_textCtrlComment->GetValue());
+    return SvnCommitDialog::NormalizeMessage(m_textCtrlComment->GetValue());
 }
 
 wxString SvnCopyDialog::GetSourceURL()
 {
-	return m_textCtrlSourceURL->GetValue();
+    return m_textCtrlSourceURL->GetValue();
 }
 
 wxString SvnCopyDialog::GetTargetURL()
 {
-	return m_textCtrlTargetURL->GetValue();
+    return m_textCtrlTargetURL->GetValue();
 }

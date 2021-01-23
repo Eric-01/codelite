@@ -20,7 +20,7 @@ protected:
 public:
     static void WrapXRC(wxString& text);
     virtual wxString DesignerXRC(bool forPreviewDialog) const = 0;
-    
+
     wxString CppCtorCode() const;
     /**
      * @brief to avoid code duplications, check if another aui toolbar

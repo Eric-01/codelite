@@ -849,8 +849,8 @@ void wxcWidget::LoadPropertiesFromwxSmith(const wxXmlNode* node)
     }
 
     // Now get any events. wxSmith does:
-    //	<handler function="OnTextCtrl1Text" entry="EVT_TEXT" />
-    //	<handler function="OnTextCtrl1TextEnter" entry="EVT_TEXT_ENTER" />
+    //  <handler function="OnTextCtrl1Text" entry="EVT_TEXT" />
+    //  <handler function="OnTextCtrl1TextEnter" entry="EVT_TEXT_ENTER" />
     // i.e. possible multiple child nodes, so we can't use FindFirstByTagName()
     wxXmlNode* child = node->GetChildren();
     while(child) {
@@ -1603,7 +1603,7 @@ wxString wxcWidget::CPPCommonAttributes() const
     } else {
         instanceName = GetName();
     }
-    
+
     wxString colorname = wxCrafter::ColourToCpp(PropertyString(PROP_BG));
     if(colorname.IsEmpty() == false) { cpp << instanceName << wxT("->SetBackgroundColour(") << colorname << wxT(");\n"); }
 

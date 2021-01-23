@@ -57,28 +57,28 @@
 ///////////////////////////////////////////////////////////////////////////////
 class ManagePerspectivesBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxListBox* m_listBox;
-		wxButton* m_button3;
-		wxButton* m_button4;
-		wxStaticLine* m_staticline1;
-		wxButton* m_buttonOk;
-		wxButton* m_buttonCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnDeletePerspective( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnDeletePerspectiveUI( wxUpdateUIEvent& event ) { event.Skip(); }
-		virtual void OnRenamePerspective( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnRenamePerspectiveUI( wxUpdateUIEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		ManagePerspectivesBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Perspectives..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
-		~ManagePerspectivesBaseDlg();
-	
+    private:
+    
+    protected:
+        wxListBox* m_listBox;
+        wxButton* m_button3;
+        wxButton* m_button4;
+        wxStaticLine* m_staticline1;
+        wxButton* m_buttonOk;
+        wxButton* m_buttonCancel;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnDeletePerspective( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnDeletePerspectiveUI( wxUpdateUIEvent& event ) { event.Skip(); }
+        virtual void OnRenamePerspective( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnRenamePerspectiveUI( wxUpdateUIEvent& event ) { event.Skip(); }
+        
+    
+    public:
+        
+        ManagePerspectivesBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Perspectives..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+        ~ManagePerspectivesBaseDlg();
+    
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -86,20 +86,20 @@ class ManagePerspectivesBaseDlg : public wxDialog
 ///////////////////////////////////////////////////////////////////////////////
 class SavePerspectiveDlgBase : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText1;
-		wxComboBox* m_comboBox;
-		wxStaticLine* m_staticline2;
-		wxButton* m_button5;
-		wxButton* m_button6;
-	
-	public:
-		
-		SavePerspectiveDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Save Perspective As..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
-		~SavePerspectiveDlgBase();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText1;
+        wxComboBox* m_comboBox;
+        wxStaticLine* m_staticline2;
+        wxButton* m_button5;
+        wxButton* m_button6;
+    
+    public:
+        
+        SavePerspectiveDlgBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Save Perspective As..."), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxDefaultSize, long style = wxDEFAULT_DIALOG_STYLE ); 
+        ~SavePerspectiveDlgBase();
+    
 };
 
 #endif //__manageperspectivesbasedlg__

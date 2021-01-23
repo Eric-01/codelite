@@ -35,10 +35,10 @@ protected:
     void OnEditorContextMenu(clContextMenuEvent& event);
     void OnHelp(wxCommandEvent& event);
     void OnHelpSettings(wxCommandEvent& event);
-    
+
     void DoHelp(); // A proxy method so we can call the help async
     wxString DoBuildQueryString();
-    
+
 public:
     HelpPlugin(IManager* manager);
     ~HelpPlugin();

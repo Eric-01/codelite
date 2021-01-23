@@ -23,34 +23,34 @@ public:
      * \brief Default constructor
      * \param format Data format
      */
-	wxSFShapeDataObject(const wxDataFormat& format);
+    wxSFShapeDataObject(const wxDataFormat& format);
     /*!
      * \brief User constructor
      * \param format Data format
      * \param selection List of shapes which should be stored in the data object
      * \param manager Pointer to diagram manager which manages stored shapes
      */
-	wxSFShapeDataObject(const wxDataFormat& format, const ShapeList& selection, wxSFDiagramManager* manager);
-	/*! \brief Destructor */
-	virtual ~wxSFShapeDataObject(void);
+    wxSFShapeDataObject(const wxDataFormat& format, const ShapeList& selection, wxSFDiagramManager* manager);
+    /*! \brief Destructor */
+    virtual ~wxSFShapeDataObject(void);
 
     /*! \brief Function returns sizes of the data object */
-	virtual size_t GetDataSize() const;
-	/*!
-	 * \brief Function should export data from data object to given buffer.
-	 * \param buf External output data buffer
-	 * \return TRUE on success, otherwise FALSE
-	 */
-	virtual bool GetDataHere(void* buf) const;
-	/*!
-	 * \brief Function should inport data from data object from given buffer.
-	 * \param len Data lenght
-	 * \param buf External input data buffer
-	 * \return TRUE on success, otherwise FALSE
-	 */
-	virtual bool SetData(size_t len, const void* buf);
+    virtual size_t GetDataSize() const;
+    /*!
+     * \brief Function should export data from data object to given buffer.
+     * \param buf External output data buffer
+     * \return TRUE on success, otherwise FALSE
+     */
+    virtual bool GetDataHere(void* buf) const;
+    /*!
+     * \brief Function should inport data from data object from given buffer.
+     * \param len Data lenght
+     * \param buf External input data buffer
+     * \return TRUE on success, otherwise FALSE
+     */
+    virtual bool SetData(size_t len, const void* buf);
 
-	wxTextDataObject m_Data;
+    wxTextDataObject m_Data;
 
 protected:
 
@@ -60,7 +60,7 @@ protected:
      * \param manager Parent diagram manager
      * \return String containing serialized information
      */
-	wxString SerializeSelectedShapes(const ShapeList& selection, wxSFDiagramManager* manager);
+    wxString SerializeSelectedShapes(const ShapeList& selection, wxSFDiagramManager* manager);
 
 };
 

@@ -13,7 +13,7 @@ wxSize clToolBarSpacer::CalculateSize(wxDC& dc) const
 }
 
 void clToolBarSpacer::Render(wxDC& dc, const wxRect& rect)
-{    
+{
     wxUnusedVar(dc);
     wxUnusedVar(rect);
 }

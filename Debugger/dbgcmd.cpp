@@ -997,17 +997,17 @@ bool DbgCmdBreakList::ProcessOutput(const wxString& line)
             wxRemoveQuotes(breakpoint.what);
         }
 
-        //		iter = attr.find("func");
-        //		if ( iter != attr.end() ) {
-        //			breakpoint.function_name = wxString(iter->second.c_str(), wxConvUTF8);
-        //			wxRemoveQuotes( breakpoint.function_name );
-        //		}
+        //    iter = attr.find("func");
+        //    if ( iter != attr.end() ) {
+        //        breakpoint.function_name = wxString(iter->second.c_str(), wxConvUTF8);
+        //        wxRemoveQuotes( breakpoint.function_name );
+        //    }
         //
-        //		iter = attr.find("addr");
-        //		if ( iter != attr.end() ) {
-        //			breakpoint.memory_address = wxString(iter->second.c_str(), wxConvUTF8);
-        //			wxRemoveQuotes( breakpoint.memory_address );
-        //		}
+        //    iter = attr.find("addr");
+        //    if ( iter != attr.end() ) {
+        //        breakpoint.memory_address = wxString(iter->second.c_str(), wxConvUTF8);
+        //        wxRemoveQuotes( breakpoint.memory_address );
+        //    }
 
         iter = attr.find("file");
         if(iter != attr.end()) {
@@ -1152,7 +1152,7 @@ bool DbgCmdWatchMemory::ProcessOutput(const wxString& line)
                 // convert the hex string into real value
                 if(currentToken.ToLong(&v, 16)) {
 
-                    //	char ch = (char)v;
+                    // char ch = (char)v;
                     if(wxIsprint((wxChar)v) || (wxChar)v == ' ') {
                         if(v == 9) { // TAB
                             v = 32;  // SPACE

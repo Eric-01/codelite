@@ -130,28 +130,28 @@
 /*! \brief Enable RTTI (the same as DECLARE_DYNAMIC_CLASS) and declare xsSerializable::Clone() function */
 #define XS_DECLARE_CLONABLE_CLASS(name) \
 public: \
-	DECLARE_DYNAMIC_CLASS(name) \
-	virtual wxObject* Clone(); \
+    DECLARE_DYNAMIC_CLASS(name) \
+    virtual wxObject* Clone(); \
 
 /*! \brief Enable RTTI (the same as IMPLEMENT_DYNAMIC_CLASS) and implement xsSerializable::Clone() function */
 #define XS_IMPLEMENT_CLONABLE_CLASS(name, base) \
-	IMPLEMENT_DYNAMIC_CLASS(name, base) \
-	wxObject* name::Clone() \
-	{ \
-		if( m_fClone ) return new name(*this); \
-		else \
-			return NULL; \
-	} \
-	
+    IMPLEMENT_DYNAMIC_CLASS(name, base) \
+    wxObject* name::Clone() \
+    { \
+        if( m_fClone ) return new name(*this); \
+        else \
+            return NULL; \
+    } \
+
 /*! \brief Enable RTTI (the same as IMPLEMENT_DYNAMIC_CLASS2) and implement xsSerializable::Clone() function */
 #define XS_IMPLEMENT_CLONABLE_CLASS2(name, base1, base2) \
-	IMPLEMENT_DYNAMIC_CLASS2(name, base1, base2) \
-	wxObject* name::Clone() \
-	{ \
-		if( m_fClone ) return new name(*this); \
-		else \
-			return NULL; \
-	} \
+    IMPLEMENT_DYNAMIC_CLASS2(name, base1, base2) \
+    wxObject* name::Clone() \
+    { \
+        if( m_fClone ) return new name(*this); \
+        else \
+            return NULL; \
+    } \
 
 
 class WXDLLIMPEXP_XS xsProperty;
@@ -191,13 +191,13 @@ public:
 
     XS_DECLARE_CLONABLE_CLASS(xsSerializable);
 
-	enum SEARCHMODE
-	{
-		/*! \brief Depth-First-Search algorithm */
-		searchDFS,
-		/*! \brief Breadth-First-Search algorithm */
-		searchBFS
-	};
+    enum SEARCHMODE
+    {
+        /*! \brief Depth-First-Search algorithm */
+        searchDFS,
+        /*! \brief Breadth-First-Search algorithm */
+        searchBFS
+    };
 
     /*! \brief Constructor. */
     xsSerializable();
@@ -225,7 +225,7 @@ public:
     xsSerializable* GetFirstChild();
     /*!
      * \brief Get first serializable child object of given type.
-	 * \param type Child object type (can be NULL for any type)
+     * \param type Child object type (can be NULL for any type)
      * \return Pointer to child object if exists, otherwise NULL
      */
     xsSerializable* GetFirstChild(wxClassInfo *type);
@@ -236,7 +236,7 @@ public:
     xsSerializable* GetLastChild();
     /*!
      * \brief Get last serializable child object of given type.
-	 * \param type Child object type (can be NULL for any type)
+     * \param type Child object type (can be NULL for any type)
      * \return Pointer to child object if exists, otherwise NULL
      */
     xsSerializable* GetLastChild(wxClassInfo *type);
@@ -247,7 +247,7 @@ public:
     xsSerializable* GetSibbling();
     /*!
      * \brief Get next serializable sibbling object of given type.
-	 * \param type Child object type (can be NULL for any type)
+     * \param type Child object type (can be NULL for any type)
      * \return Pointer to sibbling object if exists, otherwise NULL
      */
     xsSerializable* GetSibbling(wxClassInfo *type);
@@ -257,13 +257,13 @@ public:
      * \param recursive If TRUE then the child shape will be searched recursivelly
      * \return Pointer to first child with given ID if pressent, otherwise NULL
      */
-	xsSerializable* GetChild(long id, bool recursive = xsNORECURSIVE);
+    xsSerializable* GetChild(long id, bool recursive = xsNORECURSIVE);
 
     /*!
      * \brief Function finds out whether this serializable item has some children.
      * \return TRUE if the parent shape has children, otherwise FALSE
      */
-	inline bool HasChildren() const { return !m_lstChildItems.IsEmpty(); }
+    inline bool HasChildren() const { return !m_lstChildItems.IsEmpty(); }
     /*!
      * \brief Get list of children (serializable objects) of this object.
      * \return Reference to a list with child serializable objects (can be empty)
@@ -279,14 +279,14 @@ public:
      * \brief Get all children of given type recursively (i.e. children of children of .... ).
      * \param type Get only children of given type (if NULL then all children are returned)
      * \param list Reference to a list where all found child objects will be appended
-	 * \param mode Search mode. User can choose Depth-First-Search or Breadth-First-Search algorithm (BFS is default)
-	 * \sa SEARCHMODE
+     * \param mode Search mode. User can choose Depth-First-Search or Breadth-First-Search algorithm (BFS is default)
+     * \sa SEARCHMODE
      */
     void GetChildrenRecursively(wxClassInfo *type, SerializableList& list, SEARCHMODE mode = searchBFS);
     /*!
      * \brief Get pointer to list node containing first serializable child object.
      */
-	inline SerializableList::compatibility_iterator GetFirstChildNode() const { return m_lstChildItems.GetFirst(); }
+    inline SerializableList::compatibility_iterator GetFirstChildNode() const { return m_lstChildItems.GetFirst(); }
     /*!
      * \brief Get pointer to list node containing last serializable child object.
      */
@@ -310,21 +310,21 @@ public:
     xsSerializable* AddChild(xsSerializable* child);
     /*!
      * \brief Insert serializable child object to this object at given position.
-	 * \param pos Zero-based position
+     * \param pos Zero-based position
      * \param child Pointer to added child object (must NOT be NULL)
      * \return Pointer to to the added child object
      */
     xsSerializable* InsertChild(size_t pos, xsSerializable* child);
-	/*!
-	 * \brief Remove serializable child item from this object (the child item will be destroyed).
-	 * \param child Pointer to child item which should be removed
-	 */
-	void RemoveChild(xsSerializable *child);
-	/*!
-	 * \brief Remove all child items (all items will be destroyed).
-	 */
-	void RemoveChildren();
-	
+    /*!
+     * \brief Remove serializable child item from this object (the child item will be destroyed).
+     * \param child Pointer to child item which should be removed
+     */
+    void RemoveChild(xsSerializable *child);
+    /*!
+     * \brief Remove all child items (all items will be destroyed).
+     */
+    void RemoveChildren();
+
     /*!
      * \brief Assign this object as a child to given parent object.
      * \param parent Pointer to new parent object (must NOT be NULL)
@@ -364,12 +364,12 @@ public:
      * \sa xsProperty
      */
     void AddProperty(xsProperty* property);
-	/**
-	 * \brief Remove given property from the property list.
-	 * \param property Pointer to existing property.
-	 * \sa xsProperty, GetProperty()
-	 */
-	void RemoveProperty(xsProperty *property);
+    /**
+     * \brief Remove given property from the property list.
+     * \param property Pointer to existing property.
+     * \sa xsProperty, GetProperty()
+     */
+    void RemoveProperty(xsProperty *property);
     /*!
      * \brief Get serialized property of given name.
      * \return Pointer to the property object if exists, otherwise NULL
@@ -380,7 +380,7 @@ public:
      * \brief Get reference to properties list.
      * \sa xsProperty
      */
-	inline PropertyList& GetProperties() { return m_lstProperties; }
+    inline PropertyList& GetProperties() { return m_lstProperties; }
 
     /*!
      * \brief Enable/disable serialization of given property.
@@ -406,20 +406,20 @@ public:
      * \brief Enable/disable object cloning.
      * \param enab TRUE if the object can be cloned, otherwise FALSE
      */
-	inline void EnableCloning(bool enab) { m_fClone = enab; }
+    inline void EnableCloning(bool enab) { m_fClone = enab; }
     /*!
      * \brief Returns information whether the object can be cloned or not.
      */
-	inline bool IsCloningEnabled() const { return m_fClone; }
-	
-	// overloaded operators
+    inline bool IsCloningEnabled() const { return m_fClone; }
+
+    // overloaded operators
     /*!
      * \brief Add serializable child object to this object.
      * \param child Pointer to added child object (should NOT be NULL)
-	 * \return Pointer to added object
+     * \return Pointer to added object
      */
-	 xsSerializable* operator<<(xsSerializable *child);
-	
+     xsSerializable* operator<<(xsSerializable *child);
+
 protected:
     // protected data members
     /*! \brief List of serialized properties */
@@ -429,20 +429,20 @@ protected:
 
     /*! \brief Pointer to parent serializable object */
     xsSerializable *m_pParentItem;
-	/*! \brief Pointer to parent data manager */
-	wxXmlSerializer *m_pParentManager;
+    /*! \brief Pointer to parent data manager */
+    wxXmlSerializer *m_pParentManager;
 
     /*! \brief Object serialization flag */
     bool m_fSerialize;
-	/*! \brief Object cloning flag */
-	bool m_fClone;
+    /*! \brief Object cloning flag */
+    bool m_fClone;
 
-	/**
-	 * \brief Initialize new child object.
-	 * \param child Pointer to new child object
-	 */
-	void InitChild(xsSerializable *child);
-	
+    /**
+     * \brief Initialize new child object.
+     * \param child Pointer to new child object
+     */
+    void InitChild(xsSerializable *child);
+
     // protected virtual functions
     /*!
      * \brief Serialize stored properties to the given XML node. The serialization
@@ -505,7 +505,7 @@ protected:
      * \endcode
      */
     virtual void Deserialize(wxXmlNode* node);
-	
+
 private:
     /*! \brief Object ID */
     long m_nId;
@@ -575,16 +575,16 @@ public:
     inline const wxString& GetSerializerRootName() const { return m_sRootName; }
     /*! \brief Get file version. */
     inline const wxString& GetSerializerVersion() const { return m_sVersion; }
-	/*! \brief Get the library version. */
-	inline const wxString& GetLibraryVersion() const { return m_sLibraryVersion; }
+    /*! \brief Get the library version. */
+    inline const wxString& GetLibraryVersion() const { return m_sLibraryVersion; }
 
     // public functions
-	/**
-	 * \brief Get last occured error state/message.
-	 * \return Error message
-	 */
-	const wxString& GetErrMessage() const { return m_sErr; }
-	
+    /**
+     * \brief Get last occured error state/message.
+     * \return Error message
+     */
+    const wxString& GetErrMessage() const { return m_sErr; }
+
     /*! \brief Get pointer to root serializable object. */
     inline xsSerializable* GetRootItem() const { return m_pRoot; }
     /*!
@@ -597,8 +597,8 @@ public:
      * \brief Get items of given class type.
      * \param type Class type
      * \param list List with matching serializable objects
-	 * \param mode Search mode
-	 * \sa xsSerializable::SEARCHMODE
+     * \param mode Search mode
+     * \sa xsSerializable::SEARCHMODE
      */
     void GetItems(wxClassInfo* type, SerializableList& list, xsSerializable::SEARCHMODE mode = xsSerializable::searchBFS);
     /*!
@@ -611,7 +611,7 @@ public:
      * \brief Check whether any object of given type is included in the serializer.
      * \param type Pointer to class info
      * \return True if at least one object of given type is included in the serializer, otherwise False
-     */	
+     */
     bool Contains(wxClassInfo *type);
 
     /*!
@@ -622,26 +622,26 @@ public:
 
     /*!
      * \brief Replace current stored data with a content stored in given source manager.
-	 *
-	 * For proper functionality all stored data items derived from the xsSerializable class
-	 * MUST implement virtual function xsSerializable::Clone() as well as the copy
-	 * constructor. For more details see the xsSerializable::Clone() function documentation.
+     *
+     * For proper functionality all stored data items derived from the xsSerializable class
+     * MUST implement virtual function xsSerializable::Clone() as well as the copy
+     * constructor. For more details see the xsSerializable::Clone() function documentation.
      * \param src Reference to the source data manager
      */
-	void CopyItems(const wxXmlSerializer& src);
+    void CopyItems(const wxXmlSerializer& src);
     /*!
      * \brief Add serializable object to the serializer.
      * \param parentId ID of parent serializable object
      * \param item Added serializable object
-	 * \return Pointer to added item
+     * \return Pointer to added item
      */
      xsSerializable* AddItem(long parentId, xsSerializable* item);
     /*!
      * \brief Add serializable object to the serializer.
      * \param parent Pointer to parent serializable object (if NULL then the object
-	 * is added directly to the root item)
+     * is added directly to the root item)
      * \param item Added serializable object
-	 * \return Pointer to added item
+     * \return Pointer to added item
      */
      xsSerializable* AddItem(xsSerializable* parent, xsSerializable* item);
     /*!
@@ -660,36 +660,36 @@ public:
      * \brief Enable/disable object cloning.
      * \param enab TRUE if the object can be cloned, otherwise FALSE
      */
-	inline void EnableCloning(bool enab) { m_fClone = enab; }
+    inline void EnableCloning(bool enab) { m_fClone = enab; }
     /*!
      * \brief Returns information whether the object can be cloned or not.
      */
-	inline bool IsCloned() const { return m_fClone; }
+    inline bool IsCloned() const { return m_fClone; }
 
     /*!
      * \brief Serialize stored objects to given file.
      * \param file Full path to output file
      * \param withroot If TRUE then the root item's properties are serialized as well
-	 * \return TRUE on success, otherwise FALSE
+     * \return TRUE on success, otherwise FALSE
      */
     virtual bool SerializeToXml(const wxString& file, bool withroot = false);
     /*!
      * \brief Serialize stored objects to given stream.
      * \param outstream Output stream
      * \param withroot If TRUE then the root item's properties are serialized as well
-	 * \return TRUE on success, otherwise FALSE
+     * \return TRUE on success, otherwise FALSE
      */
     virtual bool SerializeToXml(wxOutputStream& outstream, bool withroot = false);
     /*!
      * \brief Deserialize objects from given file.
      * \param file Full path to input file
-	 * \return TRUE on success, otherwise FALSE
+     * \return TRUE on success, otherwise FALSE
      */
     virtual bool DeserializeFromXml(const wxString& file);
     /*!
      * \brief Deserialize objects from given stream.
      * \param instream Input stream
-	 * \return TRUE on success, otherwise FALSE
+     * \return TRUE on success, otherwise FALSE
      */
     virtual bool DeserializeFromXml(wxInputStream& instream);
 
@@ -709,70 +709,70 @@ public:
      */
     virtual void DeserializeObjects(xsSerializable* parent, wxXmlNode* node);
 
-	/*!
-	 * \brief Get the lowest free object ID
-	 */
-	long GetNewId();
-	/*!
-	 * \brief Find out whether given object ID is already used.
-	 * \param id Object ID
-	 * \return TRUE if the object ID is used, otherwise FALSE
-	 */
-	bool IsIdUsed(long id);
-	/*!
-	 * \brief Get number of occurences of given ID.
-	 * \param id Object ID
-	 * \return Number of ID's occurences
-	 */
-	int GetIDCount(long id);
-	/*!
-	 * \brief Get map of used IDs.
-	 * \return Reference to map where all used IDs are stored
-	 */
-	IDMap& GetUsedIDs() { return m_mapUsedIDs; }
+    /*!
+     * \brief Get the lowest free object ID
+     */
+    long GetNewId();
+    /*!
+     * \brief Find out whether given object ID is already used.
+     * \param id Object ID
+     * \return TRUE if the object ID is used, otherwise FALSE
+     */
+    bool IsIdUsed(long id);
+    /*!
+     * \brief Get number of occurences of given ID.
+     * \param id Object ID
+     * \return Number of ID's occurences
+     */
+    int GetIDCount(long id);
+    /*!
+     * \brief Get map of used IDs.
+     * \return Reference to map where all used IDs are stored
+     */
+    IDMap& GetUsedIDs() { return m_mapUsedIDs; }
 
-	/*! \brief Initialize all standard property IO handlers */
-	void InitializeAllIOHandlers();
-	/*! \brief Clear all initialized property IO handlers */
-	void ClearIOHandlers();
-	/*!
-	 * \brief Get property I/O handler for given datatype.
-	 * \param datatype String ID of data type
-	 * \return Pointer to I/O handler suitable for given data type if exists, otherwise NULL
-	 */
-	inline static xsPropertyIO* GetPropertyIOHandler(const wxString& datatype) { return m_mapPropertyIOHandlers[datatype]; }
+    /*! \brief Initialize all standard property IO handlers */
+    void InitializeAllIOHandlers();
+    /*! \brief Clear all initialized property IO handlers */
+    void ClearIOHandlers();
+    /*!
+     * \brief Get property I/O handler for given datatype.
+     * \param datatype String ID of data type
+     * \return Pointer to I/O handler suitable for given data type if exists, otherwise NULL
+     */
+    inline static xsPropertyIO* GetPropertyIOHandler(const wxString& datatype) { return m_mapPropertyIOHandlers[datatype]; }
 
     /*! \brief Map of property IO handlers */
     static PropertyIOMap m_mapPropertyIOHandlers;
-	
-	// overloaded operators
+
+    // overloaded operators
     /*!
      * \brief Add serializable object to the serializer's root node.
      * \param obj Pointer to serializable object
-	 * \return Reference to the serializer
+     * \return Reference to the serializer
      */
-	wxXmlSerializer& operator<< (xsSerializable *obj) { 
-		if( obj ) this->AddItem( (xsSerializable*)NULL, obj);
-		return *this;
-	}
-	/*!
+    wxXmlSerializer& operator<< (xsSerializable *obj) {
+        if( obj ) this->AddItem( (xsSerializable*)NULL, obj);
+        return *this;
+    }
+    /*!
      * \brief Add serializable objects stored in source serializable list to the serializer's root node.
      * \param src Reference to source serializable list
-	 * \return Reference to the serializer
+     * \return Reference to the serializer
      */
-	wxXmlSerializer& operator<< (SerializableList &src) { 
-		for( SerializableList::iterator it = src.begin(); it != src.end(); ++it ) 
-			this->AddItem( (xsSerializable*)NULL, *it); 
-		return *this;
-	}
-	/*!
+    wxXmlSerializer& operator<< (SerializableList &src) {
+        for( SerializableList::iterator it = src.begin(); it != src.end(); ++it )
+            this->AddItem( (xsSerializable*)NULL, *it);
+        return *this;
+    }
+    /*!
      * \brief Get all items managed by the serializer (note that the items will be stored in given
-	 * target list in a row regardless their original hierarchy).
+     * target list in a row regardless their original hierarchy).
      * \param dest Reference to target serializable list
      */
-	void operator>> (SerializableList &dest) {
-		this->GetItems(CLASSINFO(xsSerializable), dest);
-	}
+    void operator>> (SerializableList &dest) {
+        this->GetItems(CLASSINFO(xsSerializable), dest);
+    }
 
 protected:
     // protected data members
@@ -782,28 +782,28 @@ protected:
     wxString m_sRootName;
     /*! \brief File version */
     wxString m_sVersion;
-	/*! \brief Error message */
-	wxString m_sErr;
+    /*! \brief Error message */
+    wxString m_sErr;
 
     /*! \brief Pointer to root object */
     xsSerializable* m_pRoot;
 
-	/*! \brief Object cloning flag */
-	bool m_fClone;
-	
-	/*! \brief Map storing information which ID is already used */
-	IDMap m_mapUsedIDs;
+    /*! \brief Object cloning flag */
+    bool m_fClone;
+
+    /*! \brief Map storing information which ID is already used */
+    IDMap m_mapUsedIDs;
 
 private:
     // private data members
     //int m_nCounter;
-	static int m_nRefCounter;
-	static wxString m_sLibraryVersion;
+    static int m_nRefCounter;
+    static wxString m_sLibraryVersion;
 
     // private functions
     /*! \brief Auxiliary function */
     xsSerializable* _GetItem(long id, xsSerializable* parent);
-	/*! \brief Auxiliary function */
+    /*! \brief Auxiliary function */
     bool _Contains(xsSerializable *object, xsSerializable* parent) const;
 };
 
@@ -819,7 +819,7 @@ private:
  */
 class WXDLLIMPEXP_XS xsProperty : public wxObject
 {
-public:	
+public:
     DECLARE_DYNAMIC_CLASS(xsProperty);
 
     /*! \brief Default constructor */
@@ -881,7 +881,7 @@ public:
     /*! \brief Constructor for wxChar property. */
     xsProperty(wxChar* src, const wxString& field) : m_pSourceVariable((void*)src), m_sFieldName(field), m_sDataType(wxT("char")), m_sDefaultValueStr(wxT("")), m_fSerialize(true) {;}
     /*! \brief Constructor for wxChar property with defined default value. */
-	xsProperty(wxChar* src, const wxString& field, wxChar def) : m_pSourceVariable((void*)src), m_sFieldName(field), m_sDataType(wxT("char")), m_sDefaultValueStr(xsCharPropIO::ToString(def)), m_fSerialize(true) {;}
+    xsProperty(wxChar* src, const wxString& field, wxChar def) : m_pSourceVariable((void*)src), m_sFieldName(field), m_sDataType(wxT("char")), m_sDefaultValueStr(xsCharPropIO::ToString(def)), m_fSerialize(true) {;}
 
     /*! \brief Constructor for wxPoint property. */
     xsProperty(wxPoint* src, const wxString& field) : m_pSourceVariable((void*)src), m_sFieldName(field), m_sDataType(wxT("point")), m_sDefaultValueStr(wxT("")), m_fSerialize(true) {;}
@@ -951,184 +951,184 @@ public:
     /*! \brief Constructor for dynamic serializable property. */
     xsProperty(xsSerializable** src, const wxString& field) : m_pSourceVariable((void**)src), m_sFieldName(field), m_sDataType(wxT("serializabledynamic")), m_sDefaultValueStr(wxT("")), m_fSerialize(true) {;}
 
-	/*! \brief Copy constructor. */
-	xsProperty(const xsProperty& obj) : wxObject( obj ), m_pSourceVariable(obj.m_pSourceVariable), m_sFieldName(obj.m_sFieldName), m_sDataType(obj.m_sDataType), m_sDefaultValueStr(obj.m_sDefaultValueStr), m_fSerialize(obj.m_fSerialize) {;}
+    /*! \brief Copy constructor. */
+    xsProperty(const xsProperty& obj) : wxObject( obj ), m_pSourceVariable(obj.m_pSourceVariable), m_sFieldName(obj.m_sFieldName), m_sDataType(obj.m_sDataType), m_sDefaultValueStr(obj.m_sDefaultValueStr), m_fSerialize(obj.m_fSerialize) {;}
 
     ~xsProperty(){;}
-	
-	// public functions
-	/**
-	 * \brief Convert managed data to wxVariant (supported data types: int, long, bool, double, float,
-	 * wxChar, wxString and wxArrayString).
-	 * \return wxVariant object containing the data
-	 */
-	wxVariant ToVariant()
-	{
-		if( m_sDataType == wxT("int") )	return wxVariant( *(int*) m_pSourceVariable );
-		else if( m_sDataType == wxT("long") ) return wxVariant( *(long*) m_pSourceVariable );
-		else if( m_sDataType == wxT("bool") ) return wxVariant( *(bool*) m_pSourceVariable );
-		else if( m_sDataType == wxT("double") ) return wxVariant( *(double*) m_pSourceVariable );
-		else if( m_sDataType == wxT("float") ) return wxVariant( *(float*) m_pSourceVariable );
-		else if( m_sDataType == wxT("char") ) return wxVariant( *(wxChar*) m_pSourceVariable );
-		else if( m_sDataType == wxT("string") ) return wxVariant( *(wxString*) m_pSourceVariable );
-		else if( m_sDataType == wxT("arraystring") ) return wxVariant( *(wxArrayString*) m_pSourceVariable );
-		else return wxVariant();
-	}
-	
-	/**
-	 * \brief Get textual representation of the property's value.
-	 * \return Textual representation of current value
-	 */
-	wxString ToString()
-	{
-		xsPropertyIO *pIO = wxXmlSerializer::m_mapPropertyIOHandlers[m_sDataType];
-		if(pIO) return pIO->GetValueStr(this);
-		else
-			return wxEmptyString;
-	}
-	
-	/**
-	 * \brief Set value defined by its textual representation.
-	 * \param val Textual representation of given value
-	 */
-	void FromString(const wxString& val)
-	{
-		xsPropertyIO *pIO = wxXmlSerializer::m_mapPropertyIOHandlers[m_sDataType];
-		if(pIO) pIO->SetValueStr(this, val);
-	}
-	
-	/**
-	 * \brief Get reference to managed data member as BOOL.
-	 * \return Reference to managed data member
-	 */
-	inline bool& AsBool() { wxASSERT(m_sDataType == wxT("bool")); return *(bool*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as INT.
-	 * \return Reference to managed data member
-	 */
-	inline int& AsInt() { wxASSERT(m_sDataType == wxT("int")); return *(int*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as LONG.
-	 * \return Reference to managed data member
-	 */
-	inline long& AsLong() { wxASSERT(m_sDataType == wxT("long")); return *(long*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as FLOAT.
-	 * \return Reference to managed data member
-	 */
-	inline float& AsFloat() { wxASSERT(m_sDataType == wxT("float")); return *(float*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as DOUBLE.
-	 * \return Reference to managed data member
-	 */
-	inline double& AsDouble() { wxASSERT(m_sDataType == wxT("double")); return *(double*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxChar.
-	 * \return Reference to managed data member
-	 */
-	inline wxChar& AsChar() { wxASSERT(m_sDataType == wxT("char")); return *(wxChar*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxString.
-	 * \return Reference to managed data member
-	 */
-	inline wxString& AsString() { wxASSERT(m_sDataType == wxT("string")); return *(wxString*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxSize.
-	 * \return Reference to managed data member
-	 */
-	inline wxSize& AsSize() { wxASSERT(m_sDataType == wxT("size")); return *(wxSize*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxPoint.
-	 * \return Reference to managed data member
-	 */
-	inline wxPoint& AsPoint() { wxASSERT(m_sDataType == wxT("point")); return *(wxPoint*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxRealPoint.
-	 * \return Reference to managed data member
-	 */
-	inline wxRealPoint& AsRealPoint() { wxASSERT(m_sDataType == wxT("realpoint")); return *(wxRealPoint*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxBrush.
-	 * \return Reference to managed data member
-	 */
-	inline wxBrush& AsBrush() { wxASSERT(m_sDataType == wxT("brush")); return *(wxBrush*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxPen.
-	 * \return Reference to managed data member
-	 */
-	inline wxPen& AsPen() { wxASSERT(m_sDataType == wxT("pen")); return *(wxPen*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxFont.
-	 * \return Reference to managed data member
-	 */
-	inline wxFont& AsFont() { wxASSERT(m_sDataType == wxT("font")); return *(wxFont*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as wxColour.
-	 * \return Reference to managed data member
-	 */
-	inline wxColour& AsColour() { wxASSERT(m_sDataType == wxT("colour")); return *(wxColour*)m_pSourceVariable; }
-	
-	/**
-	 * \brief Get reference to managed data member as wxArrayString.
-	 * \return Reference to managed data member
-	 */
-	inline wxArrayString& AsStringArray() { wxASSERT(m_sDataType == wxT("arraystring")); return *(wxArrayString*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as CharArray.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::CharArray& AsCharArray() { wxASSERT(m_sDataType == wxT("arraychar")); return *(wxXS::CharArray*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as IntArray.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::IntArray& AsIntArray() { wxASSERT(m_sDataType == wxT("arrayint")); return *(wxXS::IntArray*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as LongArray.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::LongArray& AsLongArray() { wxASSERT(m_sDataType == wxT("arraylong")); return *(wxXS::LongArray*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as DoubleArray.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::DoubleArray& AsDoubleArray() { wxASSERT(m_sDataType == wxT("arraydouble")); return *(wxXS::DoubleArray*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as RealPointArray.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::RealPointArray& AsRealPointArray() { wxASSERT(m_sDataType == wxT("arrayrealpoint")); return *(wxXS::RealPointArray*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as RealPointList.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::RealPointList& AsRealPointList() { wxASSERT(m_sDataType == wxT("listrealpoint")); return *(wxXS::RealPointList*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as SerializableList.
-	 * \return Reference to managed data member
-	 */
-	inline SerializableList& AsSerializableList() { wxASSERT(m_sDataType == wxT("listserializable")); return *(SerializableList*)m_pSourceVariable; }
 
-	/**
-	 * \brief Get reference to managed data member as StringMap.
-	 * \return Reference to managed data member
-	 */
-	inline wxXS::StringMap& AsStringMap() { wxASSERT(m_sDataType == wxT("mapstring")); return *(wxXS::StringMap*)m_pSourceVariable; }
-	
-	/**
-	 * \brief Get reference to managed data member as serializable static object.
-	 * \return Reference to managed data member
-	 */
-	inline xsSerializable& AsSerializableStatic() { wxASSERT(m_sDataType == wxT("serializablestatic")); return *(xsSerializable*)m_pSourceVariable; }
-	/**
-	 * \brief Get reference to managed data member as serializable dynamic object.
-	 * \return Reference to managed data member
-	 */
-	inline xsSerializable& AsSerializableDynamic() { wxASSERT(m_sDataType == wxT("serializabledynamic")); return **(xsSerializable**)m_pSourceVariable; }
-	
-	
-	// public data members
-	/*! \brief General (void) pointer to serialized object encapsulated by the property */
+    // public functions
+    /**
+     * \brief Convert managed data to wxVariant (supported data types: int, long, bool, double, float,
+     * wxChar, wxString and wxArrayString).
+     * \return wxVariant object containing the data
+     */
+    wxVariant ToVariant()
+    {
+        if( m_sDataType == wxT("int") )	return wxVariant( *(int*) m_pSourceVariable );
+        else if( m_sDataType == wxT("long") ) return wxVariant( *(long*) m_pSourceVariable );
+        else if( m_sDataType == wxT("bool") ) return wxVariant( *(bool*) m_pSourceVariable );
+        else if( m_sDataType == wxT("double") ) return wxVariant( *(double*) m_pSourceVariable );
+        else if( m_sDataType == wxT("float") ) return wxVariant( *(float*) m_pSourceVariable );
+        else if( m_sDataType == wxT("char") ) return wxVariant( *(wxChar*) m_pSourceVariable );
+        else if( m_sDataType == wxT("string") ) return wxVariant( *(wxString*) m_pSourceVariable );
+        else if( m_sDataType == wxT("arraystring") ) return wxVariant( *(wxArrayString*) m_pSourceVariable );
+        else return wxVariant();
+    }
+
+    /**
+     * \brief Get textual representation of the property's value.
+     * \return Textual representation of current value
+     */
+    wxString ToString()
+    {
+        xsPropertyIO *pIO = wxXmlSerializer::m_mapPropertyIOHandlers[m_sDataType];
+        if(pIO) return pIO->GetValueStr(this);
+        else
+            return wxEmptyString;
+    }
+
+    /**
+     * \brief Set value defined by its textual representation.
+     * \param val Textual representation of given value
+     */
+    void FromString(const wxString& val)
+    {
+        xsPropertyIO *pIO = wxXmlSerializer::m_mapPropertyIOHandlers[m_sDataType];
+        if(pIO) pIO->SetValueStr(this, val);
+    }
+
+    /**
+     * \brief Get reference to managed data member as BOOL.
+     * \return Reference to managed data member
+     */
+    inline bool& AsBool() { wxASSERT(m_sDataType == wxT("bool")); return *(bool*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as INT.
+     * \return Reference to managed data member
+     */
+    inline int& AsInt() { wxASSERT(m_sDataType == wxT("int")); return *(int*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as LONG.
+     * \return Reference to managed data member
+     */
+    inline long& AsLong() { wxASSERT(m_sDataType == wxT("long")); return *(long*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as FLOAT.
+     * \return Reference to managed data member
+     */
+    inline float& AsFloat() { wxASSERT(m_sDataType == wxT("float")); return *(float*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as DOUBLE.
+     * \return Reference to managed data member
+     */
+    inline double& AsDouble() { wxASSERT(m_sDataType == wxT("double")); return *(double*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxChar.
+     * \return Reference to managed data member
+     */
+    inline wxChar& AsChar() { wxASSERT(m_sDataType == wxT("char")); return *(wxChar*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxString.
+     * \return Reference to managed data member
+     */
+    inline wxString& AsString() { wxASSERT(m_sDataType == wxT("string")); return *(wxString*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxSize.
+     * \return Reference to managed data member
+     */
+    inline wxSize& AsSize() { wxASSERT(m_sDataType == wxT("size")); return *(wxSize*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxPoint.
+     * \return Reference to managed data member
+     */
+    inline wxPoint& AsPoint() { wxASSERT(m_sDataType == wxT("point")); return *(wxPoint*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxRealPoint.
+     * \return Reference to managed data member
+     */
+    inline wxRealPoint& AsRealPoint() { wxASSERT(m_sDataType == wxT("realpoint")); return *(wxRealPoint*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxBrush.
+     * \return Reference to managed data member
+     */
+    inline wxBrush& AsBrush() { wxASSERT(m_sDataType == wxT("brush")); return *(wxBrush*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxPen.
+     * \return Reference to managed data member
+     */
+    inline wxPen& AsPen() { wxASSERT(m_sDataType == wxT("pen")); return *(wxPen*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxFont.
+     * \return Reference to managed data member
+     */
+    inline wxFont& AsFont() { wxASSERT(m_sDataType == wxT("font")); return *(wxFont*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as wxColour.
+     * \return Reference to managed data member
+     */
+    inline wxColour& AsColour() { wxASSERT(m_sDataType == wxT("colour")); return *(wxColour*)m_pSourceVariable; }
+
+    /**
+     * \brief Get reference to managed data member as wxArrayString.
+     * \return Reference to managed data member
+     */
+    inline wxArrayString& AsStringArray() { wxASSERT(m_sDataType == wxT("arraystring")); return *(wxArrayString*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as CharArray.
+     * \return Reference to managed data member
+     */
+    inline wxXS::CharArray& AsCharArray() { wxASSERT(m_sDataType == wxT("arraychar")); return *(wxXS::CharArray*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as IntArray.
+     * \return Reference to managed data member
+     */
+    inline wxXS::IntArray& AsIntArray() { wxASSERT(m_sDataType == wxT("arrayint")); return *(wxXS::IntArray*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as LongArray.
+     * \return Reference to managed data member
+     */
+    inline wxXS::LongArray& AsLongArray() { wxASSERT(m_sDataType == wxT("arraylong")); return *(wxXS::LongArray*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as DoubleArray.
+     * \return Reference to managed data member
+     */
+    inline wxXS::DoubleArray& AsDoubleArray() { wxASSERT(m_sDataType == wxT("arraydouble")); return *(wxXS::DoubleArray*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as RealPointArray.
+     * \return Reference to managed data member
+     */
+    inline wxXS::RealPointArray& AsRealPointArray() { wxASSERT(m_sDataType == wxT("arrayrealpoint")); return *(wxXS::RealPointArray*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as RealPointList.
+     * \return Reference to managed data member
+     */
+    inline wxXS::RealPointList& AsRealPointList() { wxASSERT(m_sDataType == wxT("listrealpoint")); return *(wxXS::RealPointList*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as SerializableList.
+     * \return Reference to managed data member
+     */
+    inline SerializableList& AsSerializableList() { wxASSERT(m_sDataType == wxT("listserializable")); return *(SerializableList*)m_pSourceVariable; }
+
+    /**
+     * \brief Get reference to managed data member as StringMap.
+     * \return Reference to managed data member
+     */
+    inline wxXS::StringMap& AsStringMap() { wxASSERT(m_sDataType == wxT("mapstring")); return *(wxXS::StringMap*)m_pSourceVariable; }
+
+    /**
+     * \brief Get reference to managed data member as serializable static object.
+     * \return Reference to managed data member
+     */
+    inline xsSerializable& AsSerializableStatic() { wxASSERT(m_sDataType == wxT("serializablestatic")); return *(xsSerializable*)m_pSourceVariable; }
+    /**
+     * \brief Get reference to managed data member as serializable dynamic object.
+     * \return Reference to managed data member
+     */
+    inline xsSerializable& AsSerializableDynamic() { wxASSERT(m_sDataType == wxT("serializabledynamic")); return **(xsSerializable**)m_pSourceVariable; }
+
+
+    // public data members
+    /*! \brief General (void) pointer to serialized object encapsulated by the property */
     void* m_pSourceVariable;
     /*! \brief Field (property) name */
     wxString m_sFieldName;

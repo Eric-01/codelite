@@ -55,21 +55,21 @@
 ///////////////////////////////////////////////////////////////////////////////
 class EditorOptionsGeneralIndetationPanelBase : public wxPanel 
 {
-	private:
-	
-	protected:
-		wxCheckBox* m_checkBoxDisableSmartIdent;
-		wxCheckBox* m_indentsUsesTabs;
-		wxStaticText* m_staticText1;
-		wxTextCtrl* m_indentWidth;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_tabWidth;
-	
-	public:
-		
-		EditorOptionsGeneralIndetationPanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL ); 
-		~EditorOptionsGeneralIndetationPanelBase();
-	
+    private:
+    
+    protected:
+        wxCheckBox* m_checkBoxDisableSmartIdent;
+        wxCheckBox* m_indentsUsesTabs;
+        wxStaticText* m_staticText1;
+        wxTextCtrl* m_indentWidth;
+        wxStaticText* m_staticText2;
+        wxTextCtrl* m_tabWidth;
+    
+    public:
+        
+        EditorOptionsGeneralIndetationPanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL ); 
+        ~EditorOptionsGeneralIndetationPanelBase();
+    
 };
 
 #endif //__EDITOROPTIONSGENERALINDETATIONPANELBASE_H__

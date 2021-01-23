@@ -45,7 +45,7 @@ public:
     virtual JSONItem ToJSON() const;
     ProjectTweaks();
     virtual ~ ProjectTweaks();
-    
+
     void ResetColours();
     void SetBitmapFilename(const wxString& bitmapFilename) {
         this->m_bitmapFilename = bitmapFilename;
@@ -83,12 +83,12 @@ class TweaksSettings : public clConfigItem
     wxColour             m_globalFgColour;
     bool                 m_enableTweaks;
     size_t               m_flags;
-    
+
 public:
     enum {
         kDontPromptForProjectReload = 0x00000001
     };
-    
+
 public:
     virtual void FromJSON(const JSONItem& json);
     virtual JSONItem ToJSON() const;
@@ -100,7 +100,7 @@ public:
     void Clear();
     void ResetColours();
     void Save();
-    
+
     bool HasFlag(int flag) const {
         return m_flags & kDontPromptForProjectReload;
     }
@@ -111,7 +111,7 @@ public:
             m_flags &= ~flag;
         }
     }
-    
+
     const ProjectTweaks::Map_t& GetProjects() const {
         return m_projects;
     }

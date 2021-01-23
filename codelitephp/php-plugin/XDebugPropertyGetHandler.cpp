@@ -18,7 +18,7 @@ XDebugPropertyGetHandler::~XDebugPropertyGetHandler()
 void XDebugPropertyGetHandler::Process(const wxXmlNode* response)
 {
     CHECK_PTR_RET(response);
-    
+
     // got the reply from XDebug parse and display the locals
     XVariable::List_t variables;
     wxXmlNode* child = response->GetChildren();
@@ -29,7 +29,7 @@ void XDebugPropertyGetHandler::Process(const wxXmlNode* response)
         }
         child = child->GetNext();
     }
-    
+
     XDebugEvent event(wxEVT_XDEBUG_PROPERTY_GET);
     event.SetVariables( variables );
     event.SetEvaluated( m_property );

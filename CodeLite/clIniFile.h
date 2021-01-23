@@ -38,13 +38,13 @@ public:
      * @brief create a INI file under iniFullPath.GetFullPath()
      */
     clIniFile(const wxFileName& iniFullPath);
-    
+
     /**
      * @brief create a INI file under ~/.codelite/config/fullname
      * note that the fullname should include the file suffix
      */
     clIniFile(const wxString& fullname);
-    
+
     virtual ~clIniFile();
 };
 

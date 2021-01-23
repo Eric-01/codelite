@@ -39,10 +39,10 @@ protected:
     Scanner_t m_scanner;
     wxFileName m_filename;
     size_t m_options;
-    
+
 public:
     typedef wxSharedPtr<CxxPreProcessorScanner> Ptr_t;
-    
+
 private:
     /**
      * @brief run the scanner until we reach the closing #endif
@@ -58,29 +58,29 @@ private:
      */
     bool ConsumeCurrentBranch();
     /**
-     * @brief read the next token that matches 'type' 
+     * @brief read the next token that matches 'type'
      * If we reached the end of the 'PreProcessor' state and there is no match
      * throw an exception
      */
     void ReadUntilMatch(int type, CxxLexerToken& token) ;
-    
+
     void GetRestOfPPLine(wxString &rest, bool collectNumberOnly = false);
     bool CheckIfDefined(const CxxPreProcessorToken::Map_t& table);
     bool CheckIf(const CxxPreProcessorToken::Map_t& table);
     bool IsTokenExists(const CxxPreProcessorToken::Map_t& table, const CxxLexerToken& token);
-    
+
 public:
     CxxPreProcessorScanner(const wxFileName &file, size_t options);
-    
+
     /**
      * @brief return true if we got a valid scanner
      */
     bool IsNull() const {
         return m_scanner == NULL;;
     }
-    
+
     virtual ~CxxPreProcessorScanner();
-    
+
     /**
      * @brief the main parsing function
      * @param ppTable

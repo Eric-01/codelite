@@ -21,7 +21,7 @@
 #include "mysql.h"
 
 WX_DECLARE_HASH_MAP(int, MysqlPreparedStatementParameter*, wxIntegerHash, wxIntegerEqual, IntToMysqlParameterMap);
-  
+
 class MysqlPreparedStatementResultSet : public DatabaseResultSet
 {
 public:
@@ -31,7 +31,7 @@ public:
 
   //dtor
   virtual ~MysqlPreparedStatementResultSet();
-  
+
   virtual bool Next();
   virtual void Close();
 
@@ -54,10 +54,10 @@ private:
   void ClearPreviousData();
   MYSQL_BIND* GetResultBinding(int nField);
 
-  MysqlInterface* m_pInterface; 
+  MysqlInterface* m_pInterface;
   MYSQL_STMT* m_pStatement;
   MYSQL_BIND* m_pResultBindings;
-  
+
   StringToIntMap m_FieldLookupMap;
 
   IntToMysqlParameterMap m_BindingWrappers;

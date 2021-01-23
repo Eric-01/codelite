@@ -30,7 +30,7 @@ bool CxxPreProcessorExpression::IsTrue()
 
     } else if(m_next && m_operand == kGreaterThanEqual) {
         return DoGetLong() >= m_next->DoGetLong();
-        
+
     } else if(m_next && m_operand == kLowerThan) {
         return DoGetLong() < m_next->DoGetLong();
 

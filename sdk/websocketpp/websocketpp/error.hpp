@@ -141,7 +141,7 @@ enum value {
 
     /// HTTP parse error
     http_parse_error,
-    
+
     /// Extension negotiation failed
     extension_neg_failed
 }; // enum value

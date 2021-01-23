@@ -44,7 +44,7 @@ class ContinuousBuild : public IPlugin
     wxArrayString m_files;
     bool m_buildInProgress;
     clTabTogglerHelper::Ptr_t m_tabHelper;
-    
+
 public:
     void DoBuild(const wxString& fileName);
 

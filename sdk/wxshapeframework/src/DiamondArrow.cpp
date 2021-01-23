@@ -46,13 +46,13 @@ wxSFDiamondArrow::~wxSFDiamondArrow(void)
 
 void wxSFDiamondArrow::Draw(const wxRealPoint &from, const wxRealPoint &to, wxDC& dc)
 {
-	wxPoint rarrow[4];
-	
-	TranslateArrow( rarrow, diamondArrow, 4, from, to );
+    wxPoint rarrow[4];
 
-	dc.SetPen(m_Pen);
+    TranslateArrow( rarrow, diamondArrow, 4, from, to );
+
+    dc.SetPen(m_Pen);
     dc.SetBrush(m_Fill);
     dc.DrawPolygon(4, rarrow);
     dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxNullPen);
 }

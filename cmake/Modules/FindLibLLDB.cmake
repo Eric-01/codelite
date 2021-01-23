@@ -3,9 +3,9 @@ if (UNIX)
         ## Locate the official packages
         find_library(LIBLLDB_T
                      NAMES liblldb.so liblldb.so.1
-                     HINTS  
-                     /usr/lib 
-                     /usr/local/lib 
+                     HINTS
+                     /usr/lib
+                     /usr/local/lib
                      /usr/lib/llvm-12/lib
                      /usr/lib/llvm-11/lib
                      /usr/lib/llvm-10/lib
@@ -37,7 +37,7 @@ if (UNIX)
                      ${CMAKE_INSTALL_LIBDIR})
 
         find_path(LIBLLDB_INCLUDE_T NAMES lldb/API/SBDebugger.h
-                  HINTS 
+                  HINTS
                   /usr/lib/llvm-12/include
                   /usr/lib/llvm-11/include
                   /usr/lib/llvm-10/include
@@ -51,26 +51,26 @@ if (UNIX)
                   /usr/lib/llvm-7.0/include
                   /usr/lib/llvm-6.0/include
                   /usr/lib/llvm-5.0/include
-                  /usr/lib/llvm-4.2/include 
-                  /usr/lib/llvm-4.1/include 
-                  /usr/lib/llvm-4.0/include 
-                  /usr/lib/llvm-3.9/include 
-                  /usr/lib/llvm-3.8/include 
-                  #/usr/lib/llvm-3.7/include 
-                  /usr/lib/llvm-3.6/include 
-                  /usr/lib/llvm-3.5/include 
-                  /usr/lib/llvm-3.4/include 
-                  /usr/lib/llvm-3.3/include 
-                  /usr/include/llvm-4.2 
-                  /usr/include/llvm-4.1 
-                  /usr/include/llvm-4.0 
-                  /usr/include/llvm-3.9 
-                  /usr/include/llvm-3.8 
-                  #/usr/include/llvm-3.7 
-                  /usr/include/llvm-3.6 
-                  /usr/include/llvm-3.5 
-                  /usr/include/llvm-3.4 
-                  /usr/include/llvm-3.3 
+                  /usr/lib/llvm-4.2/include
+                  /usr/lib/llvm-4.1/include
+                  /usr/lib/llvm-4.0/include
+                  /usr/lib/llvm-3.9/include
+                  /usr/lib/llvm-3.8/include
+                  #/usr/lib/llvm-3.7/include
+                  /usr/lib/llvm-3.6/include
+                  /usr/lib/llvm-3.5/include
+                  /usr/lib/llvm-3.4/include
+                  /usr/lib/llvm-3.3/include
+                  /usr/include/llvm-4.2
+                  /usr/include/llvm-4.1
+                  /usr/include/llvm-4.0
+                  /usr/include/llvm-3.9
+                  /usr/include/llvm-3.8
+                  #/usr/include/llvm-3.7
+                  /usr/include/llvm-3.6
+                  /usr/include/llvm-3.5
+                  /usr/include/llvm-3.4
+                  /usr/include/llvm-3.3
                   /usr/include/llvm
                   /usr/local/include
                   # For fedora

@@ -28,7 +28,7 @@ PHPUserWorkspace& PHPUserWorkspace::Load()
     JSON root(fn);
     JSONItem element = root.toElement();
     m_breakpoints.clear();
-    
+
     JSONItem bpArr = element.namedObject("m_breakpoints");
     int bpcount = bpArr.arraySize();
     for( int i=0; i<bpcount; ++i ) {
@@ -46,7 +46,7 @@ PHPUserWorkspace& PHPUserWorkspace::Save()
     JSONItem json = root.toElement();
     JSONItem bpArr = JSONItem::createArray("m_breakpoints");
     json.append( bpArr );
-    
+
     XDebugBreakpoint::List_t::const_iterator iter = m_breakpoints.begin();
     for( ; iter != m_breakpoints.end(); ++iter ) {
         bpArr.arrayAppend( iter->ToJSON() );

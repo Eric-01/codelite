@@ -4,150 +4,150 @@
 
 interface SessionHandlerInterface  {
 
-	/**
-	 * Initialize session
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.open.php
-	 * @param save_path string <p>
-	 *      The path where to store/retrieve the session.
-	 *     </p>
-	 * @param name string <p>
-	 *      The session name.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	abstract public function open ($save_path, $name) ;
+    /**
+     * Initialize session
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.open.php
+     * @param save_path string <p>
+     *      The path where to store/retrieve the session.
+     *     </p>
+     * @param name string <p>
+     *      The session name.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    abstract public function open ($save_path, $name) ;
 
-	/**
-	 * Close the session
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.close.php
-	 * @return bool &returns.session.storage.retval;
-	 */
-	abstract public function close () ;
+    /**
+     * Close the session
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.close.php
+     * @return bool &returns.session.storage.retval;
+     */
+    abstract public function close () ;
 
-	/**
-	 * Read session data
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.read.php
-	 * @param session_id string <p>
-	 *      The session id.
-	 *     </p>
-	 * @return string an encoded string of the read data. If nothing was read, it must return an empty string. Note this value is returned internally to PHP for processing.
-	 */
-	abstract public function read ($session_id) ;
+    /**
+     * Read session data
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.read.php
+     * @param session_id string <p>
+     *      The session id.
+     *     </p>
+     * @return string an encoded string of the read data. If nothing was read, it must return an empty string. Note this value is returned internally to PHP for processing.
+     */
+    abstract public function read ($session_id) ;
 
-	/**
-	 * Write session data
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.write.php
-	 * @param session_id string <p>
-	 *      The session id.
-	 *     </p>
-	 * @param session_data string <p>
-	 *      The encoded session data.  This data is the result of the PHP internally encoding the $_SESSION superglobal to a serialized
-	 *      string and passing it as this parameter.  Please note sessions use an alternative serialization method.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	abstract public function write ($session_id, $session_data) ;
+    /**
+     * Write session data
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.write.php
+     * @param session_id string <p>
+     *      The session id.
+     *     </p>
+     * @param session_data string <p>
+     *      The encoded session data.  This data is the result of the PHP internally encoding the $_SESSION superglobal to a serialized
+     *      string and passing it as this parameter.  Please note sessions use an alternative serialization method.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    abstract public function write ($session_id, $session_data) ;
 
-	/**
-	 * Destroy a session
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.destroy.php
-	 * @param session_id string <p>
-	 *       The session ID being destroyed.
-	 *      </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	abstract public function destroy ($session_id) ;
+    /**
+     * Destroy a session
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.destroy.php
+     * @param session_id string <p>
+     *       The session ID being destroyed.
+     *      </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    abstract public function destroy ($session_id) ;
 
-	/**
-	 * Cleanup old sessions
-	 * @link http://www.php.net/manual/en/sessionhandlerinterface.gc.php
-	 * @param maxlifetime string <p>
-	 *      Sessions that have not updated for the last maxlifetime seconds will be removed.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	abstract public function gc ($maxlifetime) ;
+    /**
+     * Cleanup old sessions
+     * @link http://www.php.net/manual/en/sessionhandlerinterface.gc.php
+     * @param maxlifetime string <p>
+     *      Sessions that have not updated for the last maxlifetime seconds will be removed.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    abstract public function gc ($maxlifetime) ;
 
 }
 
 interface SessionIdInterface  {
 
-	abstract public function create_sid () ;
+    abstract public function create_sid () ;
 
 }
 
 class SessionHandler implements SessionHandlerInterface, SessionIdInterface {
 
-	/**
-	 * Initialize session
-	 * @link http://www.php.net/manual/en/sessionhandler.open.php
-	 * @param save_path string <p>
-	 *      The path where to store/retrieve the session.
-	 *     </p>
-	 * @param session_id string <p>
-	 *      The session id.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	public function open ($save_path, $session_id) {}
+    /**
+     * Initialize session
+     * @link http://www.php.net/manual/en/sessionhandler.open.php
+     * @param save_path string <p>
+     *      The path where to store/retrieve the session.
+     *     </p>
+     * @param session_id string <p>
+     *      The session id.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    public function open ($save_path, $session_id) {}
 
-	/**
-	 * Close the session
-	 * @link http://www.php.net/manual/en/sessionhandler.close.php
-	 * @return bool &returns.session.storage.retval;
-	 */
-	public function close () {}
+    /**
+     * Close the session
+     * @link http://www.php.net/manual/en/sessionhandler.close.php
+     * @return bool &returns.session.storage.retval;
+     */
+    public function close () {}
 
-	/**
-	 * Read session data
-	 * @link http://www.php.net/manual/en/sessionhandler.read.php
-	 * @param session_id string <p>
-	 *      The session id to read data for.
-	 *     </p>
-	 * @return string an encoded string of the read data. If nothing was read, it must return an empty string. Note this value is returned internally to PHP for processing.
-	 */
-	public function read ($session_id) {}
+    /**
+     * Read session data
+     * @link http://www.php.net/manual/en/sessionhandler.read.php
+     * @param session_id string <p>
+     *      The session id to read data for.
+     *     </p>
+     * @return string an encoded string of the read data. If nothing was read, it must return an empty string. Note this value is returned internally to PHP for processing.
+     */
+    public function read ($session_id) {}
 
-	/**
-	 * Write session data
-	 * @link http://www.php.net/manual/en/sessionhandler.write.php
-	 * @param session_id string <p>
-	 *      The session id.
-	 *     </p>
-	 * @param session_data string <p>
-	 *      The encoded session data.  This data is the result of the PHP internally encoding the $_SESSION superglobal to a serialized
-	 *      string and passing it as this parameter.  Please note sessions use an alternative serialization method.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	public function write ($session_id, $session_data) {}
+    /**
+     * Write session data
+     * @link http://www.php.net/manual/en/sessionhandler.write.php
+     * @param session_id string <p>
+     *      The session id.
+     *     </p>
+     * @param session_data string <p>
+     *      The encoded session data.  This data is the result of the PHP internally encoding the $_SESSION superglobal to a serialized
+     *      string and passing it as this parameter.  Please note sessions use an alternative serialization method.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    public function write ($session_id, $session_data) {}
 
-	/**
-	 * Destroy a session
-	 * @link http://www.php.net/manual/en/sessionhandler.destroy.php
-	 * @param session_id string <p>
-	 *       The session ID being destroyed.
-	 *      </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	public function destroy ($session_id) {}
+    /**
+     * Destroy a session
+     * @link http://www.php.net/manual/en/sessionhandler.destroy.php
+     * @param session_id string <p>
+     *       The session ID being destroyed.
+     *      </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    public function destroy ($session_id) {}
 
-	/**
-	 * Cleanup old sessions
-	 * @link http://www.php.net/manual/en/sessionhandler.gc.php
-	 * @param maxlifetime int <p>
-	 *      Sessions that have not updated for the last maxlifetime seconds will be removed.
-	 *     </p>
-	 * @return bool &returns.session.storage.retval;
-	 */
-	public function gc ($maxlifetime) {}
+    /**
+     * Cleanup old sessions
+     * @link http://www.php.net/manual/en/sessionhandler.gc.php
+     * @param maxlifetime int <p>
+     *      Sessions that have not updated for the last maxlifetime seconds will be removed.
+     *     </p>
+     * @return bool &returns.session.storage.retval;
+     */
+    public function gc ($maxlifetime) {}
 
-	/**
-	 * Return a new session ID
-	 * @link http://www.php.net/manual/en/sessionhandler.create-sid.php
-	 * @return string A session ID valid for the default session handler.
-	 */
-	public function create_sid () {}
+    /**
+     * Return a new session ID
+     * @link http://www.php.net/manual/en/sessionhandler.create-sid.php
+     * @return string A session ID valid for the default session handler.
+     */
+    public function create_sid () {}
 
 }
 
@@ -155,7 +155,7 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface {
  * Get and/or set the current session name
  * @link http://www.php.net/manual/en/function.session-name.php
  * @param name string[optional] <p>
- *       The session name references the name of the session, which is 
+ *       The session name references the name of the session, which is
  *       used in cookies and URLs (e.g. PHPSESSID). It
  *       should contain only alphanumeric characters; it should be short and
  *       descriptive (i.e. for users with enabled cookie warnings).
@@ -163,12 +163,12 @@ class SessionHandler implements SessionHandlerInterface, SessionIdInterface {
  *       session is changed to its value.
  *      </p>
  *      <p>
- *       
+ *
  *        <p>
  *         The session name can't consist of digits only, at least one letter
  *         must be present. Otherwise a new session id is generated every time.
  *        </p>
- *       
+ *
  *      </p>
  * @return string the name of the current session.
  */
@@ -194,13 +194,13 @@ function session_module_name ($module = null) {}
  *       before session_start for that purpose.
  *      </p>
  *      <p>
- *       
+ *
  *        <p>
  *         On some operating systems, you may want to specify a path on a
  *         filesystem that handles lots of small files efficiently. For example,
  *         on Linux, reiserfs may provide better performance than ext2fs.
  *        </p>
- *       
+ *
  *      </p>
  * @return string the path of the current directory used for data storage.
  */
@@ -217,8 +217,8 @@ function session_save_path ($path = null) {}
  *        For example, the file session handler only allows characters in the
  *        range a-z A-Z 0-9 , (comma) and - (minus)!
  *       </p>
- *       
- *        
+ *
+ *
  *         When using session cookies, specifying an id
  *         for session_id will always send a new cookie
  *         when session_start is called, regardless if the
@@ -274,20 +274,20 @@ function session_destroy () {}
 /**
  * Free all session variables
  * @link http://www.php.net/manual/en/function.session-unset.php
- * @return void 
+ * @return void
  */
 function session_unset () {}
 
 /**
  * Sets user-level session storage functions
  * @link http://www.php.net/manual/en/function.session-set-save-handler.php
- * @param open callable 
- * @param close callable 
- * @param read callable 
- * @param write callable 
- * @param destroy callable 
- * @param gc callable 
- * @param create_sid callable[optional] 
+ * @param open callable
+ * @param close callable
+ * @param read callable
+ * @param write callable
+ * @param destroy callable
+ * @param gc callable
+ * @param create_sid callable[optional]
  * @return bool Returns true on success, false on failure.
  */
 function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, $create_sid = null) {}
@@ -301,44 +301,44 @@ function session_set_save_handler ($open, $close, $read, $write, $destroy, $gc, 
  *      </p>
  *      <table>
  *       Possible values
- *       
- *        
+ *
+ *
  *         <tr valign="top">
  *          <td>Value</td>
  *          <td>Headers sent</td>
  *         </tr>
- *        
- *        
+ *
+ *
  *         <tr valign="top">
  *          <td>public</td>
  *          <td>
- *           
- *           
+ *
+ *
  *          </td>
  *         </tr>
  *         <tr valign="top">
  *          <td>private_no_expire</td>
  *          <td>
- *           
- *           
+ *
+ *
  *          </td>
  *         </tr>
  *         <tr valign="top">
  *          <td>private</td>
  *          <td>
- *           
- *           
+ *
+ *
  *          </td>
  *         </tr>
  *         <tr valign="top">
  *          <td>nocache</td>
  *          <td>
- *           
- *           
+ *
+ *
  *          </td>
  *         </tr>
- *        
- *       
+ *
+ *
  *      </table>
  * @return string the name of the current cache limiter.
  */
@@ -352,13 +352,13 @@ function session_cache_limiter ($cache_limiter = null) {}
  *       expire is replaced with new_cache_expire.
  *      </p>
  *      <p>
- *       
- *        
+ *
+ *
  *         Setting new_cache_expire is of value only, if
  *         session.cache_limiter is set to a value
  *         different from nocache.
- *        
- *       
+ *
+ *
  *      </p>
  * @return int the current setting of session.cache_expire.
  *   The value returned should be read in minutes, defaults to 180.
@@ -391,7 +391,7 @@ function session_cache_expire ($new_cache_expire = null) {}
  *       httponly
  *       flag when setting the session cookie.
  *      </p>
- * @return void 
+ * @return void
  */
 function session_set_cookie_params ($lifetime, $path = null, $domain = null, $secure = null, $httponly = null) {}
 
@@ -400,33 +400,33 @@ function session_set_cookie_params ($lifetime, $path = null, $domain = null, $se
  * @link http://www.php.net/manual/en/function.session-get-cookie-params.php
  * @return array an array with the current session cookie information, the array
  *   contains the following items:
- *   
- *    
- *     
+ *
+ *
+ *
  *      "lifetime" -  The
  *      lifetime of the cookie in seconds.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "path" -  The path where
  *      information is stored.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "domain" -  The domain
  *      of the cookie.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "secure" -  The cookie
  *      should only be sent over secure connections.
- *     
- *    
- *    
- *     
+ *
+ *
+ *
+ *
  *      "httponly" - The
  *      cookie can only be accessed through the HTTP protocol.
  */
@@ -435,7 +435,7 @@ function session_get_cookie_params () {}
 /**
  * Write session data and end session
  * @link http://www.php.net/manual/en/function.session-write-close.php
- * @return void 
+ * @return void
  */
 function session_write_close () {}
 
@@ -464,7 +464,7 @@ function session_status () {}
 /**
  * Session shutdown function
  * @link http://www.php.net/manual/en/function.session-register-shutdown.php
- * @return void 
+ * @return void
  */
 function session_register_shutdown () {}
 

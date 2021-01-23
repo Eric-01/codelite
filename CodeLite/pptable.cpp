@@ -215,10 +215,10 @@ void PPToken::squeeze()
         TokenizeWords(replacement, tmpWords);
         wxArrayString words;
         if(tmpWords.empty()) break;
-        
+
         // Make room for at least tmpWords.size() items
         words.Alloc(tmpWords.size());
-        
+
         // make sure that a word is not been replaced more than once
         // this will avoid recursion
         // an example (taken from qglobal.h of the Qt library):
@@ -325,7 +325,7 @@ bool PPToken::readInitList(const wxString& in, int from, wxString& initList, wxA
 {
     // sanity
     if(in.length() > 100) return false;
-    
+
     if((int)in.Length() < from) {
         return false;
     }
@@ -613,8 +613,8 @@ bool CLReplacePatternA(const std::string& in, const CLReplacement& repl, std::st
 
         outStr = ReplaceWordA(in, repl.searchFor, repl.replaceWith);
 
-        //		outStr = in;
-        //		outStr.replace(where, repl.searchFor.length(), repl.replaceWith);
+        //      outStr = in;
+        //      outStr.replace(where, repl.searchFor.length(), repl.replaceWith);
 
         // simple replacement
         return outStr != in;

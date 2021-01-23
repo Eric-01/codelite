@@ -42,7 +42,7 @@ public:
         kReset,
         kReparse,
     };
-    
+
     struct Request : public ThreadRequest {
         char* jsonRequest;
         wxString filename;

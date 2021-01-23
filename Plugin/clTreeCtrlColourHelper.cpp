@@ -17,7 +17,7 @@ void clTreeCtrlColourHelper::DoSetBgColour(const wxTreeItemId& item, const wxCol
     wxColour bgColour = currentBgColour;
     FolderColour::Map_t::const_iterator iter = coloursMap.find(path);
     if(iter != coloursMap.end()) { bgColour = iter->second.GetColour(); }
-    
+
     // It's OK for the colour to be "invalid", it will get reset to the tree's default
     // colouring
     m_tree->SetItemBackgroundColour(item, bgColour);

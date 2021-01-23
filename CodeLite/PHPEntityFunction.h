@@ -39,10 +39,10 @@ public:
     virtual wxString Type() const;
     virtual void FromResultSet(wxSQLite3ResultSet& res);
     virtual void PrintStdout(int indent) const;
-    
+
     void FromJSON(const JSONItem& json);
     JSONItem ToJSON() const;
-    
+
 protected:
     // The local variabels defined in this function of type
     // PHPEntityVariable
@@ -65,19 +65,19 @@ public:
      * @brief format function signature
      */
     wxString GetSignature() const;
-    
+
     /**
      * @brief return the full path for this function
      * Example: \path\toClass::functionName($a, $b)
      */
     wxString GetFullPath() const;
-    
+
     /**
      * @brief write this object into the database
      * @param db
      */
     virtual void Store(PHPLookupTable* lookup);
-    
+
     virtual wxString ToTooltip() const;
 };
 

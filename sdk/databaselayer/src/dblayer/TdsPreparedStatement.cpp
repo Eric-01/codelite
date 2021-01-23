@@ -53,63 +53,63 @@ void TdsPreparedStatement::Close()
 void TdsPreparedStatement::FreeAllocatedResultSets()
 {
   //fprintf(stderr, "In FreeAllocatedResultSets\n");
-	int rc;
-	int result_type;
-	while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
+    int rc;
+    int result_type;
+    while ((rc = tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_TOKEN_RESULTS)) == TDS_SUCCEED)
   {
-		switch (result_type)
+        switch (result_type)
     {
-		case TDS_DONE_RESULT:
-		case TDS_DONEPROC_RESULT:
-		case TDS_DONEINPROC_RESULT:
-			/* ignore possible spurious result (TDS7+ send it) */
-		case TDS_STATUS_RESULT:
-			break;
-		case TDS_ROWFMT_RESULT:
-		case TDS_COMPUTEFMT_RESULT:
-		case TDS_DESCRIBE_RESULT:
-			break;
+        case TDS_DONE_RESULT:
+        case TDS_DONEPROC_RESULT:
+        case TDS_DONEINPROC_RESULT:
+            /* ignore possible spurious result (TDS7+ send it) */
+        case TDS_STATUS_RESULT:
+            break;
+        case TDS_ROWFMT_RESULT:
+        case TDS_COMPUTEFMT_RESULT:
+        case TDS_DESCRIBE_RESULT:
+            break;
     case TDS_ROW_RESULT:
-			//fprintf(stderr, "Warning:  TdsPreparedStatement query should not return results.  Type: %d\n", result_type);
+            //fprintf(stderr, "Warning:  TdsPreparedStatement query should not return results.  Type: %d\n", result_type);
       if (m_pDatabase->current_results && m_pDatabase->current_results->num_cols > 0)
       {
-  			while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
+            while (tds_process_tokens(m_pDatabase, &result_type, NULL, TDS_STOPAT_ROWFMT|TDS_RETURN_DONE|TDS_RETURN_ROW) == TDS_SUCCEED)
         {
-		  	  //fprintf(stderr, "Warning:  TdsPreparedStatement TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
-			    if (result_type != TDS_ROW_RESULT)
-			      break;
- 
-    			if (!m_pDatabase->current_results)
-	      		continue;
-		  	}
+              //fprintf(stderr, "Warning:  TdsPreparedStatement TDS_ROW_RESULT query should not return results.  Type: %d\n", result_type);
+                if (result_type != TDS_ROW_RESULT)
+                  break;
+
+                if (!m_pDatabase->current_results)
+                continue;
+            }
       }
       return;
-			break;
-		default:
-			//fprintf(stderr, "Error:  TdsPreparedStatement query should not return results.  Type: %d\n", result_type);
-			return;
+            break;
+        default:
+            //fprintf(stderr, "Error:  TdsPreparedStatement query should not return results.  Type: %d\n", result_type);
+            return;
       //break;
-		}
-	}
+        }
+    }
 
   // Clean up after ourselves
   if (m_pDatabase != NULL)
     tds_free_all_results(m_pDatabase);
 
-	if (rc == TDS_FAIL)
+    if (rc == TDS_FAIL)
   {
-		//fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
+        //fprintf(stderr, "tds_process_tokens() returned TDS_FAIL\n");
     SetErrorInformationFromDatabaseLayer();
     ThrowDatabaseException();
-		return;
-	}
+        return;
+    }
   else if (rc != TDS_NO_MORE_RESULTS)
   {
-		//fprintf(stderr, "tds_process_tokens() unexpected return\n");
+        //fprintf(stderr, "tds_process_tokens() unexpected return\n");
     SetErrorInformationFromDatabaseLayer();
     ThrowDatabaseException();
-		return;
-	}
+        return;
+    }
 }
 
 void TdsPreparedStatement::AllocateParameter(int nPosition)
@@ -272,7 +272,7 @@ void TdsPreparedStatement::SetParamDate(int nPosition, const wxDateTime& dateVal
   CONV_RESULT cr;
   wxCharBuffer dateCharBuffer = ConvertToUnicodeStream(dateAsString);
   int bufferLength = GetEncodedStreamLength(dateAsString);
-  int ret = tds_convert(this->m_pDatabase->tds_ctx, SYBVARCHAR, 
+  int ret = tds_convert(this->m_pDatabase->tds_ctx, SYBVARCHAR,
     (TDS_CHAR*)(const char*)dateCharBuffer, bufferLength, SYBDATETIME, &cr);
   //fprintf(stderr, "tds_convert returned %d, sizeof TDS_DATETIME = %d\n", ret, sizeof(TDS_DATETIME));
 

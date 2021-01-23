@@ -881,7 +881,7 @@ TagEntryPtr ContextCpp::GetTagAtCaret(bool scoped, bool impl)
 
     clEditor& rCtrl = GetCtrl();
 
-    //	Make sure we are not on a comment section
+    // Make sure we are not on a comment section
     if(IsCommentOrString(rCtrl.GetCurrentPos()))
         return NULL;
 
@@ -2653,7 +2653,7 @@ bool ContextCpp::DoCodeComplete(long pos)
     clEditor& editor = GetCtrl();
     wxChar ch = editor.PreviousChar(pos, pos1);
 
-    //	Make sure we are not on a comment section
+    // Make sure we are not on a comment section
     if(IsCommentOrString(editor.PositionBefore(pos))) {
         return false;
     }

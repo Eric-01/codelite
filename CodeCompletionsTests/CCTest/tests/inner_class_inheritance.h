@@ -1,3 +1,3 @@
 void SymbolViewPlugin::foo()
 {
-	TagTreeData* td;
+    TagTreeData* td;

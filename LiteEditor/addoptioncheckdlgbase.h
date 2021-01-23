@@ -55,31 +55,31 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class AddOptionCheckDialogBase
 ///////////////////////////////////////////////////////////////////////////////
-class AddOptionCheckDialogBase : public wxDialog 
+class AddOptionCheckDialogBase : public wxDialog
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText1;
-		wxCheckListBox* m_checkListOptions;
-		wxStaticText* m_staticText4;
-		wxTextCtrl* m_textOptions;
-		wxTextCtrl* m_textCmdLn;
-		wxStaticLine* m_staticline5;
-		wxStdDialogButtonSizer* m_sdbSizer;
-		wxButton* m_sdbSizerOK;
-		wxButton* m_sdbSizerCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnOptionToggled( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnOptionsText( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		AddOptionCheckDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,450 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
-		~AddOptionCheckDialogBase();
-	
+    private:
+
+    protected:
+        wxStaticText* m_staticText1;
+        wxCheckListBox* m_checkListOptions;
+        wxStaticText* m_staticText4;
+        wxTextCtrl* m_textOptions;
+        wxTextCtrl* m_textCmdLn;
+        wxStaticLine* m_staticline5;
+        wxStdDialogButtonSizer* m_sdbSizer;
+        wxButton* m_sdbSizerOK;
+        wxButton* m_sdbSizerCancel;
+
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnOptionToggled( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnOptionsText( wxCommandEvent& event ) { event.Skip(); }
+
+
+    public:
+
+        AddOptionCheckDialogBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,450 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+        ~AddOptionCheckDialogBase();
+
 };
 
 #endif //__addoptioncheckdlgbase__

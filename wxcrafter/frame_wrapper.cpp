@@ -68,12 +68,12 @@ void FrameWrapper::ToXRC(wxString& text, XRC_TYPE type) const
         centred = wxT("<centered>1</centered>"); // In XRC centring is on/off; it doesn't discriminate between
                                                  // wxBOTH/wxVERTICAL/wxHORIZONTAL
     }
-    
+
     wxString xrcPrefix = "wxFrame";
     if(PropertyString(PROP_FRAME_TYPE) ==  "wxMiniFrame") {
         xrcPrefix = "wxMiniFrame";
     }
-    
+
     text << XRCPrefix("wxFrame") << wxT("<title>") << PropertyString(PROP_TITLE) << wxT("</title>") << centred
          << XRCStyle(type != wxcWidget::XRC_LIVE) // The parameter is to add the wxSTAY_ON_TOP, but not if we're 'live'
          << XRCSize() << XRCCommonAttributes();

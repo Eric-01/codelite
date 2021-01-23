@@ -52,26 +52,26 @@
 ///////////////////////////////////////////////////////////////////////////////
 class EditorOptionsGeneralSavePanelBase : public wxPanel 
 {
-	private:
-	
-	protected:
-		wxCheckBox* m_checkBoxTrimLine;
-		wxCheckBox* m_checkBoxDontTrimCurrentLine;
-		
-		
-		
-		wxCheckBox* m_checkBoxTrimModifiedLines;
-		wxCheckBox* m_checkBoxAppendLF;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnTrimCaretLineUI( wxUpdateUIEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		EditorOptionsGeneralSavePanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL );
-		~EditorOptionsGeneralSavePanelBase();
-	
+    private:
+    
+    protected:
+        wxCheckBox* m_checkBoxTrimLine;
+        wxCheckBox* m_checkBoxDontTrimCurrentLine;
+        
+        
+        
+        wxCheckBox* m_checkBoxTrimModifiedLines;
+        wxCheckBox* m_checkBoxAppendLF;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnTrimCaretLineUI( wxUpdateUIEvent& event ) { event.Skip(); }
+        
+    
+    public:
+        
+        EditorOptionsGeneralSavePanelBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxTAB_TRAVERSAL );
+        ~EditorOptionsGeneralSavePanelBase();
+    
 };
 
 #endif //__editoroptionsgeneralsavepanelbase__

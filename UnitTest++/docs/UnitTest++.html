@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>UnitTest++ in brief</title>
+    <title>UnitTest++ in brief</title>
 </head>
 <body>
 <h1>UnitTest++ in brief</h1>
@@ -84,7 +84,7 @@
 
     int testData;
   };
- 
+
   TEST_FIXTURE(SomeFixture, YourTestName)
   {
     int temp = testData;
@@ -245,9 +245,9 @@
    |
    +- Main.cpp
    |
-   +- TestBrush.cpp   
+   +- TestBrush.cpp
    +- TestEngine.cpp
-   +- TestRazor.cpp   
+   +- TestRazor.cpp
 </pre>
 
 <p>Each of the <code>Test*.cpp</code> files will contain one or more <code>TEST</code> macro incantations with the associated test code. There are no source-level dependencies between <code>Main.cpp</code> and <code>Test*.cpp</code>, as the <code>TEST</code> macro handles the registration and setup necessary for <code>RunAllTests()</code> to find all tests compiled into the same final executable.</p>

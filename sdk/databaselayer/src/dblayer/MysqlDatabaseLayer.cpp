@@ -165,20 +165,20 @@ bool MysqlDatabaseLayer::Open(const wxString& strServer, const wxString& strData
 bool MysqlDatabaseLayer::Open(const wxString& strDatabase)
 {
   m_strDatabase = strDatabase;
-  
+
   wxCharBuffer serverCharBuffer = ConvertToUnicodeStream(m_strServer);
   wxCharBuffer userCharBuffer = ConvertToUnicodeStream(m_strUser);
   wxCharBuffer passwordCharBuffer = ConvertToUnicodeStream(m_strPassword);
   wxCharBuffer databaseNameCharBuffer = ConvertToUnicodeStream(m_strDatabase);
-  long connectFlags = 0; 
-#if MYSQL_VERSION_ID >= 40100 
-  #if !defined ulong 
-    #define ulong unsigned long 
-  #endif 
-  connectFlags |= CLIENT_MULTI_RESULTS; 
-  connectFlags |= CLIENT_MULTI_STATEMENTS; 
-#endif 
-   if (m_pInterface->GetMysqlRealConnect()((MYSQL*)m_pDatabase, serverCharBuffer, userCharBuffer, passwordCharBuffer, databaseNameCharBuffer, m_iPort, NULL/*socket*/, connectFlags) != NULL)   
+  long connectFlags = 0;
+#if MYSQL_VERSION_ID >= 40100
+  #if !defined ulong
+    #define ulong unsigned long
+  #endif
+  connectFlags |= CLIENT_MULTI_RESULTS;
+  connectFlags |= CLIENT_MULTI_STATEMENTS;
+#endif
+   if (m_pInterface->GetMysqlRealConnect()((MYSQL*)m_pDatabase, serverCharBuffer, userCharBuffer, passwordCharBuffer, databaseNameCharBuffer, m_iPort, NULL/*socket*/, connectFlags) != NULL)
   {
 #if wxUSE_UNICODE
     const char* sqlStatement = "SET CHARACTER_SET_CLIENT=utf8, "
@@ -234,7 +234,7 @@ bool MysqlDatabaseLayer::Close()
   return true;
 }
 
-  
+
 bool MysqlDatabaseLayer::IsOpen()
 {
   return (m_pDatabase != NULL);
@@ -294,7 +294,7 @@ void MysqlDatabaseLayer::RollBack()
   }
 }
 
-  
+
 // query database
 int MysqlDatabaseLayer::RunQuery(const wxString& strQuery, bool bParseQuery)
 {
@@ -440,7 +440,7 @@ PreparedStatement* MysqlDatabaseLayer::PrepareStatement(const wxString& strQuery
 bool MysqlDatabaseLayer::TableExists(const wxString& table)
 {
   bool bReturn = false;
-/*  
+/*
   // This is the way that I'd prefer to retrieve the list of tables
   // Unfortunately MySQL returns both tables and view together
   // So we have to try a SQL call (which may be MySQL version dependent)
@@ -521,7 +521,7 @@ bool MysqlDatabaseLayer::TableExists(const wxString& table)
 bool MysqlDatabaseLayer::ViewExists(const wxString& view)
 {
   bool bReturn = false;
-/*  
+/*
   // This is the way that I'd prefer to retrieve the list of tables
   // Unfortunately MySQL returns both tables and view together
   // So we have to try a SQL call (which may be MySQL version dependent)
@@ -739,7 +739,7 @@ wxArrayString MysqlDatabaseLayer::GetColumns(const wxString& table)
     pResult = NULL;
   }
 
- 
+
   return returnArray;
 }
 

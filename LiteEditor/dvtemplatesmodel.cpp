@@ -79,7 +79,7 @@ wxDataViewItem DVTemplatesModel::GetParent(const wxDataViewItem& item) const
     if ( IsEmpty() ) {
         return wxDataViewItem(NULL);
     }
-    
+
     DVTemplatesModel_Item* node = reinterpret_cast<DVTemplatesModel_Item*>(item.m_pItem);
     if ( node ) {
         return wxDataViewItem(node->GetParent());
@@ -107,7 +107,7 @@ wxDataViewItem DVTemplatesModel::DoAppendItem(const wxDataViewItem& parent, cons
 {
     DVTemplatesModel_Item* parentNode = reinterpret_cast<DVTemplatesModel_Item*>(parent.m_pItem);
     DoChangeItemType(parent, true);
-    
+
     DVTemplatesModel_Item* child = new DVTemplatesModel_Item();
     child->SetIsContainer(isContainer);
     child->SetClientObject( clientData );
@@ -189,11 +189,11 @@ void DVTemplatesModel::DeleteItem(const wxDataViewItem& item)
 {
     DVTemplatesModel_Item* node = reinterpret_cast<DVTemplatesModel_Item*>(item.m_pItem);
     if ( node ) {
-        
+
         DVTemplatesModel_Item* parent = node->GetParent();
         wxDataViewItem parentItem(parent);
         ItemDeleted(parentItem, item);
-        
+
         // this will also remove it from its model parent children list
         if ( parent == NULL ) {
             // root item, remove it from the roots array
@@ -202,14 +202,14 @@ void DVTemplatesModel::DeleteItem(const wxDataViewItem& item)
                 m_data.erase(where);
             }
         }
-        
+
         // If there are no more children, change the item back to 'normal'
         if ( parent && parent->GetChildren().empty() )
             DoChangeItemType(parentItem, false);
-            
+
         wxDELETE(node);
     }
-    
+
     if ( IsEmpty() )
         Cleared();
 }
@@ -306,14 +306,14 @@ void DVTemplatesModel::DoChangeItemType(const wxDataViewItem& item, bool changeT
     DVTemplatesModel_Item* node = reinterpret_cast<DVTemplatesModel_Item*>(item.GetID());
     if ( !node )
         return;
-    
+
     if ( ( changeToContainer && !node->IsContainer())  || // change an item from non-container to container type
          ( !changeToContainer && node->IsContainer()) ) { // change an item from container to non-container type
 #if defined(__WXGTK__) || defined(__WXMAC__)
         // change the item to container type:
         // 1st we need to delete it
         ItemDeleted(wxDataViewItem(node->GetParent()), item);
-        
+
         // update the node type
         node->SetIsContainer(changeToContainer);
         ItemAdded(wxDataViewItem(node->GetParent()), item);

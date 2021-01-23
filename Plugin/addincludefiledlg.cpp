@@ -96,7 +96,7 @@ void AddIncludeFileDlg::UpdateLineToAdd()
         m_textCtrlFullPath->ChangeValue(m_fullpath);
         return;
     }
-    
+
     wxFileName fn(m_fullpath);
     m_textCtrlFullPath->ChangeValue(fn.GetFullPath());
 

@@ -28,7 +28,7 @@ protected:
 protected:
     static wxString WrapSpaces(const wxString& file);
     static bool DoGenerate(const wxString& filesContent, const wxString& path);
-    
+
     TagTreePtr TreeFromTags(std::vector<TagEntry>& tags);
 
 public:

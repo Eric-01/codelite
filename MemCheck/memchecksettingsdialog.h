@@ -45,7 +45,7 @@ public:
 
 protected:
     virtual void OnFilePickerValgrindOutputFileUI(wxUpdateUIEvent& event);
-    
+
     /**
      * @brief Shows popup menu with two functions: add new supp and remove supp
      * @param event

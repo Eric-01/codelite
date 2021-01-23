@@ -28,7 +28,7 @@ public:
 
     bool IsEnabled() const { return m_flags & kEnabled; }
     void SetEnabled(bool b) { SetFlag(kEnabled, b); }
-    
+
     EditorConfigSettings& Load();
     EditorConfigSettings& Save();
 };

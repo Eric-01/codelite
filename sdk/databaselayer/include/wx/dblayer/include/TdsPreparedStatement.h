@@ -30,7 +30,7 @@ public:
   virtual ~TdsPreparedStatement();
 
   virtual void Close();
-  
+
   // get field
   virtual void SetParamInt(int nPosition, int nValue);
   virtual void SetParamDouble(int nPosition, double dblValue);
@@ -49,7 +49,7 @@ private:
   void AllocateParameter(int nPosition);
   int FindStatementAndAdjustPositionIndex(int* pPosition);
   void SetErrorInformationFromDatabaseLayer();
- 
+
   TDSSOCKET* m_pDatabase;
   TDSDYNAMIC* m_pStatement;
   TDSPARAMINFO* m_pParameters;

@@ -481,8 +481,8 @@ public:
   /// \return
   ///     Returns the identifier string if one exists, else an empty
   ///     string.
-  virtual std::string GetIdentifierString () { 
-      return std::string(); 
+  virtual std::string GetIdentifierString () {
+      return std::string();
   }
 
   /// When the ObjectFile is a core file, lldb needs to locate the "binary" in

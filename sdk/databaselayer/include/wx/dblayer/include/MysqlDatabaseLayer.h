@@ -53,7 +53,7 @@ public:
 
   // close database
   virtual bool Close();
-  
+
   // Is the connection to the database open?
   virtual bool IsOpen();
 
@@ -62,7 +62,7 @@ public:
   virtual void BeginTransaction();
   virtual void Commit();
   virtual void RollBack();
-  
+
   // query database
   virtual int RunQuery(const wxString& strQuery, bool bParseQuery);
   virtual DatabaseResultSet* RunQueryWithResults(const wxString& strQuery);
@@ -92,7 +92,7 @@ private:
   wxString m_strUser;
   wxString m_strPassword;
   int m_iPort;
-    
+
   void* m_pDatabase;
 
 #if wxUSE_UNICODE

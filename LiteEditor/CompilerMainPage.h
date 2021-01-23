@@ -148,7 +148,7 @@ protected:
 
     void LoadCompiler(const wxString& compilerName);
     void DoFileTypeActivated(const wxDataViewItem& item);
-    
+
 public:
     CompilerMainPage(wxWindow* parent);
     virtual ~CompilerMainPage();

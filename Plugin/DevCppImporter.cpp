@@ -6,7 +6,7 @@
 bool DevCppImporter::OpenWordspace(const wxString& filename, const wxString& defaultCompiler)
 {
     wsInfo.Assign(filename);
-    
+
     wxString extension = wsInfo.GetExt().Lower();
 
     bool isValidExt = extension == wxT("dev");
@@ -28,7 +28,7 @@ bool DevCppImporter::isSupportedWorkspace()
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -151,7 +151,7 @@ GenericWorkspacePtr DevCppImporter::PerformImport()
                 if(tagName == wxT("FileName")) {
                     wxString fileName = tagValue;
                     fileName.Replace(wxT("\\"), wxT("/"));
-                    
+
                     genericProjectFile->name = fileName;
                 }
 

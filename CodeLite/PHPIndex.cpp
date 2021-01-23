@@ -6,5 +6,5 @@ PHPIndex::~PHPIndex() {}
 
 void PHPIndex::Index(const wxArrayString& files, const wxString& dbpath)
 {
-    
+
 }

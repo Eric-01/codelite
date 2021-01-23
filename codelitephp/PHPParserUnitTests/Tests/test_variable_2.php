@@ -14,21 +14,21 @@ class test_variable_2_return_value {
 
 class test_variable_2 {
     protected $name = "test_variable_2";
-    
+
     /** @return test_variable_2_return_value */
     public function foo(){
     }
 
     public function func_with_args($a, $b){
     }
-    
+
     /**
      * @param $name
      */
     public function setName($name){
         $this->name = $name;
     }
-    
+
     /**
      * @return $name
      */

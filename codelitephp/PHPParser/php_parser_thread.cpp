@@ -58,7 +58,7 @@ void PHPParserThread::ParseFiles(PHPParserThreadRequest* request)
     PHPLookupTable lookuptable;
     lookuptable.Open(fnWorkspaceFile.GetPath());
     lookuptable.RebuildClassCache();
-    
+
     for(size_t i = 0; i < request->frameworksPaths.GetCount(); ++i) {
         if(ms_goingDown) {
             ms_goingDown = false;

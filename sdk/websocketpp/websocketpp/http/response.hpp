@@ -89,7 +89,7 @@ public:
 
     /// Process bytes in the input buffer (istream version)
     /**
-     * Process bytes from istream s. Returns the number of bytes processed. 
+     * Process bytes from istream s. Returns the number of bytes processed.
      * Bytes left unprocessed means bytes left over after the final header
      * delimiters.
      *

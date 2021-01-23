@@ -89,7 +89,7 @@ public:
 
     void SetPortNumber(int portNumber) { this->m_portNumber = portNumber; }
     int GetPortNumber() const { return m_portNumber; }
-    
+
     static WebToolsConfig& Get();
     bool HasJavaScriptFlag(eJSFlags flag) const { return HasFlag(m_jsFlags, flag); }
     void EnableJavaScriptFlag(eJSFlags flag, bool b) { EnableFlag(m_jsFlags, flag, b); }
@@ -107,14 +107,14 @@ public:
 
     bool IsLintOnSave() const { return HasFlag(m_nodeOptions, kLintOnSave); }
     void SetLintOnSave(bool b) { EnableFlag(m_nodeOptions, kLintOnSave, b); }
-    
+
     bool IsNodeInstalled() const;
     bool IsNpmInstalled() const;
-    
+
     wxFileName GetTernScript() const;
     bool IsTernInstalled() const;
     wxString GetTempFolder(bool create = false) const;
-    
+
     /**
      * @brief create tern project file content based on the settings
      */

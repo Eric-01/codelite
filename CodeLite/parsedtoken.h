@@ -112,7 +112,7 @@ public:
         // Keep track of the template arguments
         argsSet.insert(m_templateArgList.begin(), m_templateArgList.end());
     }
-    
+
     void SetTemplateInitialization(const wxArrayString& templateInitialization)
     {
         this->m_templateInitialization = templateInitialization;

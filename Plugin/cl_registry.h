@@ -32,18 +32,18 @@
 #include "codelite_exports.h"
 
 class WXDLLIMPEXP_SDK clRegistry {
-	static wxString              m_filename;
-	wxFFile                      m_fp;
-	std::map<wxString, wxString> m_entries;
+    static wxString              m_filename;
+    wxFFile                      m_fp;
+    std::map<wxString, wxString> m_entries;
 
 public:
-	static void SetFilename(const wxString &filename);
+    static void SetFilename(const wxString &filename);
 
 public:
-	clRegistry();
-	virtual ~clRegistry();
+    clRegistry();
+    virtual ~clRegistry();
 
-	bool Read (const wxString &key, wxString &val);
+    bool Read (const wxString &key, wxString &val);
 };
 
 #endif // CLREGISTRY_H

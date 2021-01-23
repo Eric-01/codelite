@@ -62,7 +62,7 @@ if (CLANG_FOUND)
   if (MINGW)
     set(CLANG_LDFLAGS "${CLANG_LDFLAGS} ${LLVM_SYSTEM_LIBS}")
   endif()
-  
+
 else (CLANG_FOUND)
   if (CLANG_FIND_REQUIRED)
     message(FATAL_ERROR "Could NOT find Clang")

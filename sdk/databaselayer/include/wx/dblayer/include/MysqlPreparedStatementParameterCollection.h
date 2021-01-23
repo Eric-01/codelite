@@ -39,7 +39,7 @@ public:
   void SetParam(int nPosition, const wxDateTime& dateValue);
   void SetParam(int nPosition, bool bValue);
   void SetParam(int nPosition, MysqlParameter* pParameter);
-  
+
 private:
   MysqlParameterArray m_Parameters;
 };

@@ -36,7 +36,7 @@ void csCodeCompletePhpHandler::DoProcessCommand(const JSONItem& options)
     sourceFile.SetParseFunctionBody(true);
     sourceFile.Parse();
     lookup.UpdateSourceFile(sourceFile);
-    
+
     PHPExpression::Ptr_t expr(new PHPExpression(sourceFile.GetText().Mid(0, m_position)));
     PHPEntityBase::Ptr_t resolved = expr->Resolve(lookup, m_path);
     if(resolved) {

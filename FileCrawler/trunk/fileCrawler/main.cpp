@@ -10,25 +10,25 @@ wxString extract_path(const wxString &filePath);
 
 int main(int argc, char **argv)
 {
-//	fcFileOpener::Get()->AddSearchPath("C:/MinGW-3.4.5/include");
-//	fcFileOpener::Get()->AddSearchPath("C:/wxWidgets-2.8.10/include");
-//	fcFileOpener::Get()->AddSearchPath("C:\\MinGW-4.4.0\\include");
-//	fcFileOpener::Get()->AddSearchPath("C:\\MinGW-4.4.0\\lib\\gcc\\mingw32\\4.4.0\\include\\c++");
+//  fcFileOpener::Get()->AddSearchPath("C:/MinGW-3.4.5/include");
+//  fcFileOpener::Get()->AddSearchPath("C:/wxWidgets-2.8.10/include");
+//  fcFileOpener::Get()->AddSearchPath("C:\\MinGW-4.4.0\\include");
+//  fcFileOpener::Get()->AddSearchPath("C:\\MinGW-4.4.0\\lib\\gcc\\mingw32\\4.4.0\\include\\c++");
     fcFileOpener::Get()->AddSearchPath("D:/wxWidgets-3.0.1/include");
     fcFileOpener::Get()->AddExcludePath("D:/wxWidgets-3.0.1/include/wx/android");
     fcFileOpener::Get()->AddExcludePath("D:/wxWidgets-3.0.1/include/wx/univ");
     fcFileOpener::Get()->AddExcludePath("D:/wxWidgets-3.0.1/include/wx/unix");
-//	fcFileOpener::Get()->AddExcludePath("C:\\MinGW-4.4.0\\lib\\gcc\\mingw32\\4.4.0\\include\\c++\\debug");
-//	fcFileOpener::Get()->AddExcludePath("C:/wxWidgets-2.8.10/include/wx/unix");
-//	fcFileOpener::Get()->AddExcludePath("C:/wxWidgets-2.8.10/include/wx/univ");
+//  fcFileOpener::Get()->AddExcludePath("C:\\MinGW-4.4.0\\lib\\gcc\\mingw32\\4.4.0\\include\\c++\\debug");
+//  fcFileOpener::Get()->AddExcludePath("C:/wxWidgets-2.8.10/include/wx/unix");
+//  fcFileOpener::Get()->AddExcludePath("C:/wxWidgets-2.8.10/include/wx/univ");
 
-//	fcFileOpener::Get()->AddSearchPath("/usr/include/");
-//	fcFileOpener::Get()->AddSearchPath("/usr/include/c++/4.2.4/");
-//	fcFileOpener::Get()->AddSearchPath("/usr/include/wx-2.8/");
+//  fcFileOpener::Get()->AddSearchPath("/usr/include/");
+//  fcFileOpener::Get()->AddSearchPath("/usr/include/c++/4.2.4/");
+//  fcFileOpener::Get()->AddSearchPath("/usr/include/wx-2.8/");
 
     fcFileOpener::Get()->ClearResults();
     for (size_t i=0; i<1; i++) {
-        //	double start = GetTickCount();
+        // double start = GetTickCount();
         if(crawlerScan("../test.h") < 0) {
             printf("failed to scan files\n");
         }

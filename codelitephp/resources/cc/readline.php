@@ -106,7 +106,7 @@ function readline_callback_handler_install ($prompt, $callback) {}
 /**
  * Reads a character and informs the readline callback interface when a line is received
  * @link http://www.php.net/manual/en/function.readline-callback-read-char.php
- * @return void 
+ * @return void
  */
 function readline_callback_read_char () {}
 
@@ -121,7 +121,7 @@ function readline_callback_handler_remove () {}
 /**
  * Redraws the display
  * @link http://www.php.net/manual/en/function.readline-redisplay.php
- * @return void 
+ * @return void
  */
 function readline_redisplay () {}
 

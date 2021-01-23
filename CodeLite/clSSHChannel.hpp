@@ -78,7 +78,7 @@ public:
      * @brief Send a signal to remote process
      */
     void SendSignal(wxSignal sig);
-    
+
     /**
      * @brief detach from the remote process (this does not kill it)
      */

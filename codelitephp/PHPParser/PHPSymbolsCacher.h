@@ -35,7 +35,7 @@ class PHPSymbolsCacher : public Job
 {
     PHPCodeCompletion* m_owner;
     wxString m_filename;
-    
+
 public:
     PHPSymbolsCacher(PHPCodeCompletion* owner, const wxString& dbfile);
     virtual ~PHPSymbolsCacher();

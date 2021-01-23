@@ -31,8 +31,8 @@
 
 clDynamicLibrary::clDynamicLibrary()
 #if defined(__WXMAC__) || defined(__WXGTK__)
-		:
-		m_dllhandle(NULL)
+        :
+        m_dllhandle(NULL)
 #endif
 {
 }
@@ -40,10 +40,10 @@ clDynamicLibrary::clDynamicLibrary()
 clDynamicLibrary::~clDynamicLibrary()
 {
 #if defined(__WXMAC__) || defined(__WXGTK__)
-	if(m_dllhandle){
-		dlclose(m_dllhandle);
-		m_dllhandle = NULL;
-	}
+    if(m_dllhandle){
+        dlclose(m_dllhandle);
+        m_dllhandle = NULL;
+    }
 #endif
 }
 
@@ -51,21 +51,21 @@ bool clDynamicLibrary::Load(const wxString &name)
 {
     m_error.Clear();
 #if defined (__WXMSW__)
-	return m_lib.Load(name, wxDL_NOSHARE);
+    return m_lib.Load(name, wxDL_NOSHARE);
 #else
-	// open the library
+    // open the library
 //#if defined(__WXGTK__) && defined (ON_64_BIT)
-//	// on GTK we need to pass RTLD_DEEPBIND otherwise symbols clashes
-//	m_dllhandle = dlopen(_C(name), RTLD_LAZY| RTLD_LOCAL | RTLD_DEEPBIND);
+//  // on GTK we need to pass RTLD_DEEPBIND otherwise symbols clashes
+//  m_dllhandle = dlopen(_C(name), RTLD_LAZY| RTLD_LOCAL | RTLD_DEEPBIND);
 //#else
-	m_dllhandle = dlopen(_C(name), RTLD_LAZY);
+    m_dllhandle = dlopen(_C(name), RTLD_LAZY);
 //#endif
 
-	if (!m_dllhandle) {
-		m_error = wxString(dlerror(), wxConvUTF8);
-		return false;
-	}
-	return true;
+    if (!m_dllhandle) {
+        m_error = wxString(dlerror(), wxConvUTF8);
+        return false;
+    }
+    return true;
 #endif
 }
 
@@ -73,12 +73,12 @@ void clDynamicLibrary::Detach()
 {
     m_error.Clear();
 #if defined (__WXMSW__)
-	m_lib.Detach();
+    m_lib.Detach();
 #else
-	if (m_dllhandle) {
-		dlclose(m_dllhandle);
-		m_dllhandle = NULL;
-	}
+    if (m_dllhandle) {
+        dlclose(m_dllhandle);
+        m_dllhandle = NULL;
+    }
 #endif
 }
 
@@ -86,21 +86,21 @@ void *clDynamicLibrary::GetSymbol(const wxString &name, bool *success)
 {
     m_error.Clear();
 #if defined (__WXMSW__)
-	bool rc;
-	void *symb = m_lib.GetSymbol(name, &rc);
-	*success = rc;
-	return symb;
+    bool rc;
+    void *symb = m_lib.GetSymbol(name, &rc);
+    *success = rc;
+    return symb;
 #else
-	dlerror(); // reset errors
+    dlerror(); // reset errors
 
-	// load the symbol
-	void *symb = dlsym(m_dllhandle, _C(name));
-	if(symb){
-		*success = true;
-	}else{
-		*success = false;
+    // load the symbol
+    void *symb = dlsym(m_dllhandle, _C(name));
+    if(symb){
+        *success = true;
+    }else{
+        *success = false;
         m_error = wxString(dlerror(), wxConvUTF8);
-	}
-	return symb;
+    }
+    return symb;
 #endif
 }

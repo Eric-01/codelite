@@ -108,7 +108,7 @@ CMake::CMake(const wxFileName& path)
 {
     // Prepare database
     PrepareDatabase();
-    
+
     // Register the CMake builder
     BuildManagerST::Get()->AddBuilder(new CMakeBuilder());
 }
@@ -499,12 +499,12 @@ CMake::LoadList(const wxString& type, CMake::HelpMap& list,
 
     // Foreach names
     for (wxArrayString::const_iterator it = names.begin(), ite = names.end(); it != ite; ++it) {
-        
+
         if ( notifier && notifier->RequestStop() ) {
             // Someone called 'wxThread::Delete'
             return false;
         }
-        
+
         // Trim name
         wxString name = *it;
         name.Trim().Trim(false);

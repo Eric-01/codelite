@@ -62,58 +62,58 @@
 ///////////////////////////////////////////////////////////////////////////////
 /// Class uicallgraph
 ///////////////////////////////////////////////////////////////////////////////
-class uicallgraph : public wxPanel 
+class uicallgraph : public wxPanel
 {
-	private:
-	
-	protected:
-		wxPanel* m_panel3;
-		wxStaticText* m_staticText1;
-		wxSpinCtrl* m_spinNT;
-		wxStaticText* m_staticText2;
-		wxSpinCtrl* m_spinET;
-		wxCheckBox* m_checkBoxHP;
-		wxCheckBox* m_checkBoxHN;
-		wxButton* m_buttonRefresh;
-		wxStaticLine* m_staticline1;
-		wxSplitterWindow* m_splitter;
-		wxPanel* m_panel1;
-		wxScrolledWindow* m_scrolledWindow;
-		wxMenu* m_menu1;
-		wxPanel* m_panel2;
-		wxGrid* m_grid;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnRefreshClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnLeftDown( wxMouseEvent& event ) { event.Skip(); }
-		virtual void OnLeftUp( wxMouseEvent& event ) { event.Skip(); }
-		virtual void OnMouseMove( wxMouseEvent& event ) { event.Skip(); }
-		virtual void OnMouseWheel( wxMouseEvent& event ) { event.Skip(); }
-		virtual void OnPaint( wxPaintEvent& event ) { event.Skip(); }
-		virtual void OnSaveCallGraph( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnClosePanel( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnZoomIn( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnZoomOut( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnZoom100( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnZoomOriginal( wxCommandEvent& event ) { event.Skip(); }
-		
-	
-	public:
-		
-		uicallgraph( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,300 ), long style = wxTAB_TRAVERSAL ); 
-		~uicallgraph();
-		
-		void m_splitterOnIdle( wxIdleEvent& )
-		{
-			m_splitter->SetSashPosition( 400 );
-			m_splitter->Disconnect( wxEVT_IDLE, wxIdleEventHandler( uicallgraph::m_splitterOnIdle ), NULL, this );
-		}
-		
-		void m_scrolledWindowOnContextMenu( wxMouseEvent &event )
-		{
-			m_scrolledWindow->PopupMenu( m_menu1, event.GetPosition() );
-		}
-	
+    private:
+
+    protected:
+        wxPanel* m_panel3;
+        wxStaticText* m_staticText1;
+        wxSpinCtrl* m_spinNT;
+        wxStaticText* m_staticText2;
+        wxSpinCtrl* m_spinET;
+        wxCheckBox* m_checkBoxHP;
+        wxCheckBox* m_checkBoxHN;
+        wxButton* m_buttonRefresh;
+        wxStaticLine* m_staticline1;
+        wxSplitterWindow* m_splitter;
+        wxPanel* m_panel1;
+        wxScrolledWindow* m_scrolledWindow;
+        wxMenu* m_menu1;
+        wxPanel* m_panel2;
+        wxGrid* m_grid;
+
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnRefreshClick( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnLeftDown( wxMouseEvent& event ) { event.Skip(); }
+        virtual void OnLeftUp( wxMouseEvent& event ) { event.Skip(); }
+        virtual void OnMouseMove( wxMouseEvent& event ) { event.Skip(); }
+        virtual void OnMouseWheel( wxMouseEvent& event ) { event.Skip(); }
+        virtual void OnPaint( wxPaintEvent& event ) { event.Skip(); }
+        virtual void OnSaveCallGraph( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnClosePanel( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnZoomIn( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnZoomOut( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnZoom100( wxCommandEvent& event ) { event.Skip(); }
+        virtual void OnZoomOriginal( wxCommandEvent& event ) { event.Skip(); }
+
+
+    public:
+
+        uicallgraph( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,300 ), long style = wxTAB_TRAVERSAL );
+        ~uicallgraph();
+
+        void m_splitterOnIdle( wxIdleEvent& )
+        {
+            m_splitter->SetSashPosition( 400 );
+            m_splitter->Disconnect( wxEVT_IDLE, wxIdleEventHandler( uicallgraph::m_splitterOnIdle ), NULL, this );
+        }
+
+        void m_scrolledWindowOnContextMenu( wxMouseEvent &event )
+        {
+            m_scrolledWindow->PopupMenu( m_menu1, event.GetPosition() );
+        }
+
 };
 
 #endif //__UICALLGRAPH_H__

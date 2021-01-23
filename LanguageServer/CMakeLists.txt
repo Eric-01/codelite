@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.8)
 set( PLUGIN_NAME "LanguageServer")
 
 # Our project is called 'plugin' this is how it will be called in
-# visual studio, and in our makefiles. 
+# visual studio, and in our makefiles.
 project( ${PLUGIN_NAME} )
 
 # It was noticed that when using MinGW gcc it is essential that 'core' is mentioned before 'base'.
@@ -15,10 +15,10 @@ find_package(wxWidgets COMPONENTS ${WX_COMPONENTS} REQUIRED)
 include( "${wxWidgets_USE_FILE}" )
 
 # Include paths
-include_directories("${CL_SRC_ROOT}/Plugin" 
-                    "${CL_SRC_ROOT}/sdk/wxsqlite3/include" 
-                    "${CL_SRC_ROOT}/CodeLite" 
-                    "${CL_SRC_ROOT}/PCH" 
+include_directories("${CL_SRC_ROOT}/Plugin"
+                    "${CL_SRC_ROOT}/sdk/wxsqlite3/include"
+                    "${CL_SRC_ROOT}/CodeLite"
+                    "${CL_SRC_ROOT}/PCH"
                     "${CL_SRC_ROOT}/Interfaces")
 
 add_definitions(-DWXUSINGDLL_WXSQLITE3)
@@ -61,6 +61,6 @@ set(EXE_PERM OWNER_EXECUTE OWNER_WRITE OWNER_READ GROUP_EXECUTE GROUP_READ WORLD
 if(NOT APPLE)
     install(FILES ${CL_SRC_ROOT}/LanguageServer/codelite-lsp/codelite-lsp-helper DESTINATION ${CL_PREFIX}/bin PERMISSIONS ${EXE_PERM})
 else()
-    install(FILES ${CL_SRC_ROOT}/LanguageServer/codelite-lsp/codelite-lsp-helper DESTINATION 
+    install(FILES ${CL_SRC_ROOT}/LanguageServer/codelite-lsp/codelite-lsp-helper DESTINATION
             ${CMAKE_BINARY_DIR}/codelite.app/Contents/MacOS/ PERMISSIONS ${EXE_PERM})
 endif()

@@ -52,7 +52,7 @@ void wxSFPrintout::OnEndDocument()
 
 bool wxSFPrintout::OnPrintPage(int page)
 {
-	wxUnusedVar( page );
+    wxUnusedVar( page );
 
     wxASSERT_MSG(m_pCanvas, wxT("Shape canvas must be set in the wxSFPrintout class instance."));
 
@@ -154,23 +154,23 @@ bool wxSFPrintout::OnPrintPage(int page)
 
         // draw the canvas content without any scale (dc is scaled by the printing framework)
 #if wxVERSION_NUMBER < 2900
-		double nScale = 1;
-		if( wxSFShapeCanvas::IsGCEnabled() ) dc->GetUserScale( &nScale, &nScale );
+        double nScale = 1;
+        if( wxSFShapeCanvas::IsGCEnabled() ) dc->GetUserScale( &nScale, &nScale );
         m_pCanvas->SetScale(1);
 
-		#ifdef __WXMSW__
-		wxSFScaledDC sdc( (wxWindowDC*)dc, nScale );
-		sdc.PrepareGC();
+        #ifdef __WXMSW__
+        wxSFScaledDC sdc( (wxWindowDC*)dc, nScale );
+        sdc.PrepareGC();
         m_pCanvas->DrawContent(sdc, sfNOT_FROM_PAINT);
         #else
-		m_pCanvas->DrawContent(*dc, sfNOT_FROM_PAINT);
-		#endif
+        m_pCanvas->DrawContent(*dc, sfNOT_FROM_PAINT);
+        #endif
 
         m_pCanvas->SetScale(prevScale);
 #else
-		m_pCanvas->SetScale(1);
-		m_pCanvas->DrawContent(*dc, sfNOT_FROM_PAINT);
-		m_pCanvas->SetScale(prevScale);
+        m_pCanvas->SetScale(1);
+        m_pCanvas->DrawContent(*dc, sfNOT_FROM_PAINT);
+        m_pCanvas->SetScale(prevScale);
 #endif
 
         // restore previous canvas properties if needed

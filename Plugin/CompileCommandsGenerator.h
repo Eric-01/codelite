@@ -15,7 +15,7 @@ class WXDLLIMPEXP_SDK CompileCommandsGenerator : public wxEvtHandler
 {
     IProcess* m_process = nullptr;
     wxFileName m_outputFile;
-    
+
 protected:
     void OnProcessTeraminated(clProcessEvent& event);
 

@@ -67,7 +67,7 @@ void clAuiCaptionEnabler::OnTimer(wxTimerEvent& event)
                 pi.CaptionVisible(false);
                 m_aui->Update();
             }
-        }        
+        }
     }
 }
 

@@ -56,25 +56,25 @@
 ///////////////////////////////////////////////////////////////////////////////
 class NewItemBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxListCtrl* m_fileType;
-		wxStaticText* m_staticText6;
-		wxTextCtrl* m_fileName;
-		
-		wxStaticText* m_staticText3;
-		wxTextCtrl* m_location;
-		wxButton* m_browseBtn;
-		wxStaticLine* m_staticline1;
-		wxButton* m_okButton;
-		wxButton* m_cancel;
-	
-	public:
-		
-		NewItemBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 512,462 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
-		~NewItemBaseDlg();
-	
+    private:
+    
+    protected:
+        wxListCtrl* m_fileType;
+        wxStaticText* m_staticText6;
+        wxTextCtrl* m_fileName;
+        
+        wxStaticText* m_staticText3;
+        wxTextCtrl* m_location;
+        wxButton* m_browseBtn;
+        wxStaticLine* m_staticline1;
+        wxButton* m_okButton;
+        wxButton* m_cancel;
+    
+    public:
+        
+        NewItemBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 512,462 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+        ~NewItemBaseDlg();
+    
 };
 
 #endif //__new_item_base_dlg__

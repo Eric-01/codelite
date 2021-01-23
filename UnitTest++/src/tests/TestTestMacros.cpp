@@ -27,7 +27,7 @@ struct ThrowingThingie
     {
         if (!dummy)
             throw "Oops";
-    } 
+    }
     bool dummy;
 };
 
@@ -57,30 +57,30 @@ struct DummyFixture
 SUITE(TestSuite1)
 {
 
-	TEST(SimilarlyNamedTestsInDifferentSuitesWork)
-	{
-		(void)testResults_;
-	}
+    TEST(SimilarlyNamedTestsInDifferentSuitesWork)
+    {
+        (void)testResults_;
+    }
 
-	TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
-	{
-	    (void)testResults_;
-	}
+    TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
+    {
+        (void)testResults_;
+    }
 
 }
 
 SUITE(TestSuite2)
 {
 
-	TEST(SimilarlyNamedTestsInDifferentSuitesWork)
-	{
-	    (void)testResults_;
-	}
+    TEST(SimilarlyNamedTestsInDifferentSuitesWork)
+    {
+        (void)testResults_;
+    }
 
-	TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
-	{
-	    (void)testResults_;
-	}
+    TEST_FIXTURE(DummyFixture,SimilarlyNamedFixtureTestsInDifferentSuitesWork)
+    {
+        (void)testResults_;
+    }
 
 }
 
@@ -112,48 +112,48 @@ TEST(TestAddedWithTEST_FIXTURE_EXMacroGetsDefaultSuite)
 
 struct FixtureCtorThrows
 {
-	FixtureCtorThrows()	{ throw "exception"; }
+    FixtureCtorThrows()	{ throw "exception"; }
 };
 
 TestList throwingFixtureTestList1;
 TEST_FIXTURE_EX(FixtureCtorThrows, FixtureCtorThrowsTestName, throwingFixtureTestList1)
 {
-	(void)testResults_;
+    (void)testResults_;
 }
 
 TEST(FixturesWithThrowingCtorsAreFailures)
 {
-	CHECK(throwingFixtureTestList1.GetHead() != NULL);
-	RecordingReporter reporter;
-	TestResults result(&reporter);
-	throwingFixtureTestList1.GetHead()->Run(result);
+    CHECK(throwingFixtureTestList1.GetHead() != NULL);
+    RecordingReporter reporter;
+    TestResults result(&reporter);
+    throwingFixtureTestList1.GetHead()->Run(result);
 
-	int const failureCount = result.GetFailedTestCount();
-	CHECK_EQUAL(1, failureCount);
-	CHECK(strstr(reporter.lastFailedMessage, "while constructing fixture"));
+    int const failureCount = result.GetFailedTestCount();
+    CHECK_EQUAL(1, failureCount);
+    CHECK(strstr(reporter.lastFailedMessage, "while constructing fixture"));
 }
 
 struct FixtureDtorThrows
 {
-	~FixtureDtorThrows() { throw "exception"; }
+    ~FixtureDtorThrows() { throw "exception"; }
 };
 
 TestList throwingFixtureTestList2;
 TEST_FIXTURE_EX(FixtureDtorThrows, FixtureDtorThrowsTestName, throwingFixtureTestList2)
 {
-	(void)testResults_;
+    (void)testResults_;
 }
 
 TEST(FixturesWithThrowingDtorsAreFailures)
 {
-	CHECK(throwingFixtureTestList2.GetHead() != NULL);
-	RecordingReporter reporter;
-	TestResults result(&reporter);
-	throwingFixtureTestList2.GetHead()->Run(result);
+    CHECK(throwingFixtureTestList2.GetHead() != NULL);
+    RecordingReporter reporter;
+    TestResults result(&reporter);
+    throwingFixtureTestList2.GetHead()->Run(result);
 
-	int const failureCount = result.GetFailedTestCount();
-	CHECK_EQUAL(1, failureCount);
-	CHECK(strstr(reporter.lastFailedMessage, "while destroying fixture"));
+    int const failureCount = result.GetFailedTestCount();
+    CHECK_EQUAL(1, failureCount);
+    CHECK(strstr(reporter.lastFailedMessage, "while destroying fixture"));
 }
 
 }
@@ -163,9 +163,9 @@ TEST(FixturesWithThrowingDtorsAreFailures)
 // Note: we are outside of the anonymous namespace
 SUITE(SameTestSuite)
 {
-	TEST(DummyTest1)
-	{
-	    (void)testResults_;
-	}
+    TEST(DummyTest1)
+    {
+        (void)testResults_;
+    }
 }
 

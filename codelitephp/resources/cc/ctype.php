@@ -19,7 +19,7 @@ function ctype_alnum ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
+ * @return bool true if every character in text is
  *   a letter from the current locale, false otherwise.
  */
 function ctype_alpha ($text) {}
@@ -30,7 +30,7 @@ function ctype_alpha ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
+ * @return bool true if every character in text is
  *   a control character from the current locale, false otherwise.
  */
 function ctype_cntrl ($text) {}
@@ -52,7 +52,7 @@ function ctype_digit ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
+ * @return bool true if every character in text is
  *   a lowercase letter in the current locale.
  */
 function ctype_lower ($text) {}
@@ -63,7 +63,7 @@ function ctype_lower ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
+ * @return bool true if every character in text is
  *   printable and actually creates visible output (no white space), false
  *   otherwise.
  */
@@ -75,9 +75,9 @@ function ctype_graph ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text 
- *   will actually create output (including blanks). Returns false if 
- *   text contains control characters or characters 
+ * @return bool true if every character in text
+ *   will actually create output (including blanks). Returns false if
+ *   text contains control characters or characters
  *   that do not have any output or control function at all.
  */
 function ctype_print ($text) {}
@@ -89,7 +89,7 @@ function ctype_print ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text 
+ * @return bool true if every character in text
  *   is printable, but neither letter, digit or blank, false otherwise.
  */
 function ctype_punct ($text) {}
@@ -100,8 +100,8 @@ function ctype_punct ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text 
- *   creates some sort of white space, false otherwise. Besides the 
+ * @return bool true if every character in text
+ *   creates some sort of white space, false otherwise. Besides the
  *   blank character this also includes tab, vertical tab, line feed,
  *   carriage return and form feed characters.
  */
@@ -113,7 +113,7 @@ function ctype_space ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
+ * @return bool true if every character in text is
  *   an uppercase letter in the current locale.
  */
 function ctype_upper ($text) {}
@@ -124,8 +124,8 @@ function ctype_upper ($text) {}
  * @param text string <p>
  *       The tested string.
  *      </p>
- * @return bool true if every character in text is 
- *   a hexadecimal 'digit', that is a decimal digit or a character from 
+ * @return bool true if every character in text is
+ *   a hexadecimal 'digit', that is a decimal digit or a character from
  *   [A-Fa-f] , false otherwise.
  */
 function ctype_xdigit ($text) {}

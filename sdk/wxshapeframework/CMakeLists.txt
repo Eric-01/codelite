@@ -1,8 +1,8 @@
 # define minimum cmake version
 cmake_minimum_required(VERSION 2.6.2)
- 
+
 # Our project is called 'wxshapeframework' this is how it will be called in
-# visual studio, and in our makefiles. 
+# visual studio, and in our makefiles.
 project(wxshapeframework)
 
 # It was noticed that when using MinGW gcc it is essential that 'core' is mentioned before 'base'.

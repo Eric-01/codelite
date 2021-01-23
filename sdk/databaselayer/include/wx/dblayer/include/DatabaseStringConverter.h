@@ -23,7 +23,7 @@ public:
 
   // dtor
   virtual ~DatabaseStringConverter() { }
-  
+
   void SetEncoding(wxFontEncoding encoding);
   void SetEncoding(const wxCSConv* conv);
   const wxCSConv* GetEncoding() { return &m_Encoding; }
@@ -31,11 +31,11 @@ public:
   virtual const wxCharBuffer ConvertToUnicodeStream(const wxString& inputString);
   virtual size_t GetEncodedStreamLength(const wxString& inputString);
   virtual wxString ConvertFromUnicodeStream(const char* inputBuffer);
- 
+
   static const wxCharBuffer ConvertToUnicodeStream(const wxString& inputString, const char* encoding);
   static wxString ConvertFromUnicodeStream(const char* inputBuffer, const char* encoding);
   static size_t GetEncodedStreamLength(const wxString& inputString, const char* encoding);
- 
+
 private:
   wxCSConv m_Encoding;
 };

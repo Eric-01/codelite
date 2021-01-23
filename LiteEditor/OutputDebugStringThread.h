@@ -42,7 +42,7 @@ public:
      * \note This call must be called from the context of other thread (e.g. main thread)
      */
     void Start(int priority = WXTHREAD_DEFAULT_PRIORITY);
-    
+
     /**
      * @brief enable collection
      */

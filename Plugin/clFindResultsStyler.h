@@ -61,7 +61,7 @@ public:
      * @return return the clicked line + the style on that line
      */
     virtual int HitTest(wxStyledTextCtrl* ctrl, wxStyledTextEvent& e, int& line);
-    
+
     /**
      * @brief same as above, but uses the wxSTC passed in the Ctor
      */

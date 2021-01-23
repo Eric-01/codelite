@@ -34,12 +34,12 @@ class PHPDebugStartDlg : public PHPDebugStartDlgBase
     IManager* m_manager;
 protected:
     void SetBookSelection(int sel) { m_simpleBook->SetSelection(sel); }
-    
+
 public:
     PHPDebugStartDlg(wxWindow* parent, PHPProject::Ptr_t pProject, IManager* manager);
     virtual ~PHPDebugStartDlg();
     wxString GetPath() const;
-    
+
 protected:
     virtual void OnOkUI(wxUpdateUIEvent& event);
     virtual void OnUseActiveEditor(wxCommandEvent& event);

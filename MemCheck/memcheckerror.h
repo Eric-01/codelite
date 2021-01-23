@@ -54,7 +54,7 @@ typedef MemCheckError* MemCheckErrorPtr;
 /**
  * @class MemCheckErrorReferrer
  * @brief wrapper pointer to MemCheckError
- * 
+ *
  * wxDVC needs reference to MemCheckError, the only way to achieve this is to set its wxClientData. But the problem is that whenever wxDVC is cleared it is made by wxCrafters wxDVCModel and this model frees all the client data. With this hack model clears only this wrapper class and leavs MemCheckErrorList intact.
  */
 class MemCheckErrorReferrer: public wxClientData
@@ -70,7 +70,7 @@ public:
 /**
  * @class MemCheckErrorLocationReferrer
  * @brief wrapper pointer to MemCheckErrorLocation
- * 
+ *
  * wxDVC needs reference to MemCheckErrorLocation, the only way to achieve this is to set its wxClientData. But the problem is that whenever wxDVC is cleared it is made by wxCrafters wxDVCModel and this model frees all the client data. With this hack model clears only this wrapper class and leavs MemCheckErrorList intact.
  */
 class MemCheckErrorLocationReferrer: public wxClientData
@@ -91,29 +91,29 @@ public:
 struct MemCheckErrorLocation {
     bool operator==(const MemCheckErrorLocation & other) const;
     bool operator!=(const MemCheckErrorLocation & other) const;
-    
+
     /**
      * @brief Returns all atributed concatenated to tab separated string.
      * @return string
-     * 
+     *
      * this function is used in searching function
      */
     const wxString toString() const;
-    
+
     /**
      * @brief Is used in tooltip.
      * @param workspacePath
      * @return string
      */
     const wxString toText(const wxString & workspacePath = wxEmptyString) const;
-    
+
     /**
      * @brief If file is in workspace path, that path is trimmed
      * @param workspacePath
      * @return file name
      */
     const wxString getFile(const wxString & workspacePath = wxEmptyString) const;
-    
+
     /**
      * @brief If object file is in workspace path, that path is trimmed
      * @param workspacePath
@@ -143,8 +143,8 @@ struct MemCheckErrorLocation {
 struct MemCheckError {
     enum Type { TYPE_ERROR, TYPE_AUXILIARY };
     MemCheckError();
-    
-    
+
+
     /**
      * @brief Returns all atributed and atributes of all locations and all atributes from nested errors concatenated to tab separated string.
      * @return string
@@ -152,14 +152,14 @@ struct MemCheckError {
      * TODO: It cloud be buffered to improve speed, but it would cost more memory.
      */
     const wxString toString() const;
-    
+
     /**
      * @brief Is used in tooltip.
      * @param indent number of spaces
      * @return string
      */
     const wxString toText(unsigned int indent = 1) const;
-    
+
     /**
      * @brief creates uniq name for suppresion
      * @return suppression rule as string
@@ -167,8 +167,8 @@ struct MemCheckError {
      * FIXME This method must be moved to Valgrind procesor, it is Valgrind specfic.
      */
     const wxString getSuppression();
-    
-    
+
+
     /**
      * @brief Test if error has file on specified path.
      * @param path
@@ -274,7 +274,7 @@ public:
      * This method calls MemCheckIterTools constructor and then GetIterator method.
      */
     static ErrorListIterator Factory(ErrorList & l, const wxString & workspacePath, unsigned int flags);
-    
+
     /**
      * @brief Creates iterator with holds settings and does iteration.
      * @param l list to iterate over

@@ -39,14 +39,14 @@ NewVirtualFolderDlg::NewVirtualFolderDlg(wxWindow* parent, const wxString& curre
     ProjectPtr proj = clCxxWorkspaceST::Get()->FindProjectByName(project_name, errmsg);
     wxString projectPath = proj->GetFileName().GetPath();
     m_basePath = wxFileName(projectPath + wxFILE_SEP_PATH + vd_path, "").GetPath();
-    
+
     SetName("NewVirtualFolderDlg");
     WindowAttrManager::Load(this);
 }
 
 NewVirtualFolderDlg::~NewVirtualFolderDlg()
 {
-    
+
     clConfig::Get().Write(kConfigCreateVirtualFoldersOnDisk, m_checkBoxCreateOnDisk->IsChecked());
 }
 

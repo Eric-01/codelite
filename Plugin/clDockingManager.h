@@ -39,7 +39,7 @@ protected:
 
     void ShowWorkspaceOpenTabMenu();
     void ShowOutputViewOpenTabMenu();
-    
+
     /**
      * @brief show a popup menu and return the selected string
      * return an empty string if no selection was made

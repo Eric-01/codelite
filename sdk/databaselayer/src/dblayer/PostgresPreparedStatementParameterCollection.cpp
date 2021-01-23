@@ -29,7 +29,7 @@ char** PostgresPreparedStatementParameterCollection::GetParamValues()
 int* PostgresPreparedStatementParameterCollection::GetParamLengths()
 {
   int* paramLengths = new int[m_Parameters.size()];
-  
+
   for (unsigned int i=0; i<m_Parameters.size(); i++)
   {
     // Get a pointer to the m_nBufferLength member variable for this parameter
@@ -42,7 +42,7 @@ int* PostgresPreparedStatementParameterCollection::GetParamLengths()
 int* PostgresPreparedStatementParameterCollection::GetParamFormats()
 {
   int* paramFormats = new int[m_Parameters.size()];
-  
+
   for (unsigned int i=0; i<m_Parameters.size(); i++)
   {
     paramFormats[i] = (m_Parameters[i].IsBinary()) ? 1 : 0;

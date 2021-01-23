@@ -295,13 +295,13 @@ void wxFormBuilder::OpenWithWxFb(wxCommandEvent& e)
 void wxFormBuilder::DoLaunchWxFB(const wxString& file)
 {
     wxString fbpath = GetWxFBPath();
-    //	if (fbpath.IsEmpty()) {
-    //		wxMessageBox(_("Failed to launch wxFormBuilder, no path specified\nPlease set wxFormBuilder path from
+    // if (fbpath.IsEmpty()) {
+    //     wxMessageBox(_("Failed to launch wxFormBuilder, no path specified\nPlease set wxFormBuilder path from
     // Plugins
     //-> wxFormBuilder -> Settings..."),
-    //		             _("CodeLite"), wxOK|wxCENTER|wxICON_WARNING);
-    //		return;
-    //	}
+    //                   _("CodeLite"), wxOK|wxCENTER|wxICON_WARNING);
+    //     return;
+    // }
     ConfFormBuilder confData;
     m_mgr->GetConfigTool()->ReadObject(wxT("wxFormBuilder"), &confData);
     wxString cmd = confData.GetCommand();

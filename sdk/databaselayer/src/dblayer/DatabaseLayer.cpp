@@ -66,7 +66,7 @@ bool DatabaseLayer::CloseResultSet(DatabaseResultSet* pResultSet)
     DatabaseStatementHashSet::iterator it;
     for( it = m_Statements.begin(); it != m_Statements.end(); ++it )
     {
-      // If the statement knows about the result set then it will close the 
+      // If the statement knows about the result set then it will close the
       //  result set and return true, otherwise it will return false
       PreparedStatement* pStatement = *it;
       if (pStatement != NULL)
@@ -196,7 +196,7 @@ int DatabaseLayer::GetSingleResultInt(const wxString& strSQL, const wxVariant* f
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
 
@@ -280,7 +280,7 @@ wxString DatabaseLayer::GetSingleResultString(const wxString& strSQL, const wxVa
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
 
@@ -364,7 +364,7 @@ long DatabaseLayer::GetSingleResultLong(const wxString& strSQL, const wxVariant*
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
 
@@ -448,10 +448,10 @@ bool DatabaseLayer::GetSingleResultBool(const wxString& strSQL, const wxVariant*
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
- 
+
 wxDateTime DatabaseLayer::GetSingleResultDate(const wxString& strSQL, int nField, bool bRequireUniqueResult /*= true*/)
 {
   wxVariant variant((long)nField);
@@ -532,7 +532,7 @@ wxDateTime DatabaseLayer::GetSingleResultDate(const wxString& strSQL, const wxVa
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
 
@@ -616,10 +616,10 @@ void* DatabaseLayer::GetSingleResultBlob(const wxString& strSQL, const wxVariant
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
- 
+
 double DatabaseLayer::GetSingleResultDouble(const wxString& strSQL, int nField, bool bRequireUniqueResult /*= true*/)
 {
   wxVariant variant((long)nField);
@@ -700,7 +700,7 @@ double DatabaseLayer::GetSingleResultDouble(const wxString& strSQL, const wxVari
     ThrowDatabaseException();
     return value;
   }
-  
+
   return value;
 }
 
@@ -719,7 +719,7 @@ wxArrayInt DatabaseLayer::GetResultsArrayInt(const wxString& strSQL, const wxStr
 wxArrayInt DatabaseLayer::GetResultsArrayInt(const wxString& strSQL, const wxVariant* field)
 {
   wxArrayInt returnArray;
-  
+
   DatabaseResultSet* pResult = NULL;
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
   try
@@ -772,7 +772,7 @@ wxArrayString DatabaseLayer::GetResultsArrayString(const wxString& strSQL, const
 wxArrayString DatabaseLayer::GetResultsArrayString(const wxString& strSQL, const wxVariant* field)
 {
   wxArrayString returnArray;
-  
+
   DatabaseResultSet* pResult = NULL;
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
   try
@@ -825,7 +825,7 @@ wxArrayLong DatabaseLayer::GetResultsArrayLong(const wxString& strSQL, const wxS
 wxArrayLong DatabaseLayer::GetResultsArrayLong(const wxString& strSQL, const wxVariant* field)
 {
   wxArrayLong returnArray;
-  
+
   DatabaseResultSet* pResult = NULL;
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
   try
@@ -879,7 +879,7 @@ wxArrayDouble DatabaseLayer::GetResultsArrayDouble(const wxString& strSQL, const
 wxArrayDouble DatabaseLayer::GetResultsArrayDouble(const wxString& strSQL, const wxVariant* field)
 {
   wxArrayDouble returnArray;
-  
+
   DatabaseResultSet* pResult = NULL;
 #ifndef DONT_USE_DATABASE_LAYER_EXCEPTIONS
   try

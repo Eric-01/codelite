@@ -60,14 +60,14 @@ TEST (StreamingFloatWritesCorrectCharacters)
 {
     MemoryOutStream stream;
     stream << 3.1415f;
-	CHECK (std::strstr(stream.GetText(), "3.1415"));
+    CHECK (std::strstr(stream.GetText(), "3.1415"));
 }
 
 TEST (StreamingDoubleWritesCorrectCharacters)
 {
-	MemoryOutStream stream;
-	stream << 3.1415;
-	CHECK (std::strstr(stream.GetText(), "3.1415"));
+    MemoryOutStream stream;
+    stream << 3.1415;
+    CHECK (std::strstr(stream.GetText(), "3.1415"));
 }
 
 TEST (StreamingPointerWritesCorrectCharacters)

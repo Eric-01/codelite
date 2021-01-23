@@ -27,28 +27,28 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFSolidArrow, wxSFArrowBase);
 wxSFSolidArrow::wxSFSolidArrow(void)
 : wxSFArrowBase()
 {
-	m_Fill = sfdvARROW_FILL;
-	m_Pen = sfdvARROW_BORDER;
+    m_Fill = sfdvARROW_FILL;
+    m_Pen = sfdvARROW_BORDER;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFSolidArrow::wxSFSolidArrow(wxSFShapeBase* parent)
 : wxSFArrowBase(parent)
 {
-	m_Fill = sfdvARROW_FILL;
-	m_Pen = sfdvARROW_BORDER;
+    m_Fill = sfdvARROW_FILL;
+    m_Pen = sfdvARROW_BORDER;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFSolidArrow::wxSFSolidArrow(const wxSFSolidArrow& obj)
 : wxSFArrowBase(obj)
 {
-	m_Fill = obj.m_Fill;
-	m_Pen = obj.m_Pen;
+    m_Fill = obj.m_Fill;
+    m_Pen = obj.m_Pen;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFSolidArrow::~wxSFSolidArrow(void)
@@ -57,8 +57,8 @@ wxSFSolidArrow::~wxSFSolidArrow(void)
 
 void wxSFSolidArrow::MarkSerializableDataMembers()
 {
-	XS_SERIALIZE_EX(m_Fill, wxT("fill"), sfdvARROW_FILL);
-	XS_SERIALIZE_EX(m_Pen, wxT("border"), sfdvARROW_BORDER);
+    XS_SERIALIZE_EX(m_Fill, wxT("fill"), sfdvARROW_FILL);
+    XS_SERIALIZE_EX(m_Pen, wxT("border"), sfdvARROW_BORDER);
 }
 
 //----------------------------------------------------------------------------------//
@@ -67,14 +67,14 @@ void wxSFSolidArrow::MarkSerializableDataMembers()
 
 void wxSFSolidArrow::Draw(const wxRealPoint &from, const wxRealPoint &to, wxDC& dc)
 {
-	wxPoint rarrow[3];
-	
-	TranslateArrow( rarrow, solidArrow, 3, from, to );
+    wxPoint rarrow[3];
 
-	dc.SetPen(m_Pen);
+    TranslateArrow( rarrow, solidArrow, 3, from, to );
+
+    dc.SetPen(m_Pen);
     dc.SetBrush(m_Fill);
     dc.DrawPolygon(3, rarrow);
     dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxNullPen);
 }
 

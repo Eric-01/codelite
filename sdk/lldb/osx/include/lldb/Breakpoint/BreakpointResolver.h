@@ -186,7 +186,7 @@ protected:
   };
   static const char
       *g_option_names[static_cast<uint32_t>(OptionNames::LastOptionName)];
-  
+
   virtual void NotifyBreakpointSet() {};
 
 public:

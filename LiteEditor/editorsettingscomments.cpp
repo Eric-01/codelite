@@ -36,13 +36,13 @@ EditorSettingsComments::EditorSettingsComments( wxWindow* parent )
     m_checkBoxContCComment->SetValue( data.GetAddStarOnCComment() );
     m_checkBoxContinueCppComment->SetValue( data.GetContinueCppComment() );
     m_checkBoxSmartAddFiles->SetValue( EditorConfigST::Get()->GetOptions()->GetOptions() & OptionsConfig::Opt_SmartAddFiles );
-    
+
     size_t flags = EditorConfigST::Get()->GetOptions()->GetOptions();
-    
+
     if ( !(flags & (OptionsConfig::Opt_NavKey_Alt|OptionsConfig::Opt_NavKey_Control)) ) {
         flags = OptionsConfig::Opt_NavKey_Alt|OptionsConfig::Opt_NavKey_Control; // force the least-instrusive meta key default
     }
-    
+
     m_checkBoxAlt->SetValue( flags & OptionsConfig::Opt_NavKey_Alt );
     m_checkBoxCtrl->SetValue( flags & OptionsConfig::Opt_NavKey_Control );
 }
@@ -61,19 +61,19 @@ void EditorSettingsComments::Save(OptionsConfigPtr options)
         flags |= OptionsConfig::Opt_SmartAddFiles;
     else
         flags &= ~OptionsConfig::Opt_SmartAddFiles;
-    
+
     // clear the navigation key code
     flags &= ~(OptionsConfig::Opt_NavKey_Alt|OptionsConfig::Opt_NavKey_Control|OptionsConfig::Opt_NavKey_Shift);
-   
+
     if( m_checkBoxCtrl->IsChecked() )
         flags |= OptionsConfig::Opt_NavKey_Control;
-        
+
     if( m_checkBoxAlt->IsChecked() )
         flags |= OptionsConfig::Opt_NavKey_Alt;
-    
+
     if ( !(flags & (OptionsConfig::Opt_NavKey_Alt|OptionsConfig::Opt_NavKey_Control)) ) {
         flags |= OptionsConfig::Opt_NavKey_Alt|OptionsConfig::Opt_NavKey_Control; // force the least-instrusive meta key default
     }
-    
+
     options->SetOptions(flags);
 }

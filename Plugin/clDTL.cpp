@@ -211,7 +211,7 @@ void clDTL::Diff(const wxFileName& fnLeft, const wxFileName& fnRight, DiffMode m
             }
             }
         }
-        
+
         if ( seqStartLine != wxNOT_FOUND ) {
             m_sequences.push_back( std::make_pair(seqStartLine, m_resultLeft.size()) );
             seqStartLine = wxNOT_FOUND;

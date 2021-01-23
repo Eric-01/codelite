@@ -41,12 +41,12 @@ protected:
 public:
     CxxScannerBase(CxxPreProcessor* preProcessor, const wxFileName& filename);
     virtual ~CxxScannerBase();
-    
+
     /**
      * @brief main loop
      */
     void Parse();
-    
+
     /**
      * @brief
      * @param token

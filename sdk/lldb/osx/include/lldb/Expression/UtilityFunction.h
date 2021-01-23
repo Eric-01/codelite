@@ -33,7 +33,7 @@ public:
   static bool classof(const Expression *E) {
     return E->getKind() == eKindUtilityFunction;
   }
-  
+
   /// Constructor
   ///
   /// \param[in] text

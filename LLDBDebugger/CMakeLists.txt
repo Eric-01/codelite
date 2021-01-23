@@ -62,9 +62,9 @@ if (WITH_LLDB MATCHES 1)
 
         # Include paths
         include_directories("${CL_SRC_ROOT}/Plugin"
-                            "${CL_SRC_ROOT}/sdk/wxsqlite3/include" 
-                            "${CL_SRC_ROOT}/CodeLite" 
-                            "${CL_SRC_ROOT}/PCH" 
+                            "${CL_SRC_ROOT}/sdk/wxsqlite3/include"
+                            "${CL_SRC_ROOT}/CodeLite"
+                            "${CL_SRC_ROOT}/PCH"
                             "${CL_SRC_ROOT}/Interfaces")
         ## Definitions
         add_definitions(-DWXUSINGDLL_WXSQLITE3)

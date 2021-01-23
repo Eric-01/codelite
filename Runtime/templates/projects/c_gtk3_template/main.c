@@ -2,17 +2,17 @@
 
 int main(int argc, char *argv[])
 {
-	GtkWidget *window;
+    GtkWidget *window;
 
-	gtk_init (&argc, &argv);
+    gtk_init (&argc, &argv);
 
-	window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
+    window = gtk_window_new (GTK_WINDOW_TOPLEVEL);
 
-	g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
+    g_signal_connect (window, "destroy", G_CALLBACK (gtk_main_quit), NULL);
 
-	gtk_widget_show (window);
+    gtk_widget_show (window);
 
-	gtk_main ();
+    gtk_main ();
 
-	return 0;
+    return 0;
 }

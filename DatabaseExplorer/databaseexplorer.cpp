@@ -127,7 +127,7 @@ DatabaseExplorer::DatabaseExplorer(IManager* manager)
         // if(index == Notebook::npos)
         book->AddPage(m_dbViewerPanel, _("DbExplorer"), false);
         // else
-        //	book->InsertPage(index, m_dbViewerPanel, svnCONSOLE_TEXT, false);
+        //     book->InsertPage(index, m_dbViewerPanel, svnCONSOLE_TEXT, false);
     }
     m_mgr->AddWorkspaceTab(_("DbExplorer"));
 

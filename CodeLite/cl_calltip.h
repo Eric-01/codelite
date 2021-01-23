@@ -52,12 +52,12 @@ class WXDLLIMPEXP_CL clCallTip
     void Initialize(const std::vector<TagEntryPtr> &tags);
 
 public:
-    
+
     /**
      * @brief format list of tags into calltips
      */
     static void FormatTagsToTips( const TagEntryPtrVector_t &tags,  std::vector<clTipInfo>& tips);
-    
+
     /**
      * Constructor
      * \param tips input tips
@@ -109,13 +109,13 @@ public:
      * @return return the current tip
      */
     wxString Current();
-    
+
     /**
      * @brief select the first tip that has at least argcount
      * @return true if we managed to find this tip, false otherwise
      */
     bool SelectTipToMatchArgCount(size_t argcount);
-    
+
     /**
      * Return number of tips stored in this object
      * \return number of tips
@@ -138,12 +138,12 @@ public:
     int GetCurr() const {
         return m_curr;
     }
-    
+
     /**
      * @brief set the tip to a specific tag
      */
     void SelectSiganture( const wxString &signature );
-    
+
 private:
     wxString TipAt(int at);
 };

@@ -40,7 +40,7 @@ TagsParserSearchPathsDlg::TagsParserSearchPathsDlg(wxWindow* parent,
     for(unsigned int i = 0; i < m_checkListExcludePaths->GetCount(); i++) {
         m_checkListExcludePaths->Check(i, true);
     }
-    
+
     SetName("TagsParserSearchPathsDlg");
     WindowAttrManager::Load(this);
 }

@@ -46,7 +46,7 @@ PHPEntityBase::Ptr_t PHPEntityBase::FindChild(const wxString& name, bool tryPrep
 void PHPEntityBase::StoreRecursive(PHPLookupTable* lookup)
 {
     Store(lookup);
-    
+
     // save the children
     PHPEntityBase::List_t::iterator iter = m_children.begin();
     for(; iter != m_children.end(); ++iter) {
@@ -76,7 +76,7 @@ void PHPEntityBase::RemoveChild(PHPEntityBase::Ptr_t child)
     if(m_childrenMap.count(child->GetFullName())) {
         m_childrenMap.erase(child->GetFullName());
     }
-    
+
     // Remove the child from the list as well
     PHPEntityBase::List_t::iterator iter =
         std::find_if(m_children.begin(), m_children.end(), [&](PHPEntityBase::Ptr_t c) {

@@ -45,10 +45,10 @@ bool clSocketClient::ConnectRemote(const std::string& address, int port)
     DestroySocket();
     m_socket = ::socket(AF_INET, SOCK_STREAM, 0);
     const char* ip_addr = address.c_str();
-    struct sockaddr_in serv_addr; 
+    struct sockaddr_in serv_addr;
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(port);
-    
+
 #ifndef __WXMSW__
     if(inet_pton(AF_INET, ip_addr, &serv_addr.sin_addr) <= 0) {
         return false;

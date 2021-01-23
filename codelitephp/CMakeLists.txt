@@ -9,7 +9,7 @@ add_definitions(-DPLUGINS_DIR=\"${PLUGINS_DIR}\")
 endif()
 
 # Our project is called 'plugin' this is how it will be called in
-# visual studio, and in our makefiles. 
+# visual studio, and in our makefiles.
 project( ${PLUGIN_NAME} )
 
 # It was noticed that when using MinGW gcc it is essential that 'core' is mentioned before 'base'.
@@ -25,19 +25,19 @@ endif()
 include( "${wxWidgets_USE_FILE}" )
 
 # Validate that -DCL_SRC_ROOT was passed
-if ( NOT CL_SRC_ROOT) 
+if ( NOT CL_SRC_ROOT)
     message(FATAL_ERROR "**** CL_SRC_ROOT variable is not set. Please set to codelite's source folder")
 else ( NOT CL_SRC_ROOT )
     message("-- CL_SRC_ROOT is set to ${CL_SRC_ROOT}")
 endif( NOT CL_SRC_ROOT )
 
 # Include paths
-include_directories("${CL_SRC_ROOT}/Plugin" 
-                    "${CL_SRC_ROOT}/sdk/wxsqlite3/include" 
-                    "${CL_SRC_ROOT}/CodeLite" 
-                    "${CL_SRC_ROOT}/PCH" 
-                    "${CL_SRC_ROOT}/Interfaces" 
-                    "${CL_SRC_ROOT}/codelitephp/PHPParser" 
+include_directories("${CL_SRC_ROOT}/Plugin"
+                    "${CL_SRC_ROOT}/sdk/wxsqlite3/include"
+                    "${CL_SRC_ROOT}/CodeLite"
+                    "${CL_SRC_ROOT}/PCH"
+                    "${CL_SRC_ROOT}/Interfaces"
+                    "${CL_SRC_ROOT}/codelitephp/PHPParser"
                     "${CL_SRC_ROOT}/codelitephp/php-plugin"
                     "${CL_SRC_ROOT}/codelitephp/PHPParserUnitTests")
 
@@ -49,12 +49,12 @@ if(CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DebugFull)
     ## Debug build of codelite
     set( CL_LIB_DIR lib)
     set ( CL_LIBPATH ${CL_SRC_ROOT}/build-debug/lib )
-    
+
 else (CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DebugFull)
     ## Release build of codelite
     set( CL_LIB_DIR lib)
     set ( CL_LIBPATH ${CL_SRC_ROOT}/build-release/lib )
-    
+
 endif (CMAKE_BUILD_TYPE MATCHES Debug OR CMAKE_BUILD_TYPE MATCHES DebugFull)
 
 
@@ -94,13 +94,13 @@ target_link_libraries(${PLUGIN_NAME}
 CL_INSTALL_PLUGIN(${PLUGIN_NAME})
 CL_INSTALL_FILE_SHARED("${CL_SRC_ROOT}/Runtime/PHP.zip")
 
-target_link_libraries(PHPUnitTests 
-                     ${LINKER_OPTIONS} 
-                     -L"${CMAKE_LIBRARY_OUTPUT_DIRECTORY}" 
-                     -L"${CL_LIBPATH}" 
-                     PHPParser 
-                     libcodelite 
-                     plugin 
-                     ${ADDITIONAL_LIBRARIES} 
+target_link_libraries(PHPUnitTests
+                     ${LINKER_OPTIONS}
+                     -L"${CMAKE_LIBRARY_OUTPUT_DIRECTORY}"
+                     -L"${CL_LIBPATH}"
+                     PHPParser
+                     libcodelite
+                     plugin
+                     ${ADDITIONAL_LIBRARIES}
                      ${wxWidgets_LIBRARIES})
 

@@ -38,9 +38,9 @@ class WXDLLIMPEXP_CL PHPEntityVisitor
 public:
     PHPEntityVisitor();
     virtual ~PHPEntityVisitor();
-    
+
     void Visit(PHPEntityBase::Ptr_t parent);
-    
+
     /**
      * @brief called whenver an entity is visited
      * @param entity

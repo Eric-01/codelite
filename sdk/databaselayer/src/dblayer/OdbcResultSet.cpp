@@ -31,12 +31,12 @@ OdbcResultSet::OdbcResultSet(OdbcInterface* pInterface, OdbcPreparedStatement* p
     // Populate field lookup map
     SQLTCHAR field_name[ODBC_FIELD_NAME_LEN];
     SQLSMALLINT colnamelen;
-   
+
     for (int i=0; i<nCol; i++)
     {
         UWORD col = i+1;
         long nReturn = m_pInterface->GetSQLColAttributes()(m_pOdbcStatement, col, SQL_COLUMN_NAME,
-	                      field_name,
+                          field_name,
                           ODBC_FIELD_NAME_LEN, &colnamelen, 0);
         if ( nReturn != SQL_SUCCESS && nReturn != SQL_SUCCESS_WITH_INFO )
         {
@@ -44,11 +44,11 @@ OdbcResultSet::OdbcResultSet(OdbcInterface* pInterface, OdbcPreparedStatement* p
             ThrowDatabaseException();
             return;
         }
-        
+
 #if wxUSE_UNICODE
-		wxString strField = ConvertFromUnicodeStream((const char*)(wxChar*)field_name);
+        wxString strField = ConvertFromUnicodeStream((const char*)(wxChar*)field_name);
 #else
-		wxString strField((wxChar*)field_name);
+        wxString strField((wxChar*)field_name);
 #endif
         m_FieldLookupMap[strField.Upper()] = i;
     }
@@ -95,7 +95,7 @@ bool OdbcResultSet::Next()
         m_pOdbcStatement = m_pStatement->GetLastStatement();
 
     long nReturn = m_pInterface->GetSQLFetch()( m_pOdbcStatement );
-     
+
     if ( nReturn != SQL_SUCCESS && nReturn != SQL_SUCCESS_WITH_INFO )
     {
         if ( nReturn == SQL_NO_DATA )
@@ -109,7 +109,7 @@ bool OdbcResultSet::Next()
     m_fieldValues.Clear();
     for ( int i=0; i<(int)m_FieldLookupMap.size(); i++ )
         m_fieldValues.push_back( wxVariant() );
-      
+
     return true;
 }
 
@@ -242,7 +242,7 @@ void OdbcResultSet::RetrieveFieldData(int nField)
         else
         {
           /*
-          wxPrintf(_T("day = %d, month = %d, year = %d, hour = %d, minute = %d, second = %d, fraction = %d\n"), 
+          wxPrintf(_T("day = %d, month = %d, year = %d, hour = %d, minute = %d, second = %d, fraction = %d\n"),
             ret.day, ret.month, ret.year, ret.hour, ret.minute, ret.second, ret.fraction);*/
           wxDateTime dt(ret.day, wxDateTime::Month(ret.month-1), ret.year, ret.hour,
             ret.minute, ret.second, ret.fraction);
@@ -282,7 +282,7 @@ void OdbcResultSet::RetrieveFieldData(int nField)
         {
             while ( nRet != SQL_NO_DATA )
             {
-                nRet = m_pInterface->GetSQLGetData()( m_pOdbcStatement, nField, SQL_C_CHAR, buff, 
+                nRet = m_pInterface->GetSQLGetData()( m_pOdbcStatement, nField, SQL_C_CHAR, buff,
                     col_size, &real_size );
                 if ( nRet != SQL_SUCCESS && nRet != SQL_SUCCESS_WITH_INFO && nRet != SQL_NO_DATA )
                 {
@@ -451,7 +451,7 @@ void* OdbcResultSet::GetResultBlob(int nField, wxMemoryBuffer& Buffer)
       tempBufferExactSize.SetDataLen(bufferSize);
       tempBufferExactSize.SetBufSize(bufferSize);
       Buffer = tempBufferExactSize;
- 
+
       wxMemoryBuffer localCopy(Buffer);
       m_BlobMap[nField] = localCopy;
 
@@ -515,9 +515,9 @@ void OdbcResultSet::InterpretErrorCodes( long nCode, SQLHSTMT stmth_ptr )
     memset(strState, 0, ERR_STATE_LEN*sizeof(SQLTCHAR));
     memset(strBuffer, 0, ERR_BUFFER_LEN*sizeof(SQLTCHAR));
 
-    m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, stmth_ptr, 1, strState, &iNativeCode, 
-      strBuffer, ERR_BUFFER_LEN, &iMsgLen);  
- 
+    m_pInterface->GetSQLGetDiagRec()(SQL_HANDLE_STMT, stmth_ptr, 1, strState, &iNativeCode,
+      strBuffer, ERR_BUFFER_LEN, &iMsgLen);
+
     SetErrorCode((int)iNativeCode);
     //SetErrorMessage(ConvertFromUnicodeStream((char*)strBuffer));
     SetErrorMessage(wxString((wxChar*)strBuffer));
@@ -535,10 +535,10 @@ bool OdbcResultSet::IsBlob(int nField)
 
   memset(col_name, 0, 8192);
 
-  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, nField, col_name, 
+  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, nField, col_name,
       8192, &col_name_length, &col_data_type, &col_size, &col_decimal_digits, &col_nullable );
 
-  return (col_data_type == SQL_BIT || col_data_type == SQL_BINARY || 
+  return (col_data_type == SQL_BIT || col_data_type == SQL_BINARY ||
     col_data_type == SQL_VARBINARY || col_data_type == SQL_LONGVARBINARY);
 }
 

@@ -24,11 +24,11 @@ bool Process(wxCmdLineParser& parser)
 {
     parser.Parse();
 
-    //	long     process_id   (wxNOT_FOUND);
+    // long process_id (wxNOT_FOUND);
     wxString exe_name(wxEmptyString);
 
     // We got a command to close eTrigger
-    //	parser.Found(wxT("pid"),  &process_id);
+    // parser.Found(wxT("pid"), &process_id);
     parser.Found(wxT("name"), &exe_name);
 
     if(/*process_id == wxNOT_FOUND || */ exe_name.IsEmpty()) {

@@ -46,7 +46,7 @@ class XDebugComThread : public wxThread
     clSocketServer m_server;
     wxString m_host;
     int m_waitForConnTimeout;
-    
+
 protected:
     void DoSendCommand(const wxString& command, clSocketBase::Ptr_t client);
     bool DoReadReply(std::string& reply, clSocketBase::Ptr_t client);

@@ -27,7 +27,7 @@ void csParsePHPFolderHandler::DoProcessCommand(const JSONItem& options)
         m_dbpath = userPath.GetFullPath();
         dbpath = m_dbpath;
     }
-    
+
     clDEBUG() << "Using symbols db:" << dbpath;
     lookup.Open(dbpath);
     if(!lookup.IsOpened()) {

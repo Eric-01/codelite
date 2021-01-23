@@ -21,7 +21,7 @@ int OdbcResultSetMetaData::GetColumnType(int i)
 
   memset(col_name, 0, 8192);
 
-  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name, 
+  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name,
       8192, &col_name_length, &col_data_type, &col_size, &col_decimal_digits, &col_nullable );
 
   if ( nRet != SQL_SUCCESS )
@@ -82,7 +82,7 @@ int OdbcResultSetMetaData::GetColumnSize(int i)
 
   memset(col_name, 0, 8192);
 
-  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name, 
+  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name,
       8192, &col_name_length, &col_data_type, &col_size, &col_decimal_digits, &col_nullable );
 
   if ( nRet == SQL_SUCCESS )
@@ -104,13 +104,13 @@ wxString OdbcResultSetMetaData::GetColumnName(int i)
 
   memset(col_name, 0, 8192);
 
-  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name, 
+  SQLRETURN nRet = m_pInterface->GetSQLDescribeCol()( m_pOdbcStatement, i, col_name,
       8192, &col_name_length, &col_data_type, &col_size, &col_decimal_digits, &col_nullable );
 
   if ( nRet == SQL_SUCCESS )
   {
       //return wxString((wxChar*)col_name);
-	  columnName = ConvertFromUnicodeStream((const char*)(wxChar*)col_name);
+      columnName = ConvertFromUnicodeStream((const char*)(wxChar*)col_name);
   }
 
   return columnName;
@@ -121,10 +121,10 @@ int OdbcResultSetMetaData::GetColumnCount()
   SQLSMALLINT   col_count;
 
   SQLRETURN nRet = m_pInterface->GetSQLNumResultCols()( m_pOdbcStatement, &col_count );
-  
+
   if ( nRet == SQL_SUCCESS )
       return col_count;
-  
+
   return 0;
 }
 

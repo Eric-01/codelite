@@ -29,10 +29,10 @@ class WXDLLIMPEXP_DATABASELAYER OdbcDatabaseLayer : public DatabaseLayer
 public:
   // ctor()
   OdbcDatabaseLayer();
-  
+
   // dtor()
   virtual ~OdbcDatabaseLayer();
-  
+
   // open database
   virtual bool Open();
   virtual bool Open(const wxString& strConnection);
@@ -41,9 +41,9 @@ public:
   virtual bool Open(const wxString& strConnection, bool bPromptForInfo, wxWindow* parent = NULL);
 #endif
 
-  // close database  
+  // close database
   virtual bool Close();
-  
+
   // Is the connection to the database open?
   virtual bool IsOpen();
 
@@ -51,14 +51,14 @@ public:
   virtual void BeginTransaction();
   virtual void Commit();
   virtual void RollBack();
-  
+
   // query database
   virtual int RunQuery(const wxString& strQuery, bool bParseQuery);
   virtual DatabaseResultSet* RunQueryWithResults(const wxString& strQuery);
-  
+
   // PreparedStatement support
   virtual PreparedStatement* PrepareStatement(const wxString& strQuery);
- 
+
   // Database schema API contributed by M. Szeftel (author of wxActiveRecordGenerator)
   virtual bool TableExists(const wxString& table);
   virtual bool ViewExists(const wxString& view);
@@ -70,7 +70,7 @@ public:
 
 private:
   virtual PreparedStatement* PrepareStatement(const wxString& strQuery, bool bParseQuery);
-  
+
   //SQLHENV m_sqlEnvHandle;
   void* m_sqlEnvHandle;
   //SQLHDBC m_sqlHDBC;

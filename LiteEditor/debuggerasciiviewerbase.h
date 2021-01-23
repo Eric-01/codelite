@@ -55,23 +55,23 @@
 ///////////////////////////////////////////////////////////////////////////////
 class DebuggerAsciiViewerBase : public wxPanel 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText1;
-		wxTextCtrl* m_textCtrlExpression;
-		wxButton* m_buttonClear;
-		wxStyledTextCtrl *m_textView;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnClearView( wxCommandEvent& event ){ event.Skip(); }
-		
-	
-	public:
-		
-		DebuggerAsciiViewerBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 225,95 ), long style = wxTAB_TRAVERSAL );
-		~DebuggerAsciiViewerBase();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText1;
+        wxTextCtrl* m_textCtrlExpression;
+        wxButton* m_buttonClear;
+        wxStyledTextCtrl *m_textView;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnClearView( wxCommandEvent& event ){ event.Skip(); }
+        
+    
+    public:
+        
+        DebuggerAsciiViewerBase( wxWindow* parent, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 225,95 ), long style = wxTAB_TRAVERSAL );
+        ~DebuggerAsciiViewerBase();
+    
 };
 
 #endif //__debuggerasciiviewerbase__

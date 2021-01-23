@@ -17,12 +17,12 @@ void XDebugUnknownCommand::Process(const wxXmlNode* response)
 {
     wxXmlDocument doc;
     doc.SetRoot( const_cast<wxXmlNode*>(response) );
-    
+
     wxString asString;
     wxStringOutputStream sos( &asString );
     doc.Save( sos );
     doc.DetachRoot();
-    
+
     XDebugEvent event(wxEVT_XDEBUG_UNKNOWN_RESPONSE);
     event.SetEvaluated( asString );
     EventNotifier::Get()->AddPendingEvent( event );

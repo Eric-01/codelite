@@ -102,7 +102,7 @@ protected:
     bool itemsInvalidSupp; ///< on tree view page have been some items suppressed => supp page is invalid
     void ResetItemsView(); ///< make tree view page valid = count items and save it to "m_totalErrorsView"
     void ResetItemsSupp(); ///< make supp page valid = count items and save it to "m_totalErrorsSupp"
-    
+
     /**
      * @brief Perform all kinds of suppressions from both pages
      * @param mode SUPPRESS_CLICKED | SUPPRESS_CHECKED | SUPPRESS_ALL | SUPPRESS_SELECTED

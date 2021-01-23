@@ -52,12 +52,12 @@ ContextBase* ContextDiff::NewInstance(clEditor* container)
 
 void ContextDiff::ApplySettings()
 {
-	LexerConf::Ptr_t lexPtr;
-	if (EditorConfigST::Get()->IsOk()) {
-		lexPtr = EditorConfigST::Get()->GetLexer(GetName());
-	}
-	GetCtrl().SetLexer(lexPtr ? lexPtr->GetLexerId() : wxSTC_LEX_NULL);
-	DoApplySettings(lexPtr);
+    LexerConf::Ptr_t lexPtr;
+    if (EditorConfigST::Get()->IsOk()) {
+        lexPtr = EditorConfigST::Get()->GetLexer(GetName());
+    }
+    GetCtrl().SetLexer(lexPtr ? lexPtr->GetLexerId() : wxSTC_LEX_NULL);
+    DoApplySettings(lexPtr);
 }
 
 int ContextDiff::GetHyperlinkRange(int pos, int& start, int& end)
@@ -101,7 +101,7 @@ void ContextDiff::GoHyperlink(int start, int end, int type, bool alt)
         // FIXME: search backwards for "+++ filename", since this could be a directory diff
         rCtrl.GetFileName().GetFullName().EndsWith(wxT(".diff"), &fileName);
     }
-	
+
     wxFileName fn = ManagerST::Get()->FindFile(fileName);
     if (fn.IsOk()) {
         clMainFrame::Get()->GetMainBook()->OpenFile(fn.GetFullPath(), wxEmptyString, lineNum);

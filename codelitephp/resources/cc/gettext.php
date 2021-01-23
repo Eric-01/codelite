@@ -20,7 +20,7 @@ function textdomain ($text_domain) {}
  * @param message string <p>
  *       The message being translated.
  *      </p>
- * @return string a translated string if one is found in the 
+ * @return string a translated string if one is found in the
  *   translation table, or the submitted message if not found.
  */
 function gettext ($message) {}
@@ -81,7 +81,7 @@ function bindtextdomain ($domain, $directory) {}
  *      </p>
  * @param n int <p>
  *      </p>
- * @return string correct plural form of message identified by 
+ * @return string correct plural form of message identified by
  *   msgid1 and msgid2
  *   for count n.
  */

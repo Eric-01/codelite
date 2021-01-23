@@ -47,7 +47,7 @@ class WXDLLIMPEXP_SDK clTabTogglerHelper : public wxEvtHandler
 protected:
     void OnToggleOutputTab(clCommandEvent& event);
     void OnToggleWorkspaceTab(clCommandEvent& event);
-    
+
 public:
     /**
      * @brief return true if "tabname" is in the notebook (does not matter if it is focused or not)

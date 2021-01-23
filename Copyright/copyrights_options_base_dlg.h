@@ -56,34 +56,34 @@
 ///////////////////////////////////////////////////////////////////////////////
 class CopyrightsOptionsBaseDlg : public wxDialog 
 {
-	private:
-	
-	protected:
-		wxStaticText* m_staticText1;
-		wxTextCtrl* m_textCtrlFileName;
-		wxButton* m_buttonBrowse;
-		wxStaticText* m_staticText2;
-		wxTextCtrl* m_textCtrlFileMaksing;
-		
-		wxStaticText* m_staticText3;
-		wxTextCtrl* m_textCtrlIgnoreString;
-		
-		wxCheckBox* m_checkBoxBackup;
-		
-		wxStaticLine* m_staticline2;
-		wxButton* m_buttonSave;
-		wxButton* m_buttonCancel;
-		
-		// Virtual event handlers, overide them in your derived class
-		virtual void OnSelectFile( wxCommandEvent& event ){ event.Skip(); }
-		virtual void OnButtonSave( wxCommandEvent& event ){ event.Skip(); }
-		
-	
-	public:
-		
-		CopyrightsOptionsBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Copyrights Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~CopyrightsOptionsBaseDlg();
-	
+    private:
+    
+    protected:
+        wxStaticText* m_staticText1;
+        wxTextCtrl* m_textCtrlFileName;
+        wxButton* m_buttonBrowse;
+        wxStaticText* m_staticText2;
+        wxTextCtrl* m_textCtrlFileMaksing;
+        
+        wxStaticText* m_staticText3;
+        wxTextCtrl* m_textCtrlIgnoreString;
+        
+        wxCheckBox* m_checkBoxBackup;
+        
+        wxStaticLine* m_staticline2;
+        wxButton* m_buttonSave;
+        wxButton* m_buttonCancel;
+        
+        // Virtual event handlers, overide them in your derived class
+        virtual void OnSelectFile( wxCommandEvent& event ){ event.Skip(); }
+        virtual void OnButtonSave( wxCommandEvent& event ){ event.Skip(); }
+        
+    
+    public:
+        
+        CopyrightsOptionsBaseDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Copyrights Settings"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( -1,-1 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+        ~CopyrightsOptionsBaseDlg();
+    
 };
 
 #endif //__copyrights_options_base_dlg__

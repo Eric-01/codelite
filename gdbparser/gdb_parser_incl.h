@@ -25,7 +25,7 @@ struct GdbChildrenInfo {
         children.clear();
         has_more = false;
     }
-    
+
     void print() {
         printf("has_more : %d\n", has_more ? 1 : 0);
         for(size_t i=0; i<children.size(); i++) {
@@ -37,7 +37,7 @@ struct GdbChildrenInfo {
             }
         }
     }
-    
+
 };
 
 extern bool setGdbLexerInput(const std::string &in, bool ascii, bool wantWhitespace = false);

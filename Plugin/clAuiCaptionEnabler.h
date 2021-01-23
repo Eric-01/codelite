@@ -39,7 +39,7 @@ class WXDLLIMPEXP_SDK clAuiCaptionEnabler : public wxEvtHandler
     bool m_captionAdded;
     wxString m_caption;
     bool m_ensureCaptionsVisible;
-    
+
 protected:
     void OnTimer(wxTimerEvent& event);
     void OnEditorSettingsChanged(wxCommandEvent& event);

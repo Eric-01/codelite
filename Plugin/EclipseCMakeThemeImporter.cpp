@@ -27,7 +27,7 @@ LexerConf::Ptr_t EclipseCMakeThemeImporter::Import(const wxFileName& eclipseXmlF
 {
     LexerConf::Ptr_t lexer = InitializeImport(eclipseXmlFile, "cmake", 80);
     CHECK_PTR_RET_NULL(lexer);
-    
+
     // Covnert to codelite's XML properties
     AddProperty(lexer, "0", "Default", m_foreground.colour, m_background.colour);
     AddProperty(lexer, "1", "Comment", m_singleLineComment.colour, m_background.colour);

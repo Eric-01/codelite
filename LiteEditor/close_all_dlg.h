@@ -40,9 +40,9 @@
 ///////////////////////////////////////////////////////////////////////////
 
 enum {
-	CLOSEALL_SAVEALL,
-	CLOSEALL_DISCARDALL,
-	CLOSEALL_ASKFOREACHFILE
+    CLOSEALL_SAVEALL,
+    CLOSEALL_DISCARDALL,
+    CLOSEALL_ASKFOREACHFILE
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -53,18 +53,18 @@ class CloseAllDialog : public wxDialog
 private:
 
 protected:
-	wxPanel* m_mainPanel;
-	wxStaticText* m_staticMsg;
-	wxButton* m_buttonSave;
-	wxButton* m_buttonSaveAllFiles;
-	wxButton* m_buttonDiscardChangesForAllFiles;
+    wxPanel* m_mainPanel;
+    wxStaticText* m_staticMsg;
+    wxButton* m_buttonSave;
+    wxButton* m_buttonSaveAllFiles;
+    wxButton* m_buttonDiscardChangesForAllFiles;
 
-	void OnDiscardAllClicked(wxCommandEvent &event);
-	void OnSaveAll(wxCommandEvent &event);
-	void OnAskForEachFile(wxCommandEvent &event);
+    void OnDiscardAllClicked(wxCommandEvent &event);
+    void OnSaveAll(wxCommandEvent &event);
+    void OnAskForEachFile(wxCommandEvent &event);
 
 public:
-	CloseAllDialog( wxWindow* parent, int id = wxID_ANY, wxString title = _("Close All"), wxPoint pos = wxDefaultPosition, wxSize size = wxSize( 424,127 ), int style = wxDEFAULT_DIALOG_STYLE );
+    CloseAllDialog( wxWindow* parent, int id = wxID_ANY, wxString title = _("Close All"), wxPoint pos = wxDefaultPosition, wxSize size = wxSize( 424,127 ), int style = wxDEFAULT_DIALOG_STYLE );
 };
 
 #endif //__close_all_dlg__

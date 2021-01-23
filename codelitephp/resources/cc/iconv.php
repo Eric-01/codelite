@@ -33,12 +33,12 @@ function iconv ($in_charset, $out_charset, $str) {}
  * @link http://www.php.net/manual/en/function.iconv-get-encoding.php
  * @param type string[optional] <p>
  *       The value of the optional type can be:
- *       
+ *
  *        all
  *        input_encoding
  *        output_encoding
  *        internal_encoding
- *       
+ *
  *      </p>
  * @return mixed the current value of the internal configuration variable if
  *   successful&return.falseforfailure;.
@@ -55,11 +55,11 @@ function iconv_get_encoding ($type = null) {}
  * @link http://www.php.net/manual/en/function.iconv-set-encoding.php
  * @param type string <p>
  *       The value of type can be any one of these:
- *       
+ *
  *        input_encoding
  *        output_encoding
  *        internal_encoding
- *       
+ *
  *      </p>
  * @param charset string <p>
  *       The character set.
@@ -204,8 +204,8 @@ function iconv_strrpos ($haystack, $needle, $charset = null) {}
  *       listed below. Note that item names are treated case-sensitive.
  *       <table>
  *        Configuration items supported by iconv_mime_encode
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Item</td>
  *           <td>Type</td>
@@ -213,8 +213,8 @@ function iconv_strrpos ($haystack, $needle, $charset = null) {}
  *           <td>Default value</td>
  *           <td>Example</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>scheme</td>
  *           <td>string</td>
@@ -284,8 +284,8 @@ function iconv_strrpos ($haystack, $needle, $charset = null) {}
  *           <td>\r\n</td>
  *           <td>\n</td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @return string an encoded MIME field on success,
@@ -306,15 +306,15 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  *       of the following bitmasks.
  *       <table>
  *        Bitmasks acceptable to iconv_mime_decode
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Value</td>
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>1</td>
  *           <td>ICONV_MIME_DECODE_STRICT</td>
@@ -335,8 +335,8 @@ function iconv_mime_encode ($field_name, $field_value, array $preferences = null
  *            a given header.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param charset string[optional] <p>
@@ -363,15 +363,15 @@ function iconv_mime_decode ($encoded_header, $mode = null, $charset = null) {}
  *       of the following bitmasks.
  *       <table>
  *        Bitmasks acceptable to iconv_mime_decode_headers
- *        
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>Value</td>
  *           <td>Constant</td>
  *           <td>Description</td>
  *          </tr>
- *         
- *         
+ *
+ *
  *          <tr valign="top">
  *           <td>1</td>
  *           <td>ICONV_MIME_DECODE_STRICT</td>
@@ -392,8 +392,8 @@ function iconv_mime_decode ($encoded_header, $mode = null, $charset = null) {}
  *            a given header.
  *           </td>
  *          </tr>
- *         
- *        
+ *
+ *
  *       </table>
  *      </p>
  * @param charset string[optional] <p>

@@ -31,11 +31,11 @@
 class UnitTestData : public SerializedObject {
 
 public:
-	UnitTestData();
-	~UnitTestData();
+    UnitTestData();
+    ~UnitTestData();
 
 public:
-	virtual void DeSerialize(Archive &arch);
-	virtual void Serialize(Archive &arch);
+    virtual void DeSerialize(Archive &arch);
+    virtual void Serialize(Archive &arch);
 };
 #endif // __unittestdata__

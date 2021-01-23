@@ -412,113 +412,113 @@ void yyerror(char *s) {}
 
 std::string typedef_consumBracketsContent(char openBrace)
 {
-	char closeBrace;
+    char closeBrace;
 
-	switch(openBrace) {
-	case '(': closeBrace = ')'; break;
-	case '[': closeBrace = ']'; break;
-	case '<': closeBrace = '>'; break;
-	case '{': closeBrace = '}'; break;
-	default:
-    	openBrace = '(';
-    	closeBrace = ')';
-    	break;
+    switch(openBrace) {
+    case '(': closeBrace = ')'; break;
+    case '[': closeBrace = ']'; break;
+    case '<': closeBrace = '>'; break;
+    case '{': closeBrace = '}'; break;
+    default:
+        openBrace = '(';
+        closeBrace = ')';
+        break;
     }
 
-	std::string consumedData;
-	int depth = 1;
-	while(depth > 0)
+    std::string consumedData;
+    int depth = 1;
+    while(depth > 0)
     {
-    	int ch = cl_scope_lex();
-    	if(ch == 0){
-        	break;
+        int ch = cl_scope_lex();
+        if(ch == 0){
+            break;
         }
 
 
-    	if(ch == closeBrace)
+        if(ch == closeBrace)
         {
-        	consumedData.erase(0, consumedData.find_first_not_of(" "));
-        	consumedData.erase(consumedData.find_last_not_of(" ")+1);
-        	consumedData += cl_scope_text;
+            consumedData.erase(0, consumedData.find_first_not_of(" "));
+            consumedData.erase(consumedData.find_last_not_of(" ")+1);
+            consumedData += cl_scope_text;
 
-        	depth--;
-        	continue;
+            depth--;
+            continue;
         }
-    	else if(ch == openBrace)
+        else if(ch == openBrace)
         {
-        	consumedData.erase(0, consumedData.find_first_not_of(" "));
-        	consumedData.erase(consumedData.find_last_not_of(" ")+1);
-        	consumedData += cl_scope_text;
+            consumedData.erase(0, consumedData.find_first_not_of(" "));
+            consumedData.erase(consumedData.find_last_not_of(" ")+1);
+            consumedData += cl_scope_text;
 
-        	depth ++ ;
-        	continue;
+            depth ++ ;
+            continue;
         }
 
-    	consumedData += cl_scope_text;
-    	consumedData += " ";
+        consumedData += cl_scope_text;
+        consumedData += " ";
     }
 
-	return consumedData;
+    return consumedData;
 }
 
 void typedef_consumeDefaultValue(char c1, char c2)
 {
-	int depth = 0;
-	bool cont(true);
+    int depth = 0;
+    bool cont(true);
 
-	while (depth >= 0) {
-    	int ch = cl_scope_lex();
-    	if(ch == 0) { break;}
+    while (depth >= 0) {
+        int ch = cl_scope_lex();
+        if(ch == 0) { break;}
 
-    	if(ch == c1 && depth == 0) {
-        	cl_scope_less(0);
-        	break;
+        if(ch == c1 && depth == 0) {
+            cl_scope_less(0);
+            break;
         }
 
-    	if(ch == c2 && depth == 0) {
-        	cl_scope_less(0);
-        	break;
+        if(ch == c2 && depth == 0) {
+            cl_scope_less(0);
+            break;
         }
 
-    	curr_var.m_defaultValue += cl_scope_text;
-    	if(ch == ')' || ch == '}'){
-        	depth--;
-        	continue;
+        curr_var.m_defaultValue += cl_scope_text;
+        if(ch == ')' || ch == '}'){
+            depth--;
+            continue;
         } else if(ch == '(' || ch == '{') {
-        	depth ++ ;
-        	continue;
+            depth ++ ;
+            continue;
         }
     }
 }
 
 void do_clean_up()
 {
-	gs_vars = NULL;
+    gs_vars = NULL;
 
     // restore settings
-	setUseIgnoreMacros(true);
-	g_isUsedWithinFunc = false;
-	gs_typedefs.clear();
+    setUseIgnoreMacros(true);
+    g_isUsedWithinFunc = false;
+    gs_typedefs.clear();
 
     //do the lexer cleanup
-	cl_scope_lex_clean();
+    cl_scope_lex_clean();
 }
 
 // return the scope name at the end of the input string
 void get_typedefs(const std::string &in, clTypedefList &li)
 {
-	std::map<std::string, std::string> dummy;
+    std::map<std::string, std::string> dummy;
 
     // provide the lexer with new input
-	if( !setLexerInput(in, dummy) ){
-    	return;
+    if( !setLexerInput(in, dummy) ){
+        return;
     }
 
-	// set the parser local output to our variable list
-	cl_typedef_parse();
-	li = gs_typedefs;
+    // set the parser local output to our variable list
+    cl_typedef_parse();
+    li = gs_typedefs;
 
-	do_clean_up();
+    do_clean_up();
 }
 #define YYABORT goto yyabort
 #define YYREJECT goto yyabort
@@ -717,28 +717,28 @@ case 20:
 break;
 case 21:
 {
-						gs_currentTypedef.m_name = yyvsp[-1];
-						if(gs_currentTypedef.m_realType.m_templateDecl.empty())
-							gs_currentTypedef.m_realType.m_templateDecl = s_templateInitList;
-						s_templateInitList.clear();
-						gs_typedefs.push_back(gs_currentTypedef);
+                        gs_currentTypedef.m_name = yyvsp[-1];
+                        if(gs_currentTypedef.m_realType.m_templateDecl.empty())
+                            gs_currentTypedef.m_realType.m_templateDecl = s_templateInitList;
+                        s_templateInitList.clear();
+                        gs_typedefs.push_back(gs_currentTypedef);
 
-					}
+                    }
 break;
 case 22:
 {
-						gs_currentTypedef.m_name = yyvsp[-1];
-						if(gs_currentTypedef.m_realType.m_templateDecl.empty())
-							gs_currentTypedef.m_realType.m_templateDecl = s_templateInitList;
-						s_templateInitList.clear();
-						gs_typedefs.push_back(gs_currentTypedef);
-					 }
+                        gs_currentTypedef.m_name = yyvsp[-1];
+                        if(gs_currentTypedef.m_realType.m_templateDecl.empty())
+                            gs_currentTypedef.m_realType.m_templateDecl = s_templateInitList;
+                        s_templateInitList.clear();
+                        gs_typedefs.push_back(gs_currentTypedef);
+                     }
 break;
 case 23:
 {
-				gs_currentTypedef.m_realType = curr_var;
-				gs_currentTypedef.m_realType.m_isPtr = (yyvsp[0].find("*") != std::string::npos);
-			}
+                gs_currentTypedef.m_realType = curr_var;
+                gs_currentTypedef.m_realType.m_isPtr = (yyvsp[0].find("*") != std::string::npos);
+            }
 break;
 case 24:
 { gs_currentTypedef.m_name = yyvsp[0]; }
@@ -754,18 +754,18 @@ case 27:
 break;
 case 28:
 {
-						yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-					}
+                        yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                    }
 break;
 case 29:
 {
-						yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
-					}
+                        yyval = yyvsp[-2] + yyvsp[-1] +yyvsp[0];
+                    }
 break;
 case 30:
 {
-						yyval = yyvsp[-5] + yyvsp[-4] +yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + yyvsp[0] + " " ;
-					}
+                        yyval = yyvsp[-5] + yyvsp[-4] +yyvsp[-3] + yyvsp[-2] + yyvsp[-1] + yyvsp[0] + " " ;
+                    }
 break;
 case 31:
 {yyval = yyvsp[-1]+ yyvsp[0]; }
@@ -828,31 +828,31 @@ case 50:
 {
                             yyval = yyvsp[-1] + " " + yyvsp[0];
                             yyvsp[0].erase(yyvsp[0].find_last_not_of(":")+1);
-                        	curr_var.m_type = yyvsp[0];
-							curr_var.m_isBasicType = true;
-                        	curr_var.m_isConst = !yyvsp[-1].empty();
+                            curr_var.m_type = yyvsp[0];
+                            curr_var.m_isBasicType = true;
+                            curr_var.m_isConst = !yyvsp[-1].empty();
                         }
 break;
 case 51:
 {
-							yyval = yyvsp[-2] + " " + yyvsp[-1] + yyvsp[0];
+                            yyval = yyvsp[-2] + " " + yyvsp[-1] + yyvsp[0];
                             yyvsp[-1].erase(yyvsp[-1].find_last_not_of(":")+1);
-                        	curr_var.m_typeScope = yyvsp[-1];
-                        	curr_var.m_type = yyvsp[0];
-                        	curr_var.m_isConst = !yyvsp[-2].empty();
-                        	s_tmpString.clear();
+                            curr_var.m_typeScope = yyvsp[-1];
+                            curr_var.m_type = yyvsp[0];
+                            curr_var.m_isConst = !yyvsp[-2].empty();
+                            s_tmpString.clear();
                         }
 break;
 case 52:
 {
                             yyval = yyvsp[-5] + " " + yyvsp[-4] + yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] + yyvsp[0];
                             yyvsp[-4].erase(yyvsp[-4].find_last_not_of(":")+1);
-                        	curr_var.m_typeScope = yyvsp[-4];
-                        	curr_var.m_type = yyvsp[-3];
-                        	curr_var.m_isTemplate = true;
-                        	curr_var.m_templateDecl = yyvsp[-2] +yyvsp[-1] +yyvsp[0];
-                        	curr_var.m_isConst = !yyvsp[-5].empty();
-                        	s_tmpString.clear();
+                            curr_var.m_typeScope = yyvsp[-4];
+                            curr_var.m_type = yyvsp[-3];
+                            curr_var.m_isTemplate = true;
+                            curr_var.m_templateDecl = yyvsp[-2] +yyvsp[-1] +yyvsp[0];
+                            curr_var.m_isConst = !yyvsp[-5].empty();
+                            s_tmpString.clear();
                         }
 break;
 case 53:
@@ -862,22 +862,22 @@ case 54:
 {
                             yyval = yyvsp[-5] + " " + yyvsp[-4] + " " + yyvsp[-3] + " " + yyvsp[-2] + yyvsp[-1] + yyvsp[0] + s_tmpString;
                             yyvsp[-3].erase(yyvsp[-3].find_last_not_of(":")+1);
-                        	curr_var.m_typeScope = yyvsp[-3];
-                        	curr_var.m_type = yyvsp[-2];
-                        	curr_var.m_isTemplate = false;
-                        	curr_var.m_isConst = !yyvsp[-5].empty();
-                        	s_tmpString.clear();
+                            curr_var.m_typeScope = yyvsp[-3];
+                            curr_var.m_type = yyvsp[-2];
+                            curr_var.m_isTemplate = false;
+                            curr_var.m_isConst = !yyvsp[-5].empty();
+                            s_tmpString.clear();
                         }
 break;
 case 55:
 {
                             yyval = yyvsp[-4];
                             yyvsp[-1].erase(yyvsp[-1].find_last_not_of(":")+1);
-                        	curr_var.m_typeScope = yyvsp[-1];
-                        	curr_var.m_type = yyvsp[0];
-                        	curr_var.m_isTemplate = false;
-                        	curr_var.m_isConst = !yyvsp[-3].empty();
-                        	s_tmpString.clear();
+                            curr_var.m_typeScope = yyvsp[-1];
+                            curr_var.m_type = yyvsp[0];
+                            curr_var.m_isTemplate = false;
+                            curr_var.m_isConst = !yyvsp[-3].empty();
+                            s_tmpString.clear();
                         }
 break;
     }

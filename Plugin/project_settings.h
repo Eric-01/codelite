@@ -44,7 +44,7 @@
  */
 class ProjectSettingsCookie {
 public:
-	std::map<wxString, BuildConfigPtr>::const_iterator iter;
+    std::map<wxString, BuildConfigPtr>::const_iterator iter;
 };
 
 /**
@@ -60,91 +60,91 @@ public:
  *
  */
 class WXDLLIMPEXP_SDK ProjectSettings : public ConfObject {
-	std::map<wxString, BuildConfigPtr> m_configs;
-	BuildConfigCommonPtr               m_globalSettings;
-	wxString                           m_projectType;
+    std::map<wxString, BuildConfigPtr> m_configs;
+    BuildConfigCommonPtr               m_globalSettings;
+    wxString                           m_projectType;
 
 public:
-	/** 
-	 * Clone this project settings, the cloned object is allocated on the heap
-	 * and it is the responsibility of the caller to call delete when there are no
-	 * more refreneces to it
-	 * \return 
-	 */
-	ProjectSettings *Clone() const;
+    /** 
+     * Clone this project settings, the cloned object is allocated on the heap
+     * and it is the responsibility of the caller to call delete when there are no
+     * more refreneces to it
+     * \return 
+     */
+    ProjectSettings *Clone() const;
 
-	/**
-	 * Construct ProjectSettings object from its XML representation
-	 * \param node XML node of the settings object
-	 */
-	ProjectSettings(wxXmlNode *node);
+    /**
+     * Construct ProjectSettings object from its XML representation
+     * \param node XML node of the settings object
+     */
+    ProjectSettings(wxXmlNode *node);
 
-	/**
-	 * Destructor
-	 */
-	virtual ~ProjectSettings();
+    /**
+     * Destructor
+     */
+    virtual ~ProjectSettings();
 
-	/**
-	 * Serialize the object to XML representation
-	 */
-	wxXmlNode *ToXml() const;
+    /**
+     * Serialize the object to XML representation
+     */
+    wxXmlNode *ToXml() const;
 
-	// enumaration 
-	/**
-	 * Find the first build configuration by name
-	 * \param configName build configuration name to find
-	 * \param merge merge with global settings or not
-	 * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
-	 */
-	BuildConfigPtr GetBuildConfiguration(const wxString &configName, bool merge = false) const;
+    // enumaration 
+    /**
+     * Find the first build configuration by name
+     * \param configName build configuration name to find
+     * \param merge merge with global settings or not
+     * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
+     */
+    BuildConfigPtr GetBuildConfiguration(const wxString &configName, bool merge = false) const;
 
-	/**
-	 * enumerate through all the build build configuration, this function returns the first build configuration found
-	 * \param cookie an object to allow this call to be reentrant by multiple threads
-	 * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
-	 */
-	BuildConfigPtr GetFirstBuildConfiguration(ProjectSettingsCookie &cookie) const;
-	/**
-	 * enumerate through all the build build configuration, this function returns the next build configuration found
-	 * cookie should be the same as passed to previous calls to GetFirstBuildConfiguration or 
-	 * \param cookie an object to allow this call to be reentrant by multiple threads GetNextBuildConfiguration
-	 * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
-	 */
-	BuildConfigPtr GetNextBuildConfiguration(ProjectSettingsCookie &cookie) const;
+    /**
+     * enumerate through all the build build configuration, this function returns the first build configuration found
+     * \param cookie an object to allow this call to be reentrant by multiple threads
+     * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
+     */
+    BuildConfigPtr GetFirstBuildConfiguration(ProjectSettingsCookie &cookie) const;
+    /**
+     * enumerate through all the build build configuration, this function returns the next build configuration found
+     * cookie should be the same as passed to previous calls to GetFirstBuildConfiguration or 
+     * \param cookie an object to allow this call to be reentrant by multiple threads GetNextBuildConfiguration
+     * \return build configuration smart pointer, will be deleted automatically when no more refrences to it
+     */
+    BuildConfigPtr GetNextBuildConfiguration(ProjectSettingsCookie &cookie) const;
 
-	/**
-	 * Insert or Update BuildConfigPtr, if a build configuration with this name already exist, 
-	 * it is replaced
-	 * \param bc build configuration object
-	 */
-	void SetBuildConfiguration(const BuildConfigPtr bc);
+    /**
+     * Insert or Update BuildConfigPtr, if a build configuration with this name already exist, 
+     * it is replaced
+     * \param bc build configuration object
+     */
+    void SetBuildConfiguration(const BuildConfigPtr bc);
 
-	/**
-	 * Remove build configuration from the project settings. The build configuration objects stored under
-	 * this object are stored using smart pointers, thus if there are no more refrences to the removed build
-	 * configuration it will be deleted automatically
-	 * \param configName configuration name to remove. 
-	 */
-	void RemoveConfiguration(const wxString &configName);
-	
-	/**
-	 * \brief Return the global settings, common to all configurations
-	 */
-	BuildConfigCommonPtr GetGlobalSettings() const {
-		return m_globalSettings;
-	} 
-	
-	/**
-	 * \brief Set the global settings
-	 * \param global settings
-	 */
-	void SetGlobalSettings(BuildConfigCommonPtr globalSettings) {
-		m_globalSettings = globalSettings;
-	}
+    /**
+     * Remove build configuration from the project settings. The build configuration objects stored under
+     * this object are stored using smart pointers, thus if there are no more refrences to the removed build
+     * configuration it will be deleted automatically
+     * \param configName configuration name to remove. 
+     */
+    void RemoveConfiguration(const wxString &configName);
+    
+    /**
+     * \brief Return the global settings, common to all configurations
+     */
+    BuildConfigCommonPtr GetGlobalSettings() const {
+        return m_globalSettings;
+    } 
+    
+    /**
+     * \brief Set the global settings
+     * \param global settings
+     */
+    void SetGlobalSettings(BuildConfigCommonPtr globalSettings) {
+        m_globalSettings = globalSettings;
+    }
 
-	//setters/getters
-	wxString GetProjectType(const wxString &confName);
-	void SetProjectType(const wxString &type) { m_projectType = type;}
+    //setters/getters
+    wxString GetProjectType(const wxString &confName);
+    void SetProjectType(const wxString &type) { m_projectType = type;}
 };
 
 typedef SmartPtr<ProjectSettings> ProjectSettingsPtr;

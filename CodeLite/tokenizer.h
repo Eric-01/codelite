@@ -1,25 +1,25 @@
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 //
-// copyright            : (C) 2008 by Eran Ifrah                            
-// file name            : tokenizer.h              
-//                                                                          
+// copyright            : (C) 2008 by Eran Ifrah
+// file name            : tokenizer.h
+//
 // -------------------------------------------------------------------------
-// A                                                                        
-//              _____           _      _     _ _                            
-//             /  __ \         | |    | |   (_) |                           
-//             | /  \/ ___   __| | ___| |    _| |_ ___                      
-//             | |    / _ \ / _  |/ _ \ |   | | __/ _ )                     
-//             | \__/\ (_) | (_| |  __/ |___| | ||  __/                     
-//              \____/\___/ \__,_|\___\_____/_|\__\___|                     
-//                                                                          
-//                                                  F i l e                 
-//                                                                          
-//    This program is free software; you can redistribute it and/or modify  
-//    it under the terms of the GNU General Public License as published by  
-//    the Free Software Foundation; either version 2 of the License, or     
-//    (at your option) any later version.                                   
-//                                                                          
+// A
+//              _____           _      _     _ _
+//             /  __ \         | |    | |   (_) |
+//             | /  \/ ___   __| | ___| |    _| |_ ___
+//             | |    / _ \ / _  |/ _ \ |   | | __/ _ )
+//             | \__/\ (_) | (_| |  __/ |___| | ||  __/
+//              \____/\___/ \__,_|\___\_____/_|\__\___|
+//
+//                                                  F i l e
+//
+//    This program is free software; you can redistribute it and/or modify
+//    it under the terms of the GNU General Public License as published by
+//    the Free Software Foundation; either version 2 of the License, or
+//    (at your option) any later version.
+//
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
  // StringTokenizer.h: interface for the StringTokenizer class.
@@ -79,103 +79,103 @@
  */
 class WXDLLIMPEXP_CL StringTokenizer  
 {
-	std::vector<wxString> m_tokensArr;
-	int m_nCurr;
+    std::vector<wxString> m_tokensArr;
+    int m_nCurr;
 
 public:
-	/**
-	 * Construct a tokenizer with given input string and delimiter
-	 * \param str source string
-	 * \param delimiter delimiter to use
-	 * \param bAllowEmptyTokens if set to true, empty tokens will be returned as well. Default is no empty tokens
-	 */
-	StringTokenizer(const wxString& str,const wxString& delimiter = _T(" ") , const bool &bAllowEmptyTokens = false);
+    /**
+     * Construct a tokenizer with given input string and delimiter
+     * \param str source string
+     * \param delimiter delimiter to use
+     * \param bAllowEmptyTokens if set to true, empty tokens will be returned as well. Default is no empty tokens
+     */
+    StringTokenizer(const wxString& str,const wxString& delimiter = _T(" ") , const bool &bAllowEmptyTokens = false);
 
-	/**
-	 * Construct a tokenizer with given input string and array of delimiters
-	 * \param str source string
-	 * \param delimiterArr array of delimiters
-	 * \param bAllowEmptyTokens if set to true, empty tokens will be returned as well. Default is no empty tokens
-	 */
-	StringTokenizer(const wxString& str,const wxArrayString& delimiterArr, const bool &bAllowEmptyTokens = false);
-	/**
-	 * Copy constructor
-	 * \param src source tokenizer
-	 */
-	StringTokenizer(const StringTokenizer& src);
+    /**
+     * Construct a tokenizer with given input string and array of delimiters
+     * \param str source string
+     * \param delimiterArr array of delimiters
+     * \param bAllowEmptyTokens if set to true, empty tokens will be returned as well. Default is no empty tokens
+     */
+    StringTokenizer(const wxString& str,const wxArrayString& delimiterArr, const bool &bAllowEmptyTokens = false);
+    /**
+     * Copy constructor
+     * \param src source tokenizer
+     */
+    StringTokenizer(const StringTokenizer& src);
 
-	/**
-	 * Default constructor
-	 */
-	StringTokenizer();		//Default
+    /**
+     * Default constructor
+     */
+    StringTokenizer();		//Default
 
-	/**
-	 * Destructor
-	 */
-	virtual ~StringTokenizer();
+    /**
+     * Destructor
+     */
+    virtual ~StringTokenizer();
 
-	//-----------------------------------------------------
-	// Operations
-	//-----------------------------------------------------
+    //-----------------------------------------------------
+    // Operations
+    //-----------------------------------------------------
 
-	/**
-	 * Return the last token 
-	 * \return last token
-	 */
-	wxString Last();
-	/**
-	 * Get the number of tokens
-	 * \return number of tokens
-	 */
-	const int Count() const;
-	/**
-	 * Return the current token without progressing the internal pointer
-	 * \return current token
-	 */
-	wxString Current();
+    /**
+     * Return the last token 
+     * \return last token
+     */
+    wxString Last();
+    /**
+     * Get the number of tokens
+     * \return number of tokens
+     */
+    const int Count() const;
+    /**
+     * Return the current token without progressing the internal pointer
+     * \return current token
+     */
+    wxString Current();
 
-	/**
-	 * Return the first token and progress the internal pointer
-	 * \return First token
-	 */
-	wxString First();
-	/**
-	 * Do we have more tokens?
-	 * \return true if the next call to Next() will return a token
-	 */
-	bool HasMore();
-	/** 
-	 * Return the previous string, this function moves the internal pointer backward.
-	 * So, subsequent calls to this function, will eventually return us to the start of the tokenizer
-	 * \return previous token of empty string if we are already at start
-	 */
-	wxString Previous();
-	/**
-	 * Return next token, usually combined with HasMore() function. This function progress the 
-	 * internal pointer to next token
-	 * \return next token
-	 */
-	wxString Next();
-	/**
-	 * Random acess operator, statring from zero
-	 * \param nIndex token index
-	 * \return token at nIndex (copy of it)
-	 */
-	wxString operator[](const int nIndex);
+    /**
+     * Return the first token and progress the internal pointer
+     * \return First token
+     */
+    wxString First();
+    /**
+     * Do we have more tokens?
+     * \return true if the next call to Next() will return a token
+     */
+    bool HasMore();
+    /** 
+     * Return the previous string, this function moves the internal pointer backward.
+     * So, subsequent calls to this function, will eventually return us to the start of the tokenizer
+     * \return previous token of empty string if we are already at start
+     */
+    wxString Previous();
+    /**
+     * Return next token, usually combined with HasMore() function. This function progress the 
+     * internal pointer to next token
+     * \return next token
+     */
+    wxString Next();
+    /**
+     * Random acess operator, statring from zero
+     * \param nIndex token index
+     * \return token at nIndex (copy of it)
+     */
+    wxString operator[](const int nIndex);
 
-	/**
-	 * Copy one tokenizer to another
-	 * \param src source tokenizer to copy from
-	 * \return this
-	 */
-	StringTokenizer& operator=(const StringTokenizer& src);
+    /**
+     * Copy one tokenizer to another
+     * \param src source tokenizer to copy from
+     * \return this
+     */
+    StringTokenizer& operator=(const StringTokenizer& src);
 
 private:
-	// Functions
-	/**
-	 * Initialize the tokenizer
-	 */
-	void Initialize();
+    // Functions
+    /**
+     * Initialize the tokenizer
+     */
+    void Initialize();
 };
 
 #endif // CODELITE_TOKENIZER_H

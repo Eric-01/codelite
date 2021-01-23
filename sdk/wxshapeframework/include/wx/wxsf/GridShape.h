@@ -30,8 +30,8 @@ class WXDLLIMPEXP_SF wxSFGridShape : public wxSFRectShape
 {
     public:
         XS_DECLARE_CLONABLE_CLASS(wxSFGridShape);
-		
-		friend class wxSFDiagramManager;
+
+        friend class wxSFDiagramManager;
 
         /*! \brief Default constructor. */
         wxSFGridShape();
@@ -77,20 +77,20 @@ class WXDLLIMPEXP_SF wxSFGridShape : public wxSFRectShape
         * \return Cellspace size
         */
         int GetCellSpace(){return m_nCellSpace;}
-		
+
        /*!
         * \brief Get managed shape specified by lexicographic cell index.
         * \param index Lexicographic index of requested shape
         * \return Pointer to shape object of given cell index if exists, otherwise NULL
         */
-		wxSFShapeBase *GetManagedShape(size_t index);
+        wxSFShapeBase *GetManagedShape(size_t index);
        /*!
         * \brief Get managed shape specified by row and column indexes.
         * \param row Zero-base row index
         * \param col Zero-based column index
         * \return Pointer to shape object stored in specified grid cell if exists, otherwise NULL
         */
-		wxSFShapeBase *GetManagedShape(int row, int col);
+        wxSFShapeBase *GetManagedShape(int row, int col);
 
         // public functions
 
@@ -131,11 +131,11 @@ class WXDLLIMPEXP_SF wxSFGridShape : public wxSFRectShape
         * \return True on successe, otherwise False
         */
         bool InsertToGrid(int index, wxSFShapeBase *shape);
-		/**
-		 * \brief Remove shape with given ID from the grid.
-		 * \param id ID of shape which should be removed
-		 */
-		void RemoveFromGrid(long id);
+        /**
+         * \brief Remove shape with given ID from the grid.
+         * \param id ID of shape which should be removed
+         */
+        void RemoveFromGrid(long id);
 
         // public virtual functions
         /*! \brief Upate shape (align all child shapes an resize it to fit them) */

@@ -2,9 +2,9 @@
     Name:       main.cpp
     Purpose:    Implements simple wxWidgets application with GUI
                 created using wxCrafter.
-    Author:    
-    Created:   
-    Copyright: 
+    Author:
+    Created:
+    Copyright:
     License:    wxWidgets license (www.wxwidgets.org)
 
     Notes:      Note that all GUI creation code is contained in

@@ -100,7 +100,7 @@ namespace error {
 
         /// TLS Handshake Failed
         tls_handshake_failed,
-        
+
         /// Failed to set TLS SNI hostname
         tls_failed_sni_hostname
     };

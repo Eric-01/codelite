@@ -52,12 +52,12 @@ namespace asio {
 class handler_allocator {
 public:
     static const size_t size = 1024;
-    
+
     handler_allocator() : m_in_use(false) {}
 
 #ifdef _WEBSOCKETPP_DEFAULT_DELETE_FUNCTIONS_
-	handler_allocator(handler_allocator const & cpy) = delete;
-	handler_allocator & operator =(handler_allocator const &) = delete;
+    handler_allocator(handler_allocator const & cpy) = delete;
+    handler_allocator & operator =(handler_allocator const &) = delete;
 #endif
 
     void * allocate(std::size_t memsize) {

@@ -454,7 +454,7 @@ break;
 case 15:
 {
             PPToken token;
-			token.fileName = g_filename;
+            token.fileName = g_filename;
             token.name     = yyvsp[-1];
             token.flags    = (PPToken::IsValid | PPToken::IsOverridable);
             
@@ -464,24 +464,24 @@ case 15:
             }
             
             token.replacement = g_definition;
-			
-			if(g_forCC) {
-				
-				if(!token.replacement.empty()) {
-					wxChar ch = token.replacement.at(0);
-					if( !(ch >= (int)wxT('0') && ch <= (int)wxT('9')) )
-						PPTable::Instance()->Add( token );
-				}
-				
-			} else {
-				PPTable::Instance()->Add( token );
-			}
-		}
+            
+            if(g_forCC) {
+                
+                if(!token.replacement.empty()) {
+                    wxChar ch = token.replacement.at(0);
+                    if( !(ch >= (int)wxT('0') && ch <= (int)wxT('9')) )
+                        PPTable::Instance()->Add( token );
+                }
+                
+            } else {
+                PPTable::Instance()->Add( token );
+            }
+        }
 break;
 case 16:
 {
             PPToken token;
-			token.fileName    = g_filename;
+            token.fileName    = g_filename;
             token.name        = yyvsp[-4];
             token.replacement = g_definition;
             token.flags       = (PPToken::IsFunctionLike | PPToken::IsValid | PPToken::IsOverridable);
@@ -501,16 +501,16 @@ case 19:
 break;
 case 20:
 {
-			PPTable::Instance()->AddUsed(yyvsp[0]);
-		}
+            PPTable::Instance()->AddUsed(yyvsp[0]);
+        }
 break;
 case 23:
 {
-			for(size_t i=0; i<g_tmpMacros.size(); i++) {
-				/*wxPrintf(wxT("Collected: %s\n"), g_tmpMacros[i].c_str());*/
-				PPTable::Instance()->AddUsed(g_tmpMacros[i]);
-			}
-		}
+            for(size_t i=0; i<g_tmpMacros.size(); i++) {
+                /*wxPrintf(wxT("Collected: %s\n"), g_tmpMacros[i].c_str());*/
+                PPTable::Instance()->AddUsed(g_tmpMacros[i]);
+            }
+        }
 break;
 case 27:
 {g_tmpMacros.push_back(yyvsp[-1]);}

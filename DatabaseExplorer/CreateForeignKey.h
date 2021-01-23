@@ -38,16 +38,16 @@
 class CreateForeignKey : public _CreateForeignKey {
 
 public:
-	CreateForeignKey(wxWindow* parent, ErdTable* pSourceTable, ErdTable* pDestTable, const wxString& srcColName, const wxString& dstColName);
-	virtual ~CreateForeignKey();
-	virtual void OnCancelClick(wxCommandEvent& event);
-	virtual void OnOKClick(wxCommandEvent& event);
-	virtual void OnOKUI(wxUpdateUIEvent& event);
+    CreateForeignKey(wxWindow* parent, ErdTable* pSourceTable, ErdTable* pDestTable, const wxString& srcColName, const wxString& dstColName);
+    virtual ~CreateForeignKey();
+    virtual void OnCancelClick(wxCommandEvent& event);
+    virtual void OnOKClick(wxCommandEvent& event);
+    virtual void OnOKUI(wxUpdateUIEvent& event);
 protected:
-	ErdTable* m_pSrcTable;
-	ErdTable* m_pDstTable;
-	wxString m_srcColName;
-	wxString m_dstColName;
+    ErdTable* m_pSrcTable;
+    ErdTable* m_pDstTable;
+    wxString m_srcColName;
+    wxString m_dstColName;
 };
 
 #endif // CREATEFOREIGNKEY_H

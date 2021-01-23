@@ -26,30 +26,30 @@ XS_IMPLEMENT_CLONABLE_CLASS(wxSFRectShape, wxSFShapeBase);
 
 wxSFRectShape::wxSFRectShape(void) : wxSFShapeBase()
 {
-	m_nRectSize = sfdvRECTSHAPE_SIZE;
-	m_Border = sfdvRECTSHAPE_BORDER;
-	m_Fill = sfdvRECTSHAPE_FILL;
+    m_nRectSize = sfdvRECTSHAPE_SIZE;
+    m_Border = sfdvRECTSHAPE_BORDER;
+    m_Fill = sfdvRECTSHAPE_FILL;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRectShape::wxSFRectShape(const wxRealPoint& pos, const wxRealPoint& size, wxSFDiagramManager* manager)
 : wxSFShapeBase(pos, manager)
 {
-	m_nRectSize = size;
-	m_Border = sfdvRECTSHAPE_BORDER;
-	m_Fill = sfdvRECTSHAPE_FILL;
+    m_nRectSize = size;
+    m_Border = sfdvRECTSHAPE_BORDER;
+    m_Fill = sfdvRECTSHAPE_FILL;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRectShape::wxSFRectShape(const wxSFRectShape& obj) : wxSFShapeBase(obj)
 {
-	m_nRectSize = obj.m_nRectSize;
-	m_Border = obj.m_Border;
-	m_Fill = obj.m_Fill;
+    m_nRectSize = obj.m_nRectSize;
+    m_Border = obj.m_Border;
+    m_Fill = obj.m_Fill;
 
-	MarkSerializableDataMembers();
+    MarkSerializableDataMembers();
 }
 
 wxSFRectShape::~wxSFRectShape(void)
@@ -58,9 +58,9 @@ wxSFRectShape::~wxSFRectShape(void)
 
 void wxSFRectShape::MarkSerializableDataMembers()
 {
-	XS_SERIALIZE_EX(m_nRectSize, wxT("size"), sfdvRECTSHAPE_SIZE);
-	XS_SERIALIZE_EX(m_Border, wxT("border"), sfdvRECTSHAPE_BORDER);
-	XS_SERIALIZE_EX(m_Fill, wxT("fill"), sfdvRECTSHAPE_FILL);
+    XS_SERIALIZE_EX(m_nRectSize, wxT("size"), sfdvRECTSHAPE_SIZE);
+    XS_SERIALIZE_EX(m_Border, wxT("border"), sfdvRECTSHAPE_BORDER);
+    XS_SERIALIZE_EX(m_Fill, wxT("fill"), sfdvRECTSHAPE_FILL);
 }
 
 //----------------------------------------------------------------------------------//
@@ -75,15 +75,15 @@ wxRect wxSFRectShape::GetBoundingBox()
 
 void wxSFRectShape::Scale(double x, double y, bool children)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	if((x > 0) && (y > 0))
-	{
-		SetRectSize(m_nRectSize.x * x, m_nRectSize.y * y);
+    if((x > 0) && (y > 0))
+    {
+        SetRectSize(m_nRectSize.x * x, m_nRectSize.y * y);
 
         // call default function implementation (needed for scaling of shape's children)
-		wxSFShapeBase::Scale(x, y, children);
-	}
+        wxSFShapeBase::Scale(x, y, children);
+    }
 }
 
 void wxSFRectShape::FitToChildren()
@@ -92,9 +92,9 @@ void wxSFRectShape::FitToChildren()
 
     wxSFShapeBase* pChild;
 
-    // get bounding box of the shape and children set be inside it	
-	wxRect chBB = this->GetBoundingBox();
-	wxRect shpBB = chBB;
+    // get bounding box of the shape and children set be inside it
+    wxRect chBB = this->GetBoundingBox();
+    wxRect shpBB = chBB;
 
     SerializableList::compatibility_iterator node = GetFirstChildNode();
     while(node)
@@ -108,35 +108,35 @@ void wxSFRectShape::FitToChildren()
         node = node->GetNext();
     }
 
-	if(!chBB.IsEmpty())
-	{
-		//wxRect shpBB = this->GetBoundingBox();
+    if(!chBB.IsEmpty())
+    {
+        //wxRect shpBB = this->GetBoundingBox();
 
-		if(!shpBB.Contains(chBB))
-		{
-			double dx = chBB.GetLeft() - shpBB.GetLeft();
-			double dy = chBB.GetTop() - shpBB.GetTop();
+        if(!shpBB.Contains(chBB))
+        {
+            double dx = chBB.GetLeft() - shpBB.GetLeft();
+            double dy = chBB.GetTop() - shpBB.GetTop();
 
-			// resize parent shape
-			shpBB.Union(chBB);
-			MoveTo(shpBB.GetPosition().x, shpBB.GetPosition().y);
-			m_nRectSize = wxRealPoint(shpBB.GetSize().x, shpBB.GetSize().y);
+            // resize parent shape
+            shpBB.Union(chBB);
+            MoveTo(shpBB.GetPosition().x, shpBB.GetPosition().y);
+            m_nRectSize = wxRealPoint(shpBB.GetSize().x, shpBB.GetSize().y);
 
-			// move its "1st level" children if neccessary
-			if((dx < 0) || (dy < 0))
-			{
-				node = GetFirstChildNode();
-				while(node)
-				{
-					pChild = (wxSFShapeBase*)node->GetData();
-					if(dx < 0)pChild->MoveBy(abs((int)dx), 0);
-					if(dy < 0)pChild->MoveBy(0, abs((int)dy));
+            // move its "1st level" children if neccessary
+            if((dx < 0) || (dy < 0))
+            {
+                node = GetFirstChildNode();
+                while(node)
+                {
+                    pChild = (wxSFShapeBase*)node->GetData();
+                    if(dx < 0)pChild->MoveBy(abs((int)dx), 0);
+                    if(dy < 0)pChild->MoveBy(0, abs((int)dy));
 
-					node = node->GetNext();
-				}
-			}
-		}
-	}
+                    node = node->GetNext();
+                }
+            }
+        }
+    }
 }
 
 //----------------------------------------------------------------------------------//
@@ -145,40 +145,40 @@ void wxSFRectShape::FitToChildren()
 
 void wxSFRectShape::DrawNormal(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(m_Border);
-	dc.SetBrush(m_Fill);
-	dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(m_Border);
+    dc.SetBrush(m_Fill);
+    dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRectShape::DrawHover(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(wxPen(m_nHoverColor, 1));
-	dc.SetBrush(m_Fill);
-	dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 1));
+    dc.SetBrush(m_Fill);
+    dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRectShape::DrawHighlighted(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	dc.SetPen(wxPen(m_nHoverColor, 2));
-	dc.SetBrush(m_Fill);
-	dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
-	dc.SetBrush(wxNullBrush);
-	dc.SetPen(wxNullPen);
+    dc.SetPen(wxPen(m_nHoverColor, 2));
+    dc.SetBrush(m_Fill);
+    dc.DrawRectangle(Conv2Point(GetAbsolutePosition()), Conv2Size(m_nRectSize));
+    dc.SetBrush(wxNullBrush);
+    dc.SetPen(wxNullPen);
 }
 
 void wxSFRectShape::DrawShadow(wxDC& dc)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     if( m_Fill.GetStyle() != wxBRUSHSTYLE_TRANSPARENT )
     {
@@ -192,74 +192,74 @@ void wxSFRectShape::DrawShadow(wxDC& dc)
 
 void wxSFRectShape::OnRightHandle(wxSFShapeHandle& handle)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	//m_nRectSize.x = handle.GetPosition().x - GetAbsolutePosition().x;
-	m_nRectSize.x += handle.GetDelta().x;
+    //m_nRectSize.x = handle.GetPosition().x - GetAbsolutePosition().x;
+    m_nRectSize.x += handle.GetDelta().x;
 }
 
 void wxSFRectShape::OnLeftHandle(wxSFShapeHandle& handle)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     wxSFShapeBase *pChild;
 
-	//double dx = (double)handle.GetPosition().x - GetAbsolutePosition().x;
-	double dx = (double)handle.GetDelta().x;
+    //double dx = (double)handle.GetPosition().x - GetAbsolutePosition().x;
+    double dx = (double)handle.GetDelta().x;
 
-	// update position of children
-	if( !ContainsStyle(sfsLOCK_CHILDREN) )
-	{	
-		SerializableList::compatibility_iterator node = GetFirstChildNode();
-		while(node)
-		{
-			pChild = (wxSFShapeBase*)node->GetData();
-			if( pChild->GetHAlign() == halignNONE )
-			{
-				pChild->MoveBy(-dx, 0);
-			}
-			node = node->GetNext();
-		}
-	}
-	// update position and size of the shape
-	m_nRectSize.x -= dx;
-	m_nRelativePosition.x += dx;
+    // update position of children
+    if( !ContainsStyle(sfsLOCK_CHILDREN) )
+    {
+        SerializableList::compatibility_iterator node = GetFirstChildNode();
+        while(node)
+        {
+            pChild = (wxSFShapeBase*)node->GetData();
+            if( pChild->GetHAlign() == halignNONE )
+            {
+                pChild->MoveBy(-dx, 0);
+            }
+            node = node->GetNext();
+        }
+    }
+    // update position and size of the shape
+    m_nRectSize.x -= dx;
+    m_nRelativePosition.x += dx;
 }
 
 void wxSFRectShape::OnTopHandle(wxSFShapeHandle& handle)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
     wxSFShapeBase *pChild;
 
-	//double dy = (double)handle.GetPosition().y - GetAbsolutePosition().y;
-	double dy = (double)handle.GetDelta().y;
+    //double dy = (double)handle.GetPosition().y - GetAbsolutePosition().y;
+    double dy = (double)handle.GetDelta().y;
 
-	// update position of children
-	if( !ContainsStyle( sfsLOCK_CHILDREN ) )
-	{
-		SerializableList::compatibility_iterator node = GetFirstChildNode();
-		while(node)
-		{
-			pChild = (wxSFShapeBase*)node->GetData();
-			if( pChild->GetVAlign() == valignNONE )
-			{
-				pChild->MoveBy(0, -dy);
-			}
-			node = node->GetNext();
-		}
-	}
-	// update position and size of the shape
-	m_nRectSize.y -= dy;
-	m_nRelativePosition.y += dy;
+    // update position of children
+    if( !ContainsStyle( sfsLOCK_CHILDREN ) )
+    {
+        SerializableList::compatibility_iterator node = GetFirstChildNode();
+        while(node)
+        {
+            pChild = (wxSFShapeBase*)node->GetData();
+            if( pChild->GetVAlign() == valignNONE )
+            {
+                pChild->MoveBy(0, -dy);
+            }
+            node = node->GetNext();
+        }
+    }
+    // update position and size of the shape
+    m_nRectSize.y -= dy;
+    m_nRelativePosition.y += dy;
 }
 
 void wxSFRectShape::OnBottomHandle(wxSFShapeHandle& handle)
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	//m_nRectSize.y = handle.GetPosition().y - GetAbsolutePosition().y;
-	m_nRectSize.y += handle.GetDelta().y;
+    //m_nRectSize.y = handle.GetPosition().y - GetAbsolutePosition().y;
+    m_nRectSize.y += handle.GetDelta().y;
 }
 
 wxRealPoint wxSFRectShape::GetBorderPoint(const wxRealPoint& start, const wxRealPoint& end)
@@ -279,12 +279,12 @@ wxRealPoint wxSFRectShape::GetBorderPoint(const wxRealPoint& start, const wxReal
     if(LinesIntersection(wxRealPoint(bbRct.GetTopRight().x + 1, bbRct.GetTopRight().y),
                                   wxRealPoint(bbRct.GetBottomRight().x + 1, bbRct.GetBottomRight().y + 1), start, end, intersection)) return intersection;
 
-	if(LinesIntersection(wxRealPoint(bbRct.GetBottomRight().x + 1, bbRct.GetBottomRight().y + 1),
+    if(LinesIntersection(wxRealPoint(bbRct.GetBottomRight().x + 1, bbRct.GetBottomRight().y + 1),
                                   wxRealPoint(bbRct.GetBottomLeft().x, bbRct.GetBottomLeft().y + 1), start, end, intersection)) return intersection;
 
     if(LinesIntersection(wxRealPoint(bbRct.GetBottomLeft().x, bbRct.GetBottomLeft().y + 1),
                                   wxRealPoint(bbRct.GetTopLeft().x, bbRct.GetTopLeft().y), start, end, intersection)) return intersection;
-	
+
     return GetCenter();
 }
 
@@ -294,72 +294,72 @@ wxRealPoint wxSFRectShape::GetBorderPoint(const wxRealPoint& start, const wxReal
 
 void wxSFRectShape::CreateHandles()
 {
-	// HINT: overload it for custom actions...
+    // HINT: overload it for custom actions...
 
-	AddHandle(wxSFShapeHandle::hndLEFTTOP);
-	AddHandle(wxSFShapeHandle::hndTOP);
-	AddHandle(wxSFShapeHandle::hndRIGHTTOP);
-	AddHandle(wxSFShapeHandle::hndRIGHT);
-	AddHandle(wxSFShapeHandle::hndRIGHTBOTTOM);
-	AddHandle(wxSFShapeHandle::hndBOTTOM);
-	AddHandle(wxSFShapeHandle::hndLEFTBOTTOM);
-	AddHandle(wxSFShapeHandle::hndLEFT);
-	AddHandle(wxSFShapeHandle::hndLEFTTOP);
+    AddHandle(wxSFShapeHandle::hndLEFTTOP);
+    AddHandle(wxSFShapeHandle::hndTOP);
+    AddHandle(wxSFShapeHandle::hndRIGHTTOP);
+    AddHandle(wxSFShapeHandle::hndRIGHT);
+    AddHandle(wxSFShapeHandle::hndRIGHTBOTTOM);
+    AddHandle(wxSFShapeHandle::hndBOTTOM);
+    AddHandle(wxSFShapeHandle::hndLEFTBOTTOM);
+    AddHandle(wxSFShapeHandle::hndLEFT);
+    AddHandle(wxSFShapeHandle::hndLEFTTOP);
 }
 
 void wxSFRectShape::OnHandle(wxSFShapeHandle& handle)
 {
     // HINT: overload it for custom actions...
 
-	switch(handle.GetType())
-	{
-	case wxSFShapeHandle::hndLEFT:
-		OnLeftHandle(handle);
-		break;
+    switch(handle.GetType())
+    {
+    case wxSFShapeHandle::hndLEFT:
+        OnLeftHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndLEFTTOP:
-		OnLeftHandle(handle);
-		OnTopHandle(handle);
-		break;
+    case wxSFShapeHandle::hndLEFTTOP:
+        OnLeftHandle(handle);
+        OnTopHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndLEFTBOTTOM:
-		OnLeftHandle(handle);
-		OnBottomHandle(handle);
-		break;
+    case wxSFShapeHandle::hndLEFTBOTTOM:
+        OnLeftHandle(handle);
+        OnBottomHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndRIGHT:
-		OnRightHandle(handle);
-		break;
+    case wxSFShapeHandle::hndRIGHT:
+        OnRightHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndRIGHTTOP:
-		OnRightHandle(handle);
-		OnTopHandle(handle);
-		break;
+    case wxSFShapeHandle::hndRIGHTTOP:
+        OnRightHandle(handle);
+        OnTopHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndRIGHTBOTTOM:
-		OnRightHandle(handle);
-		OnBottomHandle(handle);
-		break;
+    case wxSFShapeHandle::hndRIGHTBOTTOM:
+        OnRightHandle(handle);
+        OnBottomHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndTOP:
-		OnTopHandle(handle);
-		break;
+    case wxSFShapeHandle::hndTOP:
+        OnTopHandle(handle);
+        break;
 
-	case wxSFShapeHandle::hndBOTTOM:
-		OnBottomHandle(handle);
-		break;
+    case wxSFShapeHandle::hndBOTTOM:
+        OnBottomHandle(handle);
+        break;
 
     default:
         break;
-	}
-	
-	wxSFShapeBase::OnHandle( handle );
+    }
+
+    wxSFShapeBase::OnHandle( handle );
 }
 
 void wxSFRectShape::OnBeginHandle(wxSFShapeHandle& handle)
 {
     m_nPrevPosition = m_nRelativePosition;
     m_nPrevSize = m_nRectSize;
-	
-	wxSFShapeBase::OnBeginHandle( handle );
+
+    wxSFShapeBase::OnBeginHandle( handle );
 }

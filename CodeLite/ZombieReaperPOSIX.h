@@ -46,9 +46,9 @@ public:
         Create();
         Run();
     }
-    
+
     void Stop();
 };
-#endif 
+#endif
 #endif // ZOMBIEREAPERPOSIX_H
 

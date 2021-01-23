@@ -22,45 +22,45 @@ PluginWizardBase::PluginWizardBase(wxWindow* parent, wxWindowID id, const wxStri
         bBitmapLoaded = true;
     }
     Create(parent, id, title, wxXmlResource::Get()->LoadBitmap(wxT("plugin")), pos, style);
-    
+
     m_wizardPage1 = new wxWizardPageSimple(this, NULL, NULL, wxNullBitmap);
     m_pages.push_back(m_wizardPage1);
-    
+
     wxBoxSizer* boxSizer10 = new wxBoxSizer(wxVERTICAL);
     m_wizardPage1->SetSizer(boxSizer10);
-    
+
     wxFlexGridSizer* flexGridSizer12 = new wxFlexGridSizer(0, 2, 0, 0);
     flexGridSizer12->SetFlexibleDirection( wxBOTH );
     flexGridSizer12->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     flexGridSizer12->AddGrowableCol(1);
-    
+
     boxSizer10->Add(flexGridSizer12, 1, wxALL|wxEXPAND, 5);
-    
+
     m_staticText14 = new wxStaticText(m_wizardPage1, wxID_ANY, _("Plugin name:"), wxDefaultPosition, wxSize(-1,-1), 0);
-    
+
     flexGridSizer12->Add(m_staticText14, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    
+
     m_textCtrlName = new wxTextCtrl(m_wizardPage1, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
     m_textCtrlName->SetToolTip(_("Set the plugin name.\nThe name should be a valid C++ variable name"));
     m_textCtrlName->SetFocus();
     #if wxVERSION_NUMBER >= 3000
     m_textCtrlName->SetHint(wxT(""));
     #endif
-    
+
     flexGridSizer12->Add(m_textCtrlName, 0, wxALL|wxEXPAND, 5);
-    
+
     m_staticText18 = new wxStaticText(m_wizardPage1, wxID_ANY, _("Description:"), wxDefaultPosition, wxSize(-1,-1), 0);
-    
+
     flexGridSizer12->Add(m_staticText18, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    
+
     m_textCtrlDescription = new wxTextCtrl(m_wizardPage1, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), 0);
     m_textCtrlDescription->SetToolTip(_("Provide the plugin a short description"));
     #if wxVERSION_NUMBER >= 3000
     m_textCtrlDescription->SetHint(wxT(""));
     #endif
-    
+
     flexGridSizer12->Add(m_textCtrlDescription, 0, wxALL|wxEXPAND, 5);
-    
+
     m_wizardPage2 = new wxWizardPageSimple(this, NULL, NULL, wxNullBitmap);
     m_pages.push_back(m_wizardPage2);
     if (m_pages.size() > 1) {
@@ -69,44 +69,44 @@ PluginWizardBase::PluginWizardBase(wxWindow* parent, wxWindowID id, const wxStri
         }
     }
     GetPageAreaSizer()->Add(m_pages.at(0));
-    
+
     wxBoxSizer* boxSizer22 = new wxBoxSizer(wxVERTICAL);
     m_wizardPage2->SetSizer(boxSizer22);
-    
+
     wxFlexGridSizer* flexGridSizer24 = new wxFlexGridSizer(0, 2, 0, 0);
     flexGridSizer24->SetFlexibleDirection( wxBOTH );
     flexGridSizer24->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
     flexGridSizer24->AddGrowableCol(1);
-    
+
     boxSizer22->Add(flexGridSizer24, 1, wxALL|wxEXPAND, 5);
-    
+
     m_staticText42 = new wxStaticText(m_wizardPage2, wxID_ANY, _("codelite root dir:"), wxDefaultPosition, wxSize(-1,-1), 0);
-    
+
     flexGridSizer24->Add(m_staticText42, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    
+
     m_dirPickerCodeliteDir = new wxDirPickerCtrl(m_wizardPage2, wxID_ANY, wxEmptyString, _("Select a folder"), wxDefaultPosition, wxSize(-1,-1), wxDIRP_DEFAULT_STYLE|wxDIRP_USE_TEXTCTRL|wxDIRP_DIR_MUST_EXIST);
     m_dirPickerCodeliteDir->SetToolTip(_("Select the location of codelite's source tree"));
-    
+
     flexGridSizer24->Add(m_dirPickerCodeliteDir, 0, wxALL|wxEXPAND, 5);
-    
+
     m_staticText26 = new wxStaticText(m_wizardPage2, wxID_ANY, _("Project path:"), wxDefaultPosition, wxSize(-1,-1), 0);
-    
+
     flexGridSizer24->Add(m_staticText26, 0, wxALL|wxALIGN_RIGHT|wxALIGN_CENTER_VERTICAL, 5);
-    
+
     m_dirPickerPluginPath = new wxDirPickerCtrl(m_wizardPage2, wxID_ANY, wxEmptyString, _("Select a folder"), wxDefaultPosition, wxSize(350,-1), wxDIRP_DEFAULT_STYLE|wxDIRP_USE_TEXTCTRL|wxDIRP_DIR_MUST_EXIST);
     m_dirPickerPluginPath->SetToolTip(_("Select the plugin project path"));
-    
+
     flexGridSizer24->Add(m_dirPickerPluginPath, 0, wxALL|wxEXPAND, 5);
-    
+
     flexGridSizer24->Add(0, 0, 1, wxALL, 5);
-    
+
     m_textCtrlPreview = new wxTextCtrl(m_wizardPage2, wxID_ANY, wxT(""), wxDefaultPosition, wxSize(-1,-1), wxTE_READONLY);
     #if wxVERSION_NUMBER >= 3000
     m_textCtrlPreview->SetHint(wxT(""));
     #endif
-    
+
     flexGridSizer24->Add(m_textCtrlPreview, 0, wxALL|wxEXPAND, 5);
-    
+
     SetName(wxT("PluginWizardBase"));
     SetSizeHints(-1,-1);
     if ( GetSizer() ) {
@@ -124,7 +124,7 @@ PluginWizardBase::PluginWizardBase(wxWindow* parent, wxWindowID id, const wxStri
     this->Connect(wxEVT_WIZARD_PAGE_CHANGING, wxWizardEventHandler(PluginWizardBase::OnPageChanging), NULL, this);
     this->Connect(wxEVT_WIZARD_FINISHED, wxWizardEventHandler(PluginWizardBase::OnFinish), NULL, this);
     m_dirPickerPluginPath->Connect(wxEVT_COMMAND_DIRPICKER_CHANGED, wxFileDirPickerEventHandler(PluginWizardBase::OnProjectPathChanged), NULL, this);
-    
+
 }
 
 PluginWizardBase::~PluginWizardBase()
@@ -132,5 +132,5 @@ PluginWizardBase::~PluginWizardBase()
     this->Disconnect(wxEVT_WIZARD_PAGE_CHANGING, wxWizardEventHandler(PluginWizardBase::OnPageChanging), NULL, this);
     this->Disconnect(wxEVT_WIZARD_FINISHED, wxWizardEventHandler(PluginWizardBase::OnFinish), NULL, this);
     m_dirPickerPluginPath->Disconnect(wxEVT_COMMAND_DIRPICKER_CHANGED, wxFileDirPickerEventHandler(PluginWizardBase::OnProjectPathChanged), NULL, this);
-    
+
 }

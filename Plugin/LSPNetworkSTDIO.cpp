@@ -28,7 +28,7 @@ void LSPNetworkSTDIO::Open(const LSPStartupInfo& siInfo)
     DirSaver ds;
     if(!siInfo.GetWorkingDirectory().IsEmpty()) { ::wxSetWorkingDirectory(siInfo.GetWorkingDirectory()); }
     m_server->Start(siInfo.GetLspServerCommand());
-    
+
     clCommandEvent evtReady(wxEVT_LSP_NET_CONNECTED);
     AddPendingEvent(evtReady);
 }

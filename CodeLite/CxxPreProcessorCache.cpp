@@ -70,7 +70,7 @@ bool CxxPreProcessorCache::Insert(const wxString& filename,
     // remove old entry
     CxxPreProcessorCache::Map_t::iterator iter = m_impl.find(key);
     if(iter != m_impl.end()) m_impl.erase(iter);
-    
+
     CacheEntry entry;
     entry.config = config;
     entry.definitions = definitions;

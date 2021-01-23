@@ -34,14 +34,14 @@ IMPLEMENT_DYNAMIC_CLASS(xsPropertyIO, wxObject);
 
 wxXmlNode* xsPropertyIO::AddPropertyNode(wxXmlNode* parent, const wxString& name, const wxString& value, wxXmlNodeType type)
 {
-	if(parent)
-	{
-		wxXmlNode* child = new wxXmlNode(wxXML_ELEMENT_NODE, name);
-		child->AddChild(new wxXmlNode(type, wxT(""), value));
-		parent->AddChild(child);
-		return child;
-	}
-	return NULL;
+    if(parent)
+    {
+        wxXmlNode* child = new wxXmlNode(wxXML_ELEMENT_NODE, name);
+        child->AddChild(new wxXmlNode(type, wxT(""), value));
+        parent->AddChild(child);
+        return child;
+    }
+    return NULL;
 }
 
 void xsPropertyIO::AppendPropertyType(xsProperty *source, wxXmlNode *target)
@@ -50,8 +50,8 @@ void xsPropertyIO::AppendPropertyType(xsProperty *source, wxXmlNode *target)
     target->AddProperty(wxT("name"), source->m_sFieldName);
     target->AddProperty(wxT("type"), source->m_sDataType);
 #else
-	target->AddAttribute(wxT("name"), source->m_sFieldName);
-	target->AddAttribute(wxT("type"), source->m_sDataType);
+    target->AddAttribute(wxT("name"), source->m_sFieldName);
+    target->AddAttribute(wxT("type"), source->m_sDataType);
 #endif
 }
 
@@ -68,7 +68,7 @@ wxString xsStringPropIO::ToString(const wxString& value)
 
 wxString xsStringPropIO::FromString(const wxString& value)
 {
-	return value;
+    return value;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ wxString xsCharPropIO::ToString(const wxChar& value)
 
 wxChar xsCharPropIO::FromString(const wxString& value)
 {
-	return value.GetChar(0);
+    return value.GetChar(0);
 }
 
 
@@ -101,12 +101,12 @@ wxString xsLongPropIO::ToString(const long& value)
 
 long xsLongPropIO::FromString(const wxString& value)
 {
-	long num = 0;
-	if(!value.IsEmpty())
-	{
-		value.ToLong(&num);
-	}
-	return num;
+    long num = 0;
+    if(!value.IsEmpty())
+    {
+        value.ToLong(&num);
+    }
+    return num;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -122,12 +122,12 @@ wxString xsIntPropIO::ToString(const int& value)
 
 int xsIntPropIO::FromString(const wxString& value)
 {
-	long num = 0;
-	if(!value.IsEmpty())
-	{
-		value.ToLong(&num);
-	}
-	return (int)num;
+    long num = 0;
+    if(!value.IsEmpty())
+    {
+        value.ToLong(&num);
+    }
+    return (int)num;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -143,12 +143,12 @@ wxString xsBoolPropIO::ToString(const bool& value)
 
 bool xsBoolPropIO::FromString(const wxString& value)
 {
-	long num = 0;
-	if(!value.IsEmpty())
-	{
-		value.ToLong(&num);
-	}
-	return (num == 1);
+    long num = 0;
+    if(!value.IsEmpty())
+    {
+        value.ToLong(&num);
+    }
+    return (num == 1);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -181,32 +181,32 @@ wxString xsDoublePropIO::ToString(const double& value)
 
 double xsDoublePropIO::FromString(const wxString& value)
 {
-	double num = 0;
+    double num = 0;
 
-	if(!value.IsEmpty())
-	{
-	    if( value == wxT("NAN") )
-	    {
-	        num = std::numeric_limits<double>::quiet_NaN();
-	    }
-	    else if( value == wxT("INF") )
-	    {
-	        num = std::numeric_limits<double>::infinity();
-	    }
-	    else
-	    {
-	        // decimal point character used in wxXS is strictly '.'...
+    if(!value.IsEmpty())
+    {
+        if( value == wxT("NAN") )
+        {
+            num = std::numeric_limits<double>::quiet_NaN();
+        }
+        else if( value == wxT("INF") )
+        {
+            num = std::numeric_limits<double>::infinity();
+        }
+        else
+        {
+            // decimal point character used in wxXS is strictly '.'...
 #ifdef __WXMSW__
-			value.ToDouble(&num);
+            value.ToDouble(&num);
 #else
-	        wxString sNum = value;
-	        sNum.Replace(wxT("."), wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER) );
-	        sNum.ToDouble(&num);
+            wxString sNum = value;
+            sNum.Replace(wxT("."), wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER) );
+            sNum.ToDouble(&num);
 #endif
-	    }
-	}
+        }
+    }
 
-	return num;
+    return num;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -237,32 +237,32 @@ wxString xsFloatPropIO::ToString(const float& value)
 
 float xsFloatPropIO::FromString(const wxString& value)
 {
-	double num = 0;
+    double num = 0;
 
-	if(!value.IsEmpty())
-	{
-	    if( value == wxT("NAN") )
-	    {
-	        num = std::numeric_limits<float>::quiet_NaN();
-	    }
-	    else if( value == wxT("INF") )
-	    {
-	        num = std::numeric_limits<float>::infinity();
-	    }
-	    else
-	    {
-	        // decimal point character used in wxXS is strictly '.'...
+    if(!value.IsEmpty())
+    {
+        if( value == wxT("NAN") )
+        {
+            num = std::numeric_limits<float>::quiet_NaN();
+        }
+        else if( value == wxT("INF") )
+        {
+            num = std::numeric_limits<float>::infinity();
+        }
+        else
+        {
+            // decimal point character used in wxXS is strictly '.'...
 #ifdef __WXMSW__
-			value.ToDouble(&num);
+            value.ToDouble(&num);
 #else
-	        wxString sNum = value;
-	        sNum.Replace(wxT("."), wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER) );
-	        sNum.ToDouble(&num);
+            wxString sNum = value;
+            sNum.Replace(wxT("."), wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER) );
+            sNum.ToDouble(&num);
 #endif
-	    }
-	}
+        }
+    }
 
-	return (float)num;
+    return (float)num;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -278,23 +278,23 @@ wxString xsPointPropIO::ToString(const wxPoint& value)
 
 wxPoint xsPointPropIO::FromString(const wxString& value)
 {
-	wxPoint pt;
+    wxPoint pt;
 
-	//long x, y;
+    //long x, y;
 
-	if(!value.IsEmpty())
-	{
-		wxSscanf( value, wxT("%d,%d"), &pt.x, &pt.y );
+    if(!value.IsEmpty())
+    {
+        wxSscanf( value, wxT("%d,%d"), &pt.x, &pt.y );
 
-//		wxStringTokenizer tokens(value, wxT(","), wxTOKEN_STRTOK);
+//      wxStringTokenizer tokens(value, wxT(","), wxTOKEN_STRTOK);
 //
-//		tokens.GetNextToken().ToLong(&x);
-//		tokens.GetNextToken().ToLong(&y);
-//		pt.x = x;
-//		pt.y = y;
-	}
+//      tokens.GetNextToken().ToLong(&x);
+//      tokens.GetNextToken().ToLong(&y);
+//      pt.x = x;
+//      pt.y = y;
+    }
 
-	return pt;
+    return pt;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -310,8 +310,8 @@ wxString xsSizePropIO::ToString(const wxSize& value)
 
 wxSize xsSizePropIO::FromString(const wxString& value)
 {
-	wxPoint pt = xsPointPropIO::FromString(value);
-	return wxSize(pt.x, pt.y);
+    wxPoint pt = xsPointPropIO::FromString(value);
+    return wxSize(pt.x, pt.y);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -327,17 +327,17 @@ wxString xsRealPointPropIO::ToString(const wxRealPoint& value)
 
 wxRealPoint xsRealPointPropIO::FromString(const wxString& value)
 {
-	wxRealPoint pt;
+    wxRealPoint pt;
 
-	if(!value.IsEmpty())
-	{
-		wxStringTokenizer tokens(value, wxT(","), wxTOKEN_STRTOK);
+    if(!value.IsEmpty())
+    {
+        wxStringTokenizer tokens(value, wxT(","), wxTOKEN_STRTOK);
 
-		pt.x = xsDoublePropIO::FromString(tokens.GetNextToken());
-		pt.y = xsDoublePropIO::FromString(tokens.GetNextToken());
-	}
+        pt.x = xsDoublePropIO::FromString(tokens.GetNextToken());
+        pt.y = xsDoublePropIO::FromString(tokens.GetNextToken());
+    }
 
-	return pt;
+    return pt;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -353,17 +353,17 @@ wxString xsColourPropIO::ToString(const wxColour& value)
 
 wxColour xsColourPropIO::FromString(const wxString& value)
 {
-	int nRed = 0;
-	int nGreen = 0;
-	int nBlue = 0;
-	int nAlpha = 0;
+    int nRed = 0;
+    int nGreen = 0;
+    int nBlue = 0;
+    int nAlpha = 0;
 
-	if(!value.IsEmpty())
-	{
-		if( wxSscanf( value, wxT("%d,%d,%d,%d"), &nRed, &nGreen, &nBlue, &nAlpha ) == 3 ) nAlpha = 255;
-	}
+    if(!value.IsEmpty())
+    {
+        if( wxSscanf( value, wxT("%d,%d,%d,%d"), &nRed, &nGreen, &nBlue, &nAlpha ) == 3 ) nAlpha = 255;
+    }
 
-	return wxColour(nRed, nGreen, nBlue, nAlpha);
+    return wxColour(nRed, nGreen, nBlue, nAlpha);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -379,14 +379,14 @@ wxString xsPenPropIO::ToString(const wxPen& value)
 
 wxPen xsPenPropIO::FromString(const wxString& value)
 {
-	wxPen pen;
+    wxPen pen;
 
-	wxStringTokenizer tokens(value, wxT(" "), wxTOKEN_STRTOK);
-	pen.SetColour(xsColourPropIO::FromString(tokens.GetNextToken()));
-	pen.SetWidth(xsLongPropIO::FromString(tokens.GetNextToken()));
-	pen.SetStyle((wxPenStyle)xsLongPropIO::FromString(tokens.GetNextToken()));
+    wxStringTokenizer tokens(value, wxT(" "), wxTOKEN_STRTOK);
+    pen.SetColour(xsColourPropIO::FromString(tokens.GetNextToken()));
+    pen.SetWidth(xsLongPropIO::FromString(tokens.GetNextToken()));
+    pen.SetStyle((wxPenStyle)xsLongPropIO::FromString(tokens.GetNextToken()));
 
-	return pen;
+    return pen;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -402,13 +402,13 @@ wxString xsBrushPropIO::ToString(const wxBrush& value)
 
 wxBrush xsBrushPropIO::FromString(const wxString& value)
 {
-	wxBrush brush;
+    wxBrush brush;
 
-	wxStringTokenizer tokens(value, wxT(" "), wxTOKEN_STRTOK);
-	brush.SetColour(xsColourPropIO::FromString(tokens.GetNextToken()));
-	brush.SetStyle((wxBrushStyle)xsLongPropIO::FromString(tokens.GetNextToken()));
+    wxStringTokenizer tokens(value, wxT(" "), wxTOKEN_STRTOK);
+    brush.SetColour(xsColourPropIO::FromString(tokens.GetNextToken()));
+    brush.SetStyle((wxBrushStyle)xsLongPropIO::FromString(tokens.GetNextToken()));
 
-	return brush;
+    return brush;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -424,14 +424,14 @@ wxString xsFontPropIO::ToString(const wxFont& value)
 
 wxFont xsFontPropIO::FromString(const wxString& value)
 {
-	wxFont font;
+    wxFont font;
 
-	if( !font.SetNativeFontInfoUserDesc(value) )
-	{
-		return *wxSWISS_FONT;
-	}
-	else
-		return font;
+    if( !font.SetNativeFontInfoUserDesc(value) )
+    {
+        return *wxSWISS_FONT;
+    }
+    else
+        return font;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -476,38 +476,38 @@ void xsArrayStringPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayStringPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((wxArrayString*)property->m_pSourceVariable));
+    return ToString(*((wxArrayString*)property->m_pSourceVariable));
 }
 
 void xsArrayStringPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((wxArrayString*)property->m_pSourceVariable) = FromString(valstr);
+    *((wxArrayString*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayStringPropIO::ToString(const wxArrayString& value)
 {
- 	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << value[i];
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << value[i];
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
 
-	return out;
+    return out;
 }
 
 wxArrayString xsArrayStringPropIO::FromString(const wxString& value)
-{	
-	wxArrayString arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( tokens.GetNextToken() );
-	}
-	
-	return arrData;
+{
+    wxArrayString arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( tokens.GetNextToken() );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -552,38 +552,38 @@ void xsArrayIntPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayIntPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((IntArray*)property->m_pSourceVariable));
+    return ToString(*((IntArray*)property->m_pSourceVariable));
 }
 
 void xsArrayIntPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((IntArray*)property->m_pSourceVariable) = FromString(valstr);
+    *((IntArray*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayIntPropIO::ToString(const IntArray& value)
 {
- 	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << xsIntPropIO::ToString(value[i]);
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << xsIntPropIO::ToString(value[i]);
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
 
-	return out;
+    return out;
 }
 
 IntArray xsArrayIntPropIO::FromString(const wxString& value)
 {
-	IntArray arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( xsIntPropIO::FromString( tokens.GetNextToken() ) );
-	}
-	
-	return arrData;
+    IntArray arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( xsIntPropIO::FromString( tokens.GetNextToken() ) );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -628,38 +628,38 @@ void xsArrayLongPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayLongPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((LongArray*)property->m_pSourceVariable));
+    return ToString(*((LongArray*)property->m_pSourceVariable));
 }
 
 void xsArrayLongPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((LongArray*)property->m_pSourceVariable) = FromString(valstr);
+    *((LongArray*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayLongPropIO::ToString(const LongArray& value)
 {
- 	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << xsLongPropIO::ToString(value[i]);
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << xsLongPropIO::ToString(value[i]);
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
 
-	return out;
+    return out;
 }
 
 LongArray xsArrayLongPropIO::FromString(const wxString& value)
 {
-	LongArray arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( xsLongPropIO::FromString( tokens.GetNextToken() ) );
-	}
-	
-	return arrData;
+    LongArray arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( xsLongPropIO::FromString( tokens.GetNextToken() ) );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -704,38 +704,38 @@ void xsArrayDoublePropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayDoublePropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((DoubleArray*)property->m_pSourceVariable));
+    return ToString(*((DoubleArray*)property->m_pSourceVariable));
 }
 
 void xsArrayDoublePropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((DoubleArray*)property->m_pSourceVariable) = FromString(valstr);
+    *((DoubleArray*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayDoublePropIO::ToString(const DoubleArray& value)
 {
- 	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << xsDoublePropIO::ToString(value[i]);
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << xsDoublePropIO::ToString(value[i]);
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
 
-	return out;
+    return out;
 }
 
 DoubleArray xsArrayDoublePropIO::FromString(const wxString& value)
 {
-	DoubleArray arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( xsDoublePropIO::FromString( tokens.GetNextToken() ) );
-	}
-	
-	return arrData;
+    DoubleArray arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( xsDoublePropIO::FromString( tokens.GetNextToken() ) );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -780,38 +780,38 @@ void xsArrayCharPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayCharPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((CharArray*)property->m_pSourceVariable));
+    return ToString(*((CharArray*)property->m_pSourceVariable));
 }
 
 void xsArrayCharPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((CharArray*)property->m_pSourceVariable) = FromString(valstr);
+    *((CharArray*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayCharPropIO::ToString(const CharArray& value)
 {
- 	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << xsCharPropIO::ToString(value[i]);
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
-	
-	return out;
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << xsCharPropIO::ToString(value[i]);
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
+
+    return out;
 }
 
 CharArray xsArrayCharPropIO::FromString(const wxString& value)
 {
-	CharArray arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( xsCharPropIO::FromString( tokens.GetNextToken() ) );
-	}
-	
-	return arrData;
+    CharArray arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( xsCharPropIO::FromString( tokens.GetNextToken() ) );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -846,7 +846,7 @@ void xsArrayRealPointPropIO::Write(xsProperty *property, wxXmlNode *target)
         wxXmlNode *newNode = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("property"));
         for(size_t i = 0; i < cnt; i++)
         {
-			AddPropertyNode(newNode, wxT("item"), xsRealPointPropIO::ToString(array[i]));
+            AddPropertyNode(newNode, wxT("item"), xsRealPointPropIO::ToString(array[i]));
         }
 
         target->AddChild(newNode);
@@ -856,38 +856,38 @@ void xsArrayRealPointPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsArrayRealPointPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((RealPointArray*)property->m_pSourceVariable));
+    return ToString(*((RealPointArray*)property->m_pSourceVariable));
 }
 
 void xsArrayRealPointPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((RealPointArray*)property->m_pSourceVariable) = FromString(valstr);
+    *((RealPointArray*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsArrayRealPointPropIO::ToString(const RealPointArray& value)
 {
-	wxString out;
+    wxString out;
 
-	for( size_t i = 0; i < value.GetCount(); i++)
-	{
-		out << xsRealPointPropIO::ToString(value[i]);
-		if( i < value.GetCount()-1 ) out << wxT("|");
-	}
+    for( size_t i = 0; i < value.GetCount(); i++)
+    {
+        out << xsRealPointPropIO::ToString(value[i]);
+        if( i < value.GetCount()-1 ) out << wxT("|");
+    }
 
-	return out;
+    return out;
 }
 
 RealPointArray xsArrayRealPointPropIO::FromString(const wxString& value)
 {
-	RealPointArray arrData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		arrData.Add( xsRealPointPropIO::FromString( tokens.GetNextToken() ) );
-	}
-	
-	return arrData;
+    RealPointArray arrData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        arrData.Add( xsRealPointPropIO::FromString( tokens.GetNextToken() ) );
+    }
+
+    return arrData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -898,14 +898,14 @@ IMPLEMENT_DYNAMIC_CLASS(xsListRealPointPropIO, xsPropertyIO);
 
 void xsListRealPointPropIO::Read(xsProperty *property, wxXmlNode *source)
 {
-	RealPointList *list = (RealPointList*)property->m_pSourceVariable;
+    RealPointList *list = (RealPointList*)property->m_pSourceVariable;
 
-	// clear previous list content
-	bool fDelState = list->GetDeleteContents();
+    // clear previous list content
+    bool fDelState = list->GetDeleteContents();
 
-	list->DeleteContents(true);
+    list->DeleteContents(true);
     list->Clear();
-	list->DeleteContents(fDelState);
+    list->DeleteContents(fDelState);
 
     wxXmlNode *listNode = source->GetChildren();
     while(listNode)
@@ -926,7 +926,7 @@ void xsListRealPointPropIO::Write(xsProperty *property, wxXmlNode *target)
     if( !list->IsEmpty() )
     {
         wxXmlNode *newNode = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("property"));
-		RealPointList::compatibility_iterator listNode = list->GetFirst();
+        RealPointList::compatibility_iterator listNode = list->GetFirst();
         while(listNode)
         {
             AddPropertyNode(newNode, wxT("item"), xsRealPointPropIO::ToString(*(wxRealPoint*)listNode->GetData()));
@@ -940,41 +940,41 @@ void xsListRealPointPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsListRealPointPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((RealPointList*)property->m_pSourceVariable));
+    return ToString(*((RealPointList*)property->m_pSourceVariable));
 }
 
 void xsListRealPointPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((RealPointList*)property->m_pSourceVariable) = FromString(valstr);
+    *((RealPointList*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsListRealPointPropIO::ToString(const RealPointList& value)
 {
-	wxString out;
+    wxString out;
 
-	RealPointList::compatibility_iterator node = value.GetFirst();
-	while( node )
-	{
-		out << xsRealPointPropIO::ToString(*(wxRealPoint*)node->GetData());
-		if( node != value.GetLast() ) out << wxT("|");
+    RealPointList::compatibility_iterator node = value.GetFirst();
+    while( node )
+    {
+        out << xsRealPointPropIO::ToString(*(wxRealPoint*)node->GetData());
+        if( node != value.GetLast() ) out << wxT("|");
 
-		node = node->GetNext();
-	}
+        node = node->GetNext();
+    }
 
-	return out;
+    return out;
 }
 
 RealPointList xsListRealPointPropIO::FromString(const wxString& value)
 {
-	RealPointList lstData;
-	
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		lstData.Append( new wxRealPoint(xsRealPointPropIO::FromString( tokens.GetNextToken() )) );
-	}
-	
-	return lstData;
+    RealPointList lstData;
+
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        lstData.Append( new wxRealPoint(xsRealPointPropIO::FromString( tokens.GetNextToken() )) );
+    }
+
+    return lstData;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -985,34 +985,34 @@ IMPLEMENT_DYNAMIC_CLASS(xsListSerializablePropIO, xsPropertyIO);
 
 void xsListSerializablePropIO::Read(xsProperty *property, wxXmlNode *source)
 {
-	SerializableList& list = *(SerializableList*)property->m_pSourceVariable;
+    SerializableList& list = *(SerializableList*)property->m_pSourceVariable;
 
-	// clear previous list content
-	bool fDelState = list.GetDeleteContents();
+    // clear previous list content
+    bool fDelState = list.GetDeleteContents();
 
-	list.DeleteContents(true);
+    list.DeleteContents(true);
     list.Clear();
-	list.DeleteContents(fDelState);
+    list.DeleteContents(fDelState);
 
-	wxXmlNode *listNode = source->GetChildren();
+    wxXmlNode *listNode = source->GetChildren();
     while(listNode)
     {
-		if( listNode->GetName() == wxT("object") )
-		{
+        if( listNode->GetName() == wxT("object") )
+        {
 #if wxVERSION_NUMBER < 2900
-			xsSerializable* object = (xsSerializable*)wxCreateDynamicObject(listNode->GetPropVal(wxT("type"), wxT("")));
+            xsSerializable* object = (xsSerializable*)wxCreateDynamicObject(listNode->GetPropVal(wxT("type"), wxT("")));
 #else
-			xsSerializable* object = (xsSerializable*)wxCreateDynamicObject(listNode->GetAttribute(wxT("type"), wxT("")));
+            xsSerializable* object = (xsSerializable*)wxCreateDynamicObject(listNode->GetAttribute(wxT("type"), wxT("")));
 #endif
-			if(object)
-			{
-				object->DeserializeObject(listNode);
-				list.Append( object );
-			}
-		}
-		
-		listNode = listNode->GetNext();
-	}
+            if(object)
+            {
+                object->DeserializeObject(listNode);
+                list.Append( object );
+            }
+        }
+
+        listNode = listNode->GetNext();
+    }
 }
 
 void xsListSerializablePropIO::Write(xsProperty *property, wxXmlNode *target)
@@ -1022,12 +1022,12 @@ void xsListSerializablePropIO::Write(xsProperty *property, wxXmlNode *target)
     if( !list.IsEmpty() )
     {
         wxXmlNode *newNode = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("property"));
-		SerializableList::compatibility_iterator listNode = list.GetFirst();
+        SerializableList::compatibility_iterator listNode = list.GetFirst();
         while(listNode)
         {
-			xsSerializable *object = listNode->GetData();
-			newNode->AddChild(object->SerializeObject(NULL));			
-			
+            xsSerializable *object = listNode->GetData();
+            newNode->AddChild(object->SerializeObject(NULL));
+
             listNode = listNode->GetNext();
         }
 
@@ -1038,24 +1038,24 @@ void xsListSerializablePropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsListSerializablePropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((SerializableList*)property->m_pSourceVariable));
+    return ToString(*((SerializableList*)property->m_pSourceVariable));
 }
 
 void xsListSerializablePropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((SerializableList*)property->m_pSourceVariable) = FromString(valstr);
+    *((SerializableList*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsListSerializablePropIO::ToString(const SerializableList& value)
 {
-	return wxString::Format(wxT("Serializable list at address 0x%x"), &value);
+    return wxString::Format(wxT("Serializable list at address 0x%x"), &value);
 }
 
 SerializableList xsListSerializablePropIO::FromString(const wxString& value)
 {
-	wxUnusedVar( value );
-	
-	return SerializableList();
+    wxUnusedVar( value );
+
+    return SerializableList();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1105,19 +1105,19 @@ wxString xsDynObjPropIO::GetValueStr(xsProperty *property)
 
 void xsDynObjPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	**((xsSerializable**)property->m_pSourceVariable) = FromString(valstr);
+    **((xsSerializable**)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsDynObjPropIO::ToString(const xsSerializable& value)
 {
-	return wxString::Format(wxT("Dynamic object at address 0x%x"), &value);
+    return wxString::Format(wxT("Dynamic object at address 0x%x"), &value);
 }
 
 xsSerializable xsDynObjPropIO::FromString(const wxString& value)
 {
-	wxUnusedVar( value );
-	
-	return xsSerializable();
+    wxUnusedVar( value );
+
+    return xsSerializable();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1161,19 +1161,19 @@ wxString xsDynNCObjPropIO::GetValueStr(xsProperty *property)
 
 void xsDynNCObjPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	**((xsSerializable**)property->m_pSourceVariable) = FromString(valstr);
+    **((xsSerializable**)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsDynNCObjPropIO::ToString(const xsSerializable& value)
 {
-	return wxString::Format(wxT("Dynamic object at address 0x%x"), &value);
+    return wxString::Format(wxT("Dynamic object at address 0x%x"), &value);
 }
 
 xsSerializable xsDynNCObjPropIO::FromString(const wxString& value)
 {
-	wxUnusedVar( value );
-	
-	return xsSerializable();
+    wxUnusedVar( value );
+
+    return xsSerializable();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1203,24 +1203,24 @@ void xsStaticObjPropIO::Write(xsProperty *property, wxXmlNode *target)
 
 wxString xsStaticObjPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*(xsSerializable*)property->m_pSourceVariable);
+    return ToString(*(xsSerializable*)property->m_pSourceVariable);
 }
 
 void xsStaticObjPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((xsSerializable*)property->m_pSourceVariable) = FromString(valstr);
+    *((xsSerializable*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsStaticObjPropIO::ToString(const xsSerializable& value)
 {
-	return wxString::Format(wxT("Static object at address 0x%x"), &value);
+    return wxString::Format(wxT("Static object at address 0x%x"), &value);
 }
 
 xsSerializable xsStaticObjPropIO::FromString(const wxString& value)
 {
-	wxUnusedVar( value );
-	
-	return xsSerializable();
+    wxUnusedVar( value );
+
+    return xsSerializable();
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1253,65 +1253,65 @@ void xsMapStringPropIO::Write(xsProperty *property, wxXmlNode *target)
 {
     StringMap& map = *((StringMap*)property->m_pSourceVariable);
 
-	if( !map.empty() )
-	{
-		wxXmlNode *pXmlNode, *newNode = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("property"));
-		StringMap::iterator it;
+    if( !map.empty() )
+    {
+        wxXmlNode *pXmlNode, *newNode = new wxXmlNode(wxXML_ELEMENT_NODE, wxT("property"));
+        StringMap::iterator it;
 
-		for( it = map.begin(); it != map.end(); ++it )
-		{
-			wxString key = it->first, value = it->second;
-			pXmlNode = AddPropertyNode(newNode, wxT("item"), it->second);
+        for( it = map.begin(); it != map.end(); ++it )
+        {
+            wxString key = it->first, value = it->second;
+            pXmlNode = AddPropertyNode(newNode, wxT("item"), it->second);
 #if wxVERSION_NUMBER < 2900
-			pXmlNode->AddProperty(wxT("key"), it->first);
+            pXmlNode->AddProperty(wxT("key"), it->first);
 #else
-			pXmlNode->AddAttribute(wxT("key"), it->first);
+            pXmlNode->AddAttribute(wxT("key"), it->first);
 #endif
-		}
+        }
 
-		target->AddChild(newNode);
-		AppendPropertyType(property, newNode);
-	}
+        target->AddChild(newNode);
+        AppendPropertyType(property, newNode);
+    }
 }
 
 wxString xsMapStringPropIO::GetValueStr(xsProperty *property)
 {
-	return ToString(*((StringMap*)property->m_pSourceVariable));
+    return ToString(*((StringMap*)property->m_pSourceVariable));
 }
 
 void xsMapStringPropIO::SetValueStr(xsProperty *property, const wxString& valstr)
 {
-	*((StringMap*)property->m_pSourceVariable) = FromString(valstr);
+    *((StringMap*)property->m_pSourceVariable) = FromString(valstr);
 }
 
 wxString xsMapStringPropIO::ToString(const StringMap& value)
 {
- 	wxString out;
+    wxString out;
 
-	StringMap::const_iterator it;
+    StringMap::const_iterator it;
 
-	for( it = value.begin(); it != value.end(); ++it )
-	{
-	    if( it != value.begin() ) out << wxT("|");
-		out << it->first << wxT("->") << it->second;
-	}
+    for( it = value.begin(); it != value.end(); ++it )
+    {
+        if( it != value.begin() ) out << wxT("|");
+        out << it->first << wxT("->") << it->second;
+    }
 
-	return out;
+    return out;
 }
 
 StringMap xsMapStringPropIO::FromString(const wxString& value)
 {
-	StringMap mapData;
-	
-	wxString token;
-	wxStringTokenizer tokens( value, wxT("|") );
-	while( tokens.HasMoreTokens() )
-	{
-		token = tokens.GetNextToken();
-		token.Replace(wxT("->"), wxT("|"));
-		mapData[token.BeforeFirst(wxT('|'))] = token.AfterFirst(wxT('|'));
-	}
-	
-	return mapData;
+    StringMap mapData;
+
+    wxString token;
+    wxStringTokenizer tokens( value, wxT("|") );
+    while( tokens.HasMoreTokens() )
+    {
+        token = tokens.GetNextToken();
+        token.Replace(wxT("->"), wxT("|"));
+        mapData[token.BeforeFirst(wxT('|'))] = token.AfterFirst(wxT('|'));
+    }
+
+    return mapData;
 }
 

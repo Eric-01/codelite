@@ -85,9 +85,9 @@ public:
     void SetDefault();
     void SetBitmap(const wxBitmap& bmp);
     const wxBitmap& GetBitmap() const;
-#endif    
+#endif
 
-    
+
     void SetText(const wxString& text);
     void SetHasDropDownMenu(bool hasDropDownMenu);
     bool HasDropDownMenu() const { return m_hasDropDownMenu; }

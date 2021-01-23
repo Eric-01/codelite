@@ -34,30 +34,30 @@ CScopeStatusMessage::~CScopeStatusMessage()
 
 void CScopeStatusMessage::SetMessage(const wxString& message)
 {
-	this->m_message = message.c_str();
+    this->m_message = message.c_str();
 }
 
 void CScopeStatusMessage::SetPercentage(const int& percentage)
 {
-	this->m_percentage = percentage;
+    this->m_percentage = percentage;
 }
 
 const wxString& CScopeStatusMessage::GetMessage() const
 {
-	return m_message;
+    return m_message;
 }
 
 const int& CScopeStatusMessage::GetPercentage() const
 {
-	return m_percentage;
+    return m_percentage;
 }
 
 const wxString& CScopeStatusMessage::GetFindWhat() const
 {
-	return m_findWhat;
+    return m_findWhat;
 }
 
 void CScopeStatusMessage::SetFindWhat(const wxString& findWhat)
 {
-	m_findWhat = findWhat.c_str();
+    m_findWhat = findWhat.c_str();
 }

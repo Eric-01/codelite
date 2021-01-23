@@ -54,7 +54,7 @@ public:
     void OnFindSymbol(clCodeCompletionEvent& event);
     void OnCodeComplete(clCodeCompletionEvent& event);
     void OnCodeCompleteFunctionCalltip(clCodeCompletionEvent& event);
-   
+
     /**
      * @brief start code completion based on the word completion plugin
      */

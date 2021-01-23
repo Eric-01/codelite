@@ -37,13 +37,13 @@ class WordCompletionThread : public WorkerThread
 {
 protected:
     WordCompletionDictionary* m_dict;
-    
+
 public:
 
     WordCompletionThread(WordCompletionDictionary* dict);
     ~WordCompletionThread();
     virtual void ProcessRequest(ThreadRequest* request);
-    
+
     /**
      * @brief parse 'buffer' and return set of words to complete
      */

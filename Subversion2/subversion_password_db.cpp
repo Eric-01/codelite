@@ -54,12 +54,12 @@ bool SubversionPasswordDb::GetLogin(const wxString& url, wxString& user, wxStrin
     wxString escapedUrl(wxMD5::GetDigest(url));
     if(m_fileConfig->HasGroup(escapedUrl) == false)
         return false;
-    
+
     // read and decrypt the password/username
     m_fileConfig->Read(escapedUrl + wxT("/user"), &user);
     XORString userXor(user);
     user = userXor.Decrypt();
-    
+
     m_fileConfig->Read(escapedUrl + wxT("/password"), &password);
     XORString passXor(password);
     password = passXor.Decrypt();

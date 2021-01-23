@@ -202,83 +202,83 @@ extern FILE *gdb_result_in, *gdb_result_out;
     
 /* Return all but the first "n" matched characters back to the input stream. */
 #define yyless(n) \
-	do \
-		{ \
-		/* Undo effects of setting up gdb_result_text. */ \
+    do \
+        { \
+        /* Undo effects of setting up gdb_result_text. */ \
         int yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
-		*yy_cp = (yy_hold_char); \
-		YY_RESTORE_YY_MORE_OFFSET \
-		(yy_c_buf_p) = yy_cp = yy_bp + yyless_macro_arg - YY_MORE_ADJ; \
-		YY_DO_BEFORE_ACTION; /* set up gdb_result_text again */ \
-		} \
-	while ( 0 )
+        *yy_cp = (yy_hold_char); \
+        YY_RESTORE_YY_MORE_OFFSET \
+        (yy_c_buf_p) = yy_cp = yy_bp + yyless_macro_arg - YY_MORE_ADJ; \
+        YY_DO_BEFORE_ACTION; /* set up gdb_result_text again */ \
+        } \
+    while ( 0 )
 
 #define unput(c) yyunput( c, (yytext_ptr)  )
 
 #ifndef YY_STRUCT_YY_BUFFER_STATE
 #define YY_STRUCT_YY_BUFFER_STATE
 struct yy_buffer_state
-	{
-	FILE *yy_input_file;
+    {
+    FILE *yy_input_file;
 
-	char *yy_ch_buf;		/* input buffer */
-	char *yy_buf_pos;		/* current position in input buffer */
+    char *yy_ch_buf;		/* input buffer */
+    char *yy_buf_pos;		/* current position in input buffer */
 
-	/* Size of input buffer in bytes, not including room for EOB
-	 * characters.
-	 */
-	yy_size_t yy_buf_size;
+    /* Size of input buffer in bytes, not including room for EOB
+     * characters.
+     */
+    yy_size_t yy_buf_size;
 
-	/* Number of characters read into yy_ch_buf, not including EOB
-	 * characters.
-	 */
-	yy_size_t yy_n_chars;
+    /* Number of characters read into yy_ch_buf, not including EOB
+     * characters.
+     */
+    yy_size_t yy_n_chars;
 
-	/* Whether we "own" the buffer - i.e., we know we created it,
-	 * and can realloc() it to grow it, and should free() it to
-	 * delete it.
-	 */
-	int yy_is_our_buffer;
+    /* Whether we "own" the buffer - i.e., we know we created it,
+     * and can realloc() it to grow it, and should free() it to
+     * delete it.
+     */
+    int yy_is_our_buffer;
 
-	/* Whether this is an "interactive" input source; if so, and
-	 * if we're using stdio for input, then we want to use getc()
-	 * instead of fread(), to make sure we stop fetching input after
-	 * each newline.
-	 */
-	int yy_is_interactive;
+    /* Whether this is an "interactive" input source; if so, and
+     * if we're using stdio for input, then we want to use getc()
+     * instead of fread(), to make sure we stop fetching input after
+     * each newline.
+     */
+    int yy_is_interactive;
 
-	/* Whether we're considered to be at the beginning of a line.
-	 * If so, '^' rules will be active on the next match, otherwise
-	 * not.
-	 */
-	int yy_at_bol;
+    /* Whether we're considered to be at the beginning of a line.
+     * If so, '^' rules will be active on the next match, otherwise
+     * not.
+     */
+    int yy_at_bol;
 
     int yy_bs_lineno; /**< The line count. */
     int yy_bs_column; /**< The column count. */
     
-	/* Whether to try to fill the input buffer when we reach the
-	 * end of it.
-	 */
-	int yy_fill_buffer;
+    /* Whether to try to fill the input buffer when we reach the
+     * end of it.
+     */
+    int yy_fill_buffer;
 
-	int yy_buffer_status;
+    int yy_buffer_status;
 
 #define YY_BUFFER_NEW 0
 #define YY_BUFFER_NORMAL 1
-	/* When an EOF's been seen but there's still some text to process
-	 * then we mark the buffer as YY_EOF_PENDING, to indicate that we
-	 * shouldn't try reading from the input source any more.  We might
-	 * still have a bunch of tokens to match, though, because of
-	 * possible backing-up.
-	 *
-	 * When we actually see the EOF, we change the status to "new"
-	 * (via gdb_result_restart()), so that the user can continue scanning by
-	 * just pointing gdb_result_in at a new input file.
-	 */
+    /* When an EOF's been seen but there's still some text to process
+     * then we mark the buffer as YY_EOF_PENDING, to indicate that we
+     * shouldn't try reading from the input source any more.  We might
+     * still have a bunch of tokens to match, though, because of
+     * possible backing-up.
+     *
+     * When we actually see the EOF, we change the status to "new"
+     * (via gdb_result_restart()), so that the user can continue scanning by
+     * just pointing gdb_result_in at a new input file.
+     */
 #define YY_BUFFER_EOF_PENDING 2
 
-	};
+    };
 #endif /* !YY_STRUCT_YY_BUFFER_STATE */
 
 /* Stack of input buffers. */
@@ -341,24 +341,24 @@ void gdb_result_free (void *  );
 #define yy_new_buffer gdb_result__create_buffer
 
 #define yy_set_interactive(is_interactive) \
-	{ \
-	if ( ! YY_CURRENT_BUFFER ){ \
+    { \
+    if ( ! YY_CURRENT_BUFFER ){ \
         gdb_result_ensure_buffer_stack (); \
-		YY_CURRENT_BUFFER_LVALUE =    \
+        YY_CURRENT_BUFFER_LVALUE =    \
             gdb_result__create_buffer(gdb_result_in,YY_BUF_SIZE ); \
-	} \
-	YY_CURRENT_BUFFER_LVALUE->yy_is_interactive = is_interactive; \
-	}
+    } \
+    YY_CURRENT_BUFFER_LVALUE->yy_is_interactive = is_interactive; \
+    }
 
 #define yy_set_bol(at_bol) \
-	{ \
-	if ( ! YY_CURRENT_BUFFER ){\
+    { \
+    if ( ! YY_CURRENT_BUFFER ){\
         gdb_result_ensure_buffer_stack (); \
-		YY_CURRENT_BUFFER_LVALUE =    \
+        YY_CURRENT_BUFFER_LVALUE =    \
             gdb_result__create_buffer(gdb_result_in,YY_BUF_SIZE ); \
-	} \
-	YY_CURRENT_BUFFER_LVALUE->yy_at_bol = at_bol; \
-	}
+    } \
+    YY_CURRENT_BUFFER_LVALUE->yy_at_bol = at_bol; \
+    }
 
 #define YY_AT_BOL() (YY_CURRENT_BUFFER_LVALUE->yy_at_bol)
 
@@ -386,21 +386,21 @@ static void yy_fatal_error (yyconst char msg[]  );
  * corresponding action - sets up gdb_result_text.
  */
 #define YY_DO_BEFORE_ACTION \
-	(yytext_ptr) = yy_bp; \
-	gdb_result_leng = (size_t) (yy_cp - yy_bp); \
-	(yy_hold_char) = *yy_cp; \
-	*yy_cp = '\0'; \
-	(yy_c_buf_p) = yy_cp;
+    (yytext_ptr) = yy_bp; \
+    gdb_result_leng = (size_t) (yy_cp - yy_bp); \
+    (yy_hold_char) = *yy_cp; \
+    *yy_cp = '\0'; \
+    (yy_c_buf_p) = yy_cp;
 
 #define YY_NUM_RULES 81
 #define YY_END_OF_BUFFER 82
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
-	{
-	flex_int32_t yy_verify;
-	flex_int32_t yy_nxt;
-	};
+    {
+    flex_int32_t yy_verify;
+    flex_int32_t yy_nxt;
+    };
 static yyconst flex_int16_t yy_accept[348] =
     {   0,
         0,    0,    0,    0,    0,    0,   82,   60,    1,    3,
@@ -740,17 +740,17 @@ void gdb_result_less(int count);
 extern std::string gdb_result_lval;
 
 #define RETURN_VAL(x) {\
-					gdb_result_string = gdb_result_text;\
-					gdb_result_lval   = gdb_result_text;\
-					return(x);}
+                    gdb_result_string = gdb_result_text;\
+                    gdb_result_lval   = gdb_result_text;\
+                    return(x);}
 
 #define RETURN_ESCAPED_STRING(x) {\
-					gdb_result_string = gdb_result_text;\
-					std::string str;\
-					str = gdb_result_string.substr(1);\
-					gdb_result_string = str;\
-					gdb_result_lval = str;\
-					return(x);}
+                    gdb_result_string = gdb_result_text;\
+                    std::string str;\
+                    str = gdb_result_string.substr(1);\
+                    gdb_result_string = str;\
+                    gdb_result_lval = str;\
+                    return(x);}
 /**
  * Some basic regexes
  */
@@ -852,33 +852,33 @@ static int input (void );
  */
 #ifndef YY_INPUT
 #define YY_INPUT(buf,result,max_size) \
-	if ( YY_CURRENT_BUFFER_LVALUE->yy_is_interactive ) \
-		{ \
-		int c = '*'; \
-		size_t n; \
-		for ( n = 0; n < max_size && \
-			     (c = getc( gdb_result_in )) != EOF && c != '\n'; ++n ) \
-			buf[n] = (char) c; \
-		if ( c == '\n' ) \
-			buf[n++] = (char) c; \
-		if ( c == EOF && ferror( gdb_result_in ) ) \
-			YY_FATAL_ERROR( "input in flex scanner failed" ); \
-		result = n; \
-		} \
-	else \
-		{ \
-		errno=0; \
-		while ( (result = fread(buf, 1, max_size, gdb_result_in))==0 && ferror(gdb_result_in)) \
-			{ \
-			if( errno != EINTR) \
-				{ \
-				YY_FATAL_ERROR( "input in flex scanner failed" ); \
-				break; \
-				} \
-			errno=0; \
-			clearerr(gdb_result_in); \
-			} \
-		}\
+    if ( YY_CURRENT_BUFFER_LVALUE->yy_is_interactive ) \
+        { \
+        int c = '*'; \
+        size_t n; \
+        for ( n = 0; n < max_size && \
+                 (c = getc( gdb_result_in )) != EOF && c != '\n'; ++n ) \
+            buf[n] = (char) c; \
+        if ( c == '\n' ) \
+            buf[n++] = (char) c; \
+        if ( c == EOF && ferror( gdb_result_in ) ) \
+            YY_FATAL_ERROR( "input in flex scanner failed" ); \
+        result = n; \
+        } \
+    else \
+        { \
+        errno=0; \
+        while ( (result = fread(buf, 1, max_size, gdb_result_in))==0 && ferror(gdb_result_in)) \
+            { \
+            if( errno != EINTR) \
+                { \
+                YY_FATAL_ERROR( "input in flex scanner failed" ); \
+                break; \
+                } \
+            errno=0; \
+            clearerr(gdb_result_in); \
+            } \
+        }\
 \
 
 #endif
@@ -927,604 +927,604 @@ extern int gdb_result_lex (void);
 #endif
 
 #define YY_RULE_SETUP \
-	YY_USER_ACTION
+    YY_USER_ACTION
 
 /** The main scanner function which does all the work.
  */
 YY_DECL
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp, *yy_bp;
-	register int yy_act;
+    register yy_state_type yy_current_state;
+    register char *yy_cp, *yy_bp;
+    register int yy_act;
     
-	if ( !(yy_init) )
-		{
-		(yy_init) = 1;
+    if ( !(yy_init) )
+        {
+        (yy_init) = 1;
 
 #ifdef YY_USER_INIT
-		YY_USER_INIT;
+        YY_USER_INIT;
 #endif
 
-		if ( ! (yy_start) )
-			(yy_start) = 1;	/* first start state */
+        if ( ! (yy_start) )
+            (yy_start) = 1;	/* first start state */
 
-		if ( ! gdb_result_in )
-			gdb_result_in = stdin;
+        if ( ! gdb_result_in )
+            gdb_result_in = stdin;
 
-		if ( ! gdb_result_out )
-			gdb_result_out = stdout;
+        if ( ! gdb_result_out )
+            gdb_result_out = stdout;
 
-		if ( ! YY_CURRENT_BUFFER ) {
-			gdb_result_ensure_buffer_stack ();
-			YY_CURRENT_BUFFER_LVALUE =
-				gdb_result__create_buffer(gdb_result_in,YY_BUF_SIZE );
-		}
+        if ( ! YY_CURRENT_BUFFER ) {
+            gdb_result_ensure_buffer_stack ();
+            YY_CURRENT_BUFFER_LVALUE =
+                gdb_result__create_buffer(gdb_result_in,YY_BUF_SIZE );
+        }
 
-		gdb_result__load_buffer_state( );
-		}
+        gdb_result__load_buffer_state( );
+        }
 
-	while ( 1 )		/* loops until end-of-file is reached */
-		{
-		yy_cp = (yy_c_buf_p);
+    while ( 1 )		/* loops until end-of-file is reached */
+        {
+        yy_cp = (yy_c_buf_p);
 
-		/* Support of gdb_result_text. */
-		*yy_cp = (yy_hold_char);
+        /* Support of gdb_result_text. */
+        *yy_cp = (yy_hold_char);
 
-		/* yy_bp points to the position in yy_ch_buf of the start of
-		 * the current run.
-		 */
-		yy_bp = yy_cp;
+        /* yy_bp points to the position in yy_ch_buf of the start of
+         * the current run.
+         */
+        yy_bp = yy_cp;
 
-		yy_current_state = (yy_start);
+        yy_current_state = (yy_start);
 yy_match:
-		do
-			{
-			register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
-			if ( yy_accept[yy_current_state] )
-				{
-				(yy_last_accepting_state) = yy_current_state;
-				(yy_last_accepting_cpos) = yy_cp;
-				}
-			while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
-				{
-				yy_current_state = (int) yy_def[yy_current_state];
-				if ( yy_current_state >= 348 )
-					yy_c = yy_meta[(unsigned int) yy_c];
-				}
-			yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-			++yy_cp;
-			}
-		while ( yy_base[yy_current_state] != 475 );
+        do
+            {
+            register YY_CHAR yy_c = yy_ec[YY_SC_TO_UI(*yy_cp)];
+            if ( yy_accept[yy_current_state] )
+                {
+                (yy_last_accepting_state) = yy_current_state;
+                (yy_last_accepting_cpos) = yy_cp;
+                }
+            while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
+                {
+                yy_current_state = (int) yy_def[yy_current_state];
+                if ( yy_current_state >= 348 )
+                    yy_c = yy_meta[(unsigned int) yy_c];
+                }
+            yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
+            ++yy_cp;
+            }
+        while ( yy_base[yy_current_state] != 475 );
 
 yy_find_action:
-		yy_act = yy_accept[yy_current_state];
-		if ( yy_act == 0 )
-			{ /* have to back up */
-			yy_cp = (yy_last_accepting_cpos);
-			yy_current_state = (yy_last_accepting_state);
-			yy_act = yy_accept[yy_current_state];
-			}
+        yy_act = yy_accept[yy_current_state];
+        if ( yy_act == 0 )
+            { /* have to back up */
+            yy_cp = (yy_last_accepting_cpos);
+            yy_current_state = (yy_last_accepting_state);
+            yy_act = yy_accept[yy_current_state];
+            }
 
-		YY_DO_BEFORE_ACTION;
+        YY_DO_BEFORE_ACTION;
 
-		if ( yy_act != YY_END_OF_BUFFER && yy_rule_can_match_eol[yy_act] )
-			{
-			yy_size_t yyl;
-			for ( yyl = 0; yyl < gdb_result_leng; ++yyl )
-				if ( gdb_result_text[yyl] == '\n' )
-					   
+        if ( yy_act != YY_END_OF_BUFFER && yy_rule_can_match_eol[yy_act] )
+            {
+            yy_size_t yyl;
+            for ( yyl = 0; yyl < gdb_result_leng; ++yyl )
+                if ( gdb_result_text[yyl] == '\n' )
+                       
     gdb_result_lineno++;
 ;
-			}
+            }
 
 do_action:	/* This label is used only to access EOF actions. */
 
-		switch ( yy_act )
-	{ /* beginning of action switch */
-			case 0: /* must back up */
-			/* undo the effects of YY_DO_BEFORE_ACTION */
-			*yy_cp = (yy_hold_char);
-			yy_cp = (yy_last_accepting_cpos);
-			yy_current_state = (yy_last_accepting_state);
-			goto yy_find_action;
+        switch ( yy_act )
+    { /* beginning of action switch */
+            case 0: /* must back up */
+            /* undo the effects of YY_DO_BEFORE_ACTION */
+            *yy_cp = (yy_hold_char);
+            yy_cp = (yy_last_accepting_cpos);
+            yy_current_state = (yy_last_accepting_state);
+            goto yy_find_action;
 
 case 1:
 YY_RULE_SETUP
 {if(gs_want_whitespace) RETURN_VAL((int)' '); }
-	YY_BREAK
+    YY_BREAK
 case 2:
 YY_RULE_SETUP
 {if(gs_want_whitespace) RETURN_VAL((int)' '); }
-	YY_BREAK
+    YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
 {if(gs_want_whitespace) RETURN_VAL((int)'\n'); }
-	YY_BREAK
+    YY_BREAK
 case 4:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_INTEGER);}
-	YY_BREAK
+    YY_BREAK
 case 5:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_OCTAL);}
-	YY_BREAK
+    YY_BREAK
 case 6:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_HEX);}
-	YY_BREAK
+    YY_BREAK
 case 7:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_FLOAT);}
-	YY_BREAK
+    YY_BREAK
 case 8:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_DONE);}
-	YY_BREAK
+    YY_BREAK
 case 9:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_RUNNING);}
-	YY_BREAK
+    YY_BREAK
 case 10:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_CONNECTED);}
-	YY_BREAK
+    YY_BREAK
 case 11:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ERROR);}
-	YY_BREAK
+    YY_BREAK
 case 12:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_EXIT);}
-	YY_BREAK
+    YY_BREAK
 case 13:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_STACK_ARGS);}
-	YY_BREAK
+    YY_BREAK
 case 14:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_VARIABLES);}
-	YY_BREAK
+    YY_BREAK
 case 15:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_REGISTER_NAMES);}
-	YY_BREAK
+    YY_BREAK
 case 16:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_VALUE);}
-	YY_BREAK
+    YY_BREAK
 case 17:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NAME);}
-	YY_BREAK
+    YY_BREAK
 case 18:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ARGS);}
-	YY_BREAK
+    YY_BREAK
 case 19:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_LEVEL);}
-	YY_BREAK
+    YY_BREAK
 case 20:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_FRAME);}
-	YY_BREAK
+    YY_BREAK
 case 21:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_LOCALS);}
-	YY_BREAK
+    YY_BREAK
 case 22:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NUMCHILD);}
-	YY_BREAK
+    YY_BREAK
 case 23:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_TYPE);}
-	YY_BREAK
+    YY_BREAK
 case 24:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_DATA);}
-	YY_BREAK
+    YY_BREAK
 case 25:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ADDR);}
-	YY_BREAK
+    YY_BREAK
 case 26:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ASCII);}
-	YY_BREAK
+    YY_BREAK
 case 27:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_CHILDREN);}
-	YY_BREAK
+    YY_BREAK
 case 28:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_CHILD);}
-	YY_BREAK
+    YY_BREAK
 case 29:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_VAROBJ);}
-	YY_BREAK
+    YY_BREAK
 case 30:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_MORE);}
-	YY_BREAK
+    YY_BREAK
 case 31:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_BREAKPOINT_TABLE);}
-	YY_BREAK
+    YY_BREAK
 case 32:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NR_ROWS);}
-	YY_BREAK
+    YY_BREAK
 case 33:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NR_COLS);}
-	YY_BREAK
+    YY_BREAK
 case 34:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_HDR);}
-	YY_BREAK
+    YY_BREAK
 case 35:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_BODY);}
-	YY_BREAK
+    YY_BREAK
 case 36:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_BKPT);}
-	YY_BREAK
+    YY_BREAK
 case 37:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_STOPPED);}
-	YY_BREAK
+    YY_BREAK
 case 38:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_TIME);}
-	YY_BREAK
+    YY_BREAK
 case 39:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_REASON);}
-	YY_BREAK
+    YY_BREAK
 case 40:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_CHANGELIST);}
-	YY_BREAK
+    YY_BREAK
 case 41:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_HAS_MORE);}
-	YY_BREAK
+    YY_BREAK
 case 42:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_DYNAMIC);}
-	YY_BREAK
+    YY_BREAK
 case 43:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NEW_CHILDREN);}
-	YY_BREAK
+    YY_BREAK
 case 44:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_THREAD_GROUPS);}
-	YY_BREAK
+    YY_BREAK
 case 45:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_NEW_NUM_CHILDREN);}
-	YY_BREAK
+    YY_BREAK
 case 46:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_DISPLAYHINT);}
-	YY_BREAK
+    YY_BREAK
 case 47:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_FUNC_NAME);}
-	YY_BREAK
+    YY_BREAK
 case 48:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_OFFSET);}
-	YY_BREAK
+    YY_BREAK
 case 49:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_INSTRUCTION);}
-	YY_BREAK
+    YY_BREAK
 case 50:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ADDRESS);}
-	YY_BREAK
+    YY_BREAK
 case 51:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_ASM_INSTS);}
-	YY_BREAK
+    YY_BREAK
 case 52:
 YY_RULE_SETUP
 {RETURN_VAL(GDB_IDENTIFIER);}
-	YY_BREAK
+    YY_BREAK
 case 53:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 54:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 55:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 56:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 57:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 58:
 YY_RULE_SETUP
 {BEGIN (string_state); gs_string = "\"";}
-	YY_BREAK
+    YY_BREAK
 case 59:
 YY_RULE_SETUP
 {BEGIN (esc_string_state); gs_string = "\"";}
-	YY_BREAK
+    YY_BREAK
 case 60:
 YY_RULE_SETUP
 {RETURN_VAL((int)*gdb_result_text);}
-	YY_BREAK
+    YY_BREAK
 case 61:
 YY_RULE_SETUP
 {
-	if(gs_ascii) {
-		unsigned int number(0);
-		std::stringstream s;
-		s << std::oct << gdb_result_text+2;
-		s >> number;
+    if(gs_ascii) {
+        unsigned int number(0);
+        std::stringstream s;
+        s << std::oct << gdb_result_text+2;
+        s >> number;
 
-		if(number) {
-			gs_string += (unsigned char)number;
-		}
-	} else {
-		gs_string += gdb_result_text;
-	}
+        if(number) {
+            gs_string += (unsigned char)number;
+        }
+    } else {
+        gs_string += gdb_result_text;
+    }
 }
-	YY_BREAK
+    YY_BREAK
 case 62:
 YY_RULE_SETUP
 { gs_string += "\\n"; }
-	YY_BREAK
+    YY_BREAK
 case 63:
 YY_RULE_SETUP
 { gs_string += "\\v"; }
-	YY_BREAK
+    YY_BREAK
 case 64:
 YY_RULE_SETUP
 { gs_string += "\\r"; }
-	YY_BREAK
+    YY_BREAK
 case 65:
 YY_RULE_SETUP
 { gs_string += "\\t"; }
-	YY_BREAK
+    YY_BREAK
 case 66:
 YY_RULE_SETUP
 { gs_string += "\\\""; }
-	YY_BREAK
+    YY_BREAK
 case 67:
 YY_RULE_SETUP
 { gs_string += "\\"; }
-	YY_BREAK
+    YY_BREAK
 case 68:
 YY_RULE_SETUP
 { gs_string += "\\\"";}
-	YY_BREAK
+    YY_BREAK
 case 69:
 YY_RULE_SETUP
 { gs_string += "\\";}
-	YY_BREAK
+    YY_BREAK
 case 70:
 YY_RULE_SETUP
 {
-	gs_string += "\"";
-	gdb_result_string = gs_string;
-	gdb_result_lval   = gdb_result_string;
-	gs_string.clear();
-	BEGIN (0);
-	return GDB_STRING;
+    gs_string += "\"";
+    gdb_result_string = gs_string;
+    gdb_result_lval   = gdb_result_string;
+    gs_string.clear();
+    BEGIN (0);
+    return GDB_STRING;
 }
-	YY_BREAK
+    YY_BREAK
 case 71:
 YY_RULE_SETUP
 { gs_string += gdb_result_text; }
-	YY_BREAK
+    YY_BREAK
 case 72:
 YY_RULE_SETUP
 {
-	if(gs_ascii) {
-		unsigned int number(0);
-		std::stringstream s;
-		s << std::oct << gdb_result_text+2;
-		s >> number;
+    if(gs_ascii) {
+        unsigned int number(0);
+        std::stringstream s;
+        s << std::oct << gdb_result_text+2;
+        s >> number;
 
-		if(number) {
-			gs_string += (unsigned char)number;
-		}
-	} else {
-		gs_string += gdb_result_text;
-	}
+        if(number) {
+            gs_string += (unsigned char)number;
+        }
+    } else {
+        gs_string += gdb_result_text;
+    }
 }
-	YY_BREAK
+    YY_BREAK
 case 73:
 YY_RULE_SETUP
 { gs_string += "\\n"; }
-	YY_BREAK
+    YY_BREAK
 case 74:
 YY_RULE_SETUP
 { gs_string += "\\v"; }
-	YY_BREAK
+    YY_BREAK
 case 75:
 YY_RULE_SETUP
 { gs_string += "\\r"; }
-	YY_BREAK
+    YY_BREAK
 case 76:
 YY_RULE_SETUP
 { gs_string += "\\t"; }
-	YY_BREAK
+    YY_BREAK
 case 77:
 YY_RULE_SETUP
 { gs_string += "\\\""; }
-	YY_BREAK
+    YY_BREAK
 case 78:
 YY_RULE_SETUP
 { gs_string += "\\"; }
-	YY_BREAK
+    YY_BREAK
 case 79:
 YY_RULE_SETUP
 {
-	gs_string += "\"";
-	gdb_result_string = gs_string;
-	gdb_result_lval   = gdb_result_string;
-	gs_string.clear();
-	BEGIN (0);
-	return GDB_ESCAPED_STRING;
+    gs_string += "\"";
+    gdb_result_string = gs_string;
+    gdb_result_lval   = gdb_result_string;
+    gs_string.clear();
+    BEGIN (0);
+    return GDB_ESCAPED_STRING;
 }
-	YY_BREAK
+    YY_BREAK
 case 80:
 YY_RULE_SETUP
 { gs_string += gdb_result_text; }
-	YY_BREAK
+    YY_BREAK
 case 81:
 YY_RULE_SETUP
 ECHO;
-	YY_BREAK
+    YY_BREAK
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(string_state):
 case YY_STATE_EOF(esc_string_state):
-	yyterminate();
+    yyterminate();
 
-	case YY_END_OF_BUFFER:
-		{
-		/* Amount of text matched not including the EOB char. */
-		int yy_amount_of_matched_text = (int) (yy_cp - (yytext_ptr)) - 1;
+    case YY_END_OF_BUFFER:
+        {
+        /* Amount of text matched not including the EOB char. */
+        int yy_amount_of_matched_text = (int) (yy_cp - (yytext_ptr)) - 1;
 
-		/* Undo the effects of YY_DO_BEFORE_ACTION. */
-		*yy_cp = (yy_hold_char);
-		YY_RESTORE_YY_MORE_OFFSET
+        /* Undo the effects of YY_DO_BEFORE_ACTION. */
+        *yy_cp = (yy_hold_char);
+        YY_RESTORE_YY_MORE_OFFSET
 
-		if ( YY_CURRENT_BUFFER_LVALUE->yy_buffer_status == YY_BUFFER_NEW )
-			{
-			/* We're scanning a new file or input source.  It's
-			 * possible that this happened because the user
-			 * just pointed gdb_result_in at a new source and called
-			 * gdb_result_lex().  If so, then we have to assure
-			 * consistency between YY_CURRENT_BUFFER and our
-			 * globals.  Here is the right place to do so, because
-			 * this is the first action (other than possibly a
-			 * back-up) that will match for the new input source.
-			 */
-			(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
-			YY_CURRENT_BUFFER_LVALUE->yy_input_file = gdb_result_in;
-			YY_CURRENT_BUFFER_LVALUE->yy_buffer_status = YY_BUFFER_NORMAL;
-			}
+        if ( YY_CURRENT_BUFFER_LVALUE->yy_buffer_status == YY_BUFFER_NEW )
+            {
+            /* We're scanning a new file or input source.  It's
+             * possible that this happened because the user
+             * just pointed gdb_result_in at a new source and called
+             * gdb_result_lex().  If so, then we have to assure
+             * consistency between YY_CURRENT_BUFFER and our
+             * globals.  Here is the right place to do so, because
+             * this is the first action (other than possibly a
+             * back-up) that will match for the new input source.
+             */
+            (yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
+            YY_CURRENT_BUFFER_LVALUE->yy_input_file = gdb_result_in;
+            YY_CURRENT_BUFFER_LVALUE->yy_buffer_status = YY_BUFFER_NORMAL;
+            }
 
-		/* Note that here we test for yy_c_buf_p "<=" to the position
-		 * of the first EOB in the buffer, since yy_c_buf_p will
-		 * already have been incremented past the NUL character
-		 * (since all states make transitions on EOB to the
-		 * end-of-buffer state).  Contrast this with the test
-		 * in input().
-		 */
-		if ( (yy_c_buf_p) <= &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] )
-			{ /* This was really a NUL. */
-			yy_state_type yy_next_state;
+        /* Note that here we test for yy_c_buf_p "<=" to the position
+         * of the first EOB in the buffer, since yy_c_buf_p will
+         * already have been incremented past the NUL character
+         * (since all states make transitions on EOB to the
+         * end-of-buffer state).  Contrast this with the test
+         * in input().
+         */
+        if ( (yy_c_buf_p) <= &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] )
+            { /* This was really a NUL. */
+            yy_state_type yy_next_state;
 
-			(yy_c_buf_p) = (yytext_ptr) + yy_amount_of_matched_text;
+            (yy_c_buf_p) = (yytext_ptr) + yy_amount_of_matched_text;
 
-			yy_current_state = yy_get_previous_state(  );
+            yy_current_state = yy_get_previous_state(  );
 
-			/* Okay, we're now positioned to make the NUL
-			 * transition.  We couldn't have
-			 * yy_get_previous_state() go ahead and do it
-			 * for us because it doesn't know how to deal
-			 * with the possibility of jamming (and we don't
-			 * want to build jamming into it because then it
-			 * will run more slowly).
-			 */
+            /* Okay, we're now positioned to make the NUL
+             * transition.  We couldn't have
+             * yy_get_previous_state() go ahead and do it
+             * for us because it doesn't know how to deal
+             * with the possibility of jamming (and we don't
+             * want to build jamming into it because then it
+             * will run more slowly).
+             */
 
-			yy_next_state = yy_try_NUL_trans( yy_current_state );
+            yy_next_state = yy_try_NUL_trans( yy_current_state );
 
-			yy_bp = (yytext_ptr) + YY_MORE_ADJ;
+            yy_bp = (yytext_ptr) + YY_MORE_ADJ;
 
-			if ( yy_next_state )
-				{
-				/* Consume the NUL. */
-				yy_cp = ++(yy_c_buf_p);
-				yy_current_state = yy_next_state;
-				goto yy_match;
-				}
+            if ( yy_next_state )
+                {
+                /* Consume the NUL. */
+                yy_cp = ++(yy_c_buf_p);
+                yy_current_state = yy_next_state;
+                goto yy_match;
+                }
 
-			else
-				{
-				yy_cp = (yy_c_buf_p);
-				goto yy_find_action;
-				}
-			}
+            else
+                {
+                yy_cp = (yy_c_buf_p);
+                goto yy_find_action;
+                }
+            }
 
-		else switch ( yy_get_next_buffer(  ) )
-			{
-			case EOB_ACT_END_OF_FILE:
-				{
-				(yy_did_buffer_switch_on_eof) = 0;
+        else switch ( yy_get_next_buffer(  ) )
+            {
+            case EOB_ACT_END_OF_FILE:
+                {
+                (yy_did_buffer_switch_on_eof) = 0;
 
-				if ( gdb_result_wrap( ) )
-					{
-					/* Note: because we've taken care in
-					 * yy_get_next_buffer() to have set up
-					 * gdb_result_text, we can now set up
-					 * yy_c_buf_p so that if some total
-					 * hoser (like flex itself) wants to
-					 * call the scanner after we return the
-					 * YY_NULL, it'll still work - another
-					 * YY_NULL will get returned.
-					 */
-					(yy_c_buf_p) = (yytext_ptr) + YY_MORE_ADJ;
+                if ( gdb_result_wrap( ) )
+                    {
+                    /* Note: because we've taken care in
+                     * yy_get_next_buffer() to have set up
+                     * gdb_result_text, we can now set up
+                     * yy_c_buf_p so that if some total
+                     * hoser (like flex itself) wants to
+                     * call the scanner after we return the
+                     * YY_NULL, it'll still work - another
+                     * YY_NULL will get returned.
+                     */
+                    (yy_c_buf_p) = (yytext_ptr) + YY_MORE_ADJ;
 
-					yy_act = YY_STATE_EOF(YY_START);
-					goto do_action;
-					}
+                    yy_act = YY_STATE_EOF(YY_START);
+                    goto do_action;
+                    }
 
-				else
-					{
-					if ( ! (yy_did_buffer_switch_on_eof) )
-						YY_NEW_FILE;
-					}
-				break;
-				}
+                else
+                    {
+                    if ( ! (yy_did_buffer_switch_on_eof) )
+                        YY_NEW_FILE;
+                    }
+                break;
+                }
 
-			case EOB_ACT_CONTINUE_SCAN:
-				(yy_c_buf_p) =
-					(yytext_ptr) + yy_amount_of_matched_text;
+            case EOB_ACT_CONTINUE_SCAN:
+                (yy_c_buf_p) =
+                    (yytext_ptr) + yy_amount_of_matched_text;
 
-				yy_current_state = yy_get_previous_state(  );
+                yy_current_state = yy_get_previous_state(  );
 
-				yy_cp = (yy_c_buf_p);
-				yy_bp = (yytext_ptr) + YY_MORE_ADJ;
-				goto yy_match;
+                yy_cp = (yy_c_buf_p);
+                yy_bp = (yytext_ptr) + YY_MORE_ADJ;
+                goto yy_match;
 
-			case EOB_ACT_LAST_MATCH:
-				(yy_c_buf_p) =
-				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)];
+            case EOB_ACT_LAST_MATCH:
+                (yy_c_buf_p) =
+                &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)];
 
-				yy_current_state = yy_get_previous_state(  );
+                yy_current_state = yy_get_previous_state(  );
 
-				yy_cp = (yy_c_buf_p);
-				yy_bp = (yytext_ptr) + YY_MORE_ADJ;
-				goto yy_find_action;
-			}
-		break;
-		}
+                yy_cp = (yy_c_buf_p);
+                yy_bp = (yytext_ptr) + YY_MORE_ADJ;
+                goto yy_find_action;
+            }
+        break;
+        }
 
-	default:
-		YY_FATAL_ERROR(
-			"fatal flex scanner internal error--no action found" );
-	} /* end of action switch */
-		} /* end of scanning one token */
+    default:
+        YY_FATAL_ERROR(
+            "fatal flex scanner internal error--no action found" );
+    } /* end of action switch */
+        } /* end of scanning one token */
 } /* end of gdb_result_lex */
 
 /* yy_get_next_buffer - try to read in a new buffer
@@ -1536,163 +1536,163 @@ case YY_STATE_EOF(esc_string_state):
  */
 static int yy_get_next_buffer (void)
 {
-    	register char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
-	register char *source = (yytext_ptr);
-	register int number_to_move, i;
-	int ret_val;
+        register char *dest = YY_CURRENT_BUFFER_LVALUE->yy_ch_buf;
+    register char *source = (yytext_ptr);
+    register int number_to_move, i;
+    int ret_val;
 
-	if ( (yy_c_buf_p) > &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] )
-		YY_FATAL_ERROR(
-		"fatal flex scanner internal error--end of buffer missed" );
+    if ( (yy_c_buf_p) > &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] )
+        YY_FATAL_ERROR(
+        "fatal flex scanner internal error--end of buffer missed" );
 
-	if ( YY_CURRENT_BUFFER_LVALUE->yy_fill_buffer == 0 )
-		{ /* Don't try to fill the buffer, so this is an EOF. */
-		if ( (yy_c_buf_p) - (yytext_ptr) - YY_MORE_ADJ == 1 )
-			{
-			/* We matched a single character, the EOB, so
-			 * treat this as a final EOF.
-			 */
-			return EOB_ACT_END_OF_FILE;
-			}
+    if ( YY_CURRENT_BUFFER_LVALUE->yy_fill_buffer == 0 )
+        { /* Don't try to fill the buffer, so this is an EOF. */
+        if ( (yy_c_buf_p) - (yytext_ptr) - YY_MORE_ADJ == 1 )
+            {
+            /* We matched a single character, the EOB, so
+             * treat this as a final EOF.
+             */
+            return EOB_ACT_END_OF_FILE;
+            }
 
-		else
-			{
-			/* We matched some text prior to the EOB, first
-			 * process it.
-			 */
-			return EOB_ACT_LAST_MATCH;
-			}
-		}
+        else
+            {
+            /* We matched some text prior to the EOB, first
+             * process it.
+             */
+            return EOB_ACT_LAST_MATCH;
+            }
+        }
 
-	/* Try to read more data. */
+    /* Try to read more data. */
 
-	/* First move last chars to start of buffer. */
-	number_to_move = (int) ((yy_c_buf_p) - (yytext_ptr)) - 1;
+    /* First move last chars to start of buffer. */
+    number_to_move = (int) ((yy_c_buf_p) - (yytext_ptr)) - 1;
 
-	for ( i = 0; i < number_to_move; ++i )
-		*(dest++) = *(source++);
+    for ( i = 0; i < number_to_move; ++i )
+        *(dest++) = *(source++);
 
-	if ( YY_CURRENT_BUFFER_LVALUE->yy_buffer_status == YY_BUFFER_EOF_PENDING )
-		/* don't do the read, it's not guaranteed to return an EOF,
-		 * just force an EOF
-		 */
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars) = 0;
+    if ( YY_CURRENT_BUFFER_LVALUE->yy_buffer_status == YY_BUFFER_EOF_PENDING )
+        /* don't do the read, it's not guaranteed to return an EOF,
+         * just force an EOF
+         */
+        YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars) = 0;
 
-	else
-		{
-			yy_size_t num_to_read =
-			YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
+    else
+        {
+            yy_size_t num_to_read =
+            YY_CURRENT_BUFFER_LVALUE->yy_buf_size - number_to_move - 1;
 
-		while ( num_to_read <= 0 )
-			{ /* Not enough room in the buffer - grow it. */
+        while ( num_to_read <= 0 )
+            { /* Not enough room in the buffer - grow it. */
 
-			/* just a shorter name for the current buffer */
-			YY_BUFFER_STATE b = YY_CURRENT_BUFFER_LVALUE;
+            /* just a shorter name for the current buffer */
+            YY_BUFFER_STATE b = YY_CURRENT_BUFFER_LVALUE;
 
-			int yy_c_buf_p_offset =
-				(int) ((yy_c_buf_p) - b->yy_ch_buf);
+            int yy_c_buf_p_offset =
+                (int) ((yy_c_buf_p) - b->yy_ch_buf);
 
-			if ( b->yy_is_our_buffer )
-				{
-				yy_size_t new_size = b->yy_buf_size * 2;
+            if ( b->yy_is_our_buffer )
+                {
+                yy_size_t new_size = b->yy_buf_size * 2;
 
-				if ( new_size <= 0 )
-					b->yy_buf_size += b->yy_buf_size / 8;
-				else
-					b->yy_buf_size *= 2;
+                if ( new_size <= 0 )
+                    b->yy_buf_size += b->yy_buf_size / 8;
+                else
+                    b->yy_buf_size *= 2;
 
-				b->yy_ch_buf = (char *)
-					/* Include room in for 2 EOB chars. */
-					gdb_result_realloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
-				}
-			else
-				/* Can't grow it, we don't own it. */
-				b->yy_ch_buf = 0;
+                b->yy_ch_buf = (char *)
+                    /* Include room in for 2 EOB chars. */
+                    gdb_result_realloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
+                }
+            else
+                /* Can't grow it, we don't own it. */
+                b->yy_ch_buf = 0;
 
-			if ( ! b->yy_ch_buf )
-				YY_FATAL_ERROR(
-				"fatal error - scanner input buffer overflow" );
+            if ( ! b->yy_ch_buf )
+                YY_FATAL_ERROR(
+                "fatal error - scanner input buffer overflow" );
 
-			(yy_c_buf_p) = &b->yy_ch_buf[yy_c_buf_p_offset];
+            (yy_c_buf_p) = &b->yy_ch_buf[yy_c_buf_p_offset];
 
-			num_to_read = YY_CURRENT_BUFFER_LVALUE->yy_buf_size -
-						number_to_move - 1;
+            num_to_read = YY_CURRENT_BUFFER_LVALUE->yy_buf_size -
+                        number_to_move - 1;
 
-			}
+            }
 
-		if ( num_to_read > YY_READ_BUF_SIZE )
-			num_to_read = YY_READ_BUF_SIZE;
+        if ( num_to_read > YY_READ_BUF_SIZE )
+            num_to_read = YY_READ_BUF_SIZE;
 
-		/* Read in more data. */
-		YY_INPUT( (&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move]),
-			(yy_n_chars), num_to_read );
+        /* Read in more data. */
+        YY_INPUT( (&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move]),
+            (yy_n_chars), num_to_read );
 
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
-		}
+        YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
+        }
 
-	if ( (yy_n_chars) == 0 )
-		{
-		if ( number_to_move == YY_MORE_ADJ )
-			{
-			ret_val = EOB_ACT_END_OF_FILE;
-			gdb_result_restart(gdb_result_in  );
-			}
+    if ( (yy_n_chars) == 0 )
+        {
+        if ( number_to_move == YY_MORE_ADJ )
+            {
+            ret_val = EOB_ACT_END_OF_FILE;
+            gdb_result_restart(gdb_result_in  );
+            }
 
-		else
-			{
-			ret_val = EOB_ACT_LAST_MATCH;
-			YY_CURRENT_BUFFER_LVALUE->yy_buffer_status =
-				YY_BUFFER_EOF_PENDING;
-			}
-		}
+        else
+            {
+            ret_val = EOB_ACT_LAST_MATCH;
+            YY_CURRENT_BUFFER_LVALUE->yy_buffer_status =
+                YY_BUFFER_EOF_PENDING;
+            }
+        }
 
-	else
-		ret_val = EOB_ACT_CONTINUE_SCAN;
+    else
+        ret_val = EOB_ACT_CONTINUE_SCAN;
 
-	if ((yy_size_t) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
-		/* Extend the array by 50%, plus the number we really need. */
-		yy_size_t new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
-		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) gdb_result_realloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
-		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
-			YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
-	}
+    if ((yy_size_t) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
+        /* Extend the array by 50%, plus the number we really need. */
+        yy_size_t new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
+        YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) gdb_result_realloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
+        if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
+            YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
+    }
 
-	(yy_n_chars) += number_to_move;
-	YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] = YY_END_OF_BUFFER_CHAR;
-	YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] = YY_END_OF_BUFFER_CHAR;
+    (yy_n_chars) += number_to_move;
+    YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] = YY_END_OF_BUFFER_CHAR;
+    YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars) + 1] = YY_END_OF_BUFFER_CHAR;
 
-	(yytext_ptr) = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[0];
+    (yytext_ptr) = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[0];
 
-	return ret_val;
+    return ret_val;
 }
 
 /* yy_get_previous_state - get the state just before the EOB char was reached */
 
     static yy_state_type yy_get_previous_state (void)
 {
-	register yy_state_type yy_current_state;
-	register char *yy_cp;
+    register yy_state_type yy_current_state;
+    register char *yy_cp;
     
-	yy_current_state = (yy_start);
+    yy_current_state = (yy_start);
 
-	for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
-		{
-		register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 1);
-		if ( yy_accept[yy_current_state] )
-			{
-			(yy_last_accepting_state) = yy_current_state;
-			(yy_last_accepting_cpos) = yy_cp;
-			}
-		while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
-			{
-			yy_current_state = (int) yy_def[yy_current_state];
-			if ( yy_current_state >= 348 )
-				yy_c = yy_meta[(unsigned int) yy_c];
-			}
-		yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-		}
+    for ( yy_cp = (yytext_ptr) + YY_MORE_ADJ; yy_cp < (yy_c_buf_p); ++yy_cp )
+        {
+        register YY_CHAR yy_c = (*yy_cp ? yy_ec[YY_SC_TO_UI(*yy_cp)] : 1);
+        if ( yy_accept[yy_current_state] )
+            {
+            (yy_last_accepting_state) = yy_current_state;
+            (yy_last_accepting_cpos) = yy_cp;
+            }
+        while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
+            {
+            yy_current_state = (int) yy_def[yy_current_state];
+            if ( yy_current_state >= 348 )
+                yy_c = yy_meta[(unsigned int) yy_c];
+            }
+        yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
+        }
 
-	return yy_current_state;
+    return yy_current_state;
 }
 
 /* yy_try_NUL_trans - try to make a transition on the NUL character
@@ -1702,66 +1702,66 @@ static int yy_get_next_buffer (void)
  */
     static yy_state_type yy_try_NUL_trans  (yy_state_type yy_current_state )
 {
-	register int yy_is_jam;
-    	register char *yy_cp = (yy_c_buf_p);
+    register int yy_is_jam;
+        register char *yy_cp = (yy_c_buf_p);
 
-	register YY_CHAR yy_c = 1;
-	if ( yy_accept[yy_current_state] )
-		{
-		(yy_last_accepting_state) = yy_current_state;
-		(yy_last_accepting_cpos) = yy_cp;
-		}
-	while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
-		{
-		yy_current_state = (int) yy_def[yy_current_state];
-		if ( yy_current_state >= 348 )
-			yy_c = yy_meta[(unsigned int) yy_c];
-		}
-	yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
-	yy_is_jam = (yy_current_state == 347);
+    register YY_CHAR yy_c = 1;
+    if ( yy_accept[yy_current_state] )
+        {
+        (yy_last_accepting_state) = yy_current_state;
+        (yy_last_accepting_cpos) = yy_cp;
+        }
+    while ( yy_chk[yy_base[yy_current_state] + yy_c] != yy_current_state )
+        {
+        yy_current_state = (int) yy_def[yy_current_state];
+        if ( yy_current_state >= 348 )
+            yy_c = yy_meta[(unsigned int) yy_c];
+        }
+    yy_current_state = yy_nxt[yy_base[yy_current_state] + (unsigned int) yy_c];
+    yy_is_jam = (yy_current_state == 347);
 
-		return yy_is_jam ? 0 : yy_current_state;
+        return yy_is_jam ? 0 : yy_current_state;
 }
 
     static void yyunput (int c, register char * yy_bp )
 {
-	register char *yy_cp;
+    register char *yy_cp;
     
     yy_cp = (yy_c_buf_p);
 
-	/* undo effects of setting up gdb_result_text */
-	*yy_cp = (yy_hold_char);
+    /* undo effects of setting up gdb_result_text */
+    *yy_cp = (yy_hold_char);
 
-	if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-		{ /* need to shift things up to make room */
-		/* +2 for EOB chars. */
-		register yy_size_t number_to_move = (yy_n_chars) + 2;
-		register char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
-					YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
-		register char *source =
-				&YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
+    if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
+        { /* need to shift things up to make room */
+        /* +2 for EOB chars. */
+        register yy_size_t number_to_move = (yy_n_chars) + 2;
+        register char *dest = &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[
+                    YY_CURRENT_BUFFER_LVALUE->yy_buf_size + 2];
+        register char *source =
+                &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[number_to_move];
 
-		while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
-			*--dest = *--source;
+        while ( source > YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
+            *--dest = *--source;
 
-		yy_cp += (int) (dest - source);
-		yy_bp += (int) (dest - source);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars =
-			(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_buf_size;
+        yy_cp += (int) (dest - source);
+        yy_bp += (int) (dest - source);
+        YY_CURRENT_BUFFER_LVALUE->yy_n_chars =
+            (yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_buf_size;
 
-		if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
-			YY_FATAL_ERROR( "flex scanner push-back overflow" );
-		}
+        if ( yy_cp < YY_CURRENT_BUFFER_LVALUE->yy_ch_buf + 2 )
+            YY_FATAL_ERROR( "flex scanner push-back overflow" );
+        }
 
-	*--yy_cp = (char) c;
+    *--yy_cp = (char) c;
 
     if ( c == '\n' ){
         --gdb_result_lineno;
     }
 
-	(yytext_ptr) = yy_bp;
-	(yy_hold_char) = *yy_cp;
-	(yy_c_buf_p) = yy_cp;
+    (yytext_ptr) = yy_bp;
+    (yy_hold_char) = *yy_cp;
+    (yy_c_buf_p) = yy_cp;
 }
 
 #ifndef YY_NO_INPUT
@@ -1772,74 +1772,74 @@ static int yy_get_next_buffer (void)
 #endif
 
 {
-	int c;
+    int c;
     
-	*(yy_c_buf_p) = (yy_hold_char);
+    *(yy_c_buf_p) = (yy_hold_char);
 
-	if ( *(yy_c_buf_p) == YY_END_OF_BUFFER_CHAR )
-		{
-		/* yy_c_buf_p now points to the character we want to return.
-		 * If this occurs *before* the EOB characters, then it's a
-		 * valid NUL; if not, then we've hit the end of the buffer.
-		 */
-		if ( (yy_c_buf_p) < &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] )
-			/* This was really a NUL. */
-			*(yy_c_buf_p) = '\0';
+    if ( *(yy_c_buf_p) == YY_END_OF_BUFFER_CHAR )
+        {
+        /* yy_c_buf_p now points to the character we want to return.
+         * If this occurs *before* the EOB characters, then it's a
+         * valid NUL; if not, then we've hit the end of the buffer.
+         */
+        if ( (yy_c_buf_p) < &YY_CURRENT_BUFFER_LVALUE->yy_ch_buf[(yy_n_chars)] )
+            /* This was really a NUL. */
+            *(yy_c_buf_p) = '\0';
 
-		else
-			{ /* need more input */
-			yy_size_t offset = (yy_c_buf_p) - (yytext_ptr);
-			++(yy_c_buf_p);
+        else
+            { /* need more input */
+            yy_size_t offset = (yy_c_buf_p) - (yytext_ptr);
+            ++(yy_c_buf_p);
 
-			switch ( yy_get_next_buffer(  ) )
-				{
-				case EOB_ACT_LAST_MATCH:
-					/* This happens because yy_g_n_b()
-					 * sees that we've accumulated a
-					 * token and flags that we need to
-					 * try matching the token before
-					 * proceeding.  But for input(),
-					 * there's no matching to consider.
-					 * So convert the EOB_ACT_LAST_MATCH
-					 * to EOB_ACT_END_OF_FILE.
-					 */
+            switch ( yy_get_next_buffer(  ) )
+                {
+                case EOB_ACT_LAST_MATCH:
+                    /* This happens because yy_g_n_b()
+                     * sees that we've accumulated a
+                     * token and flags that we need to
+                     * try matching the token before
+                     * proceeding.  But for input(),
+                     * there's no matching to consider.
+                     * So convert the EOB_ACT_LAST_MATCH
+                     * to EOB_ACT_END_OF_FILE.
+                     */
 
-					/* Reset buffer status. */
-					gdb_result_restart(gdb_result_in );
+                    /* Reset buffer status. */
+                    gdb_result_restart(gdb_result_in );
 
-					/*FALLTHROUGH*/
+                    /*FALLTHROUGH*/
 
-				case EOB_ACT_END_OF_FILE:
-					{
-					if ( gdb_result_wrap( ) )
-						return EOF;
+                case EOB_ACT_END_OF_FILE:
+                    {
+                    if ( gdb_result_wrap( ) )
+                        return EOF;
 
-					if ( ! (yy_did_buffer_switch_on_eof) )
-						YY_NEW_FILE;
+                    if ( ! (yy_did_buffer_switch_on_eof) )
+                        YY_NEW_FILE;
 #ifdef __cplusplus
-					return yyinput();
+                    return yyinput();
 #else
-					return input();
+                    return input();
 #endif
-					}
+                    }
 
-				case EOB_ACT_CONTINUE_SCAN:
-					(yy_c_buf_p) = (yytext_ptr) + offset;
-					break;
-				}
-			}
-		}
+                case EOB_ACT_CONTINUE_SCAN:
+                    (yy_c_buf_p) = (yytext_ptr) + offset;
+                    break;
+                }
+            }
+        }
 
-	c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
-	*(yy_c_buf_p) = '\0';	/* preserve gdb_result_text */
-	(yy_hold_char) = *++(yy_c_buf_p);
+    c = *(unsigned char *) (yy_c_buf_p);	/* cast for 8-bit char's */
+    *(yy_c_buf_p) = '\0';	/* preserve gdb_result_text */
+    (yy_hold_char) = *++(yy_c_buf_p);
 
-	if ( c == '\n' )
-		   
+    if ( c == '\n' )
+           
     gdb_result_lineno++;
 ;
 
-	return c;
+    return c;
 }
 #endif	/* ifndef YY_NO_INPUT */
 
@@ -1851,14 +1851,14 @@ static int yy_get_next_buffer (void)
     void gdb_result_restart  (FILE * input_file )
 {
     
-	if ( ! YY_CURRENT_BUFFER ){
+    if ( ! YY_CURRENT_BUFFER ){
         gdb_result_ensure_buffer_stack ();
-		YY_CURRENT_BUFFER_LVALUE =
+        YY_CURRENT_BUFFER_LVALUE =
             gdb_result__create_buffer(gdb_result_in,YY_BUF_SIZE );
-	}
+    }
 
-	gdb_result__init_buffer(YY_CURRENT_BUFFER,input_file );
-	gdb_result__load_buffer_state( );
+    gdb_result__init_buffer(YY_CURRENT_BUFFER,input_file );
+    gdb_result__load_buffer_state( );
 }
 
 /** Switch to a different input buffer.
@@ -1868,40 +1868,40 @@ static int yy_get_next_buffer (void)
     void gdb_result__switch_to_buffer  (YY_BUFFER_STATE  new_buffer )
 {
     
-	/* TODO. We should be able to replace this entire function body
-	 * with
-	 *		gdb_result_pop_buffer_state();
-	 *		gdb_result_push_buffer_state(new_buffer);
+    /* TODO. We should be able to replace this entire function body
+     * with
+     *		gdb_result_pop_buffer_state();
+     *		gdb_result_push_buffer_state(new_buffer);
      */
-	gdb_result_ensure_buffer_stack ();
-	if ( YY_CURRENT_BUFFER == new_buffer )
-		return;
+    gdb_result_ensure_buffer_stack ();
+    if ( YY_CURRENT_BUFFER == new_buffer )
+        return;
 
-	if ( YY_CURRENT_BUFFER )
-		{
-		/* Flush out information for old buffer. */
-		*(yy_c_buf_p) = (yy_hold_char);
-		YY_CURRENT_BUFFER_LVALUE->yy_buf_pos = (yy_c_buf_p);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
-		}
+    if ( YY_CURRENT_BUFFER )
+        {
+        /* Flush out information for old buffer. */
+        *(yy_c_buf_p) = (yy_hold_char);
+        YY_CURRENT_BUFFER_LVALUE->yy_buf_pos = (yy_c_buf_p);
+        YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
+        }
 
-	YY_CURRENT_BUFFER_LVALUE = new_buffer;
-	gdb_result__load_buffer_state( );
+    YY_CURRENT_BUFFER_LVALUE = new_buffer;
+    gdb_result__load_buffer_state( );
 
-	/* We don't actually know whether we did this switch during
-	 * EOF (gdb_result_wrap()) processing, but the only time this flag
-	 * is looked at is after gdb_result_wrap() is called, so it's safe
-	 * to go ahead and always set it.
-	 */
-	(yy_did_buffer_switch_on_eof) = 1;
+    /* We don't actually know whether we did this switch during
+     * EOF (gdb_result_wrap()) processing, but the only time this flag
+     * is looked at is after gdb_result_wrap() is called, so it's safe
+     * to go ahead and always set it.
+     */
+    (yy_did_buffer_switch_on_eof) = 1;
 }
 
 static void gdb_result__load_buffer_state  (void)
 {
-    	(yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
-	(yytext_ptr) = (yy_c_buf_p) = YY_CURRENT_BUFFER_LVALUE->yy_buf_pos;
-	gdb_result_in = YY_CURRENT_BUFFER_LVALUE->yy_input_file;
-	(yy_hold_char) = *(yy_c_buf_p);
+        (yy_n_chars) = YY_CURRENT_BUFFER_LVALUE->yy_n_chars;
+    (yytext_ptr) = (yy_c_buf_p) = YY_CURRENT_BUFFER_LVALUE->yy_buf_pos;
+    gdb_result_in = YY_CURRENT_BUFFER_LVALUE->yy_input_file;
+    (yy_hold_char) = *(yy_c_buf_p);
 }
 
 /** Allocate and initialize an input buffer state.
@@ -1912,26 +1912,26 @@ static void gdb_result__load_buffer_state  (void)
  */
     YY_BUFFER_STATE gdb_result__create_buffer  (FILE * file, int  size )
 {
-	YY_BUFFER_STATE b;
+    YY_BUFFER_STATE b;
     
-	b = (YY_BUFFER_STATE) gdb_result_alloc(sizeof( struct yy_buffer_state )  );
-	if ( ! b )
-		YY_FATAL_ERROR( "out of dynamic memory in gdb_result__create_buffer()" );
+    b = (YY_BUFFER_STATE) gdb_result_alloc(sizeof( struct yy_buffer_state )  );
+    if ( ! b )
+        YY_FATAL_ERROR( "out of dynamic memory in gdb_result__create_buffer()" );
 
-	b->yy_buf_size = size;
+    b->yy_buf_size = size;
 
-	/* yy_ch_buf has to be 2 characters longer than the size given because
-	 * we need to put in 2 end-of-buffer characters.
-	 */
-	b->yy_ch_buf = (char *) gdb_result_alloc(b->yy_buf_size + 2  );
-	if ( ! b->yy_ch_buf )
-		YY_FATAL_ERROR( "out of dynamic memory in gdb_result__create_buffer()" );
+    /* yy_ch_buf has to be 2 characters longer than the size given because
+     * we need to put in 2 end-of-buffer characters.
+     */
+    b->yy_ch_buf = (char *) gdb_result_alloc(b->yy_buf_size + 2  );
+    if ( ! b->yy_ch_buf )
+        YY_FATAL_ERROR( "out of dynamic memory in gdb_result__create_buffer()" );
 
-	b->yy_is_our_buffer = 1;
+    b->yy_is_our_buffer = 1;
 
-	gdb_result__init_buffer(b,file );
+    gdb_result__init_buffer(b,file );
 
-	return b;
+    return b;
 }
 
 /** Destroy the buffer.
@@ -1941,16 +1941,16 @@ static void gdb_result__load_buffer_state  (void)
     void gdb_result__delete_buffer (YY_BUFFER_STATE  b )
 {
     
-	if ( ! b )
-		return;
+    if ( ! b )
+        return;
 
-	if ( b == YY_CURRENT_BUFFER ) /* Not sure if we should pop here. */
-		YY_CURRENT_BUFFER_LVALUE = (YY_BUFFER_STATE) 0;
+    if ( b == YY_CURRENT_BUFFER ) /* Not sure if we should pop here. */
+        YY_CURRENT_BUFFER_LVALUE = (YY_BUFFER_STATE) 0;
 
-	if ( b->yy_is_our_buffer )
-		gdb_result_free((void *) b->yy_ch_buf  );
+    if ( b->yy_is_our_buffer )
+        gdb_result_free((void *) b->yy_ch_buf  );
 
-	gdb_result_free((void *) b  );
+    gdb_result_free((void *) b  );
 }
 
 /* Initializes or reinitializes a buffer.
@@ -1960,12 +1960,12 @@ static void gdb_result__load_buffer_state  (void)
     static void gdb_result__init_buffer  (YY_BUFFER_STATE  b, FILE * file )
 
 {
-	int oerrno = errno;
+    int oerrno = errno;
     
-	gdb_result__flush_buffer(b );
+    gdb_result__flush_buffer(b );
 
-	b->yy_input_file = file;
-	b->yy_fill_buffer = 1;
+    b->yy_input_file = file;
+    b->yy_fill_buffer = 1;
 
     /* If b is the current buffer, then gdb_result__init_buffer was _probably_
      * called from gdb_result_restart() or through yy_get_next_buffer.
@@ -1978,7 +1978,7 @@ static void gdb_result__load_buffer_state  (void)
 
         b->yy_is_interactive = file ? (isatty( fileno(file) ) > 0) : 0;
     
-	errno = oerrno;
+    errno = oerrno;
 }
 
 /** Discard all buffered characters. On the next scan, YY_INPUT will be called.
@@ -1987,25 +1987,25 @@ static void gdb_result__load_buffer_state  (void)
  */
     void gdb_result__flush_buffer (YY_BUFFER_STATE  b )
 {
-    	if ( ! b )
-		return;
+        if ( ! b )
+        return;
 
-	b->yy_n_chars = 0;
+    b->yy_n_chars = 0;
 
-	/* We always need two end-of-buffer characters.  The first causes
-	 * a transition to the end-of-buffer state.  The second causes
-	 * a jam in that state.
-	 */
-	b->yy_ch_buf[0] = YY_END_OF_BUFFER_CHAR;
-	b->yy_ch_buf[1] = YY_END_OF_BUFFER_CHAR;
+    /* We always need two end-of-buffer characters.  The first causes
+     * a transition to the end-of-buffer state.  The second causes
+     * a jam in that state.
+     */
+    b->yy_ch_buf[0] = YY_END_OF_BUFFER_CHAR;
+    b->yy_ch_buf[1] = YY_END_OF_BUFFER_CHAR;
 
-	b->yy_buf_pos = &b->yy_ch_buf[0];
+    b->yy_buf_pos = &b->yy_ch_buf[0];
 
-	b->yy_at_bol = 1;
-	b->yy_buffer_status = YY_BUFFER_NEW;
+    b->yy_at_bol = 1;
+    b->yy_buffer_status = YY_BUFFER_NEW;
 
-	if ( b == YY_CURRENT_BUFFER )
-		gdb_result__load_buffer_state( );
+    if ( b == YY_CURRENT_BUFFER )
+        gdb_result__load_buffer_state( );
 }
 
 /** Pushes the new state onto the stack. The new state becomes
@@ -2016,28 +2016,28 @@ static void gdb_result__load_buffer_state  (void)
  */
 void gdb_result_push_buffer_state (YY_BUFFER_STATE new_buffer )
 {
-    	if (new_buffer == NULL)
-		return;
+        if (new_buffer == NULL)
+        return;
 
-	gdb_result_ensure_buffer_stack();
+    gdb_result_ensure_buffer_stack();
 
-	/* This block is copied from gdb_result__switch_to_buffer. */
-	if ( YY_CURRENT_BUFFER )
-		{
-		/* Flush out information for old buffer. */
-		*(yy_c_buf_p) = (yy_hold_char);
-		YY_CURRENT_BUFFER_LVALUE->yy_buf_pos = (yy_c_buf_p);
-		YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
-		}
+    /* This block is copied from gdb_result__switch_to_buffer. */
+    if ( YY_CURRENT_BUFFER )
+        {
+        /* Flush out information for old buffer. */
+        *(yy_c_buf_p) = (yy_hold_char);
+        YY_CURRENT_BUFFER_LVALUE->yy_buf_pos = (yy_c_buf_p);
+        YY_CURRENT_BUFFER_LVALUE->yy_n_chars = (yy_n_chars);
+        }
 
-	/* Only push if top exists. Otherwise, replace top. */
-	if (YY_CURRENT_BUFFER)
-		(yy_buffer_stack_top)++;
-	YY_CURRENT_BUFFER_LVALUE = new_buffer;
+    /* Only push if top exists. Otherwise, replace top. */
+    if (YY_CURRENT_BUFFER)
+        (yy_buffer_stack_top)++;
+    YY_CURRENT_BUFFER_LVALUE = new_buffer;
 
-	/* copied from gdb_result__switch_to_buffer. */
-	gdb_result__load_buffer_state( );
-	(yy_did_buffer_switch_on_eof) = 1;
+    /* copied from gdb_result__switch_to_buffer. */
+    gdb_result__load_buffer_state( );
+    (yy_did_buffer_switch_on_eof) = 1;
 }
 
 /** Removes and deletes the top of the stack, if present.
@@ -2046,18 +2046,18 @@ void gdb_result_push_buffer_state (YY_BUFFER_STATE new_buffer )
  */
 void gdb_result_pop_buffer_state (void)
 {
-    	if (!YY_CURRENT_BUFFER)
-		return;
+        if (!YY_CURRENT_BUFFER)
+        return;
 
-	gdb_result__delete_buffer(YY_CURRENT_BUFFER );
-	YY_CURRENT_BUFFER_LVALUE = NULL;
-	if ((yy_buffer_stack_top) > 0)
-		--(yy_buffer_stack_top);
+    gdb_result__delete_buffer(YY_CURRENT_BUFFER );
+    YY_CURRENT_BUFFER_LVALUE = NULL;
+    if ((yy_buffer_stack_top) > 0)
+        --(yy_buffer_stack_top);
 
-	if (YY_CURRENT_BUFFER) {
-		gdb_result__load_buffer_state( );
-		(yy_did_buffer_switch_on_eof) = 1;
-	}
+    if (YY_CURRENT_BUFFER) {
+        gdb_result__load_buffer_state( );
+        (yy_did_buffer_switch_on_eof) = 1;
+    }
 }
 
 /* Allocates the stack if it does not exist.
@@ -2065,45 +2065,45 @@ void gdb_result_pop_buffer_state (void)
  */
 static void gdb_result_ensure_buffer_stack (void)
 {
-	yy_size_t num_to_alloc;
+    yy_size_t num_to_alloc;
     
-	if (!(yy_buffer_stack)) {
+    if (!(yy_buffer_stack)) {
 
-		/* First allocation is just for 2 elements, since we don't know if this
-		 * scanner will even need a stack. We use 2 instead of 1 to avoid an
-		 * immediate realloc on the next call.
+        /* First allocation is just for 2 elements, since we don't know if this
+         * scanner will even need a stack. We use 2 instead of 1 to avoid an
+         * immediate realloc on the next call.
          */
-		num_to_alloc = 1;
-		(yy_buffer_stack) = (struct yy_buffer_state**)gdb_result_alloc
-								(num_to_alloc * sizeof(struct yy_buffer_state*)
-								);
-		if ( ! (yy_buffer_stack) )
-			YY_FATAL_ERROR( "out of dynamic memory in gdb_result_ensure_buffer_stack()" );
-								  
-		memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
-				
-		(yy_buffer_stack_max) = num_to_alloc;
-		(yy_buffer_stack_top) = 0;
-		return;
-	}
+        num_to_alloc = 1;
+        (yy_buffer_stack) = (struct yy_buffer_state**)gdb_result_alloc
+                                (num_to_alloc * sizeof(struct yy_buffer_state*)
+                                );
+        if ( ! (yy_buffer_stack) )
+            YY_FATAL_ERROR( "out of dynamic memory in gdb_result_ensure_buffer_stack()" );
+                                  
+        memset((yy_buffer_stack), 0, num_to_alloc * sizeof(struct yy_buffer_state*));
+                
+        (yy_buffer_stack_max) = num_to_alloc;
+        (yy_buffer_stack_top) = 0;
+        return;
+    }
 
-	if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
+    if ((yy_buffer_stack_top) >= ((yy_buffer_stack_max)) - 1){
 
-		/* Increase the buffer to prepare for a possible push. */
-		int grow_size = 8 /* arbitrary grow size */;
+        /* Increase the buffer to prepare for a possible push. */
+        int grow_size = 8 /* arbitrary grow size */;
 
-		num_to_alloc = (yy_buffer_stack_max) + grow_size;
-		(yy_buffer_stack) = (struct yy_buffer_state**)gdb_result_realloc
-								((yy_buffer_stack),
-								num_to_alloc * sizeof(struct yy_buffer_state*)
-								);
-		if ( ! (yy_buffer_stack) )
-			YY_FATAL_ERROR( "out of dynamic memory in gdb_result_ensure_buffer_stack()" );
+        num_to_alloc = (yy_buffer_stack_max) + grow_size;
+        (yy_buffer_stack) = (struct yy_buffer_state**)gdb_result_realloc
+                                ((yy_buffer_stack),
+                                num_to_alloc * sizeof(struct yy_buffer_state*)
+                                );
+        if ( ! (yy_buffer_stack) )
+            YY_FATAL_ERROR( "out of dynamic memory in gdb_result_ensure_buffer_stack()" );
 
-		/* zero only the new slots.*/
-		memset((yy_buffer_stack) + (yy_buffer_stack_max), 0, grow_size * sizeof(struct yy_buffer_state*));
-		(yy_buffer_stack_max) = num_to_alloc;
-	}
+        /* zero only the new slots.*/
+        memset((yy_buffer_stack) + (yy_buffer_stack_max), 0, grow_size * sizeof(struct yy_buffer_state*));
+        (yy_buffer_stack_max) = num_to_alloc;
+    }
 }
 
 /** Setup the input buffer state to scan directly from a user-specified character buffer.
@@ -2114,31 +2114,31 @@ static void gdb_result_ensure_buffer_stack (void)
  */
 YY_BUFFER_STATE gdb_result__scan_buffer  (char * base, yy_size_t  size )
 {
-	YY_BUFFER_STATE b;
+    YY_BUFFER_STATE b;
     
-	if ( size < 2 ||
-	     base[size-2] != YY_END_OF_BUFFER_CHAR ||
-	     base[size-1] != YY_END_OF_BUFFER_CHAR )
-		/* They forgot to leave room for the EOB's. */
-		return 0;
+    if ( size < 2 ||
+         base[size-2] != YY_END_OF_BUFFER_CHAR ||
+         base[size-1] != YY_END_OF_BUFFER_CHAR )
+        /* They forgot to leave room for the EOB's. */
+        return 0;
 
-	b = (YY_BUFFER_STATE) gdb_result_alloc(sizeof( struct yy_buffer_state )  );
-	if ( ! b )
-		YY_FATAL_ERROR( "out of dynamic memory in gdb_result__scan_buffer()" );
+    b = (YY_BUFFER_STATE) gdb_result_alloc(sizeof( struct yy_buffer_state )  );
+    if ( ! b )
+        YY_FATAL_ERROR( "out of dynamic memory in gdb_result__scan_buffer()" );
 
-	b->yy_buf_size = size - 2;	/* "- 2" to take care of EOB's */
-	b->yy_buf_pos = b->yy_ch_buf = base;
-	b->yy_is_our_buffer = 0;
-	b->yy_input_file = 0;
-	b->yy_n_chars = b->yy_buf_size;
-	b->yy_is_interactive = 0;
-	b->yy_at_bol = 1;
-	b->yy_fill_buffer = 0;
-	b->yy_buffer_status = YY_BUFFER_NEW;
+    b->yy_buf_size = size - 2;	/* "- 2" to take care of EOB's */
+    b->yy_buf_pos = b->yy_ch_buf = base;
+    b->yy_is_our_buffer = 0;
+    b->yy_input_file = 0;
+    b->yy_n_chars = b->yy_buf_size;
+    b->yy_is_interactive = 0;
+    b->yy_at_bol = 1;
+    b->yy_fill_buffer = 0;
+    b->yy_buffer_status = YY_BUFFER_NEW;
 
-	gdb_result__switch_to_buffer(b  );
+    gdb_result__switch_to_buffer(b  );
 
-	return b;
+    return b;
 }
 
 /** Setup the input buffer state to scan a string. The next call to gdb_result_lex() will
@@ -2152,7 +2152,7 @@ YY_BUFFER_STATE gdb_result__scan_buffer  (char * base, yy_size_t  size )
 YY_BUFFER_STATE gdb_result__scan_string (yyconst char * yystr )
 {
     
-	return gdb_result__scan_bytes(yystr,strlen(yystr) );
+    return gdb_result__scan_bytes(yystr,strlen(yystr) );
 }
 
 /** Setup the input buffer state to scan the given bytes. The next call to gdb_result_lex() will
@@ -2164,32 +2164,32 @@ YY_BUFFER_STATE gdb_result__scan_string (yyconst char * yystr )
  */
 YY_BUFFER_STATE gdb_result__scan_bytes  (yyconst char * yybytes, yy_size_t  _yybytes_len )
 {
-	YY_BUFFER_STATE b;
-	char *buf;
-	yy_size_t n;
-	yy_size_t i;
+    YY_BUFFER_STATE b;
+    char *buf;
+    yy_size_t n;
+    yy_size_t i;
     
-	/* Get memory for full buffer, including space for trailing EOB's. */
-	n = _yybytes_len + 2;
-	buf = (char *) gdb_result_alloc(n  );
-	if ( ! buf )
-		YY_FATAL_ERROR( "out of dynamic memory in gdb_result__scan_bytes()" );
+    /* Get memory for full buffer, including space for trailing EOB's. */
+    n = _yybytes_len + 2;
+    buf = (char *) gdb_result_alloc(n  );
+    if ( ! buf )
+        YY_FATAL_ERROR( "out of dynamic memory in gdb_result__scan_bytes()" );
 
-	for ( i = 0; i < _yybytes_len; ++i )
-		buf[i] = yybytes[i];
+    for ( i = 0; i < _yybytes_len; ++i )
+        buf[i] = yybytes[i];
 
-	buf[_yybytes_len] = buf[_yybytes_len+1] = YY_END_OF_BUFFER_CHAR;
+    buf[_yybytes_len] = buf[_yybytes_len+1] = YY_END_OF_BUFFER_CHAR;
 
-	b = gdb_result__scan_buffer(buf,n );
-	if ( ! b )
-		YY_FATAL_ERROR( "bad buffer in gdb_result__scan_bytes()" );
+    b = gdb_result__scan_buffer(buf,n );
+    if ( ! b )
+        YY_FATAL_ERROR( "bad buffer in gdb_result__scan_bytes()" );
 
-	/* It's okay to grow etc. this buffer, and we should throw it
-	 * away when we're done.
-	 */
-	b->yy_is_our_buffer = 1;
+    /* It's okay to grow etc. this buffer, and we should throw it
+     * away when we're done.
+     */
+    b->yy_is_our_buffer = 1;
 
-	return b;
+    return b;
 }
 
 #ifndef YY_EXIT_FAILURE
@@ -2198,26 +2198,26 @@ YY_BUFFER_STATE gdb_result__scan_bytes  (yyconst char * yybytes, yy_size_t  _yyb
 
 static void yy_fatal_error (yyconst char* msg )
 {
-    	(void) fprintf( stderr, "%s\n", msg );
-	// exit( YY_EXIT_FAILURE );
+        (void) fprintf( stderr, "%s\n", msg );
+    // exit( YY_EXIT_FAILURE );
 }
 
 /* Redefine yyless() so it works in section 3 code. */
 
 #undef yyless
 #define yyless(n) \
-	do \
-		{ \
-		/* Undo effects of setting up gdb_result_text. */ \
+    do \
+        { \
+        /* Undo effects of setting up gdb_result_text. */ \
         int yyless_macro_arg = (n); \
         YY_LESS_LINENO(yyless_macro_arg);\
-		gdb_result_text[gdb_result_leng] = (yy_hold_char); \
-		(yy_c_buf_p) = gdb_result_text + yyless_macro_arg; \
-		(yy_hold_char) = *(yy_c_buf_p); \
-		*(yy_c_buf_p) = '\0'; \
-		gdb_result_leng = yyless_macro_arg; \
-		} \
-	while ( 0 )
+        gdb_result_text[gdb_result_leng] = (yy_hold_char); \
+        (yy_c_buf_p) = gdb_result_text + yyless_macro_arg; \
+        (yy_hold_char) = *(yy_c_buf_p); \
+        *(yy_c_buf_p) = '\0'; \
+        gdb_result_leng = yyless_macro_arg; \
+        } \
+    while ( 0 )
 
 /* Accessor  methods (get/set functions) to struct members. */
 
@@ -2335,15 +2335,15 @@ int gdb_result_lex_destroy  (void)
 {
     
     /* Pop the buffer stack, destroying each element. */
-	while(YY_CURRENT_BUFFER){
-		gdb_result__delete_buffer(YY_CURRENT_BUFFER  );
-		YY_CURRENT_BUFFER_LVALUE = NULL;
-		gdb_result_pop_buffer_state();
-	}
+    while(YY_CURRENT_BUFFER){
+        gdb_result__delete_buffer(YY_CURRENT_BUFFER  );
+        YY_CURRENT_BUFFER_LVALUE = NULL;
+        gdb_result_pop_buffer_state();
+    }
 
-	/* Destroy the stack itself. */
-	gdb_result_free((yy_buffer_stack) );
-	(yy_buffer_stack) = NULL;
+    /* Destroy the stack itself. */
+    gdb_result_free((yy_buffer_stack) );
+    (yy_buffer_stack) = NULL;
 
     /* Reset the globals. This is important in a non-reentrant scanner so the next time
      * gdb_result_lex() is called, initialization will occur. */
@@ -2359,43 +2359,43 @@ int gdb_result_lex_destroy  (void)
 #ifndef yytext_ptr
 static void yy_flex_strncpy (char* s1, yyconst char * s2, int n )
 {
-	register int i;
-	for ( i = 0; i < n; ++i )
-		s1[i] = s2[i];
+    register int i;
+    for ( i = 0; i < n; ++i )
+        s1[i] = s2[i];
 }
 #endif
 
 #ifdef YY_NEED_STRLEN
 static int yy_flex_strlen (yyconst char * s )
 {
-	register int n;
-	for ( n = 0; s[n]; ++n )
-		;
+    register int n;
+    for ( n = 0; s[n]; ++n )
+        ;
 
-	return n;
+    return n;
 }
 #endif
 
 void *gdb_result_alloc (yy_size_t  size )
 {
-	return (void *) malloc( size );
+    return (void *) malloc( size );
 }
 
 void *gdb_result_realloc  (void * ptr, yy_size_t  size )
 {
-	/* The cast to (char *) in the following accommodates both
-	 * implementations that use char* generic pointers, and those
-	 * that use void* generic pointers.  It works with the latter
-	 * because both ANSI C and C++ allow castless assignment from
-	 * any pointer type to void*, and deal with argument conversions
-	 * as though doing an assignment.
-	 */
-	return (void *) realloc( (char *) ptr, size );
+    /* The cast to (char *) in the following accommodates both
+     * implementations that use char* generic pointers, and those
+     * that use void* generic pointers.  It works with the latter
+     * because both ANSI C and C++ allow castless assignment from
+     * any pointer type to void*, and deal with argument conversions
+     * as though doing an assignment.
+     */
+    return (void *) realloc( (char *) ptr, size );
 }
 
 void gdb_result_free (void * ptr )
 {
-	free( (char *) ptr );	/* see gdb_result_realloc() for (char *) cast */
+    free( (char *) ptr );	/* see gdb_result_realloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"
@@ -2403,44 +2403,44 @@ void gdb_result_free (void * ptr )
 /*******************************************************************/
 void gdb_result_lex_clean()
 {
-	gdb_result__flush_buffer(YY_CURRENT_BUFFER);
-	gdb_result__delete_buffer(YY_CURRENT_BUFFER);
-	gdb_result_lineno = 1;
-	gs_ascii = false;
-	gs_want_whitespace = false;
+    gdb_result__flush_buffer(YY_CURRENT_BUFFER);
+    gdb_result__delete_buffer(YY_CURRENT_BUFFER);
+    gdb_result_lineno = 1;
+    gs_ascii = false;
+    gs_want_whitespace = false;
 }
 
 bool setGdbLexerInput(const std::string &in, bool ascii, bool wantWhitespace) {
-	BEGIN INITIAL;
-	gs_ascii = ascii;
-	gs_want_whitespace = wantWhitespace;
-	gdb_result__scan_string(in.c_str());
-	return true;
+    BEGIN INITIAL;
+    gs_ascii = ascii;
+    gs_want_whitespace = wantWhitespace;
+    gdb_result__scan_string(in.c_str());
+    return true;
 }
 
 int gdb_result_wrap(){
-	return 1;
+    return 1;
 }
 
 void gdb_result_less(int count){
-	yyless(count);
+    yyless(count);
 }
 
 void gdb_result_push_buffer(const std::string &new_input){
-	// keep current buffer state
-	gs_bufferStack.push_back(YY_CURRENT_BUFFER);
+    // keep current buffer state
+    gs_bufferStack.push_back(YY_CURRENT_BUFFER);
 
-	// create new buffer and use it
-	gdb_result__switch_to_buffer(gdb_result__scan_string(new_input.c_str()) );
+    // create new buffer and use it
+    gdb_result__switch_to_buffer(gdb_result__scan_string(new_input.c_str()) );
 }
 
 void gdb_result_pop_buffer(){
-	// clean current buffer
-	gdb_result__delete_buffer(YY_CURRENT_BUFFER);
+    // clean current buffer
+    gdb_result__delete_buffer(YY_CURRENT_BUFFER);
 
-	// create new buffer and use it
-	gdb_result__switch_to_buffer(gs_bufferStack.back() );
-	gs_bufferStack.pop_back();
+    // create new buffer and use it
+    gdb_result__switch_to_buffer(gs_bufferStack.back() );
+    gs_bufferStack.pop_back();
 }
 
 void gdb_result_error(const char* msg)

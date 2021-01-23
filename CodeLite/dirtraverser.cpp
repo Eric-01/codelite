@@ -40,7 +40,7 @@ wxDirTraverseResult DirTraverser::OnFile(const wxString& filename)
 {
     // add the file to our array
     wxFileName fn(filename);
-    
+
     if(FileUtils::WildMatch(m_filespec, fn)) {
         m_files.Add(filename);
         return wxDIR_CONTINUE;

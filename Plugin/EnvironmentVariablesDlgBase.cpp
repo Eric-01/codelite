@@ -23,58 +23,58 @@ EnvVarsTableDlgBase::EnvVarsTableDlgBase(wxWindow* parent, wxWindowID id, const 
         wxC48E6InitBitmapResources();
         bBitmapLoaded = true;
     }
-    
+
     wxBoxSizer* bSizer1 = new wxBoxSizer(wxVERTICAL);
     this->SetSizer(bSizer1);
-    
+
     m_staticText1 = new wxStaticText(this, wxID_ANY, _("Define here set of environment variables which will be applied by CodeLite before launching processes.\nVariables are defined in the format of NAME=VALUE"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_staticText1->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_INFOBK));
-    
+
     bSizer1->Add(m_staticText1, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_staticText2 = new wxStaticText(this, wxID_ANY, _("Available environment sets:"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
-    
+
     bSizer1->Add(m_staticText2, 0, wxALL, WXC_FROM_DIP(5));
-    
+
     wxBoxSizer* bSizer6 = new wxBoxSizer(wxHORIZONTAL);
-    
+
     bSizer1->Add(bSizer6, 1, wxEXPAND, WXC_FROM_DIP(5));
-    
+
     wxBoxSizer* bSizer2 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer6->Add(bSizer2, 1, wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_book = new wxNotebook(this, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), wxBK_DEFAULT);
     m_book->SetName(wxT("m_book"));
-    
+
     bSizer2->Add(m_book, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_panel1 = new wxPanel(m_book, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_book, wxSize(-1, -1)), wxTAB_TRAVERSAL);
     m_book->AddPage(m_panel1, _("Default"), false);
-    
+
     wxBoxSizer* bSizer5 = new wxBoxSizer(wxVERTICAL);
     m_panel1->SetSizer(bSizer5);
-    
+
     m_textCtrlDefault = new wxStyledTextCtrl(m_panel1, wxID_ANY, wxDefaultPosition, wxDLG_UNIT(m_panel1, wxSize(-1,-1)), 0);
     // Configure the fold margin
     m_textCtrlDefault->SetMarginType     (4, wxSTC_MARGIN_SYMBOL);
     m_textCtrlDefault->SetMarginMask     (4, wxSTC_MASK_FOLDERS);
     m_textCtrlDefault->SetMarginSensitive(4, true);
     m_textCtrlDefault->SetMarginWidth    (4, 0);
-    
+
     // Configure the tracker margin
     m_textCtrlDefault->SetMarginWidth(1, 0);
-    
+
     // Configure the symbol margin
     m_textCtrlDefault->SetMarginType (2, wxSTC_MARGIN_SYMBOL);
     m_textCtrlDefault->SetMarginMask (2, ~(wxSTC_MASK_FOLDERS));
     m_textCtrlDefault->SetMarginWidth(2, 0);
     m_textCtrlDefault->SetMarginSensitive(2, true);
-    
+
     // Configure the line numbers margin
     m_textCtrlDefault->SetMarginType(0, wxSTC_MARGIN_NUMBER);
     m_textCtrlDefault->SetMarginWidth(0,0);
-    
+
     // Configure the line symbol margin
     m_textCtrlDefault->SetMarginType(3, wxSTC_MARGIN_FORE);
     m_textCtrlDefault->SetMarginMask(3, 0);
@@ -90,40 +90,40 @@ EnvVarsTableDlgBase::EnvVarsTableDlgBase(wxWindow* parent, wxWindowID id, const 
     m_textCtrlDefault->SetKeyWords(2, wxT(""));
     m_textCtrlDefault->SetKeyWords(3, wxT(""));
     m_textCtrlDefault->SetKeyWords(4, wxT(""));
-    
+
     bSizer5->Add(m_textCtrlDefault, 1, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     wxBoxSizer* bSizer7 = new wxBoxSizer(wxVERTICAL);
-    
+
     bSizer6->Add(bSizer7, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_buttonNewSet = new wxButton(this, wxID_ANY, _("&New Set..."), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
-    
+
     bSizer7->Add(m_buttonNewSet, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_buttonDeleteSet = new wxButton(this, wxID_ANY, _("Delete Set"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
-    
+
     bSizer7->Add(m_buttonDeleteSet, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     m_button5 = new wxButton(this, wxID_ANY, _("&Export"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1, -1)), 0);
     m_button5->SetToolTip(_("Export the current set to a platform \nspecific environment file"));
-    
+
     bSizer7->Add(m_button5, 0, wxALL|wxEXPAND, WXC_FROM_DIP(5));
-    
+
     wxBoxSizer* boxSizer12 = new wxBoxSizer(wxHORIZONTAL);
-    
+
     bSizer1->Add(boxSizer12, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, WXC_FROM_DIP(10));
-    
+
     m_button16 = new wxButton(this, wxID_ANY, _("Cancel"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
-    
+
     boxSizer12->Add(m_button16, 0, wxALL, WXC_FROM_DIP(5));
-    
+
     m_button14 = new wxButton(this, wxID_OK, _("&OK"), wxDefaultPosition, wxDLG_UNIT(this, wxSize(-1,-1)), 0);
     m_button14->SetDefault();
-    
+
     boxSizer12->Add(m_button14, 0, wxALL, WXC_FROM_DIP(5));
-    
-    
+
+
     #if wxVERSION_NUMBER >= 2900
     if(!wxPersistenceManager::Get().Find(m_book)){
         wxPersistenceManager::Get().RegisterAndRestore(m_book);
@@ -131,7 +131,7 @@ EnvVarsTableDlgBase::EnvVarsTableDlgBase(wxWindow* parent, wxWindowID id, const 
         wxPersistenceManager::Get().Restore(m_book);
     }
     #endif
-    
+
     SetName(wxT("EnvVarsTableDlgBase"));
     SetSize(-1,-1);
     if (GetSizer()) {
@@ -157,7 +157,7 @@ EnvVarsTableDlgBase::EnvVarsTableDlgBase(wxWindow* parent, wxWindowID id, const 
     m_button5->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnExport), NULL, this);
     m_button16->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnCancel), NULL, this);
     m_button14->Connect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnButtonOk), NULL, this);
-    
+
 }
 
 EnvVarsTableDlgBase::~EnvVarsTableDlgBase()
@@ -169,5 +169,5 @@ EnvVarsTableDlgBase::~EnvVarsTableDlgBase()
     m_button5->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnExport), NULL, this);
     m_button16->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnCancel), NULL, this);
     m_button14->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(EnvVarsTableDlgBase::OnButtonOk), NULL, this);
-    
+
 }

@@ -15,7 +15,7 @@ public:
 
 public:
     virtual void* Entry();
-    
+
     void Stop() {
 #if wxCHECK_VERSION(3, 0, 0)
         if ( IsAlive() ) {
@@ -27,7 +27,7 @@ public:
         Delete();
 #endif
     }
-    
+
     void Start() {
         Create();
         Run();

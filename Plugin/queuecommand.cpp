@@ -48,8 +48,8 @@ QueueCommand::QueueCommand(int kind)
         m_project = clCxxWorkspaceST::Get()->GetActiveProjectName();
         BuildConfigPtr buildPtr = clCxxWorkspaceST::Get()->GetProjBuildConf(m_project, "");
         wxCHECK_RET( buildPtr, "No active project" );
-        
-        // If a 'Build' or 'Clean' kinds where requested 
+
+        // If a 'Build' or 'Clean' kinds where requested
         // and the project build configuration is Custom build
         // change the kind to CustomBuild and set the proper build
         // targets
@@ -57,15 +57,15 @@ QueueCommand::QueueCommand(int kind)
             // change the type to CustomBuild
             m_kind = kCustomBuild;
             SetCustomBuildTarget("Build");
-            
+
         } else if ( m_kind == kClean && buildPtr->IsCustomBuild() ) {
             // change the type to CustomBuild
             m_kind = kCustomBuild;
             SetCustomBuildTarget("Clean");
-        
+
         } else {
             m_configuration = buildPtr->GetName();
-            
+
         }
     }
 }

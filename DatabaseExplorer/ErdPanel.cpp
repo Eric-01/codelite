@@ -171,7 +171,7 @@ void ErdPanel::Init(wxWindow* parent, IDbAdapter* dbAdapter)
 
     BitmapLoader* bmpLoader = DatabaseExplorer::GetManager()->GetStdIcons();
 
-    //	m_toolBarErd->SetToolBitmapSize(wxSize(16, 16));
+    // m_toolBarErd->SetToolBitmapSize(wxSize(16, 16));
     m_toolBarErd->AddTool(
         XRCID("IDT_OPEN"), _("Open"), bmpLoader->LoadBitmap(wxT("toolbars/16/standard/file_open")), _("Open diagram"));
     m_toolBarErd->AddTool(
@@ -253,7 +253,7 @@ void ErdPanel::Init(wxWindow* parent, IDbAdapter* dbAdapter)
     entries[3].Set(wxACCEL_CTRL, (int)'A', XRCID("IDT_SELECTALL"));
     wxAcceleratorTable accel(4, entries);
     SetAcceleratorTable(accel);
-    
+
     if (GetSizer()) {
          GetSizer()->Fit(this);
     }

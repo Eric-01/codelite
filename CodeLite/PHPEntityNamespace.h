@@ -38,7 +38,7 @@ protected:
 public:
     void FromJSON(const JSONItem& json);
     JSONItem ToJSON() const;
-    
+
     wxString GetParentNamespace() const;
     virtual wxString FormatPhpDoc(const CommentConfigData& data) const;
     virtual wxString GetDisplayName() const;
@@ -49,7 +49,7 @@ public:
     virtual void PrintStdout(int indent) const;
     PHPEntityNamespace();
     virtual ~PHPEntityNamespace();
-    
+
     /**
      * @brief build namespace from 2 strings
      */

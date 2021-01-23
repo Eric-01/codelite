@@ -40,10 +40,10 @@ public:
     PARAM_BLOB,
     PARAM_NULL
   };
-   
+
   long GetDataLength();
   long* GetDataLengthPointer();
-  
+
   const void* GetDataPtr();
   int GetParameterType();
 
@@ -51,7 +51,7 @@ public:
 
 private:
   int m_nParameterType;
-  
+
   // A union would probably be better here
   wxString m_strValue;
   int m_nValue;
@@ -61,7 +61,7 @@ private:
   wxMemoryBuffer m_BufferValue;
   wxCharBuffer m_CharBufferValue;
   long m_nBufferLength;
-  
+
 };
 
 

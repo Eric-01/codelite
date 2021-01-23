@@ -32,12 +32,12 @@
 class SvnXML
 {
 public:
-	SvnXML();
-	~SvnXML();
+    SvnXML();
+    ~SvnXML();
 
-	static void GetFiles(const wxString& input, wxArrayString& modifiedFiles, wxArrayString& conflictedFiles, wxArrayString& unversionedFiles, wxArrayString& newFiles, wxArrayString& deletedFiles, wxArrayString& lockedFiles, wxArrayString& ignoredFiles);
+    static void GetFiles(const wxString& input, wxArrayString& modifiedFiles, wxArrayString& conflictedFiles, wxArrayString& unversionedFiles, wxArrayString& newFiles, wxArrayString& deletedFiles, wxArrayString& lockedFiles, wxArrayString& ignoredFiles);
 
-	static void GetSvnInfo(const wxString& input, SvnInfo &svnInfo);
+    static void GetSvnInfo(const wxString& input, SvnInfo &svnInfo);
 };
 
 #endif //SVNXMLPARSER_H

@@ -299,13 +299,13 @@ private:
     bool m_saveCommand;
     int m_initialVisualPos;  /*!< initial position of cursor when changing to visual mode*/
     int m_initialVisualLine; /*!< initial line which cursor is on when changing to visual line mode*/
-    
+
     /* visual block insert */
     int m_visualBlockBeginLine;
     int m_visualBlockEndLine;
     int m_visualBlockBeginCol;
     int m_visualBlockEndCol;
-    
+
     /*~~~~~~~~ COMMAND ~~~~~~~~~*/
     int m_repeat;           /*!< number of repetition for the command */
     wxChar m_baseCommand;   /*!< base command (first char of the cmd)*/

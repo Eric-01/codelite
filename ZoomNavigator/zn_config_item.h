@@ -36,7 +36,7 @@ class znConfigItem : public clConfigItem
     bool m_useScrollbar;
 
 public:
-    znConfigItem(); 
+    znConfigItem();
     virtual ~znConfigItem();
 
 public:

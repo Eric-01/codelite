@@ -55,11 +55,11 @@ public:
     const wxArrayString& getFileList() const {
         return m_fileList;
     }
-    
+
     void SetOldFilename(const wxString& oldFilename) {
         this->m_oldFilename = oldFilename;
     }
-    
+
     const wxString& GetOldFilename() const {
         return m_oldFilename;
     }

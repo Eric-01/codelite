@@ -5,12 +5,12 @@
 
 #if defined _MSC_VER
     #pragma warning(disable:4127) // conditional expression is constant
-	#pragma warning(disable:4702) // unreachable code
-	#pragma warning(disable:4722) // destructor never returns, potential memory leak
+    #pragma warning(disable:4702) // unreachable code
+    #pragma warning(disable:4722) // destructor never returns, potential memory leak
 #endif
 
 #if defined(unix) || defined(__unix__) || defined(__unix) || defined(linux) || \
-    defined(__APPLE__) || defined (__NetBSD__) || defined (__OpenBSD__) || defined (__FreeBSD__)        
+    defined(__APPLE__) || defined (__NetBSD__) || defined (__OpenBSD__) || defined (__FreeBSD__)
     #define UNITTEST_POSIX
 #endif
 

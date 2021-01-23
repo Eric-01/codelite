@@ -37,20 +37,20 @@ class IManager;
 /** Implementing NewWxProjectBaseDlg */
 class NewWxProjectDlg : public NewWxProjectBaseDlg
 {
-	IManager *m_mgr;
-	StringManager m_stringManager;
+    IManager *m_mgr;
+    StringManager m_stringManager;
 protected:
-	void OnButtonCancel(wxCommandEvent &e);
-	void OnButtonOK(wxCommandEvent &e);
-	bool ValidateInput();
-	void OnChoiceChanged(wxCommandEvent &e);
-	 
+    void OnButtonCancel(wxCommandEvent &e);
+    void OnButtonOK(wxCommandEvent &e);
+    bool ValidateInput();
+    void OnChoiceChanged(wxCommandEvent &e);
+     
 public:
-	/** Constructor */
-	NewWxProjectDlg( wxWindow* parent, IManager *mgr  );
-	virtual ~NewWxProjectDlg();
-	
-	void GetProjectInfo(NewWxProjectInfo &info);
+    /** Constructor */
+    NewWxProjectDlg( wxWindow* parent, IManager *mgr  );
+    virtual ~NewWxProjectDlg();
+    
+    void GetProjectInfo(NewWxProjectInfo &info);
 };
 
 #endif // __newwxprojectdlg__

@@ -52,9 +52,9 @@ protected:
     void OnKeyDown(wxKeyEvent& event);
     wxString ToString(wxKeyEvent& e);
     NewKeyShortcutDlg::KeyboardShortcut FromString(const wxString& accelString);
-    
+
     void Initialise(const wxString& accel);
-    
+
 public:
     NewKeyShortcutDlg(wxWindow* parent, const MenuItemData& mid);
     virtual ~NewKeyShortcutDlg();

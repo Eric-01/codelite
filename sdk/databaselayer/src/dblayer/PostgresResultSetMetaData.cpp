@@ -1,7 +1,7 @@
 #include "../include/PostgresResultSetMetaData.h"
 //#include "server/catalog/pg_type.h"
 
-/* 
+/*
    SPECIAL NOTE:
     The PQf* functions are 0-based, but the JDBC ResultSetMetaData
     functions are 1-based.  To be consistent with the 1-based JDBC (and also

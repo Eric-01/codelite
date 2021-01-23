@@ -13,10 +13,10 @@ FirebirdParameterCollection::~FirebirdParameterCollection()
   {
     FreeParameterSpace();
   }
-  
+
   FirebirdParameterArray::iterator start = m_Parameters.begin();
   FirebirdParameterArray::iterator stop = m_Parameters.end();
-    
+
   while (start != stop)
   {
     FirebirdParameter* pParameter = (FirebirdParameter*)(*start);
@@ -90,10 +90,10 @@ void FirebirdParameterCollection::ResetBlobParameters()
 {
   if (m_FirebirdParameters == NULL)
     return;
-  
+
   FirebirdParameterArray::iterator start = m_Parameters.begin();
   FirebirdParameterArray::iterator stop = m_Parameters.end();
-    
+
   while (start != stop)
   {
     const XSQLVAR* pVar = ((FirebirdParameter*)(*start))->GetFirebirdSqlVarPtr();
@@ -109,7 +109,7 @@ void FirebirdParameterCollection::AllocateParameterSpace()
 {
   if (m_FirebirdParameters == NULL)
     return;
-  
+
   for (int i = 0; i < m_FirebirdParameters->sqld; i++)
   {
     XSQLVAR* pVar = &(m_FirebirdParameters->sqlvar[i]);
@@ -158,14 +158,14 @@ void FirebirdParameterCollection::AllocateParameterSpace()
       case SQL_DOUBLE:
         //pVar->sqldata = (char*)new double(0.0);
         break;
-      default: 
-        wxLogError(_("Error allocating space for unknown parameter type\n")); 
+      default:
+        wxLogError(_("Error allocating space for unknown parameter type\n"));
         break;
     }
     //if (pVar->sqltype & 1)
       //pVar->sqlind = new short(-1);	// 0 indicator
   }
-}  
+}
 
 void FirebirdParameterCollection::FreeParameterSpace()
 {

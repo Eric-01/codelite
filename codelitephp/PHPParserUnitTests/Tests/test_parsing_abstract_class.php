@@ -1,6 +1,6 @@
 <?php
 
-abstract class AbstractFoo 
+abstract class AbstractFoo
 {
     static public $myStaticVar;
     abstract public function foo();

@@ -1,6 +1,6 @@
 #include "wxcNetworkReply.h"
 
-wxcNetworkReply::wxcNetworkReply() 
+wxcNetworkReply::wxcNetworkReply()
     : m_replyType(wxCrafter::kReplyTypeInvalid)
 {
 }
@@ -19,7 +19,7 @@ void wxcNetworkReply::FromJSON(const JSONElement& json)
 {
     m_replyType = (wxCrafter::eReplyType) json.namedObject(wxT("m_replyType")).toInt(wxCrafter::kCommandTypeInvalid);
     m_wxcpFile = json.namedObject(wxT("m_wxcpFile")).toString();
-    
+
     m_files.clear();
     JSONElement arr = json.namedObject(wxT("m_files"));
     for(int i=0; i<arr.arraySize(); ++i) {
@@ -35,7 +35,7 @@ JSONElement wxcNetworkReply::ToJSON() const
 
     JSONElement arr = JSONElement::createArray(wxT("m_files"));
     json.append( arr );
-    
+
     for(size_t i=0; i<m_files.size(); ++i) {
         arr.arrayAppend( m_files.at(i).GetFullPath() );
     }

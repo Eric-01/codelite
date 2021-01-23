@@ -49,7 +49,7 @@ PHPDebugStartDlg::~PHPDebugStartDlg()
     settings.SetRunAs(m_choice->GetSelection() == 0 ? PHPProjectSettingsData::kRunAsWebsite :
                                                       PHPProjectSettingsData::kRunAsCLI);
     m_project->Save();
-    
+
 }
 
 void PHPDebugStartDlg::OnDebugMethodChanged(wxCommandEvent& event)

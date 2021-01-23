@@ -41,11 +41,11 @@ public:
   void SetParam(int nPosition, const wxDateTime& dateValue);
   void SetParam(int nPosition, bool bValue);
   int GetParameterCount();
-  
+
   int RunQuery();
   DatabaseResultSet* RunQueryWithResults();
 
-private:  
+private:
   MysqlInterface* m_pInterface;
   MYSQL_STMT* m_pStatement;
 

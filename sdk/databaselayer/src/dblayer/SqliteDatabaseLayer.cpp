@@ -71,7 +71,7 @@ bool SqliteDatabaseLayer::Open(const wxString& strDatabase)
   return true;
 }
 
-// close database  
+// close database
 bool SqliteDatabaseLayer::Close()
 {
   ResetErrorCodes();
@@ -141,7 +141,7 @@ int SqliteDatabaseLayer::RunQuery(const wxString& strQuery, bool bParseQuery)
     wxString strErrorMessage = wxT("");
     wxCharBuffer sqlBuffer = ConvertToUnicodeStream(*start);
     int nReturn = sqlite3_exec((sqlite3*)m_pDatabase, sqlBuffer, 0, 0, &szErrorMessage);
-  
+
     if (szErrorMessage != NULL)
     {
       strErrorMessage = ConvertFromUnicodeStream(szErrorMessage);
@@ -168,14 +168,14 @@ DatabaseResultSet* SqliteDatabaseLayer::RunQueryWithResults(const wxString& strQ
   if (m_pDatabase != NULL)
   {
     wxArrayString QueryArray = ParseQueries(strQuery);
-     
+
     for (unsigned int i=0; i<(QueryArray.size()-1); i++)
     {
       char* szErrorMessage = NULL;
       wxString strErrorMessage = wxT("");
       wxCharBuffer sqlBuffer = ConvertToUnicodeStream(QueryArray[i]);
       int nReturn = sqlite3_exec((sqlite3*)m_pDatabase, sqlBuffer, 0, 0, &szErrorMessage);
-  
+
       if (szErrorMessage != NULL)
       {
         SetErrorCode(SqliteDatabaseLayer::TranslateErrorCode(sqlite3_errcode((sqlite3*)m_pDatabase)));
@@ -222,7 +222,7 @@ PreparedStatement* SqliteDatabaseLayer::PrepareStatement(const wxString& strQuer
     SqlitePreparedStatement* pReturnStatement = new SqlitePreparedStatement((sqlite3*)m_pDatabase);
     if (pReturnStatement)
       pReturnStatement->SetEncoding(GetEncoding());
-    
+
     wxArrayString QueryArray = ParseQueries(strQuery);
 
     wxArrayString::iterator start = QueryArray.begin();
@@ -250,7 +250,7 @@ PreparedStatement* SqliteDatabaseLayer::PrepareStatement(const wxString& strQuer
 #else
         int nReturn = sqlite3_prepare((sqlite3*)m_pDatabase, sqlBuffer, -1, &pStatement, &szTail);
 #endif
-   
+
         if (nReturn != SQLITE_OK)
         {
           SetErrorCode(SqliteDatabaseLayer::TranslateErrorCode(nReturn));
@@ -265,8 +265,8 @@ PreparedStatement* SqliteDatabaseLayer::PrepareStatement(const wxString& strQuer
       } while (strlen(szTail) > 0);
 #else
       } while (wxStrlen(szTail) > 0);
-#endif    
-      
+#endif
+
       start++;
     }
 

@@ -79,7 +79,7 @@ wxString SubversionLocalProperties::GetConfigFile()
 {
     wxFileName fnConfig(clStandardPaths::Get().GetUserDataDir(), "codelite-properties.ini");
     fnConfig.AppendDir("subversion");
-    
+
     fnConfig.Mkdir(wxS_DIR_DEFAULT, wxPATH_MKDIR_FULL);
     if(!fnConfig.Exists()) {
         // Create an empty file

@@ -20,11 +20,11 @@
  *      </p>
  * @param flags int[optional] <p>
  *       flags can be the following flag:
- *       
- *        
+ *
+ *
  *         PREG_OFFSET_CAPTURE
- *         
- *          
+ *
+ *
  *           If this flag is passed, for every occurring match the appendant string
  *           offset will also be returned. Note that this changes the value of
  *           matches into an array where every element is an
@@ -36,7 +36,7 @@
  *       The optional parameter offset can be used to
  *       specify the alternate place from which to start the search (in bytes).
  *      </p>
- *      
+ *
  *       <p>
  *        Using offset is not equivalent to passing
  *        substr($subject, $offset) to
@@ -44,20 +44,20 @@
  *        because pattern can contain assertions such as
  *        ^, $ or
  *        (?
- *         
+ *
  *         &example.outputs;
- *         
- *         
+ *
+ *
  *         <p>
  *          while this example
  *         </p>
- *         
+ *
  * ]]>
- *         
+ *
  *         <p>
  *          will produce
  *         </p>
- *         
+ *
  * Array
  *        (
  *            [0] => def
@@ -65,8 +65,8 @@
  *        )
  * )
  * ]]>
- *         
- *        
+ *
+ *
  *       </p>
  * @return int preg_match returns 1 if the pattern
  *   matches given subject, 0 if it does not, or false
@@ -88,7 +88,7 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = null, 
  *       The optional parameter offset can be used to
  *       specify the alternate place from which to start the search (in bytes).
  *      </p>
- *      
+ *
  *       <p>
  *        Using offset is not equivalent to passing
  *        substr($subject, $offset) to
@@ -100,33 +100,33 @@ function preg_match ($pattern, $subject, array &$matches = null, $flags = null, 
  *       Can be a combination of the following flags (note that it doesn't make
  *       sense to use PREG_PATTERN_ORDER together with
  *       PREG_SET_ORDER):
- *       
- *        
+ *
+ *
  *         PREG_PATTERN_ORDER
- *         
+ *
  *          <p>
  *           Orders results so that $matches[0] is an array of full
  *           pattern matches, $matches[1] is an array of strings matched by
  *           the first parenthesized subpattern, and so on.
  *          </p>
  *          <p>
- *           
- *            
+ *
+ *
  * ]]>
- *            
+ *
  *            &example.outputs;
- *            
+ *
  * example: , this is a test
  * example: , this is a test
  * ]]>
- *            
+ *
  *            <p>
  *             So, $out[0] contains array of strings that matched full pattern,
  *             and $out[1] contains array of strings enclosed by tags.
  *            </p>
- *           
+ *
  *          </p>
- * @param offset int[optional] 
+ * @param offset int[optional]
  * @return int the number of full pattern matches (which might be zero),
  *   or false if an error occurred.
  */
@@ -169,16 +169,16 @@ function preg_match_all ($pattern, $subject, array &$matches = null, $flags = nu
  *       ("\\\\" PHP string).
  *      </p>
  *      <p>
- *       When working with a replacement pattern where a backreference is 
+ *       When working with a replacement pattern where a backreference is
  *       immediately followed by another number (i.e.: placing a literal number
- *       immediately after a matched pattern), you cannot use the familiar 
- *       \\1 notation for your backreference.  
+ *       immediately after a matched pattern), you cannot use the familiar
+ *       \\1 notation for your backreference.
  *       \\11, for example, would confuse
  *       preg_replace since it does not know whether you
- *       want the \\1 backreference followed by a literal 
+ *       want the \\1 backreference followed by a literal
  *       1, or the \\11 backreference
- *       followed by nothing.  In this case the solution is to use 
- *       \${1}1.  This creates an isolated 
+ *       followed by nothing.  In this case the solution is to use
+ *       \${1}1.  This creates an isolated
  *       $1 backreference, leaving the 1
  *       as a literal.
  *      </p>
@@ -233,10 +233,10 @@ function preg_replace ($pattern, $replacement, $subject, $limit = null, &$count 
  *       return the replacement string. This is the callback signature:
  *      </p>
  *      <p>
- *       
+ *
  *        stringhandler
  *        arraymatches
- *       
+ *
  *      </p>
  *      <p>
  *       You'll often need the callback function
@@ -250,13 +250,13 @@ function preg_replace ($pattern, $replacement, $subject, $limit = null, &$count 
  *       not used anywhere else.
  *      </p>
  *      <p>
- *       
- *        preg_replace_callback and 
+ *
+ *        preg_replace_callback and
  *        anonymous function
- *        
+ *
  * ]]>
- *        
- *       
+ *
+ *
  *      </p>
  * @param subject mixed <p>
  *       The string or an array with strings to search and replace.
@@ -283,16 +283,16 @@ function preg_replace_callback ($pattern, $callback, $subject, $limit = null, &$
 /**
  * Perform a regular expression search and replace
  * @link http://www.php.net/manual/en/function.preg-filter.php
- * @param pattern mixed 
- * @param replacement mixed 
- * @param subject mixed 
- * @param limit int[optional] 
- * @param count int[optional] 
+ * @param pattern mixed
+ * @param replacement mixed
+ * @param subject mixed
+ * @param limit int[optional]
+ * @param count int[optional]
  * @return mixed an array if the subject
  *   parameter is an array, or a string otherwise.
  *  </p>
  *  <p>
- *   If no matches are found or an error occurred, an empty array 
+ *   If no matches are found or an error occurred, an empty array
  *   is returned when subject is an array
  *   or &null; otherwise.
  */
@@ -311,17 +311,17 @@ function preg_filter ($pattern, $replacement, $subject, $limit = null, &$count =
  *       If specified, then only substrings up to limit
  *       are returned with the rest of the string being placed in the last
  *       substring.  A limit of -1, 0 or &null; means "no limit"
- *       and, as is standard across PHP, you can use &null; to skip to the 
+ *       and, as is standard across PHP, you can use &null; to skip to the
  *       flags parameter.
  *      </p>
  * @param flags int[optional] <p>
  *       flags can be any combination of the following
  *       flags (combined with the | bitwise operator):
- *       
- *        
+ *
+ *
  *         PREG_SPLIT_NO_EMPTY
- *         
- *          
+ *
+ *
  *          If this flag is set, only non-empty pieces will be returned by
  *          preg_split.
  * @return array an array containing substrings of subject
@@ -368,7 +368,7 @@ function preg_grep ($pattern, array $input, $flags = null) {}
  * Returns the error code of the last PCRE regex execution
  * @link http://www.php.net/manual/en/function.preg-last-error.php
  * @return int one of the following constants (explained on their own page):
- *   
+ *
  *    PREG_NO_ERROR
  *    PREG_INTERNAL_ERROR
  *    PREG_BACKTRACK_LIMIT_ERROR (see also pcre.backtrack_limit)

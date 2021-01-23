@@ -73,7 +73,7 @@ void* clSocketAsyncThread::ServerMain()
     try {
         clSocketServer server;
         int port = server.Start(m_connectionString);
-        
+
         // Notify that we are ready to accept connections
         clCommandEvent eventReady(wxEVT_ASYNC_SOCKET_SERVER_READY);
         eventReady.SetInt(port);

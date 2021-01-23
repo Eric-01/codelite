@@ -21,7 +21,7 @@ void XDebugStopCmdHandler::Process(const wxXmlNode* response)
     wxString status = response->GetAttribute("status");
     if ( status == "stopping" ) {
         CL_DEBUG("CodeLite: xdebug entered status 'stopping'");
-        
+
         // Notify about control
         XDebugEvent focusEvent(wxEVT_XDEBUG_STOPPED);
         EventNotifier::Get()->AddPendingEvent( focusEvent );
@@ -29,7 +29,7 @@ void XDebugStopCmdHandler::Process(const wxXmlNode* response)
     } else if ( status == "stopped" ) {
         CL_DEBUG("CodeLite: xdebug entered status 'stopped'");
         m_mgr->SendStopCommand();
-        
+
     } else {
         // default
         m_mgr->CloseDebugSession();
